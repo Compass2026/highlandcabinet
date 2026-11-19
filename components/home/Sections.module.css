@@ -1,0 +1,402 @@
+.head {
+  display: grid;
+  gap: var(--s-4);
+  margin-bottom: var(--s-7);
+}
+
+.h2 {
+  font-size: var(--fs-h1);
+  max-width: 16ch;
+}
+
+/* ---------- door bank ---------- */
+.bank {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--reveal);
+  margin: 0;
+  padding: var(--reveal);
+  list-style: none;
+  background: var(--charcoal);
+}
+
+.door {
+  display: flex;
+  background: var(--plaster);
+}
+
+.doorLink {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: clamp(14px, 1.3vw, 20px);
+  color: inherit;
+  text-decoration: none;
+}
+
+/* The recessed centre panel of a Shaker door; it deepens as you reach for it. */
+.doorPanel {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: var(--s-3);
+  width: 100%;
+  min-height: 300px;
+  padding: var(--s-5) var(--s-5) var(--s-5);
+  background: var(--plaster-2);
+  box-shadow: var(--recess);
+  transition:
+    box-shadow var(--t-med) var(--ease-soft),
+    background-color var(--t-med) var(--ease-soft);
+}
+
+.doorLink:hover .doorPanel,
+.doorLink:focus-visible .doorPanel {
+  background: var(--linen);
+  box-shadow: var(--recess-deep);
+}
+
+.doorTag {
+  color: var(--stone);
+}
+
+.doorTitle {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  line-height: 1.12;
+  letter-spacing: -0.012em;
+}
+
+.doorBody {
+  font-size: 0.95rem;
+  color: var(--graphite);
+}
+
+.doorCta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.doorLink:hover .doorCta :global(.btn__arrow) {
+  transform: translateX(3px);
+}
+
+/* Bar pull on the stile */
+.pull {
+  position: absolute;
+  right: clamp(4px, 0.45vw, 7px);
+  top: 50%;
+  width: 3px;
+  height: 64px;
+  margin-top: -32px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #8d8579, #5b554d);
+  box-shadow: 1px 0 1px rgb(0 0 0 / 0.25);
+  transition: transform var(--t-med) var(--ease-soft);
+}
+
+.doorLink:hover .pull {
+  transform: translateX(1px) scaleY(1.06);
+}
+
+/* ---------- featured ---------- */
+.featuredGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.featuredText {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.featuredCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.featuredImages {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: var(--s-4);
+  align-items: end;
+}
+
+.fb {
+  margin-bottom: var(--s-8);
+}
+
+/* ---------- trade ---------- */
+.tradeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: start;
+}
+
+.steps {
+  margin: var(--s-7) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: s;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  gap: var(--s-4);
+  padding-block: var(--s-5);
+  border-top: 1px solid var(--rule);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5);
+}
+
+.stepNo {
+  padding-top: 6px;
+  color: var(--walnut);
+}
+
+.stepT {
+  font-size: var(--fs-h3);
+}
+
+.stepD {
+  margin-top: 6px;
+  color: var(--graphite);
+}
+
+.policy {
+  margin: 8px;
+  padding: var(--s-6);
+  background: #fbf8f3;
+  box-shadow: var(--raise);
+}
+
+.policyTitle {
+  font-size: 1.9rem;
+  margin: var(--s-2) 0 var(--s-5);
+}
+
+.policyList {
+  margin: 0;
+  display: grid;
+  gap: var(--s-4);
+}
+
+.policyList > div {
+  display: grid;
+  gap: 4px;
+  padding-bottom: var(--s-4);
+  border-bottom: 1px dashed var(--sand);
+}
+
+.policyList dt {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.policyList dd {
+  margin: 0;
+  font-size: 0.96rem;
+}
+
+.policyList ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.policyNote {
+  margin-top: var(--s-4);
+  font-size: 0.86rem;
+  color: var(--stone);
+}
+
+/* ---------- catalogs ---------- */
+.catGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.catGrid > div {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.binders {
+  display: grid;
+  gap: var(--s-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.binder {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr) auto;
+  align-items: stretch;
+  min-height: 112px;
+  color: inherit;
+  text-decoration: none;
+  background: #fbf8f3;
+  box-shadow: var(--raise);
+  transition:
+    transform var(--t-med) var(--ease-soft),
+    box-shadow var(--t-med) var(--ease-soft);
+}
+
+.binder:hover {
+  transform: translateX(4px);
+  box-shadow: var(--lift);
+}
+
+.spine {
+  background: linear-gradient(to right, var(--highland-ink), var(--highland));
+}
+
+.binderBody {
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: var(--s-4) var(--s-5);
+}
+
+.binderTitle {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+
+.binderMeta {
+  font-size: 0.85rem;
+  color: var(--stone);
+}
+
+.binderIcon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  border-left: 1px solid var(--rule);
+}
+
+/* ---------- location ---------- */
+.locGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  padding-block: var(--s-7);
+  border-top: 1px solid var(--rule);
+}
+
+.locCard {
+  padding: var(--s-5) var(--s-6);
+  border-left: 3px solid var(--charcoal);
+  background: var(--plaster-2);
+  box-shadow: var(--recess);
+}
+
+.locTitle {
+  font-size: 1.75rem;
+  margin: var(--s-2) 0 var(--s-3);
+}
+
+.addr {
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.locNote {
+  margin-top: var(--s-3);
+  font-size: 0.88rem;
+  color: var(--stone);
+}
+
+.locText {
+  display: grid;
+  gap: var(--s-4);
+  justify-items: start;
+}
+
+.locLead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 1.1rem + 0.9vw, 2rem);
+  line-height: 1.25;
+  max-width: 28em;
+}
+
+/* ---------- closing ---------- */
+.closing {
+  padding-block: var(--s-8);
+  border-top: var(--reveal) solid #000;
+}
+
+.closingGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: var(--s-6);
+  align-items: end;
+}
+
+.closingTitle {
+  font-size: var(--fs-h1);
+}
+
+.closingTitle em {
+  color: var(--oak-light);
+}
+
+.closingCtas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3) var(--s-4);
+  justify-content: flex-end;
+}
+
+.closingLink {
+  color: var(--stone-on-dark);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1100px) {
+  .bank {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .featuredGrid,
+  .tradeGrid,
+  .catGrid,
+  .locGrid,
+  .closingGrid {
+    grid-template-columns: 1fr;
+  }
+  .closingCtas {
+    justify-content: flex-start;
+  }
+  .fb {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .bank {
+    grid-template-columns: 1fr;
+  }
+  .doorPanel {
+    min-height: 0;
+  }
+  .featuredImages {
+    grid-template-columns: 1fr;
+  }
+}

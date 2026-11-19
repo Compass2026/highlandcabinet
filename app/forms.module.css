@@ -1,0 +1,48 @@
+.notes {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.h2 {
+  font-size: var(--fs-h3);
+}
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: n;
+}
+
+.steps li {
+  position: relative;
+  padding: var(--s-3) 0 var(--s-3) 2.5rem;
+  border-top: 1px solid var(--rule);
+  counter-increment: n;
+  color: var(--graphite);
+}
+
+.steps li::before {
+  content: counter(n, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: calc(var(--s-3) + 3px);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--walnut);
+}
+
+.small {
+  font-size: 0.88rem;
+  color: var(--stone);
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--graphite);
+}
+
+.list li + li {
+  margin-top: 6px;
+}

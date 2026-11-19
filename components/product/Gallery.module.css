@@ -1,0 +1,158 @@
+.gallery {
+  min-width: 0;
+}
+
+.stage {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--linen);
+  box-shadow: var(--recess);
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+/* Portrait photographs are matted, not cropped. */
+.contain {
+  object-fit: contain;
+  padding: var(--s-4);
+}
+
+.in {
+  animation: in var(--t-slow) var(--ease-soft) both;
+}
+
+.out {
+  animation: out var(--t-slow) var(--ease-soft) both;
+}
+
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: scale(1.012);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes out {
+  to {
+    opacity: 0;
+  }
+}
+
+.controls {
+  position: absolute;
+  right: var(--s-3);
+  bottom: var(--s-3);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: rgb(244 239 231 / 0.94);
+  box-shadow: var(--raise);
+  z-index: 2;
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: box-shadow var(--t-fast) var(--ease-soft), background-color var(--t-fast) var(--ease-soft);
+}
+
+.arrow:hover {
+  background: var(--plaster-2);
+  box-shadow: var(--recess);
+}
+
+.arrow:active {
+  box-shadow: var(--recess-deep);
+}
+
+.arrow :global(.btn__arrow) {
+  width: 18px;
+}
+
+.counter {
+  min-width: 4.5rem;
+  text-align: center;
+  color: var(--graphite);
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px var(--s-3);
+  align-items: baseline;
+  min-height: 3em;
+  padding-top: var(--s-3);
+  font-size: 0.86rem;
+  color: var(--stone);
+}
+
+.caption :global(.label) {
+  color: var(--graphite);
+}
+
+.thumbs {
+  display: flex;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+  padding: 4px 2px 8px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.thumb {
+  flex: none;
+  width: 96px;
+  height: 68px;
+  padding: 0;
+  border: 0;
+  background: var(--linen);
+  cursor: pointer;
+  opacity: 0.72;
+  transition:
+    opacity var(--t-fast) var(--ease-soft),
+    transform var(--t-med) var(--ease-soft),
+    box-shadow var(--t-med) var(--ease-soft);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb:hover {
+  opacity: 1;
+}
+
+.thumb[aria-current="true"] {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 2px var(--plaster),
+    0 0 0 3px var(--charcoal);
+}
+
+@media (max-width: 640px) {
+  .stage {
+    aspect-ratio: 4 / 3;
+  }
+  .thumb {
+    width: 72px;
+    height: 54px;
+  }
+}

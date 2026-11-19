@@ -1,0 +1,462 @@
+[
+  {
+    "id": "project-white-shaker-01",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/03/IMG_4838-scaled.jpg",
+    "sourceFile": "6dd4e022ea7beb935577232fffed79942d8d51c085f672c2c76a6b9abe464514.jpg",
+    "sourceSha256": "6dd4e022ea7beb935577232fffed79942d8d51c085f672c2c76a6b9abe464514",
+    "kind": "installed-project",
+    "op": "scene",
+    "alt": "Bright kitchen with white Shaker perimeter cabinets, a dark island, and wide oak flooring under a ring chandelier",
+    "provenance": "Installed-project photograph from the White Shaker gallery on the previous Highland website"
+  },
+  {
+    "id": "project-white-shaker-02",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/IMG_4836-scaled.jpg",
+    "sourceFile": "85119b6b9068aec232305f3f2fa7159f616ccf3634bf0fae912e84dcc7fda238.jpg",
+    "sourceSha256": "85119b6b9068aec232305f3f2fa7159f616ccf3634bf0fae912e84dcc7fda238",
+    "kind": "installed-project",
+    "op": "scene",
+    "alt": "White Shaker wall and tall cabinets surrounding a built-in refrigerator, seen across a quartz island with a black faucet",
+    "provenance": "Installed-project photograph from the White Shaker gallery on the previous Highland website"
+  },
+  {
+    "id": "project-white-shaker-03",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/IMG_4916-1-scaled.jpg",
+    "sourceFile": "9c140af2e51b380dd9df1270bbaa2f06facc18967d7cbba3cf2a860990695adb.jpg",
+    "sourceSha256": "9c140af2e51b380dd9df1270bbaa2f06facc18967d7cbba3cf2a860990695adb",
+    "kind": "installed-project",
+    "op": "scene",
+    "alt": "Run of white Shaker drawers and doors with black bar pulls beside a professional range",
+    "provenance": "Installed-project photograph from the White Shaker gallery on the previous Highland website"
+  },
+  {
+    "id": "project-white-shaker-04",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/IMG_0082_jpg-scaled.jpg",
+    "sourceFile": "0c22fd4a30c014a6daf67340ff4f80d535c46010eb3a05bd8c218074025d2cb7.jpg",
+    "sourceSha256": "0c22fd4a30c014a6daf67340ff4f80d535c46010eb3a05bd8c218074025d2cb7",
+    "kind": "installed-project",
+    "op": "scene",
+    "alt": "Long white Shaker kitchen with glass-front uppers, a hood surround, and an island seating six",
+    "provenance": "Installed-project photograph from the White Shaker gallery on the previous Highland website"
+  },
+  {
+    "id": "project-white-shaker-05",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/IMG_0087-scaled.jpg",
+    "sourceFile": "447f6409f7d176e967c99ad4d997fa3541677892a26987ee602c8a0be43e6d09.jpg",
+    "sourceSha256": "447f6409f7d176e967c99ad4d997fa3541677892a26987ee602c8a0be43e6d09",
+    "kind": "installed-project",
+    "op": "scene",
+    "alt": "White Shaker wall cabinets with lit glass uppers framing a range hood above a drawer bank",
+    "provenance": "Installed-project photograph from the White Shaker gallery on the previous Highland website"
+  },
+  {
+    "id": "project-white-shaker-06",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/IMG_0092_jpg-scaled.jpg",
+    "sourceFile": "f9710b8ef805af78912fad03070715f97394b257f346cdaaf824d4ad0515ca7c.jpg",
+    "sourceSha256": "f9710b8ef805af78912fad03070715f97394b257f346cdaaf824d4ad0515ca7c",
+    "kind": "installed-project",
+    "op": "scene",
+    "alt": "White Shaker island and perimeter cabinets with perforated brass pendant lights",
+    "provenance": "Installed-project photograph from the White Shaker gallery on the previous Highland website"
+  },
+  {
+    "id": "project-white-shaker-07",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/IMG_0096-scaled.jpg",
+    "sourceFile": "2df78ead22b54194a6d0baa91f8054778aae18d01fe1d61a358ea7f5e065e3d3.jpg",
+    "sourceSha256": "2df78ead22b54194a6d0baa91f8054778aae18d01fe1d61a358ea7f5e065e3d3",
+    "kind": "installed-project",
+    "op": "scene",
+    "alt": "Tall white Shaker cabinetry beside stacked wall ovens and a long counter run",
+    "provenance": "Installed-project photograph from the White Shaker gallery on the previous Highland website"
+  },
+  {
+    "id": "scene-shaker-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2026/03/compressed_Shaker-White.webp",
+    "sourceFile": "9f9999f49e9a38f6225b369e8446e0de1135e0e9604a4cc51503cd7d2cfb7348.webp",
+    "sourceSha256": "9f9999f49e9a38f6225b369e8446e0de1135e0e9604a4cc51503cd7d2cfb7348",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a white Shaker kitchen with an island, geometric pendants, and a stainless hood",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-shaker-onyx-black",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/Shaker-Onyx-Black-scaled.jpg",
+    "sourceFile": "6b9b757ca58804020a78cbb46de6de54116364a96bc51b23f2b3de6dca58e101.jpg",
+    "sourceSha256": "6b9b757ca58804020a78cbb46de6de54116364a96bc51b23f2b3de6dca58e101",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of an Onyx Black Shaker kitchen with brass pulls and a waterfall marble island",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-shaker-signature-blue",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2026/02/compressed_Shaker-Signature-Blue.webp",
+    "sourceFile": "e3d6f46551d1f10babf59b5a1a4fd502e38ceea3a17955e9429245c00502fb97.webp",
+    "sourceSha256": "e3d6f46551d1f10babf59b5a1a4fd502e38ceea3a17955e9429245c00502fb97",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a Signature Blue Shaker kitchen with brass pendants and a long island",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-shaker-luxe",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/Shaker-Luxe-1-scaled.jpg",
+    "sourceFile": "22bdb91e3b0b51d8f9ce53fcf755acaf1eee2dabfbd9c5a20aac297543b2d644.jpg",
+    "sourceSha256": "22bdb91e3b0b51d8f9ce53fcf755acaf1eee2dabfbd9c5a20aac297543b2d644",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a Shaker Luxe kitchen in a light stained wood with a matching island",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-nano-green",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/Nano-Green-scaled.jpg",
+    "sourceFile": "727cfbb29f10c55732211271523249f83d3c536b8485015821a574f4cc46d3d0.jpg",
+    "sourceSha256": "727cfbb29f10c55732211271523249f83d3c536b8485015821a574f4cc46d3d0",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a Nano Green kitchen with flat-panel doors and brass hardware",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-nano-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/Nano-White-scaled.jpg",
+    "sourceFile": "a99a8eff69b580633949a7afa6c0b84831e1f7a43507e7bdbdb35e9b817d1ef7.jpg",
+    "sourceSha256": "a99a8eff69b580633949a7afa6c0b84831e1f7a43507e7bdbdb35e9b817d1ef7",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a Nano White kitchen with flat-panel doors",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-euro-white-oak",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/Euro-White-Oak-1-scaled.jpg",
+    "sourceFile": "a023f3b7db2543de7f85f05bac5d737c2c5a17fad1bb84e08029359d7b17a915.jpg",
+    "sourceSha256": "a023f3b7db2543de7f85f05bac5d737c2c5a17fad1bb84e08029359d7b17a915",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a frameless White Oak Euro kitchen with a waterfall island",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-euro-natural-walnut",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/Euro-Natural-Walnut-1-scaled.jpg",
+    "sourceFile": "3d8ed03a6742a06a595c3907b497b68ac8dda01158ec98237b84809539ef9e4e.jpg",
+    "sourceSha256": "3d8ed03a6742a06a595c3907b497b68ac8dda01158ec98237b84809539ef9e4e",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a frameless Natural Walnut Euro kitchen with a white island",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-euro-stone-grey",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/Euro-Stone-Grey-1-scaled.jpg",
+    "sourceFile": "d481d382c610dc0e7bf5c36503da9614e790dcfcef69e6190714c222c7c3c19f.jpg",
+    "sourceSha256": "d481d382c610dc0e7bf5c36503da9614e790dcfcef69e6190714c222c7c3c19f",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a frameless Stone Grey Euro kitchen",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-euro-glacial-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/Euro-Glacial-White-scaled.jpg",
+    "sourceFile": "c61e44dcb964829ce7362b716ea5e4987b499505f6f44d846abb5d9c6b89ca76.jpg",
+    "sourceSha256": "c61e44dcb964829ce7362b716ea5e4987b499505f6f44d846abb5d9c6b89ca76",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a frameless Glacial White gloss Euro kitchen",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-euro-frost-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/Euro-Frost-White-scaled.jpg",
+    "sourceFile": "b6c116f65f84215f5fc46bdb3f8c729e5b927e6dfd27f929eb2af19cb0e3dda2.jpg",
+    "sourceSha256": "b6c116f65f84215f5fc46bdb3f8c729e5b927e6dfd27f929eb2af19cb0e3dda2",
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a frameless Frost White matte Euro kitchen",
+    "provenance": "Highland catalog rendering"
+  },
+  {
+    "id": "scene-shaker-grey",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/10/341793_HCI-Shaker-Nano-Catalog-Ocotber_2025_Web_10.24.25.pdf#page=4",
+    "sourceFile": "catalog-shaker-nano-p04.jpg",
+    "sourceSha256": null,
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a Shaker Grey kitchen with a grey island and light wood floor",
+    "provenance": "Highland catalog rendering, extracted from the Shaker/Nano catalog PDF (page 4)"
+  },
+  {
+    "id": "scene-shaker-modern-slate",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/10/341793_HCI-Shaker-Nano-Catalog-Ocotber_2025_Web_10.24.25.pdf#page=6",
+    "sourceFile": "catalog-shaker-nano-p06.jpg",
+    "sourceSha256": null,
+    "kind": "catalog-rendering",
+    "op": "scene",
+    "alt": "Rendering of a Shaker Modern Slate kitchen with a wood-topped island",
+    "provenance": "Highland catalog rendering, extracted from the Shaker/Nano catalog PDF (page 6)"
+  },
+  {
+    "id": "render-shaker-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/3552_B21_StandardWhite.png",
+    "sourceFile": "413409593fd3b0f7c27950540bb7f19134fd4d6cfddc32ffc9ed454d274f8f34.png",
+    "sourceSha256": "413409593fd3b0f7c27950540bb7f19134fd4d6cfddc32ffc9ed454d274f8f34",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Shaker White B21 base cabinet: one drawer over one door",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-shaker-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/3552_B21_StandardWhite.png",
+    "sourceFile": "413409593fd3b0f7c27950540bb7f19134fd4d6cfddc32ffc9ed454d274f8f34.png",
+    "sourceSha256": "413409593fd3b0f7c27950540bb7f19134fd4d6cfddc32ffc9ed454d274f8f34",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-shaker-grey",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/2751_B21_GrayShaker.png",
+    "sourceFile": "0cb3dc9102889c696170d2278a8b3576426af11df16ddf7eccef325956106cfd.png",
+    "sourceSha256": "0cb3dc9102889c696170d2278a8b3576426af11df16ddf7eccef325956106cfd",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Shaker Grey B21 base cabinet: one drawer over one door",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-shaker-grey",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/2751_B21_GrayShaker.png",
+    "sourceFile": "0cb3dc9102889c696170d2278a8b3576426af11df16ddf7eccef325956106cfd.png",
+    "sourceSha256": "0cb3dc9102889c696170d2278a8b3576426af11df16ddf7eccef325956106cfd",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-shaker-modern-slate",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/2952_B21_ModernSlate_Shaker.png",
+    "sourceFile": "d7489f5cdbee01549740b3df3f88ea984c68e2955b1e41177cadcce1d5a51b0a.png",
+    "sourceSha256": "d7489f5cdbee01549740b3df3f88ea984c68e2955b1e41177cadcce1d5a51b0a",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Shaker Modern Slate B21 base cabinet with visible stained grain",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-shaker-modern-slate",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/2952_B21_ModernSlate_Shaker.png",
+    "sourceFile": "d7489f5cdbee01549740b3df3f88ea984c68e2955b1e41177cadcce1d5a51b0a.png",
+    "sourceSha256": "d7489f5cdbee01549740b3df3f88ea984c68e2955b1e41177cadcce1d5a51b0a",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-shaker-onyx-black",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/3152_B21_OnyxBlackShaker.png",
+    "sourceFile": "d298fd21a713ee09ed94841ed01d7176d2180048cfd5fb44782707083dc7844b.png",
+    "sourceSha256": "d298fd21a713ee09ed94841ed01d7176d2180048cfd5fb44782707083dc7844b",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Shaker Onyx Black B21 base cabinet",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-shaker-onyx-black",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/3152_B21_OnyxBlackShaker.png",
+    "sourceFile": "d298fd21a713ee09ed94841ed01d7176d2180048cfd5fb44782707083dc7844b.png",
+    "sourceSha256": "d298fd21a713ee09ed94841ed01d7176d2180048cfd5fb44782707083dc7844b",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-shaker-signature-blue",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/3352_B21_SignatureBlueShaker.png",
+    "sourceFile": "9bcadb9899afba4059c56a18837a09bdc2399175a2959862fc80208e15fa92b4.png",
+    "sourceSha256": "9bcadb9899afba4059c56a18837a09bdc2399175a2959862fc80208e15fa92b4",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Shaker Signature Blue B21 base cabinet",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-shaker-signature-blue",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/3352_B21_SignatureBlueShaker.png",
+    "sourceFile": "9bcadb9899afba4059c56a18837a09bdc2399175a2959862fc80208e15fa92b4.png",
+    "sourceSha256": "9bcadb9899afba4059c56a18837a09bdc2399175a2959862fc80208e15fa92b4",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-shaker-luxe",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png",
+    "sourceFile": "06e64ada841579d9aa83dec573b5695fbeaede022184501f1f0c8c34dab4a045.png",
+    "sourceSha256": "06e64ada841579d9aa83dec573b5695fbeaede022184501f1f0c8c34dab4a045",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Shaker Luxe B21 base cabinet in a light stained wood",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-shaker-luxe",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png",
+    "sourceFile": "06e64ada841579d9aa83dec573b5695fbeaede022184501f1f0c8c34dab4a045.png",
+    "sourceSha256": "06e64ada841579d9aa83dec573b5695fbeaede022184501f1f0c8c34dab4a045",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-nano-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/160760_B21_WhiteNano.png",
+    "sourceFile": "cf6cf74f8b2719ea680ef2aeb7fb022e3fcf91d15eaf072d000c0403a2e1ee9c.png",
+    "sourceSha256": "cf6cf74f8b2719ea680ef2aeb7fb022e3fcf91d15eaf072d000c0403a2e1ee9c",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Nano White B21 base cabinet with flat-panel drawer and door",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-nano-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/160760_B21_WhiteNano.png",
+    "sourceFile": "cf6cf74f8b2719ea680ef2aeb7fb022e3fcf91d15eaf072d000c0403a2e1ee9c.png",
+    "sourceSha256": "cf6cf74f8b2719ea680ef2aeb7fb022e3fcf91d15eaf072d000c0403a2e1ee9c",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-nano-green",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/160761_B21_GreenNano.png",
+    "sourceFile": "c8ed0e78e9f167187d1e6f99b366605cd24d34a83e75a0a2c5f16af62be94b4b.png",
+    "sourceSha256": "c8ed0e78e9f167187d1e6f99b366605cd24d34a83e75a0a2c5f16af62be94b4b",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Nano Green B21 base cabinet with flat-panel drawer and door",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-nano-green",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/160761_B21_GreenNano.png",
+    "sourceFile": "c8ed0e78e9f167187d1e6f99b366605cd24d34a83e75a0a2c5f16af62be94b4b.png",
+    "sourceSha256": "c8ed0e78e9f167187d1e6f99b366605cd24d34a83e75a0a2c5f16af62be94b4b",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-euro-white-oak",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/163607_B21_White-Oak.png",
+    "sourceFile": "37cda99657f6d4b6b45cb79ca600df26b40f9469b706292235d16d792254dece.png",
+    "sourceSha256": "37cda99657f6d4b6b45cb79ca600df26b40f9469b706292235d16d792254dece",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "White Oak Euro B21 frameless base cabinet",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-euro-white-oak",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/163607_B21_White-Oak.png",
+    "sourceFile": "37cda99657f6d4b6b45cb79ca600df26b40f9469b706292235d16d792254dece.png",
+    "sourceSha256": "37cda99657f6d4b6b45cb79ca600df26b40f9469b706292235d16d792254dece",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-euro-natural-walnut",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/163608_B21_Natural-Walnut.png",
+    "sourceFile": "919b2c1b3c01d8a024776c05f37d5707f5357575a32a3b071022cf7862a426ee.png",
+    "sourceSha256": "919b2c1b3c01d8a024776c05f37d5707f5357575a32a3b071022cf7862a426ee",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Natural Walnut Euro B21 frameless base cabinet",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-euro-natural-walnut",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/163608_B21_Natural-Walnut.png",
+    "sourceFile": "919b2c1b3c01d8a024776c05f37d5707f5357575a32a3b071022cf7862a426ee.png",
+    "sourceSha256": "919b2c1b3c01d8a024776c05f37d5707f5357575a32a3b071022cf7862a426ee",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-euro-stone-grey",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/Stone-Gray.png",
+    "sourceFile": "7baf7c8c96452347fb9cbf07b838e8a8d94e7ee88eef6e70fedbe5058a5bf899.png",
+    "sourceSha256": "7baf7c8c96452347fb9cbf07b838e8a8d94e7ee88eef6e70fedbe5058a5bf899",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Stone Grey Euro frameless base cabinet",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-euro-stone-grey",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/Stone-Gray.png",
+    "sourceFile": "7baf7c8c96452347fb9cbf07b838e8a8d94e7ee88eef6e70fedbe5058a5bf899.png",
+    "sourceSha256": "7baf7c8c96452347fb9cbf07b838e8a8d94e7ee88eef6e70fedbe5058a5bf899",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-euro-glacial-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/163604_B21D_Glacial-White.png",
+    "sourceFile": "ba640476874ca5dfbbdb8642726c1321153de26f6ed6559ab657ea47cdbcc4f4.png",
+    "sourceSha256": "ba640476874ca5dfbbdb8642726c1321153de26f6ed6559ab657ea47cdbcc4f4",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Glacial White Euro frameless base cabinet",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-euro-glacial-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/163604_B21D_Glacial-White.png",
+    "sourceFile": "ba640476874ca5dfbbdb8642726c1321153de26f6ed6559ab657ea47cdbcc4f4.png",
+    "sourceSha256": "ba640476874ca5dfbbdb8642726c1321153de26f6ed6559ab657ea47cdbcc4f4",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "render-euro-frost-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/163605_B21D_Frost-White.png",
+    "sourceFile": "7ef1709b4820178c47c452a7de33c14181256381a415840f382d86f7ec5c4199.png",
+    "sourceSha256": "7ef1709b4820178c47c452a7de33c14181256381a415840f382d86f7ec5c4199",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Frost White Euro frameless base cabinet",
+    "provenance": "Highland product rendering (B21 base cabinet)"
+  },
+  {
+    "id": "chip-euro-frost-white",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/163605_B21D_Frost-White.png",
+    "sourceFile": "7ef1709b4820178c47c452a7de33c14181256381a415840f382d86f7ec5c4199.png",
+    "sourceSha256": "7ef1709b4820178c47c452a7de33c14181256381a415840f382d86f7ec5c4199",
+    "kind": "finish-detail",
+    "op": "chip",
+    "alt": "",
+    "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  }
+]

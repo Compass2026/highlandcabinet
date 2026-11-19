@@ -1,0 +1,372 @@
+.form {
+  display: grid;
+  gap: var(--s-6);
+}
+
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.legend {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  width: 100%;
+  padding: 0 0 var(--s-3);
+  margin-bottom: var(--s-4);
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.6);
+}
+
+.legend :global(.label) {
+  color: var(--stone);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-4) var(--s-4);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.lbl {
+  padding: 0;
+  font-size: 0.92rem;
+  font-weight: 560;
+}
+
+.req {
+  color: var(--walnut);
+  margin-left: 2px;
+}
+
+.opt {
+  font-weight: 400;
+  color: var(--stone);
+  font-size: 0.85rem;
+}
+
+.hint {
+  margin: -2px 0 2px;
+  font-size: 0.84rem;
+  color: var(--stone);
+}
+
+/* Inputs are recessed panels: an inset well that deepens on focus. */
+.field input:not([type="radio"]),
+.field select,
+.field textarea,
+.collection select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--sand);
+  border-radius: 2px;
+  background: #fbf8f3;
+  box-shadow: var(--recess);
+  font-size: 1rem;
+  line-height: 1.4;
+  transition:
+    border-color var(--t-fast) var(--ease-soft),
+    box-shadow var(--t-fast) var(--ease-soft);
+}
+
+.field textarea {
+  min-height: 112px;
+  resize: vertical;
+}
+
+.field input:not([type="radio"]):focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible,
+.collection select:focus-visible {
+  outline: 2px solid var(--highland);
+  outline-offset: 1px;
+  border-color: var(--graphite);
+  box-shadow: var(--recess-deep);
+}
+
+.field[data-invalid] input,
+.field[data-invalid] select,
+.field[data-invalid] textarea {
+  border-color: var(--error);
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.selectWrap select {
+  appearance: none;
+  padding-right: 2.4rem;
+}
+
+.selectWrap::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -5px;
+  border-right: 1.5px solid var(--graphite);
+  border-bottom: 1.5px solid var(--graphite);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.radio {
+  position: relative;
+  display: inline-flex;
+}
+
+.radio input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.radio span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  border: 1px solid var(--sand);
+  border-radius: 2px;
+  background: #fbf8f3;
+  font-size: 0.95rem;
+  transition:
+    box-shadow var(--t-fast) var(--ease-soft),
+    background-color var(--t-fast) var(--ease-soft);
+}
+
+.radio input:checked + span {
+  border-color: var(--charcoal);
+  background: var(--charcoal);
+  color: var(--plaster);
+  box-shadow: inset 0 2px 5px rgb(0 0 0 / 0.4);
+}
+
+.radio input:focus-visible + span {
+  outline: 2px solid var(--highland);
+  outline-offset: 2px;
+}
+
+.error {
+  display: flex;
+  gap: 6px;
+  font-size: 0.86rem;
+  font-weight: 520;
+  color: var(--error);
+}
+
+.error::before {
+  content: "";
+  flex: none;
+  width: 3px;
+  margin-block: 3px;
+  background: currentColor;
+}
+
+.summary {
+  padding: var(--s-4) var(--s-5);
+  border-left: 3px solid var(--error);
+  background: #f8ece8;
+}
+
+.summary:focus-visible {
+  outline-offset: 2px;
+}
+
+.summaryTitle {
+  font-weight: 600;
+  color: var(--error);
+}
+
+.summary ul {
+  margin: var(--s-2) 0 0;
+  padding-left: 1.1rem;
+}
+
+.summary a {
+  color: var(--charcoal);
+}
+
+.collection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--s-4);
+  align-items: end;
+}
+
+.noFinish {
+  font-size: 0.92rem;
+  color: var(--stone);
+  align-self: center;
+}
+
+.submitRow {
+  display: grid;
+  gap: var(--s-3);
+  padding-top: var(--s-2);
+}
+
+.submit {
+  justify-self: start;
+  min-width: 15rem;
+}
+
+.submit[disabled] {
+  cursor: progress;
+  opacity: 0.88;
+}
+
+/* Loading: a slim rail that glides like a drawer on its runner */
+.progress {
+  position: relative;
+  width: 22px;
+  height: 2px;
+  overflow: hidden;
+  background: rgb(244 239 231 / 0.3);
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  background: var(--plaster);
+  animation: glide 900ms var(--ease-hinge) infinite alternate;
+}
+
+@keyframes glide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(200%);
+  }
+}
+
+.fine {
+  font-size: 0.84rem;
+  color: var(--stone);
+}
+
+/* ---------- results ---------- */
+.result {
+  display: grid;
+  gap: var(--s-4);
+  padding: var(--s-6) var(--s-5);
+  background: #fbf8f3;
+  border-top: 3px solid var(--charcoal);
+  box-shadow: var(--raise);
+}
+
+.result:focus {
+  outline: none;
+}
+
+.result:focus-visible {
+  outline: 2px solid var(--highland);
+}
+
+.result a:not(:global(.btn)) {
+  color: inherit;
+}
+
+.ok {
+  border-top-color: var(--ok);
+}
+
+.notice {
+  border-top-color: var(--warn);
+}
+
+.err {
+  border-top-color: var(--error);
+}
+
+.resultTag {
+  color: var(--stone);
+}
+
+.ok .resultTag {
+  color: var(--ok);
+}
+
+.notice .resultTag {
+  color: var(--warn);
+}
+
+.err .resultTag {
+  color: var(--error);
+}
+
+.resultTitle {
+  font-size: 1.65rem;
+  line-height: 1.15;
+}
+
+.resultActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.textBtn {
+  justify-self: start;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  color: var(--graphite);
+}
+
+@media (max-width: 560px) {
+  .grid,
+  .collection {
+    grid-template-columns: 1fr;
+  }
+  .submit {
+    width: 100%;
+    min-width: 0;
+  }
+}

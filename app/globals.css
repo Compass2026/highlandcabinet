@@ -1,0 +1,469 @@
+/* ==========================================================================
+   Highland Cabinetry — design system
+   "Reveal & Panel": spacing from the gap between cabinet fronts, depth from the
+   recessed Shaker panel, colour from the finishes themselves.
+   ========================================================================== */
+
+:root {
+  /* Ground — plaster walls and the linen of a sample tray */
+  --plaster: #f4efe7;
+  --plaster-2: #ede6da;
+  --linen: #e5dccd;
+  --sand: #d3c7b4;
+  --rule: #c9bca7;
+
+  /* Ink — warm charcoal, never pure black */
+  --charcoal: #1d1b18;
+  --charcoal-2: #2a2723;
+  --graphite: #403b35;
+  --stone: #675f55; /* 5.4:1 on plaster */
+  --stone-on-dark: #b9ae9f; /* 7.6:1 on charcoal */
+
+  /* Wood — taken from the Luxe and Walnut finishes */
+  --oak: #b58f62; /* decorative only */
+  --oak-light: #d9bf98;
+  --walnut: #6a4a30; /* text-safe on plaster (7.4:1) */
+
+  /* Brand — Highland blue, from the logo */
+  --highland: #2a3e92;
+  --highland-ink: #22337a;
+
+  --ok: #2f6b45;
+  --warn: #8a5a12;
+  --error: #a3261b;
+
+  /* Type */
+  --font-serif: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --fs-display: clamp(2.6rem, 1.35rem + 4.4vw, 5.75rem);
+  --fs-h1: clamp(2.3rem, 1.45rem + 3vw, 4.25rem);
+  --fs-h2: clamp(1.85rem, 1.35rem + 1.9vw, 3.1rem);
+  --fs-h3: clamp(1.25rem, 1.12rem + 0.5vw, 1.55rem);
+  --fs-lead: clamp(1.125rem, 1.04rem + 0.35vw, 1.35rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9rem;
+  --fs-label: 0.72rem;
+
+  /* Space — a 4px module; the reveal is the smallest meaningful gap */
+  --reveal: 3px;
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4.5rem;
+  --s-9: clamp(4.5rem, 3rem + 6vw, 9rem);
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 3.5rem);
+  --max: 1440px;
+
+  /* Depth — the recessed panel */
+  --recess: inset 0 1px 2px rgb(29 27 24 / 0.14), inset 0 0 0 1px rgb(29 27 24 / 0.07);
+  --recess-deep: inset 0 2px 6px rgb(29 27 24 / 0.2), inset 0 0 0 1px rgb(29 27 24 / 0.1);
+  --raise: 0 1px 0 rgb(255 255 255 / 0.65) inset, 0 1px 2px rgb(29 27 24 / 0.12), 0 8px 24px -12px rgb(29 27 24 / 0.28);
+  --lift: 0 24px 48px -24px rgb(29 27 24 / 0.45), 0 2px 6px rgb(29 27 24 / 0.12);
+
+  /* Motion — soft-close: quick to start, long gentle settle, no bounce */
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-hinge: cubic-bezier(0.3, 0.7, 0.1, 1);
+  --t-fast: 160ms;
+  --t-med: 320ms;
+  --t-slow: 560ms;
+
+  --header-h: 72px;
+  color-scheme: light;
+}
+
+@media (max-width: 860px) {
+  :root {
+    --header-h: 60px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+body {
+  margin: 0;
+  background: var(--plaster);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga", "calt";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+  font-optical-sizing: auto;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--oak-light);
+  color: var(--charcoal);
+}
+
+:focus-visible {
+  outline: 2px solid var(--highland);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--oak-light);
+}
+
+/* --------------------------------------------------------------------------
+   Layout primitives
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--s-9);
+}
+
+.section--tight {
+  padding-block: calc(var(--s-9) * 0.6);
+}
+
+.on-dark {
+  background: var(--charcoal);
+  color: var(--plaster);
+}
+
+.on-linen {
+  background: var(--plaster-2);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--s-4);
+  top: -100px;
+  z-index: 100;
+  padding: var(--s-3) var(--s-4);
+  background: var(--charcoal);
+  color: var(--plaster);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--s-3);
+}
+
+/* --------------------------------------------------------------------------
+   Type helpers
+   -------------------------------------------------------------------------- */
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  color: var(--stone);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 0;
+  border-top: 1px solid currentColor;
+}
+
+.on-dark .eyebrow {
+  color: var(--stone-on-dark);
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--graphite);
+  max-width: 38em;
+}
+
+.on-dark .lead {
+  color: var(--stone-on-dark);
+}
+
+.muted {
+  color: var(--stone);
+}
+
+.prose p + p {
+  margin-top: 1em;
+}
+
+.prose {
+  max-width: 36em;
+  color: var(--graphite);
+}
+
+/* --------------------------------------------------------------------------
+   The reveal — the shadow gap between two cabinet fronts
+   -------------------------------------------------------------------------- */
+.reveal {
+  height: var(--reveal);
+  border: 0;
+  margin: 0;
+  background: linear-gradient(to bottom, rgb(29 27 24 / 0.55), rgb(29 27 24 / 0.22));
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.7);
+}
+
+.reveal-line {
+  height: 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.6);
+  margin: 0;
+}
+
+.on-dark .reveal-line {
+  border-top-color: rgb(255 255 255 / 0.14);
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons — a precise press, like a push-latch door
+   -------------------------------------------------------------------------- */
+.btn {
+  --btn-bg: var(--charcoal);
+  --btn-fg: var(--plaster);
+  --btn-edge: var(--charcoal);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  min-height: 48px;
+  padding: 0.7rem 1.35rem;
+  border: 1px solid var(--btn-edge);
+  border-radius: 2px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 560;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.08) inset, 0 1px 2px rgb(29 27 24 / 0.2);
+  transition:
+    box-shadow var(--t-fast) var(--ease-hinge),
+    transform var(--t-fast) var(--ease-hinge),
+    background-color var(--t-med) var(--ease-soft),
+    color var(--t-med) var(--ease-soft);
+}
+
+.btn:hover {
+  box-shadow: inset 0 2px 5px rgb(0 0 0 / 0.35), 0 0 0 rgb(29 27 24 / 0);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 3px 7px rgb(0 0 0 / 0.42);
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--charcoal);
+  --btn-edge: var(--charcoal);
+  box-shadow: none;
+}
+
+.btn--ghost:hover {
+  --btn-bg: rgb(29 27 24 / 0.04);
+  box-shadow: var(--recess);
+}
+
+.on-dark .btn {
+  --btn-bg: var(--plaster);
+  --btn-fg: var(--charcoal);
+  --btn-edge: var(--plaster);
+}
+
+.on-dark .btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--plaster);
+  --btn-edge: rgb(244 239 231 / 0.55);
+}
+
+.on-dark .btn--ghost:hover {
+  --btn-bg: rgb(255 255 255 / 0.06);
+  box-shadow: inset 0 2px 6px rgb(0 0 0 / 0.5);
+}
+
+.btn__arrow {
+  width: 18px;
+  height: 10px;
+  flex: none;
+  transition: transform var(--t-med) var(--ease-soft);
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(3px);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-weight: 560;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.link-arrow .btn__arrow {
+  width: 16px;
+}
+
+.link-arrow:hover .btn__arrow {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   Registration marks — corners of a specification sheet
+   -------------------------------------------------------------------------- */
+.marks {
+  position: relative;
+}
+
+.marks::before,
+.marks::after,
+.marks > .marks__b::before,
+.marks > .marks__b::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--stone);
+  border-style: solid;
+  border-width: 0;
+  pointer-events: none;
+}
+
+.marks::before {
+  top: -8px;
+  left: -8px;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.marks::after {
+  top: -8px;
+  right: -8px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.marks > .marks__b {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.marks > .marks__b::before {
+  bottom: -8px;
+  left: -8px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+.marks > .marks__b::after {
+  bottom: -8px;
+  right: -8px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion: keep state changes, drop travel
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

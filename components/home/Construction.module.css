@@ -1,0 +1,193 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+
+/* A specification sheet: paper, registration marks, a title strip. */
+.sheet {
+  margin: 8px;
+  padding: var(--s-5) var(--s-6) var(--s-5);
+  background: #fbf8f3;
+  box-shadow: var(--raise);
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-6));
+}
+
+.sheetHead {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-bottom: var(--s-3);
+  margin-bottom: var(--s-5);
+  border-bottom: 1px solid var(--rule);
+  color: var(--stone);
+}
+
+.drawing {
+  position: relative;
+  max-width: 360px;
+  margin-inline: auto;
+}
+
+.drawing img {
+  width: 100%;
+  height: auto;
+}
+
+.ring {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 2px solid var(--highland);
+  border-radius: 50%;
+  background: rgb(42 62 146 / 0.08);
+  animation: ring var(--t-med) var(--ease-soft) both;
+  pointer-events: none;
+}
+
+@keyframes ring {
+  from {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cap {
+  margin-top: var(--s-5);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--rule);
+  font-size: 0.82rem;
+  color: var(--stone);
+}
+
+.cap :global(.label) {
+  color: var(--graphite);
+  margin-right: 6px;
+}
+
+.text {
+  display: grid;
+  gap: var(--s-5);
+  align-content: start;
+}
+
+.title {
+  font-size: var(--fs-h1);
+  max-width: 12ch;
+}
+
+.list {
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.list li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: var(--s-3);
+  align-items: baseline;
+  width: 100%;
+  min-height: 48px;
+  padding: var(--s-3) var(--s-2);
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--t-fast) var(--ease-soft),
+    box-shadow var(--t-fast) var(--ease-soft);
+}
+
+.item:hover,
+.item[aria-pressed="true"] {
+  background: var(--plaster-2);
+  box-shadow: var(--recess);
+}
+
+.num {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--charcoal);
+  color: var(--plaster);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  transform: translateY(0.2rem);
+  transition: background-color var(--t-fast) var(--ease-soft);
+}
+
+.item:hover .num,
+.item:focus-visible .num,
+.item[aria-pressed="true"] .num {
+  background: var(--highland);
+}
+
+.itemText {
+  display: grid;
+  grid-template-columns: minmax(8rem, 10rem) minmax(0, 1fr);
+  gap: var(--s-3);
+}
+
+.itemLabel {
+  font-weight: 600;
+}
+
+.itemValue {
+  color: var(--graphite);
+}
+
+.foot {
+  font-size: 0.88rem;
+  color: var(--stone);
+}
+
+@media (max-width: 1040px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .sheet {
+    position: relative;
+    top: auto;
+  }
+  .drawing {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 560px) {
+  .itemText {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .sheet {
+    padding: var(--s-4);
+  }
+}
+
+.source {
+  padding-top: var(--s-3);
+  border-top: 1px dashed var(--sand);
+  font-size: 0.82rem;
+  color: var(--stone);
+}
+
+.source :global(.label) {
+  color: var(--graphite);
+  margin-right: 6px;
+}

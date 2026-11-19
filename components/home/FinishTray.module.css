@@ -1,0 +1,265 @@
+.wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  align-items: start;
+}
+
+/* ---------- the tray: a recessed, felt-lined box ---------- */
+.tray {
+  margin: 0;
+  padding: var(--s-5);
+  border: 1px solid var(--sand);
+  border-radius: 3px;
+  background: var(--linen);
+  box-shadow: var(--recess-deep);
+  min-width: 0;
+}
+
+.row + .row {
+  margin-top: var(--s-4);
+  padding-top: var(--s-4);
+  border-top: 1px solid rgb(29 27 24 / 0.12);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45);
+}
+
+.rowLabel {
+  margin-bottom: var(--s-3);
+  color: var(--graphite);
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--s-3) 10px;
+}
+
+.chip {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.swatch {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 1px;
+  background: var(--plaster);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.5) inset,
+    0 1px 2px rgb(29 27 24 / 0.22);
+  transition:
+    transform var(--t-med) var(--ease-soft),
+    box-shadow var(--t-med) var(--ease-soft);
+}
+
+.swatch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chip:hover .swatch {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -8px rgb(29 27 24 / 0.45);
+}
+
+/* Selected: lifted out of the tray, with a precise charcoal edge. */
+.chip[data-selected] .swatch {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 2px var(--plaster),
+    0 0 0 3px var(--charcoal),
+    0 14px 22px -10px rgb(29 27 24 / 0.55);
+}
+
+.input:focus-visible + .swatch {
+  outline: 2px solid var(--highland);
+  outline-offset: 5px;
+}
+
+.chipName {
+  font-size: 0.78rem;
+  line-height: 1.25;
+  color: var(--graphite);
+}
+
+.chip[data-selected] .chipName {
+  color: var(--charcoal);
+  font-weight: 600;
+}
+
+.trayNote {
+  margin-top: var(--s-5);
+  font-size: 0.8rem;
+  color: var(--stone);
+}
+
+/* ---------- the display ---------- */
+.display {
+  position: relative;
+  min-width: 0;
+}
+
+.stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--linen);
+}
+
+.stage img {
+  object-fit: cover;
+}
+
+.sceneIn {
+  animation: sceneIn var(--t-slow) var(--ease-soft) both;
+}
+
+.sceneOut {
+  animation: sceneOut var(--t-slow) var(--ease-soft) both;
+}
+
+@keyframes sceneIn {
+  from {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sceneOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.stageTag {
+  position: absolute;
+  right: var(--s-3);
+  top: var(--s-3);
+  padding: 4px 8px;
+  background: rgb(29 27 24 / 0.72);
+  color: var(--plaster);
+}
+
+/* The sample card, set on the counter in front of the room */
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(110px, 180px) minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: end;
+  width: calc(100% - var(--s-6));
+  margin: calc(-1 * var(--s-8)) 0 0 var(--s-6);
+  padding: var(--s-5);
+  background: #fbf8f3;
+  box-shadow: var(--lift);
+  animation: settle var(--t-slow) var(--ease-soft) both;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.render {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: calc(-1 * var(--s-8));
+}
+
+.render img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 14px 14px rgb(29 27 24 / 0.22));
+}
+
+.cardText {
+  display: grid;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+.code {
+  color: var(--stone);
+}
+
+.name {
+  font-size: var(--fs-h2);
+}
+
+.desc {
+  color: var(--graphite);
+  font-size: 0.98rem;
+  max-width: 34em;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-4) var(--s-5);
+  margin-top: var(--s-3);
+}
+
+.quote {
+  min-height: 44px;
+}
+
+@media (max-width: 1040px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+  .chips {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .tray {
+    padding: var(--s-4);
+  }
+  .chips {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-3) var(--s-3);
+  }
+  .chipName {
+    font-size: 0.72rem;
+  }
+  .card {
+    grid-template-columns: 1fr;
+    width: calc(100% - var(--s-4));
+    margin: calc(-1 * var(--s-6)) 0 0 var(--s-4);
+    padding: var(--s-5) var(--s-4);
+  }
+  .render {
+    display: none;
+  }
+}

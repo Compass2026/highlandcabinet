@@ -1,0 +1,25 @@
+.collectionsHead {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  align-items: end;
+  margin-bottom: var(--s-7);
+}
+
+.collectionsIntro {
+  display: grid;
+  gap: var(--s-4);
+  justify-items: start;
+}
+
+.h2 {
+  margin-top: var(--s-4);
+  font-size: var(--fs-h1);
+  max-width: 12ch;
+}
+
+@media (max-width: 1040px) {
+  .collectionsHead {
+    grid-template-columns: 1fr;
+  }
+}

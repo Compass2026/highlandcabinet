@@ -1,0 +1,38 @@
+.figure {
+  margin: 0;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--linen);
+}
+
+.frame[data-fill] {
+  height: 100%;
+}
+
+.frame img {
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px var(--s-3);
+  padding-top: var(--s-3);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--stone);
+}
+
+.caption :global(.label) {
+  color: var(--graphite);
+}
+
+:global(.on-dark) .caption,
+:global(.on-dark) .caption :global(.label) {
+  color: var(--stone-on-dark);
+}

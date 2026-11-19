@@ -1,0 +1,33 @@
+{
+  "name": "highland-cabinetry-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Highland Cabinetry website rebuild",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "validate:content": "node scripts/validate-content.mjs",
+    "check": "npm run typecheck && npm run lint && npm run validate:content && npm run build"
+  },
+  "dependencies": {
+    "@fontsource-variable/instrument-sans": "5.3.0",
+    "@fontsource-variable/newsreader": "5.3.0",
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "sharp": "0.35.5",
+    "typescript": "5.9.3"
+  },
+  "engines": { "node": ">=20.9" }
+}

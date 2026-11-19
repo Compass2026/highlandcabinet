@@ -1,0 +1,40 @@
+.intro {
+  padding-top: var(--s-8);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(1.5rem, 4vw, 5rem);
+  align-items: end;
+  padding-bottom: var(--s-7);
+}
+
+.main {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.h1 {
+  font-size: var(--fs-h1);
+  max-width: 16ch;
+}
+
+.h1 em {
+  color: var(--walnut);
+}
+
+.body {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.aside {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
