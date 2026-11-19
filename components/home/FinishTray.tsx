@@ -43,8 +43,11 @@ export function FinishTray({ initial = "shaker-white", sceneOverride = {}, headi
         <legend className="visually-hidden">Choose a finish</legend>
         {lineOrder.map((line) => (
           <div key={line} className={styles.row} role="presentation">
-            <p className={`label ${styles.rowLabel}`} aria-hidden="true">
-              {lines[line].name}
+            <p className={styles.rowLabel} aria-hidden="true">
+              <span className={styles.rowName}>{lines[line].name}</span>
+              <span className={styles.rowMeta}>
+                {lines[line].construction} · {finishes.filter((f) => f.line === line).length} finishes
+              </span>
             </p>
             <div className={styles.chips}>
               {finishes
@@ -115,8 +118,11 @@ export function FinishTray({ initial = "shaker-white", sceneOverride = {}, headi
             <Image src={render.src} alt={render.alt} width={render.width} height={render.height} sizes="(max-width: 640px) 34vw, 180px" />
           </div>
           <div className={styles.cardText}>
-            <p className={`label ${styles.code}`}>
-              {current.code} · {lines[current.line].name} · {current.finishType}
+            <p className={styles.meta}>
+              <span className="code">{current.code}</span>
+              <span>
+                {lines[current.line].name} · {current.finishType}
+              </span>
             </p>
             <h3 className={styles.name}>{current.name}</h3>
             <p className={styles.desc}>{current.description}</p>

@@ -97,8 +97,8 @@ export default async function ProductPage({ params }: Params) {
         <div className={styles.summary}>
           <div className={styles.summaryCard}>
             <span className={styles.hole} aria-hidden="true" />
-            <p className={`label ${styles.code}`}>
-              {f.code} · {line.name} line · {line.construction}
+            <p className={styles.code}>
+              <span className="code">{f.code}</span> {line.name} line · {line.construction}
             </p>
             <h1 id="product-title" className={styles.h1}>
               {fullName} <span>Cabinets</span>

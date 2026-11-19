@@ -23,10 +23,17 @@ Regenerate with `node scripts/build-media.mjs <dir-of-archived-assets>` (source 
 
 ## Images
 
-Kinds: **installed-project** = on-site photograph (EXIF camera data present) · **catalog-rendering** = Highland marketing rendering, also used in the catalogs · **product-rendering** = Highland 3D render of a single cabinet · **finish-detail** = crop of the matching product rendering at the drawer/door reveal (colour unaltered).
+Kinds: **installed-project** = on-site photograph (EXIF camera data present) · **catalog-rendering** = Highland marketing rendering, also used in the catalogs · **product-rendering** = Highland 3D render of a single cabinet · **finish-detail** = crop of the matching product rendering at the drawer/door reveal (colour unaltered). · **material-texture** = wood grain sampled from a Highland product rendering, studio lighting flattened, used only for the decorative hero doors.
+
+### Hero (second milestone)
+
+- `hero-kitchen-wide` / `hero-kitchen-tall` — IMG_0082 (iPhone 11, July 2021) from Highland's White Shaker project gallery, chosen after comparing every large landscape image in the verified archive: it is a genuine site photograph with the cabinetry as the subject, warm under-cabinet light, and a central hood that lines up with the doors' centre reveal. `tall` is a 1160 × 1920 portrait crop centred on the hood for phones. Not colour-graded.
+- `door-grain-v` / `door-grain-h` — Shaker Luxe grain from `854013_B21_Shaker-Luxe.png` (door panel region). `-h` is the same texture rotated 90° so rails carry horizontal grain, as on a real five-piece door. The hero doors are an artistic entrance, not a depiction of a specific SKU, hinge or door size.
 
 | ID | Kind | Output | Source URL | Source SHA-256 |
 |---|---|---|---|---|
+| hero-kitchen-wide | installed-project | `/media/hero-kitchen-wide.jpg` 2400×1800 | /wp-content/uploads/2025/02/IMG_0082_jpg-scaled.jpg | `0c22fd4a30c0…` |
+| hero-kitchen-tall | installed-project | `/media/hero-kitchen-tall.jpg` 1160×1920 | /wp-content/uploads/2025/02/IMG_0082_jpg-scaled.jpg | `0c22fd4a30c0…` |
 | project-white-shaker-01 | installed-project | `/media/project-white-shaker-01.jpg` 2400×1600 | /wp-content/uploads/2025/03/IMG_4838-scaled.jpg | `6dd4e022ea7b…` |
 | project-white-shaker-02 | installed-project | `/media/project-white-shaker-02.jpg` 2400×1600 | /wp-content/uploads/2025/02/IMG_4836-scaled.jpg | `85119b6b9068…` |
 | project-white-shaker-03 | installed-project | `/media/project-white-shaker-03.jpg` 1707×2560 | /wp-content/uploads/2025/02/IMG_4916-1-scaled.jpg | `9c140af2e51b…` |
@@ -73,3 +80,5 @@ Kinds: **installed-project** = on-site photograph (EXIF camera data present) · 
 | chip-euro-glacial-white | finish-detail | `/media/chip-euro-glacial-white.webp` 640×640 | /wp-content/uploads/2025/07/163604_B21D_Glacial-White.png | `ba640476874c…` |
 | render-euro-frost-white | product-rendering | `/media/render-euro-frost-white.webp` 1114×1400 | /wp-content/uploads/2025/07/163605_B21D_Frost-White.png | `7ef1709b4820…` |
 | chip-euro-frost-white | finish-detail | `/media/chip-euro-frost-white.webp` 640×640 | /wp-content/uploads/2025/07/163605_B21D_Frost-White.png | `7ef1709b4820…` |
+| door-grain-v | material-texture | `/media/door-grain-v.webp` 800×1100 | /wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png | `06e64ada8415…` |
+| door-grain-h | material-texture | `/media/door-grain-h.webp` 1100×800 | /wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png | `06e64ada8415…` |

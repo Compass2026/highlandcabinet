@@ -1,6 +1,8 @@
 # Highland Cabinetry — website rebuild
 
-Next.js (App Router) + TypeScript + CSS Modules, built for Vercel. First milestone: design system,
+Next.js (App Router) + TypeScript + CSS Modules, built for Vercel. Type: Mona Sans (OFL, self-hosted).
+Milestone 2 added the cabinet-door hero (`components/home/Hero.tsx`, `hero.css`, `heroIntro.ts`).
+First milestone: design system,
 homepage, collection browsing, the White Shaker product page (and the 12 other collections on the
 same template), quote/dealer/contact flows, service-area hub, URL migration inventory and redirects.
 

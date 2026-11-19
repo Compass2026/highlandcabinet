@@ -1,5 +1,31 @@
 [
   {
+    "id": "hero-kitchen-wide",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/IMG_0082_jpg-scaled.jpg",
+    "sourceFile": "0c22fd4a30c014a6daf67340ff4f80d535c46010eb3a05bd8c218074025d2cb7.jpg",
+    "sourceSha256": "0c22fd4a30c014a6daf67340ff4f80d535c46010eb3a05bd8c218074025d2cb7",
+    "kind": "installed-project",
+    "op": "scene",
+    "alt": "White Shaker kitchen wall with lit glass-front uppers, a painted hood and three perforated brass pendants above a long quartz island",
+    "provenance": "Installed-project photograph from the White Shaker gallery on the previous Highland website"
+  },
+  {
+    "id": "hero-kitchen-tall",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/IMG_0082_jpg-scaled.jpg",
+    "sourceFile": "0c22fd4a30c014a6daf67340ff4f80d535c46010eb3a05bd8c218074025d2cb7.jpg",
+    "sourceSha256": "0c22fd4a30c014a6daf67340ff4f80d535c46010eb3a05bd8c218074025d2cb7",
+    "kind": "installed-project",
+    "op": "scene",
+    "alt": "White Shaker kitchen centred on a painted range hood, lit glass-front uppers and a perforated brass pendant above a quartz island",
+    "provenance": "Installed-project photograph from the White Shaker gallery on the previous Highland website \u2014 portrait crop for phones",
+    "crop": {
+      "left": 700,
+      "top": 0,
+      "width": 1160,
+      "height": 1920
+    }
+  },
+  {
     "id": "project-white-shaker-01",
     "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/03/IMG_4838-scaled.jpg",
     "sourceFile": "6dd4e022ea7beb935577232fffed79942d8d51c085f672c2c76a6b9abe464514.jpg",
@@ -458,5 +484,39 @@
     "op": "chip",
     "alt": "",
     "provenance": "Highland product rendering (B21 base cabinet), cropped to the drawer-to-door reveal and door face. Colour not altered."
+  },
+  {
+    "id": "door-grain-v",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png",
+    "sourceFile": "06e64ada841579d9aa83dec573b5695fbeaede022184501f1f0c8c34dab4a045.png",
+    "sourceSha256": "06e64ada841579d9aa83dec573b5695fbeaede022184501f1f0c8c34dab4a045",
+    "kind": "material-texture",
+    "op": "texture",
+    "alt": "",
+    "provenance": "Wood-grain texture sampled from the Highland Shaker Luxe B21 product rendering (door panel); studio lighting flattened. Used only for the decorative hero doors.",
+    "crop": {
+      "left": 1150,
+      "top": 1550,
+      "width": 800,
+      "height": 1100
+    },
+    "rotate": 0
+  },
+  {
+    "id": "door-grain-h",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png",
+    "sourceFile": "06e64ada841579d9aa83dec573b5695fbeaede022184501f1f0c8c34dab4a045.png",
+    "sourceSha256": "06e64ada841579d9aa83dec573b5695fbeaede022184501f1f0c8c34dab4a045",
+    "kind": "material-texture",
+    "op": "texture",
+    "alt": "",
+    "provenance": "Wood-grain texture sampled from the Highland Shaker Luxe B21 product rendering (door panel); studio lighting flattened, rotated 90\u00b0 for horizontal rails. Used only for the decorative hero doors.",
+    "crop": {
+      "left": 1150,
+      "top": 1550,
+      "width": 800,
+      "height": 1100
+    },
+    "rotate": 90
   }
 ]

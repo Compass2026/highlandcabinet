@@ -25,7 +25,7 @@ for (const [id, m] of Object.entries(media)) {
   }
   if (!m.sourceUrl) errors.push(`media ${id}: no source URL`);
   if (!m.sourceSha256 && !/#page=\d+$/.test(m.sourceUrl)) errors.push(`media ${id}: no SHA-256 provenance`);
-  if (m.kind !== "finish-detail" && !m.alt) errors.push(`media ${id}: missing alt text`);
+  if (!["finish-detail", "material-texture"].includes(m.kind) && !m.alt) errors.push(`media ${id}: missing alt text`);
 }
 
 const ids = [...collections.matchAll(/"((?:project|scene|render|chip)-[a-z0-9-]+)"/g)].map((m) => m[1]);

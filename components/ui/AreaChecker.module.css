@@ -8,7 +8,9 @@
 }
 
 .lbl {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
   font-size: 1.5rem;
 }
 
@@ -52,9 +54,9 @@
 }
 
 .state {
-  font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.1em;
+  font-weight: 650;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--walnut);
 }

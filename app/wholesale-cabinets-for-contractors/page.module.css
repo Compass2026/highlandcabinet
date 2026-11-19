@@ -40,7 +40,9 @@
 .includes dt {
   display: grid;
   gap: var(--s-2);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
   font-size: 1.4rem;
   line-height: 1.15;
 }
@@ -68,7 +70,9 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
   font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.9rem);
   line-height: 1.3;
 }

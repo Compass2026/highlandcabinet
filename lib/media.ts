@@ -1,6 +1,6 @@
 import generated from "@/content/media.generated.json";
 
-export type MediaKind = "installed-project" | "catalog-rendering" | "product-rendering" | "finish-detail";
+export type MediaKind = "installed-project" | "catalog-rendering" | "product-rendering" | "finish-detail" | "material-texture";
 
 export interface MediaAsset {
   id: string;
@@ -29,4 +29,5 @@ export const kindLabel: Record<MediaKind, string> = {
   "catalog-rendering": "Catalog rendering",
   "product-rendering": "Product rendering",
   "finish-detail": "Finish detail",
+  "material-texture": "Material texture",
 };

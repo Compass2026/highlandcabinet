@@ -51,8 +51,7 @@
 
 .h1 span {
   display: block;
-  font-style: italic;
-  color: var(--walnut);
+  color: var(--stone);
 }
 
 .desc {
@@ -217,7 +216,9 @@
 }
 
 .dlTitle {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
   font-size: 1.45rem;
   line-height: 1.1;
 }

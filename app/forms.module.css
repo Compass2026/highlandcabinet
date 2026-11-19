@@ -27,8 +27,9 @@
   position: absolute;
   left: 0;
   top: calc(var(--s-3) + 3px);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
   color: var(--walnut);
 }
 

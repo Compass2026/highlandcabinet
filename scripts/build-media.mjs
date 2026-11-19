@@ -50,7 +50,25 @@ for (const s of sources) {
   let pipeline;
   if (s.op === "scene") {
     out = `${s.id}.jpg`;
-    pipeline = sharp(data).rotate().resize({ width: 2400, withoutEnlargement: true }).jpeg({ quality: 82, mozjpeg: true, progressive: true });
+    // Optional art-direction crop (pixels in the source image), e.g. a portrait crop for phones.
+    const base = s.crop ? sharp(data).rotate().extract(s.crop) : sharp(data).rotate();
+    pipeline = base.resize({ width: 2400, withoutEnlargement: true }).jpeg({ quality: 82, mozjpeg: true, progressive: true });
+  } else if (s.op === "texture") {
+    // A material texture sampled from a product rendering. Baked-in studio lighting is flattened
+    // (pixel ÷ heavily blurred copy × mean) so the grain can be relit in CSS; colour is preserved.
+    out = `${s.id}.webp`;
+    const region = sharp(data).extract(s.crop).removeAlpha();
+    const { data: px, info } = await region.clone().raw().toBuffer({ resolveWithObject: true });
+    const { data: lo } = await region.clone().blur(80).raw().toBuffer({ resolveWithObject: true });
+    const ch = info.channels;
+    const mean = [0, 0, 0];
+    for (let i = 0; i < px.length; i += ch) for (let c = 0; c < 3; c++) mean[c] += px[i + c];
+    for (let c = 0; c < 3; c++) mean[c] /= px.length / ch;
+    const flat = Buffer.alloc(px.length);
+    for (let i = 0; i < px.length; i += ch) for (let c = 0; c < ch; c++) flat[i + c] = Math.max(0, Math.min(255, Math.round((px[i + c] / Math.max(1, lo[i + c])) * mean[c])));
+    let tex = sharp(flat, { raw: { width: info.width, height: info.height, channels: ch } });
+    if (s.rotate) tex = tex.rotate(s.rotate);
+    pipeline = tex.webp({ quality: 84, effort: 6 });
   } else if (s.op === "render") {
     out = `${s.id}.webp`;
     const trimmed = await sharp(data).trim({ threshold: 1 }).toBuffer();

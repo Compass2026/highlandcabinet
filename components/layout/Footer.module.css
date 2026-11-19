@@ -4,7 +4,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1.3fr repeat(3, minmax(0, 0.9fr)) minmax(0, 1.35fr);
   gap: var(--s-6);
   padding-bottom: var(--s-7);
 }
@@ -54,9 +54,10 @@
 }
 
 .addr a {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+  overflow-wrap: normal;
+  word-break: normal;
+  font-variant-numeric: tabular-nums;
 }
 
 .loc {
@@ -100,5 +101,8 @@
   }
   .brand {
     grid-column: 1 / -1;
+  }
+  .addr a {
+    overflow-wrap: anywhere;
   }
 }

@@ -86,7 +86,7 @@ export function Gallery({ ids, label }: Props) {
             <ArrowLeft />
             <span className="visually-hidden">Previous image</span>
           </button>
-          <span className={`label ${styles.counter}`} aria-hidden="true">
+          <span className={`code ${styles.counter}`} aria-hidden="true">
             {counter}
           </span>
           <button type="button" className={styles.arrow} onClick={() => go(index + 1)} aria-controls={`${uid}-stage`}>

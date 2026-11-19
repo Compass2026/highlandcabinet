@@ -9,9 +9,7 @@
   max-width: 14ch;
 }
 
-.h1 em {
-  color: var(--walnut);
-}
+
 
 .ctas {
   display: flex;

@@ -5,10 +5,8 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.84rem;
+  font-weight: 500;
   color: var(--stone);
 }
 

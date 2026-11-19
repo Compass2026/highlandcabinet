@@ -23,14 +23,15 @@
   display: inline-flex;
   align-items: center;
   gap: var(--s-3);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
   font-size: 1.75rem;
   text-decoration: none;
 }
 
 .mail {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   overflow-wrap: anywhere;
 }
 

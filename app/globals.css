@@ -32,19 +32,24 @@
   --warn: #8a5a12;
   --error: #a3261b;
 
-  /* Type */
-  --font-serif: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
-  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Type — Mona Sans throughout; Plex Mono only for codes, dimensions and counters. */
+  --font-sans: var(--font-mona), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-sans);
   --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* kept as an alias so older modules resolve to the new display face */
+  --font-serif: var(--font-display);
 
-  --fs-display: clamp(2.6rem, 1.35rem + 4.4vw, 5.75rem);
-  --fs-h1: clamp(2.3rem, 1.45rem + 3vw, 4.25rem);
-  --fs-h2: clamp(1.85rem, 1.35rem + 1.9vw, 3.1rem);
-  --fs-h3: clamp(1.25rem, 1.12rem + 0.5vw, 1.55rem);
-  --fs-lead: clamp(1.125rem, 1.04rem + 0.35vw, 1.35rem);
+  --display-stretch: 106%;
+  --display-weight: 520;
+
+  --fs-display: clamp(2.5rem, 1.55rem + 3.6vw, 4.75rem);
+  --fs-h1: clamp(2.05rem, 1.45rem + 2.3vw, 3.4rem);
+  --fs-h2: clamp(1.7rem, 1.32rem + 1.45vw, 2.55rem);
+  --fs-h3: clamp(1.18rem, 1.08rem + 0.4vw, 1.4rem);
+  --fs-lead: clamp(1.08rem, 1.02rem + 0.28vw, 1.26rem);
   --fs-body: 1.0625rem;
   --fs-small: 0.9rem;
-  --fs-label: 0.72rem;
+  --fs-label: 0.76rem;
 
   /* Space — a 4px module; the reveal is the smallest meaningful gap */
   --reveal: 3px;
@@ -104,7 +109,9 @@ body {
   color: var(--charcoal);
   font-family: var(--font-sans);
   font-size: var(--fs-body);
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.62;
+  letter-spacing: -0.003em;
   font-feature-settings: "kern", "liga", "calt";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -123,12 +130,33 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: var(--font-serif);
-  font-weight: 400;
-  line-height: 1.06;
-  letter-spacing: -0.018em;
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
+  line-height: 1.04;
+  letter-spacing: -0.026em;
   text-wrap: balance;
-  font-optical-sizing: auto;
+}
+
+h3,
+h4 {
+  font-weight: 560;
+  font-stretch: 102%;
+  line-height: 1.18;
+  letter-spacing: -0.014em;
+}
+
+/* No italic accent phrases: a second clause is set on its own line in a quieter tone. */
+h1 em,
+h2 em {
+  display: block;
+  font-style: normal;
+  color: var(--stone);
+}
+
+.on-dark h1 em,
+.on-dark h2 em {
+  color: var(--stone-on-dark);
 }
 
 p {
@@ -223,13 +251,28 @@ textarea {
 /* --------------------------------------------------------------------------
    Type helpers
    -------------------------------------------------------------------------- */
+/* Small section labels: set in the text face, not a typewriter face. */
 .label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-label);
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-stretch: 104%;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   line-height: 1.4;
+}
+
+/* Technical styling, reserved for product identifiers, dimensions and counters. */
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.78em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
 }
 
 .eyebrow {
@@ -252,7 +295,8 @@ textarea {
 
 .lead {
   font-size: var(--fs-lead);
-  line-height: 1.5;
+  line-height: 1.55;
+  letter-spacing: -0.006em;
   color: var(--graphite);
   max-width: 38em;
 }
@@ -318,8 +362,9 @@ textarea {
   color: var(--btn-fg);
   font-family: var(--font-sans);
   font-size: 0.95rem;
-  font-weight: 560;
-  letter-spacing: 0.01em;
+  font-weight: 580;
+  font-stretch: 104%;
+  letter-spacing: 0;
   line-height: 1.2;
   text-decoration: none;
   cursor: pointer;

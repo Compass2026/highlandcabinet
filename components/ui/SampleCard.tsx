@@ -30,7 +30,7 @@ export function SampleCard({ finish, href, size = "md", className, as = "div", h
         <Image src={chip.src} alt="" width={chip.width} height={chip.height} sizes={size === "sm" ? "96px" : "200px"} />
       </span>
       <span className={styles.meta}>
-        <span className={`label ${styles.code}`}>{finish.code}</span>
+        <span className={`code ${styles.code}`}>{finish.code}</span>
         <H className={styles.name}>{finish.name}</H>
         <span className={styles.spec}>
           {lines[finish.line].name} · {finish.finishType}

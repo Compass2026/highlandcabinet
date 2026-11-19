@@ -20,9 +20,7 @@
   max-width: 16ch;
 }
 
-.h1 em {
-  color: var(--walnut);
-}
+
 
 .body {
   display: grid;

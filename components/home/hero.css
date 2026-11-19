@@ -1,0 +1,585 @@
+/* ==========================================================================
+   Hero — “Open something extraordinary”
+   Global stylesheet scoped by data attributes so the <noscript> fallback and the
+   inline intro controller can address the same elements.
+   ========================================================================== */
+
+[data-hero] {
+  --gap: 3px; /* the centre reveal */
+  --stile: clamp(40px, 6.2vw, 100px);
+  --rail: var(--stile);
+  --thick: clamp(10px, 1.15vw, 18px); /* ¾″ door, scaled to the stile */
+  --pull: clamp(96px, 17vh, 170px);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: clamp(560px, calc(100svh - var(--header-h)), 980px);
+  background: #2a2622;
+  color: var(--plaster);
+}
+
+/* ---------- the settled hero ---------- */
+[data-hero-media] {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #3a352f;
+  background-position: center;
+  background-size: cover;
+  transform-origin: 50% 42%;
+}
+
+[data-hero-media] picture,
+[data-hero-media] img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+[data-hero-media] img {
+  object-fit: cover;
+  object-position: 50% 28%;
+}
+
+/* If the photograph fails to load, the blurred preview of it (inline) remains. */
+html[data-hero-failed] [data-hero-media] img {
+  visibility: hidden;
+}
+
+[data-hero-dim] {
+  position: absolute;
+  inset: 0;
+  background: #120d08;
+  opacity: 0;
+}
+
+/* Restrained legibility: a soft, warm pool of shade only where the words sit (lower left);
+   the cabinetry in the upper and right of the frame is left untouched. */
+[data-hero-scrim] {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 72% 66% at 14% 80%, rgb(18 14 10 / 0.78) 0%, rgb(18 14 10 / 0.56) 42%, rgb(18 14 10 / 0) 80%),
+    linear-gradient(to top, rgb(18 14 10 / 0.7) 0%, rgb(18 14 10 / 0.36) 28%, rgb(18 14 10 / 0) 54%);
+}
+
+[data-hero-content] {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: 1fr auto auto;
+  column-gap: var(--s-6);
+  row-gap: var(--s-6);
+  height: 100%;
+  padding-bottom: clamp(1.75rem, 6vh, 4.5rem);
+}
+
+[data-hero-copy] {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  gap: var(--s-4);
+  max-width: 64rem;
+}
+
+[data-hero-kicker] {
+  color: rgb(255 244 226 / 0.92);
+  text-shadow: 0 1px 12px rgb(0 0 0 / 0.35);
+}
+
+/* Two deliberate lines; on narrow screens each line wraps once, giving four even lines. */
+[data-hero] h1 span {
+  display: block;
+}
+
+[data-hero] h1 {
+  font-size: min(clamp(2.35rem, 0.95rem + 4.1vw, 4.75rem), 8.4svh);
+  font-weight: 540;
+  font-stretch: 106%;
+  line-height: 0.98;
+  letter-spacing: -0.034em;
+  text-wrap: initial;
+  color: #fffdf8;
+  text-shadow:
+    0 1px 2px rgb(0 0 0 / 0.18),
+    0 2px 28px rgb(12 9 6 / 0.45);
+}
+
+[data-hero] h1:focus {
+  outline: none;
+}
+
+[data-hero-lead] {
+  max-width: 30rem;
+  font-size: clamp(1.06rem, 1rem + 0.35vw, 1.25rem);
+  line-height: 1.5;
+  color: rgb(255 250 242 / 0.92);
+  text-shadow: 0 1px 14px rgb(12 9 6 / 0.5);
+}
+
+[data-hero-ctas] {
+  grid-column: 1;
+  grid-row: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+[data-hero] .btn--ghost {
+  --btn-edge: rgb(255 250 242 / 0.7);
+  background: rgb(20 16 12 / 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+[data-hero-caption] {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: end;
+  display: flex;
+  gap: var(--s-2);
+  align-items: baseline;
+  font-size: 0.82rem;
+  color: rgb(255 250 242 / 0.78);
+}
+
+[data-hero-caption] .label {
+  font-size: 0.68rem;
+  color: rgb(255 250 242 / 0.62);
+}
+
+/* ---------- the doors ---------- */
+[data-doors] {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  perspective: 2300px;
+  perspective-origin: 50% 46%;
+  pointer-events: none;
+  contain: layout paint;
+}
+
+[data-door] {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc(50% - var(--gap) / 2);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+[data-door="left"] {
+  left: 0;
+  transform-origin: 0 50%;
+}
+
+[data-door="right"] {
+  right: 0;
+  transform-origin: 100% 50%;
+}
+
+/* Stiles: vertical grain runs the full height of the door. */
+[data-face] {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  background: url("/media/door-grain-v.webp") 0 0 / cover;
+}
+
+[data-door="right"] [data-face] {
+  background-position: 100% 60%;
+}
+
+/* Rails: horizontal grain, set between the stiles, with a fine joint at each end. */
+[data-rail] {
+  position: absolute;
+  left: var(--stile);
+  right: var(--stile);
+  height: var(--rail);
+  background: url("/media/door-grain-h.webp") 20% 30% / cover;
+  box-shadow:
+    inset 1px 0 0 rgb(64 40 18 / 0.32),
+    inset -1px 0 0 rgb(64 40 18 / 0.32);
+}
+
+[data-rail="top"] {
+  top: 0;
+}
+
+[data-rail="bottom"] {
+  bottom: 0;
+  background-position: 70% 80%;
+}
+
+[data-rail="mid"] {
+  display: none;
+  top: 50%;
+  transform: translateY(-50%);
+  background-position: 45% 55%;
+}
+
+[data-door="right"] [data-rail] {
+  background-position: 85% 10%;
+}
+
+/* Recessed Shaker panel: the frame casts a soft shadow onto it from above and the hinge side;
+   the lower and inner edges catch light. */
+[data-panel] {
+  position: absolute;
+  left: var(--stile);
+  right: var(--stile);
+  top: var(--rail);
+  bottom: var(--rail);
+  background:
+    linear-gradient(rgb(70 44 18 / 0.06), rgb(70 44 18 / 0.06)),
+    url("/media/door-grain-v.webp") 46% 30% / cover;
+  box-shadow:
+    inset 0 2px 0 rgb(46 28 10 / 0.3),
+    inset 0 16px 20px -14px rgb(46 28 10 / 0.62),
+    inset 2px 0 0 rgb(46 28 10 / 0.18),
+    inset 14px 0 18px -14px rgb(46 28 10 / 0.4),
+    inset -1px 0 0 rgb(255 240 214 / 0.4),
+    inset 0 -1px 0 rgb(255 240 214 / 0.5);
+}
+
+[data-door="right"] [data-panel] {
+  background-position: 30% 70%;
+  box-shadow:
+    inset 0 2px 0 rgb(46 28 10 / 0.3),
+    inset 0 16px 20px -14px rgb(46 28 10 / 0.62),
+    inset -2px 0 0 rgb(46 28 10 / 0.18),
+    inset -14px 0 18px -14px rgb(46 28 10 / 0.4),
+    inset 1px 0 0 rgb(255 240 214 / 0.4),
+    inset 0 -1px 0 rgb(255 240 214 / 0.5);
+}
+
+[data-panel="2"] {
+  display: none;
+  background-position: 60% 80%;
+}
+
+/* Restrained hardware: a slim matte-black bar pull on each meeting stile. */
+[data-pull] {
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: var(--pull);
+  border-radius: 4px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, #4b4741 0%, #1d1b18 36%, #121110 64%, #36332e 100%);
+  box-shadow:
+    4px 6px 8px rgb(0 0 0 / 0.36),
+    1px 1px 1px rgb(0 0 0 / 0.35);
+}
+
+[data-door="left"] [data-pull] {
+  right: calc(var(--stile) / 2 - 3.5px);
+}
+
+[data-door="right"] [data-pull] {
+  left: calc(var(--stile) / 2 - 3.5px);
+  box-shadow:
+    -1px 6px 8px rgb(0 0 0 / 0.36),
+    1px 1px 1px rgb(0 0 0 / 0.35);
+}
+
+/* Light: warm from above, falling off toward the hinge side and the floor. */
+[data-shade] {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(255 248 236 / 0.12) 0%, rgb(255 248 236 / 0) 36%, rgb(34 20 8 / 0.18) 100%),
+    linear-gradient(90deg, rgb(34 20 8 / 0.2) 0%, rgb(34 20 8 / 0) 32%);
+}
+
+[data-door="right"] [data-shade] {
+  background:
+    linear-gradient(180deg, rgb(255 248 236 / 0.12) 0%, rgb(255 248 236 / 0) 36%, rgb(34 20 8 / 0.18) 100%),
+    linear-gradient(270deg, rgb(34 20 8 / 0.2) 0%, rgb(34 20 8 / 0) 32%);
+}
+
+/* As a door swings away from the light it darkens. */
+[data-shade]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #140c05;
+  opacity: 0;
+}
+
+/* The door's ¾″ edge, revealed as it turns. */
+[data-edge] {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--thick);
+  background:
+    linear-gradient(90deg, rgb(30 18 6 / 0.34), rgb(255 238 210 / 0.14) 55%, rgb(30 18 6 / 0.22)),
+    url("/media/door-grain-v.webp") 60% 0 / cover;
+  backface-visibility: hidden;
+}
+
+[data-door="left"] [data-edge] {
+  left: 100%;
+  transform-origin: 0 50%;
+  transform: rotateY(90deg);
+}
+
+[data-door="right"] [data-edge] {
+  right: 100%;
+  transform-origin: 100% 50%;
+  transform: rotateY(-90deg);
+}
+
+/* The centre reveal between the closed doors. */
+[data-seam] {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - var(--gap) / 2);
+  width: var(--gap);
+  background: #0d0a07;
+}
+
+/* Two-panel doors where the door is tall and narrow (phones). */
+@media (max-width: 760px) {
+  [data-hero] {
+    --stile: clamp(30px, 9vw, 48px);
+    --pull: clamp(80px, 13vh, 120px);
+    height: calc(100svh - var(--header-h));
+    min-height: 600px;
+    max-height: 940px;
+  }
+  [data-doors] {
+    perspective: 1800px;
+  }
+  [data-rail="mid"],
+  [data-panel="2"] {
+    display: block;
+  }
+  [data-panel="1"] {
+    bottom: calc(50% + var(--rail) / 2);
+  }
+  [data-panel="2"] {
+    top: calc(50% + var(--rail) / 2);
+  }
+  [data-pull] {
+    top: calc(50% - var(--rail) / 2 - var(--pull) / 2 - 16px);
+  }
+  [data-hero-media] img {
+    object-position: 50% 0%;
+  }
+  [data-hero-content] {
+    grid-template-columns: 1fr;
+    row-gap: var(--s-5);
+  }
+  [data-hero-content] {
+    grid-template-rows: 1fr auto auto auto;
+  }
+  [data-hero-caption] {
+    grid-column: 1;
+    grid-row: 4;
+    margin-top: calc(-1 * var(--s-2));
+  }
+  [data-hero-ctas] .btn {
+    flex: 1 1 auto;
+  }
+  [data-hero-kicker] {
+    display: none;
+  }
+  /* Phones: the cabinetry keeps the upper frame; below it the room settles into charcoal. */
+  [data-hero-scrim] {
+    background: linear-gradient(
+      to top,
+      rgb(24 20 16 / 0.97) 0%,
+      rgb(24 20 16 / 0.9) 36%,
+      rgb(24 20 16 / 0.62) 50%,
+      rgb(24 20 16 / 0.18) 60%,
+      rgb(24 20 16 / 0) 68%
+    );
+  }
+  [data-hero] h1 {
+    font-size: clamp(2.1rem, 1.2rem + 4.2vw, 2.6rem);
+  }
+}
+
+/* ---------- skip control ---------- */
+[data-intro-skip] {
+  display: none;
+  position: absolute;
+  z-index: 4;
+  right: var(--gutter);
+  top: var(--s-5);
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  border: 1px solid rgb(255 250 242 / 0.5);
+  border-radius: 2px;
+  background: rgb(24 19 14 / 0.42);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fffaf2;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 560;
+  cursor: pointer;
+}
+
+[data-intro-skip]:hover {
+  background: rgb(24 19 14 / 0.62);
+}
+
+/* ---------- states ---------- */
+html[data-intro="pending"] [data-doors],
+html[data-intro="play"] [data-doors] {
+  display: block;
+}
+
+html[data-intro="pending"] [data-intro-skip],
+html[data-intro="play"] [data-intro-skip] {
+  display: inline-flex;
+  animation: hc-fade 0.3s ease 0.2s both;
+}
+
+/* Closed: the kitchen waits slightly enlarged and in shadow; copy waits to be revealed. */
+html[data-intro="pending"] [data-hero-media] {
+  transform: scale(1.075);
+}
+
+html[data-intro="pending"] [data-hero-dim] {
+  opacity: 0.5;
+}
+
+html[data-intro="pending"] :is([data-hero-copy], [data-hero-ctas], [data-hero-caption]) {
+  opacity: 0;
+}
+
+/* Failsafe: if the controller never starts the opening, get out of the way after 3 s. */
+html[data-intro="pending"] [data-doors] {
+  animation: hc-doors-out 0.4s ease 3s forwards;
+}
+
+html[data-intro="pending"] :is([data-hero-copy], [data-hero-ctas], [data-hero-caption]) {
+  animation: hc-fade 0.5s ease 3s forwards;
+}
+
+html[data-intro="pending"] [data-hero-dim] {
+  animation: hc-undim 0.5s ease 3s forwards;
+}
+
+/* Keyboard users reaching the hero always see what they focus. */
+[data-hero]:focus-within :is([data-hero-copy], [data-hero-ctas], [data-hero-caption]) {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-doors],
+  [data-intro-skip] {
+    display: none !important;
+  }
+  [data-hero-media],
+  [data-hero-dim],
+  [data-hero-copy],
+  [data-hero-ctas],
+  [data-hero-caption] {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1;
+  }
+  [data-hero-dim] {
+    opacity: 0 !important;
+  }
+}
+
+/* ---------- keyframes ---------- */
+@keyframes hc-open-l {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-100deg);
+  }
+}
+
+@keyframes hc-open-r {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(100deg);
+  }
+}
+
+@keyframes hc-shade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+@keyframes hc-seam {
+  0% {
+    background: #0d0a07;
+    box-shadow: none;
+  }
+  35% {
+    background: #ffe7c2;
+    box-shadow: 0 0 22px 5px rgb(255 214 160 / 0.4);
+  }
+  100% {
+    background: #ffe7c2;
+    box-shadow: 0 0 40px 10px rgb(255 214 160 / 0);
+    opacity: 0;
+  }
+}
+
+@keyframes hc-settle {
+  from {
+    transform: scale(1.075);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hc-undim {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hc-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hc-doors-out {
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

@@ -60,7 +60,9 @@
 }
 
 .doorTitle {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
   font-size: 1.6rem;
   line-height: 1.12;
   letter-spacing: -0.012em;
@@ -195,9 +197,9 @@
 }
 
 .policyList dt {
-  font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.1em;
+  font-weight: 650;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--stone);
 }
@@ -270,7 +272,9 @@
 }
 
 .binderTitle {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
   font-size: 1.6rem;
   line-height: 1.1;
 }
@@ -327,7 +331,9 @@
 }
 
 .locLead {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
   font-size: clamp(1.35rem, 1.1rem + 0.9vw, 2rem);
   line-height: 1.25;
   max-width: 28em;
@@ -350,9 +356,7 @@
   font-size: var(--fs-h1);
 }
 
-.closingTitle em {
-  color: var(--oak-light);
-}
+
 
 .closingCtas {
   display: flex;
