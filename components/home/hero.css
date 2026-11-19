@@ -1,56 +1,32 @@
-/* ==========================================================================
-   Hero — a showroom moment. Global stylesheet scoped by data attributes so the
-   <noscript> fallback and the inline controller address the same elements.
-   ========================================================================== */
+/* Hero — a bright kitchen photograph, cabinetry as the subject, minimal copy. */
 
 [data-hero] {
-  --frame-h: clamp(440px, calc(100svh - var(--header-h) - 290px), 820px);
-  --win-h: calc(var(--frame-h) * 0.8);
-  --ff: calc(var(--stile) * 0.62); /* face-frame width */
-  --win-w: min(calc(var(--win-h) * 0.9), 84vw);
-  --gap: 2px;
-  --stile: calc(var(--win-w) * 0.068);
-  --rail: var(--stile);
-  --thick: max(6px, calc(var(--win-w) * 0.026));
-  --pull: calc(var(--win-h) * 0.17);
   background: var(--paper);
 }
 
-/* ---------- headline band (always visible, always interactive) ---------- */
 [data-hero-text] {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: var(--s-6) clamp(2rem, 6vw, 7rem);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: var(--s-5) clamp(2rem, 6vw, 6rem);
   align-items: end;
-  padding-top: clamp(2.25rem, 1.2rem + 3vw, 4.25rem);
-  padding-bottom: clamp(1.75rem, 1rem + 2vw, 3rem);
-}
-
-[data-hero-head] {
-  display: grid;
-  gap: var(--s-4);
+  padding-top: clamp(2.5rem, 1.4rem + 3.2vw, 4.5rem);
+  padding-bottom: clamp(2rem, 1.2rem + 2.2vw, 3.25rem);
+  animation: hero-rise 0.7s var(--ease-soft) both;
 }
 
 [data-hero] h1 {
+  max-width: 15ch;
   font-size: var(--fs-display);
-  line-height: 1.04;
-  letter-spacing: -0.018em;
-}
-
-[data-hero] h1 span {
-  display: block;
-}
-
-[data-hero] h1 span + span {
-  color: var(--stone);
+  line-height: 1.06;
+  letter-spacing: -0.028em;
 }
 
 [data-hero-aside] {
   display: grid;
-  gap: var(--s-4);
+  gap: var(--s-5);
   justify-items: start;
-  max-width: 30rem;
-  padding-bottom: 6px;
+  max-width: 28rem;
+  padding-bottom: 4px;
 }
 
 [data-hero-lead] {
@@ -63,47 +39,23 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--s-3);
-  margin-top: var(--s-2);
 }
 
-[data-hero-dealer] {
-  font-size: 0.88rem;
+[data-hero-figure] {
+  margin: 0;
 }
 
-/* ---------- the photograph ---------- */
-[data-hero-frame] {
+[data-hero-photo] {
   position: relative;
-  height: var(--frame-h);
+  height: clamp(420px, calc(100svh - var(--header-h) - 250px), 860px);
   overflow: hidden;
-  isolation: isolate;
-  background: #ebe5dc;
+  background: var(--plaster-2);
 }
 
-[data-hero-clip] {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background-color: #d9d2c7;
-  background-position: center;
-  background-size: cover;
-}
-
-[data-hero-clip] picture,
-[data-hero-clip] img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-[data-hero-clip] img {
+[data-hero-photo] img {
   object-fit: cover;
-  object-position: 50% 34%;
-  transform-origin: 50% 46%;
-}
-
-html[data-hero-failed] [data-hero-clip] img {
-  visibility: hidden;
+  object-position: 50% 60%;
+  animation: hero-settle 1.6s var(--ease-soft) both;
 }
 
 [data-hero-caption] {
@@ -116,401 +68,49 @@ html[data-hero-failed] [data-hero-clip] img {
   color: var(--stone);
 }
 
-[data-hero-caption] .label {
-  font-size: 0.66rem;
-}
-
-/* ---------- the wall and the cabinet (decorative) ---------- */
-[data-wall] {
-  display: none;
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    radial-gradient(ellipse 60% 70% at 50% 18%, rgb(255 253 249 / 0.95), rgb(255 253 249 / 0) 70%),
-    linear-gradient(180deg, #f1ece4 0%, #e9e2d7 100%);
-}
-
-[data-cab] {
-  display: none;
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  top: 50%;
-  width: var(--win-w);
-  height: var(--win-h);
-  margin: calc(var(--win-h) / -2) 0 0 calc(var(--win-w) / -2);
-  perspective: calc(var(--win-w) * 3.2);
-  perspective-origin: 50% 45%;
-  pointer-events: none;
-}
-
-/* Contact and ambient shadow on the wall — the cabinet hangs a few inches proud of it. */
-[data-cab-shadow] {
-  position: absolute;
-  inset: 0;
-  box-shadow:
-    0 1px 1px rgb(60 44 28 / 0.2),
-    0 10px 18px -8px rgb(60 44 28 / 0.28),
-    0 42px 70px -34px rgb(60 44 28 / 0.42);
-}
-
-/* Face frame and box depth, seen only once the doors swing clear. */
-[data-cab-frame] {
-  position: absolute;
-  inset: 0;
-  padding: var(--ff);
-  background: url("/media/door-grain-v.webp") 30% 0 / auto 160%;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-}
-
-[data-cab-depth] {
-  position: absolute;
-  inset: var(--ff);
-  box-shadow:
-    inset 0 0 0 1px rgb(40 24 8 / 0.25),
-    inset 0 calc(var(--win-h) * 0.05) calc(var(--win-h) * 0.06) calc(var(--win-h) * -0.03) rgb(30 18 6 / 0.45),
-    inset calc(var(--win-w) * 0.04) 0 calc(var(--win-w) * 0.05) calc(var(--win-w) * -0.03) rgb(30 18 6 / 0.3),
-    inset calc(var(--win-w) * -0.04) 0 calc(var(--win-w) * 0.05) calc(var(--win-w) * -0.03) rgb(30 18 6 / 0.3);
-}
-
-[data-door] {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: calc(50% - var(--gap) / 2);
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-[data-door="left"] {
-  left: 0;
-  transform-origin: 0 50%;
-}
-
-[data-door="right"] {
-  right: 0;
-  transform-origin: 100% 50%;
-}
-
-/* Stiles: vertical grain the full height of the door. */
-[data-face] {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  backface-visibility: hidden;
-  background: url("/media/door-grain-v.webp") 8% 0 / auto 160%;
-}
-
-[data-door="right"] [data-face] {
-  background-position: 88% 40%;
-}
-
-/* Rails: horizontal grain, set between the stiles, with a fine joint at each end. */
-[data-rail] {
-  position: absolute;
-  left: var(--stile);
-  right: var(--stile);
-  height: var(--rail);
-  background: url("/media/door-grain-h.webp") 20% 30% / 220% auto;
-  box-shadow:
-    inset 1px 0 0 rgb(80 52 24 / 0.28),
-    inset -1px 0 0 rgb(80 52 24 / 0.28);
-}
-
-[data-rail="top"] {
-  top: 0;
-}
-
-[data-rail="bottom"] {
-  bottom: 0;
-  background-position: 70% 75%;
-}
-
-[data-door="right"] [data-rail] {
-  background-position: 85% 15%;
-}
-
-/* Recessed Shaker panel: soft shade from the frame above and on the hinge side,
-   a fine catch-light on the lower and inner edges. */
-[data-panel] {
-  position: absolute;
-  left: var(--stile);
-  right: var(--stile);
-  top: var(--rail);
-  bottom: var(--rail);
-  background:
-    linear-gradient(rgb(80 52 24 / 0.05), rgb(80 52 24 / 0.05)),
-    url("/media/door-grain-v.webp") 46% 30% / auto 130%;
-  box-shadow:
-    inset 0 1.5px 0 rgb(60 38 16 / 0.28),
-    inset 0 10px 12px -9px rgb(60 38 16 / 0.42),
-    inset 1.5px 0 0 rgb(60 38 16 / 0.16),
-    inset 9px 0 11px -9px rgb(60 38 16 / 0.28),
-    inset -1px 0 0 rgb(255 244 224 / 0.42),
-    inset 0 -1px 0 rgb(255 244 224 / 0.5);
-}
-
-[data-door="right"] [data-panel] {
-  background-position: 30% 70%;
-  box-shadow:
-    inset 0 1.5px 0 rgb(60 38 16 / 0.28),
-    inset 0 10px 12px -9px rgb(60 38 16 / 0.42),
-    inset -1.5px 0 0 rgb(60 38 16 / 0.16),
-    inset -9px 0 11px -9px rgb(60 38 16 / 0.28),
-    inset 1px 0 0 rgb(255 244 224 / 0.42),
-    inset 0 -1px 0 rgb(255 244 224 / 0.5);
-}
-
-/* Wall-cabinet hardware: a slim bar pull low on each meeting stile. */
-[data-pull] {
-  position: absolute;
-  bottom: calc(var(--rail) + var(--win-h) * 0.06);
-  width: max(4px, calc(var(--win-w) * 0.0085));
-  height: var(--pull);
-  border-radius: 3px;
-  background: linear-gradient(90deg, #56514a 0%, #22201c 40%, #161513 62%, #3b3833 100%);
-  box-shadow:
-    2px 4px 5px rgb(30 20 10 / 0.32),
-    0.5px 1px 1px rgb(30 20 10 / 0.35);
-}
-
-[data-door="left"] [data-pull] {
-  right: calc(var(--stile) / 2 - 2px);
-}
-
-[data-door="right"] [data-pull] {
-  left: calc(var(--stile) / 2 - 2px);
-}
-
-/* Light: soft and warm from above; a satin sheen across the face. */
-[data-shade] {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgb(255 250 240 / 0.16) 0%, rgb(255 250 240 / 0) 40%, rgb(40 24 8 / 0.12) 100%),
-    linear-gradient(100deg, rgb(255 252 246 / 0) 30%, rgb(255 252 246 / 0.07) 48%, rgb(255 252 246 / 0) 62%);
-}
-
-[data-shade]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #1a1006;
-  opacity: 0;
-}
-
-/* The door's ¾″ edge, revealed as it turns. */
-[data-edge] {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: var(--thick);
-  background:
-    linear-gradient(90deg, rgb(40 24 8 / 0.3), rgb(255 240 214 / 0.16) 55%, rgb(40 24 8 / 0.2)),
-    url("/media/door-grain-v.webp") 60% 0 / auto 160%;
-  backface-visibility: hidden;
-}
-
-[data-door="left"] [data-edge] {
-  left: 100%;
-  transform-origin: 0 50%;
-  transform: rotateY(90deg);
-}
-
-[data-door="right"] [data-edge] {
-  right: 100%;
-  transform-origin: 100% 50%;
-  transform: rotateY(-90deg);
-}
-
-[data-seam] {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(50% - var(--gap) / 2);
-  width: var(--gap);
-  background: #1b130b;
-}
-
-/* ---------- skip ---------- */
-[data-intro-skip] {
-  display: none;
-  position: absolute;
-  z-index: 4;
-  right: var(--gutter);
-  bottom: var(--s-4);
-  align-items: center;
-  min-height: 40px;
-  padding: 0 0.9rem;
-  border: 0;
-  background: transparent;
-  color: var(--graphite);
-  font: inherit;
-  font-size: 0.8rem;
-  font-weight: 540;
-  letter-spacing: 0.02em;
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-  cursor: pointer;
-}
-
-/* ---------- states ---------- */
-html[data-intro="pending"] :is([data-wall], [data-cab]),
-html[data-intro="play"] :is([data-wall], [data-cab]) {
-  display: block;
-}
-
-html[data-intro="pending"] [data-intro-skip],
-html[data-intro="play"] [data-intro-skip] {
-  display: inline-flex;
-}
-
-/* Closed: the photograph is visible only through the cabinet's opening, slightly enlarged. */
-html[data-intro="pending"] [data-hero-clip] {
-  clip-path: inset(calc((var(--frame-h) - var(--win-h)) / 2) calc((100% - var(--win-w)) / 2));
-}
-
-html[data-intro="pending"] [data-hero-img] {
-  transform: scale(1.12);
-}
-
-/* Failsafe: if the controller never starts the opening, settle after 3 s. */
-html[data-intro="pending"] [data-cab] {
-  animation: hc-fade-out 0.3s ease 3s forwards;
-}
-
-html[data-intro="pending"] [data-hero-clip] {
-  animation: hc-unclip 0.5s ease 3s forwards;
-}
-
-html[data-intro="pending"] [data-hero-img] {
-  animation: hc-settle 0.5s ease 3s forwards;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [data-cab],
-  [data-wall],
-  [data-intro-skip] {
-    display: none !important;
-  }
-  [data-hero-clip],
-  [data-hero-img] {
-    animation: none !important;
-    clip-path: none !important;
-    transform: none !important;
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
   }
 }
 
-/* ---------- phones ---------- */
+@keyframes hero-settle {
+  from {
+    transform: scale(1.03);
+  }
+}
+
 @media (max-width: 860px) {
-  [data-hero] {
-    /* the whole cabinet sits inside the first screen on a phone */
-    --frame-h: clamp(320px, calc(100svh - var(--header-h) - 300px), 620px);
-    --win-h: calc(var(--frame-h) * 0.78);
-  }
   [data-hero-text] {
     grid-template-columns: 1fr;
     gap: var(--s-4);
-    padding-top: var(--s-5);
-    padding-bottom: var(--s-4);
+    padding-top: var(--s-6);
+    padding-bottom: var(--s-6);
   }
-  [data-hero-aside] {
-    gap: var(--s-3);
+  [data-hero-photo] {
+    height: clamp(360px, 62svh, 640px);
   }
-  [data-hero-ctas] {
-    margin-top: 0;
-  }
-  [data-hero-clip] img {
-    object-position: 50% 20%;
-  }
-}
-
-@media (max-width: 520px) {
-  /* Phones: the header already carries "Quote", and the three lines are introduced one screen
-     later — so the band keeps the headline, one primary action and the dealer path. */
-  [data-hero-lead],
-  [data-hero-ctas] .btn--ghost {
-    display: none;
-  }
-  [data-hero-ctas] {
-    width: 100%;
-  }
-  [data-hero-ctas] .btn {
-    flex: 1 1 auto;
+  [data-hero-photo] img {
+    object-position: 46% 62%;
   }
   [data-hero-caption] {
     justify-content: flex-start;
   }
 }
 
-/* ---------- keyframes ---------- */
-@keyframes hc-open-l {
-  from {
-    transform: rotateY(0deg);
+@media (max-width: 420px) {
+  [data-hero-ctas] {
+    width: 100%;
   }
-  to {
-    transform: rotateY(-104deg);
-  }
-}
-
-@keyframes hc-open-r {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(104deg);
+  [data-hero-ctas] .btn {
+    flex: 1 1 auto;
   }
 }
 
-@keyframes hc-shade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.55;
-  }
-}
-
-@keyframes hc-seam {
-  0% {
-    background: #1b130b;
-  }
-  40% {
-    background: #fff1da;
-    box-shadow: 0 0 16px 3px rgb(255 226 180 / 0.45);
-    opacity: 1;
-  }
-  100% {
-    background: #fff1da;
-    box-shadow: 0 0 24px 6px rgb(255 226 180 / 0);
-    opacity: 0;
-  }
-}
-
-@keyframes hc-unclip {
-  from {
-    clip-path: inset(calc((var(--frame-h) - var(--win-h)) / 2) calc((100% - var(--win-w)) / 2));
-  }
-  to {
-    clip-path: inset(0 0);
-  }
-}
-
-@keyframes hc-settle {
-  from {
-    transform: scale(1.12);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-@keyframes hc-fade-out {
-  to {
-    opacity: 0;
-    visibility: hidden;
+@media (prefers-reduced-motion: reduce) {
+  [data-hero-text],
+  [data-hero-photo] img {
+    animation: none;
   }
 }

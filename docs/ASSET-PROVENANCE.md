@@ -32,8 +32,6 @@ Kinds: **installed-project** = on-site photograph (EXIF camera data present) · 
 
 | ID | Kind | Output | Source URL | Source SHA-256 |
 |---|---|---|---|---|
-| hero-kitchen-wide | installed-project | `/media/hero-kitchen-wide.jpg` 2400×1800 | /wp-content/uploads/2025/02/IMG_0082_jpg-scaled.jpg | `0c22fd4a30c0…` |
-| hero-kitchen-tall | installed-project | `/media/hero-kitchen-tall.jpg` 1160×1920 | /wp-content/uploads/2025/02/IMG_0082_jpg-scaled.jpg | `0c22fd4a30c0…` |
 | project-white-shaker-01 | installed-project | `/media/project-white-shaker-01.jpg` 2400×1600 | /wp-content/uploads/2025/03/IMG_4838-scaled.jpg | `6dd4e022ea7b…` |
 | project-white-shaker-02 | installed-project | `/media/project-white-shaker-02.jpg` 2400×1600 | /wp-content/uploads/2025/02/IMG_4836-scaled.jpg | `85119b6b9068…` |
 | project-white-shaker-03 | installed-project | `/media/project-white-shaker-03.jpg` 1707×2560 | /wp-content/uploads/2025/02/IMG_4916-1-scaled.jpg | `9c140af2e51b…` |
@@ -80,8 +78,6 @@ Kinds: **installed-project** = on-site photograph (EXIF camera data present) · 
 | chip-euro-glacial-white | finish-detail | `/media/chip-euro-glacial-white.webp` 640×640 | /wp-content/uploads/2025/07/163604_B21D_Glacial-White.png | `ba640476874c…` |
 | render-euro-frost-white | product-rendering | `/media/render-euro-frost-white.webp` 1114×1400 | /wp-content/uploads/2025/07/163605_B21D_Frost-White.png | `7ef1709b4820…` |
 | chip-euro-frost-white | finish-detail | `/media/chip-euro-frost-white.webp` 640×640 | /wp-content/uploads/2025/07/163605_B21D_Frost-White.png | `7ef1709b4820…` |
-| door-grain-v | material-texture | `/media/door-grain-v.webp` 800×1100 | /wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png | `06e64ada8415…` |
-| door-grain-h | material-texture | `/media/door-grain-h.webp` 1100×800 | /wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png | `06e64ada8415…` |
 | detail-grain-luxe | product-rendering | `/media/detail-grain-luxe.jpg` 1200×1200 | /wp-content/uploads/2025/09/853996_2DB24_Shaker-Luxe.png | `1dd6cb9bb2d2…` |
 | detail-profile-white | product-rendering | `/media/detail-profile-white.jpg` 1000×1000 | /wp-content/uploads/2025/02/3552_B21_StandardWhite.png | `413409593fd3…` |
 | detail-pullout | product-rendering | `/media/detail-pullout.jpg` 1200×1200 | /wp-content/uploads/2025/08/572900_SP12R_White-Oak.png | `68dd5d7139f4…` |

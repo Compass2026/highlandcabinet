@@ -1,180 +1,58 @@
 .wrap {
   display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: clamp(2rem, 5vw, 6rem);
-  align-items: center;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  align-items: start;
 }
 
-/* ---------- the stage: a cabinet on a showroom floor ---------- */
-.stage {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  max-height: 720px;
-  width: 100%;
-  background: linear-gradient(180deg, #f3eee6 0%, #efe9e0 64%, #e8e1d6 64.2%, #ece6dd 100%);
-  overflow: hidden;
-}
-
-.floor {
-  position: absolute;
-  left: 16%;
-  right: 36%;
-  bottom: 12.5%;
-  height: 5%;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgb(60 44 28 / 0.34), rgb(60 44 28 / 0));
-  filter: blur(4px);
-}
-
-.cabinet {
-  position: absolute;
-  left: 40%;
-  bottom: 14%;
-  width: 42%;
-  transform: translateX(-50%);
-}
-
-.cabinet img {
-  width: 100%;
-  height: auto;
-}
-
-.out {
-  position: absolute;
-  inset: auto 0 0 0;
-  animation: out 420ms var(--ease-soft) both;
-}
-
-.in {
-  position: relative;
-  animation: in 520ms var(--ease-soft) both;
-}
-
-@keyframes in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes out {
-  to {
-    opacity: 0;
-  }
-}
-
-.scene {
-  position: absolute;
-  right: 5%;
-  top: 6%;
-  width: 27%;
+/* ---------- the tray: a recessed, felt-lined box ---------- */
+.tray {
   margin: 0;
+  padding: var(--s-5) var(--s-5) var(--s-4);
+  border: 1px solid var(--sand);
+  border-radius: 4px;
+  background:
+    linear-gradient(180deg, rgb(36 33 29 / 0.03), transparent 35%),
+    var(--linen);
+  box-shadow:
+    inset 0 2px 6px rgb(36 33 29 / 0.13),
+    inset 0 0 0 1px rgb(36 33 29 / 0.06),
+    0 1px 0 rgb(255 255 255 / 0.8);
+  min-width: 0;
 }
 
-.sceneImg {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  box-shadow: 0 18px 40px -24px rgb(36 33 29 / 0.5);
+.row + .row {
+  margin-top: var(--s-4);
+  padding-top: var(--s-4);
+  border-top: 1px solid rgb(29 27 24 / 0.12);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45);
 }
 
-.sceneImg img {
-  object-fit: cover;
+.rowLabel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-bottom: var(--s-3);
 }
 
-.sceneIn {
-  animation: fade 600ms var(--ease-soft) both;
+.rowName {
+  font-size: 0.95rem;
+  font-weight: 620;
+  font-stretch: 104%;
+  letter-spacing: -0.005em;
+  color: var(--charcoal);
 }
 
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-}
-
-.scene figcaption {
-  padding-top: 6px;
-  color: var(--stone);
-  white-space: nowrap;
-}
-
-.scene figcaption :global(.label) {
-  font-size: 0.6rem;
-}
-
-.stageCap {
-  position: absolute;
-  left: 5%;
-  bottom: 4.5%;
+.rowMeta {
   font-size: 0.78rem;
   color: var(--stone);
 }
 
-/* ---------- the panel ---------- */
-.panel {
-  display: grid;
-  gap: var(--s-6);
-  align-content: center;
-  min-width: 0;
-}
-
-.info {
-  display: grid;
-  gap: var(--s-3);
-  animation: fade 420ms var(--ease-soft) both;
-}
-
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 10px;
-  align-items: baseline;
-  font-size: 0.85rem;
-  color: var(--stone);
-}
-
-.name {
-  font-size: var(--fs-h1);
-  line-height: 1.05;
-}
-
-.desc {
-  max-width: 30rem;
-  color: var(--graphite);
-}
-
 .chips {
   display: grid;
-  gap: var(--s-5);
-  margin: 0;
-  padding: var(--s-5) 0 0;
-  border: 0;
-  border-top: 1px solid var(--rule);
-  min-width: 0;
-}
-
-.group {
-  display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr);
-  gap: var(--s-3);
-  align-items: start;
-}
-
-.groupName {
-  padding-top: 14px;
-  font-size: 0.8rem;
-  font-weight: 560;
-  color: var(--charcoal);
-}
-
-.row {
-  display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 10px;
+  gap: var(--s-3) 10px;
 }
 
 .chip {
@@ -198,13 +76,14 @@
   display: block;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 2px;
+  background: var(--plaster);
   box-shadow:
-    inset 0 0 0 1px rgb(36 33 29 / 0.1),
-    0 1px 2px rgb(36 33 29 / 0.12);
+    0 1px 1px rgb(29 27 24 / 0.18),
+    0 3px 6px -3px rgb(29 27 24 / 0.3);
   transition:
-    box-shadow var(--t-med) var(--ease-soft),
-    transform var(--t-med) var(--ease-soft);
+    transform var(--t-med) var(--ease-soft),
+    box-shadow var(--t-med) var(--ease-soft);
 }
 
 .swatch img {
@@ -213,16 +92,30 @@
   object-fit: cover;
 }
 
-@media (hover: hover) {
-  .chip:hover .swatch {
-    transform: translateY(-2px);
-  }
+/* A fine bevel on the sample's top edge */
+.swatch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.45),
+    inset 0 0 0 1px rgb(29 27 24 / 0.08);
+  pointer-events: none;
 }
 
+.chip:hover .swatch {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -8px rgb(29 27 24 / 0.45);
+}
+
+/* Selected: lifted out of the tray, with a precise charcoal edge. */
 .chip[data-selected] .swatch {
+  transform: translateY(-5px);
   box-shadow:
-    0 0 0 2px var(--paper),
-    0 0 0 3px var(--charcoal);
+    0 0 0 2px var(--linen),
+    0 0 0 3.5px var(--charcoal),
+    0 16px 22px -10px rgb(29 27 24 / 0.55);
 }
 
 .input:focus-visible + .swatch {
@@ -231,87 +124,218 @@
 }
 
 .chipName {
-  font-size: 0.72rem;
+  position: relative;
+  padding-top: 2px;
+  font-size: 0.8rem;
+  font-weight: 500;
   line-height: 1.25;
-  color: var(--stone);
-  text-align: center;
+  letter-spacing: -0.003em;
+  color: var(--graphite);
+  transition: color var(--t-fast) var(--ease-soft);
+}
+
+/* Selected: a short rule under the name, like a tab on a sample board */
+.chipName::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 0;
+  height: 2px;
+  background: var(--charcoal);
+  transition: width var(--t-med) var(--ease-soft);
 }
 
 .chip[data-selected] .chipName {
   color: var(--charcoal);
-  font-weight: 560;
+  font-weight: 620;
+}
+
+.chip[data-selected] .chipName::before {
+  width: 22px;
+}
+
+.trayNote {
+  margin-top: var(--s-5);
+  padding-top: var(--s-3);
+  border-top: 1px solid rgb(29 27 24 / 0.1);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--stone);
+}
+
+/* ---------- the display ---------- */
+.display {
+  position: relative;
+  min-width: 0;
+}
+
+.stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--linen);
+}
+
+.stage img {
+  object-fit: cover;
+}
+
+.sceneIn {
+  animation: sceneIn var(--t-slow) var(--ease-soft) both;
+}
+
+.sceneOut {
+  animation: sceneOut var(--t-slow) var(--ease-soft) both;
+}
+
+@keyframes sceneIn {
+  from {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sceneOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.stageTag {
+  position: absolute;
+  right: var(--s-3);
+  top: var(--s-3);
+  padding: 5px 9px;
+  border-radius: 2px;
+  background: rgb(29 27 24 / 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--plaster);
+  font-size: 0.7rem;
+}
+
+/* The sample card, set on the counter in front of the room */
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(110px, 180px) minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: end;
+  width: calc(100% - var(--s-6));
+  margin: calc(-1 * var(--s-8)) 0 0 var(--s-6);
+  padding: var(--s-5);
+  background: #fff;
+  box-shadow: var(--lift);
+  animation: settle var(--t-slow) var(--ease-soft) both;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.render {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: calc(-1 * var(--s-8));
+}
+
+.render img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 14px 14px rgb(29 27 24 / 0.22));
+}
+
+.cardText {
+  display: grid;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  font-size: 0.86rem;
+  color: var(--stone);
+}
+
+.meta :global(.code) {
+  color: var(--graphite);
+}
+
+.name {
+  font-size: var(--fs-h2);
+  letter-spacing: -0.028em;
+}
+
+.desc {
+  color: var(--graphite);
+  font-size: 0.98rem;
+  max-width: 34em;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--s-4) var(--s-6);
+  gap: var(--s-4) var(--s-5);
+  margin-top: var(--s-3);
 }
 
-.note {
-  font-size: 0.78rem;
-  color: var(--stone);
+.quote {
+  min-height: 44px;
 }
 
-@media (max-width: 1100px) {
-  .row {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 8px;
-  }
-  .chipName {
-    font-size: 0.66rem;
-  }
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
   .wrap {
     grid-template-columns: 1fr;
-    gap: var(--s-6);
   }
-  .stage {
-    aspect-ratio: 5 / 4;
-  }
-  .cabinet {
-    width: 38%;
-  }
-  .row {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+  .chips {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 560px) {
-  .stage {
-    aspect-ratio: 1 / 1;
+@media (max-width: 640px) {
+  .tray {
+    padding: var(--s-4);
   }
-  .cabinet {
-    left: 34%;
-    width: 44%;
-  }
-  .floor {
-    left: 10%;
-    right: 42%;
-  }
-  .scene {
-    width: 33%;
-    right: 4%;
-  }
-  .scene figcaption :global(.label) {
-    font-size: 0.52rem;
-    letter-spacing: 0.08em;
-  }
-  .group {
-    grid-template-columns: 1fr;
-    gap: var(--s-2);
-  }
-  .groupName {
-    padding-top: 0;
-  }
-  .row {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 8px;
+  .chips {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-3) var(--s-3);
   }
   .chipName {
-    font-size: 0.66rem;
+    font-size: 0.72rem;
+  }
+  /* Cabinet rendering sits above the text so the description keeps a full-width measure. */
+  .card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-3);
+    width: calc(100% - var(--s-4));
+    margin: calc(-1 * var(--s-6)) 0 0 var(--s-4);
+    padding: var(--s-4) var(--s-4) var(--s-5);
+  }
+  .render {
+    align-self: start;
+    justify-content: flex-start;
+    width: 96px;
+    margin-top: calc(-1 * var(--s-7));
   }
 }

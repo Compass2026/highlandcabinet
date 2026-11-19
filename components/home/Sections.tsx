@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Download } from "@/components/ui/icons";
 import { QuoteButton } from "@/components/quote/QuoteButton";
-import { catalogs, orderPolicy, phoenixLocation } from "@/content/site";
+import { catalogs, contact, orderPolicy, phoenixLocation } from "@/content/site";
 import styles from "./Sections.module.css";
 
 /* ---------------------------------------------------------------------------
@@ -137,7 +137,7 @@ export function ClosingCta({ finishId, source = "closing-cta" }: { finishId?: st
         <h2 id="close-title" className={styles.closingTitle}>
           Have plans on the table?
         </h2>
-        <p className={styles.closingLead}>Send them over. We&rsquo;ll price the cabinetry.</p>
+        <p className={styles.closingLead}>Send them over and we&rsquo;ll price the cabinetry. Or call the sales team on {contact.phone.value}.</p>
         <div className={styles.closingCtas}>
           <QuoteButton finishId={finishId} source={source} arrow={false}>
             Request a quote

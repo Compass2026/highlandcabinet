@@ -6,12 +6,12 @@
 
 :root {
   /* Ground — warm whites */
-  --paper: #fbf9f5;
+  --paper: #fdfcfa; /* near-white */
   --plaster: var(--paper); /* legacy alias */
-  --plaster-2: #f4f0e9; /* quiet surface */
-  --linen: #ece6dc;
-  --sand: #ddd4c6;
-  --rule: #e6dfd4;
+  --plaster-2: #f7f5f1; /* soft off-white surface */
+  --linen: #f1ece4; /* the sample board */
+  --sand: #e3dbcf;
+  --rule: #ebe6de;
 
   /* Ink — restrained charcoal */
   --charcoal: #24211d;
@@ -33,17 +33,18 @@
   --error: #a3261b;
 
   /* Type */
-  --font-display: var(--font-caslon), "Iowan Old Style", Baskerville, Georgia, serif;
-  --font-serif: var(--font-display);
+  /* One architectural sans throughout (Mona Sans, OFL, self-hosted). */
   --font-sans: var(--font-mona), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --display-weight: 400;
-  --display-stretch: normal;
+  --font-display: var(--font-sans);
+  --font-serif: var(--font-sans); /* legacy alias */
+  --font-mono: var(--font-sans); /* technical styling retired */
+  --display-weight: 520;
+  --display-stretch: 102%;
 
-  --fs-display: clamp(2.3rem, 1.7rem + 2.2vw, 3.5rem);
-  --fs-h1: clamp(2.05rem, 1.6rem + 1.75vw, 3.05rem);
-  --fs-h2: clamp(1.75rem, 1.45rem + 1.15vw, 2.45rem);
-  --fs-h3: clamp(1.25rem, 1.16rem + 0.35vw, 1.5rem);
+  --fs-display: clamp(2.1rem, 1.55rem + 2.1vw, 3.2rem);
+  --fs-h1: clamp(1.9rem, 1.5rem + 1.5vw, 2.7rem);
+  --fs-h2: clamp(1.55rem, 1.32rem + 0.95vw, 2.1rem);
+  --fs-h3: clamp(1.15rem, 1.08rem + 0.3vw, 1.35rem);
   --fs-lead: clamp(1.06rem, 1.02rem + 0.2vw, 1.18rem);
   --fs-body: 1rem;
   --fs-small: 0.9rem;
@@ -130,17 +131,20 @@ h3,
 h4 {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
   line-height: 1.1;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.022em;
   text-wrap: balance;
   color: var(--charcoal);
 }
 
 h3,
 h4 {
-  line-height: 1.2;
-  letter-spacing: -0.006em;
+  font-weight: 560;
+  font-stretch: 100%;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 /* No italic accents: a second clause sits on its own line in a quieter tone. */
@@ -254,12 +258,13 @@ textarea {
 /* --------------------------------------------------------------------------
    Type helpers
    -------------------------------------------------------------------------- */
+/* Small labels: sentence case, normal tracking — no spaced-out capitals. */
 .label {
   font-family: var(--font-sans);
-  font-size: var(--fs-label);
+  font-size: 0.82rem;
   font-weight: 560;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   line-height: 1.4;
 }
 
@@ -273,12 +278,14 @@ textarea {
 }
 
 /* Technical styling, reserved for product identifiers and dimensions. */
+/* Product identifiers: plain, quiet, tabular — not a typewriter face. */
 .code {
-  font-family: var(--font-mono);
-  font-size: 0.76em;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  font-size: 0.86em;
+  font-weight: 560;
+  letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
+  color: var(--stone);
 }
 
 .num {

@@ -172,7 +172,8 @@
 /* ---------- closing ---------- */
 .closing {
   padding-block: var(--s-9);
-  background: var(--plaster-2);
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
 }
 
 .closingInner {
@@ -183,10 +184,13 @@
 }
 
 .closingTitle {
-  font-size: var(--fs-h1);
+  font-size: var(--fs-display);
+  letter-spacing: -0.028em;
 }
 
 .closingLead {
+  max-width: 34rem;
+  font-size: var(--fs-lead);
   color: var(--graphite);
 }
 

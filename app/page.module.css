@@ -1,9 +1,19 @@
+.sampler {
+  padding-top: clamp(3.5rem, 2.5rem + 4vw, 7rem);
+}
+
 .head {
   display: grid;
   gap: var(--s-3);
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  max-width: 40rem;
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
 }
 
 .head h2 {
   font-size: var(--fs-h1);
+}
+
+.head p {
+  max-width: 32rem;
+  color: var(--graphite);
 }
