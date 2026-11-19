@@ -34,12 +34,12 @@ export const company = {
 
 export const contact = {
   phone: {
-    value: "480-755-2280",
-    status: "needs-confirmation",
-    source: "Contact Us page and Products page.",
+    value: "866-545-6280",
+    status: "confirmed",
+    source: "Confirmed by the Highland project team (November 2026); matches the header bar on the current highlandcabinetry.com.",
     note:
-      "The archive shows three different numbers: 480-755-2280 (Contact, Products), 866.853.7987 (Become a Dealer), " +
-      "866-411-2851 (live header bar). Highland must choose the published number(s).",
+      "Earlier archive pages showed 480-755-2280 (Contact, Products), 866.853.7987 (Become a Dealer) and 866-411-2851 " +
+      "(older header bar); all are superseded by this number.",
   } satisfies Fact,
   salesEmail: {
     value: "sales@highlandcabinetryinc.com",
