@@ -6,18 +6,20 @@ Bright and calm. Cabinetry photography leads; type and ornament step back. The f
 - **Ink**: charcoal `#24211d`; muted text `#6a6258` (5.8:1). Aged brass `#7a5f36` and walnut for small details only. Highland blue appears in the logo and focus rings.
 - **Type**: one architectural sans throughout — **Mona Sans** (OFL, self-hosted variable font), headings at weight ≈ 520, slightly widened, tight tracking; moderate sizes (display ≤ 51 px, h2 ≤ 34 px). No serif display face, no italic statements, no spaced-out uppercase labels, no typewriter face. Product codes (`SH·WH`) use the same sans in tabular figures.
 - **Composition**: large photographs with plain captions that always state what the image is (installed project / catalog rendering / product rendering).
-- **Motion**: no intro sequence. The hero text fades up 8 px and the photograph settles from 1.03× (both disabled with reduced motion). Elsewhere only state changes animate.
+- **Motion**: no intro sequence. The hero text rises 14 px and the photograph settles from 1.06×. Scroll-driven reveals (CSS `animation-timeline: view()`, no JavaScript): project photos un-inset, headings lift, map routes draw. All motion is disabled with reduced motion and simply absent in browsers without scroll timelines.
 
 ## Homepage sequence
 
-1. Hero — concise headline, one line of copy, two actions; a naturally bright installed White Shaker kitchen (IMG_4838) full width below.
-2. Sampler (`components/home/FinishTray.tsx`, restored from commit `9ab6712`) — Shaker / Nano / Euro rows of door-face samples on a tray; the selected sample updates the large room photograph and the product card (cabinet rendering, code, name, description, *View* link, *Quote this finish*). On the homepage White Shaker uses a different installed photo (IMG_0082) so the hero is not repeated.
-3. In real kitchens — four large installed-project photographs.
+1. Hero — full-bleed, naturally bright installed White Shaker kitchen (IMG_4838); headline and one line of copy set into the lower third over a soft shade (white text measured ≥ 4:1 against the photo at every breakpoint); on phones the actions move onto the page below the photo. Beneath it, a ribbon of four verified facts: 3 lines, 13 finishes, 3 PM Arizona-time same-day cut-off (June 2025 catalogs), Phoenix showroom & warehouse.
+2. Sampler (`components/home/FinishTray.tsx`, restored from commit `9ab6712`) — unchanged.
+3. In real kitchens — four large installed-project photographs that open from a slight inset as they scroll in.
 4. Craft — four catalog specifications beside three close-ups.
-5. Contractor and dealer paths, with a homeowner line to Find a dealer.
-6. Closing quote invitation (with the sales phone number).
+5. Dealers (`#dealers`) — the Highland warehouse photograph, sticky, beside one desk with two tabs: *Become a dealer* (dealer application) and *Find a dealer* (dealer referral). Contractors are pointed to the trade-account page.
+6. Showroom (`#showroom`) — “One showroom. Projects across the country.” Address card with directions and phone, beside a custom map: public-domain US Census boundaries (`scripts/build-map.mjs`, us-atlas), a pulsing Phoenix pin, and routes that draw out to 23 cities named on the service-area pages. Captioned so the routes are not read as locations or delivery promises.
+7. Standards & associations — KCMA and NKBA marks in white discs; preview-only until confirmed (see launch checklist #17).
+8. Closing quote invitation.
 
-No photograph is repeated on the page. Catalogs and the Phoenix location live on /products/, the footer and the contact page.
+No photograph is repeated on the page.
 
 ## Motion rules
 

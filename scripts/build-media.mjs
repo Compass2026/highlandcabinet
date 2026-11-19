@@ -94,6 +94,11 @@ for (const s of sources) {
     const size = Math.round(W * 0.34);
     const region = { left: Math.round(left + W * 0.04), top: Math.round(top + H * 0.14), width: size, height: size };
     pipeline = sharp(data).extract(region).flatten({ background: "#ffffff" }).resize(640, 640).webp({ quality: 86, effort: 6 });
+  } else if (s.op === "logo") {
+    // A third-party mark: trimmed and resized only, never recoloured or redrawn.
+    out = `${s.id}.webp`;
+    const trimmed = await sharp(data).trim({ threshold: 8 }).toBuffer();
+    pipeline = sharp(trimmed).resize({ width: 480, height: 480, fit: "inside", withoutEnlargement: true }).webp({ quality: 92, alphaQuality: 100, effort: 6 });
   } else {
     throw new Error(`Unknown op ${s.op}`);
   }

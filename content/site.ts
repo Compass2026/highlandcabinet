@@ -107,6 +107,48 @@ export const audiencePolicy = {
   status: "needs-confirmation" as FactStatus,
 };
 
+/**
+ * Standards and associations shown in the Brands section of the current site.
+ * Shown on the staging preview for review; hidden in production until each is confirmed.
+ */
+export interface Affiliation extends Fact {
+  id: string;
+  name: string;
+  mark: string;
+  detail: string;
+  href?: string;
+}
+
+export const affiliations: Affiliation[] = [
+  {
+    id: "kcma",
+    name: "KCMA Certification Program",
+    mark: "mark-kcma",
+    value: "KCMA certified",
+    detail: "Factory-assembled cabinet lines tested to ANSI/KCMA A161.1, the performance and construction standard for kitchen and vanity cabinets.",
+    href: "https://www.kcma.org/",
+    status: "needs-confirmation",
+    source:
+      "KCMA certificate no. 25068 for Highland Cabinetry, Phoenix AZ (kcma.org), issued 1 July 2025, expired 31 August 2026. " +
+      "Covers factory-assembled lines only; flat-pack cabinets are not certified.",
+    note: "Highland must supply the current (2026) certificate before launch, and confirm which website lines it covers.",
+  },
+  {
+    id: "nkba",
+    name: "National Kitchen & Bath Association",
+    mark: "mark-nkba",
+    value: "NKBA member",
+    detail: "The trade association for the kitchen and bath industry.",
+    href: "https://nkba.org/",
+    status: "needs-confirmation",
+    source: "Logo in the Brands section of the current website; membership not independently verified.",
+    note: "Confirm current membership.",
+  },
+];
+
+/** On the public site only confirmed affiliations appear; the staging preview shows all, labelled. */
+export const visibleAffiliations = () => affiliations.filter((a) => a.status === "confirmed" || process.env.SITE_INDEXING !== "on");
+
 export const catalogs = [
   {
     id: "shaker-nano",

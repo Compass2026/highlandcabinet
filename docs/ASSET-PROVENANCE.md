@@ -83,3 +83,6 @@ Kinds: **installed-project** = on-site photograph (EXIF camera data present) · 
 | detail-pullout | product-rendering | `/media/detail-pullout.jpg` 1200×1200 | /wp-content/uploads/2025/08/572900_SP12R_White-Oak.png | `68dd5d7139f4…` |
 | detail-hardware | installed-project | `/media/detail-hardware.jpg` 960×1280 | /wp-content/uploads/2025/02/IMG_4916-1-scaled.jpg | `9c140af2e51b…` |
 | detail-brass | marketing-rendering | `/media/detail-brass.jpg` 752×1016 | /wp-content/uploads/2026/02/compressed_sigblue6.webp | `529a3ea6fc89…` |
+| warehouse | facility | `/media/warehouse.jpg` 1536×1024 | /wp-content/uploads/2026/03/compressed_warehouseimage.webp | `aae175d986ee…` |
+| mark-kcma | affiliation-mark | `/media/mark-kcma.webp` 274×300 | /wp-content/uploads/2023/01/kcma-logo-bluetext_1_orig-274x300.png | `0c92d8d56ef3…` |
+| mark-nkba | affiliation-mark | `/media/mark-nkba.webp` 101×61 | /wp-content/uploads/2023/01/nkba-logo-Copy.png | `d846c4cd3789…` |

@@ -1,6 +1,7 @@
 import { Hero } from "@/components/home/Hero";
 import { FinishTray } from "@/components/home/FinishTray";
-import { Craft, Paths, Projects } from "@/components/home/Editorial";
+import { Craft, Projects } from "@/components/home/Editorial";
+import { Affiliations, DealerSection, LocationSection } from "@/components/home/Showroom";
 import { ClosingCta } from "@/components/home/Sections";
 import { pageMetadata } from "@/lib/seo";
 import { siteUrl } from "@/content/site";
@@ -32,7 +33,9 @@ export default function HomePage() {
 
       <Projects />
       <Craft />
-      <Paths />
+      <DealerSection />
+      <LocationSection />
+      <Affiliations />
       <ClosingCta source="home-closing" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
     </>

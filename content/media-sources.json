@@ -532,5 +532,35 @@
     "op": "scene",
     "alt": "Signature Blue Shaker wall cabinets with long brass bar pulls above a white hexagon-tile backsplash",
     "provenance": "Highland marketing rendering from the Signature Blue collection page of the previous website."
+  },
+  {
+    "id": "warehouse",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2026/03/compressed_warehouseimage.webp",
+    "sourceFile": "aae175d986ee210b2a1488662dbb6ae7648f0a0de6f98b7731ef6ad84230c93a.webp",
+    "sourceSha256": "aae175d986ee210b2a1488662dbb6ae7648f0a0de6f98b7731ef6ad84230c93a",
+    "kind": "facility",
+    "op": "scene",
+    "alt": "Warehouse aisle with tall pallet racking stacked with boxed cabinets",
+    "provenance": "Warehouse photograph from the Become a Dealer section of Highland's current website (2026/03). Location to be confirmed by Highland."
+  },
+  {
+    "id": "mark-kcma",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2023/01/kcma-logo-bluetext_1_orig-274x300.png",
+    "sourceFile": "0c92d8d56ef3e0283eb3b9d37aae0bdc0b6f1d8d9b18866ce791a9a85834ffb2.png",
+    "sourceSha256": "0c92d8d56ef3e0283eb3b9d37aae0bdc0b6f1d8d9b18866ce791a9a85834ffb2",
+    "kind": "affiliation-mark",
+    "op": "logo",
+    "alt": "KCMA Certified Quality Tested Cabinet seal, ANSI/KCMA A161.1",
+    "provenance": "Seal shown in the Brands section of Highland's current website. Use depends on a current KCMA certificate (see launch checklist)."
+  },
+  {
+    "id": "mark-nkba",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2023/01/nkba-logo-Copy.png",
+    "sourceFile": "d846c4cd378976110a2c4617fbca7ef24141ff13d9905a6ed8c38059639da8e8.png",
+    "sourceSha256": "d846c4cd378976110a2c4617fbca7ef24141ff13d9905a6ed8c38059639da8e8",
+    "kind": "affiliation-mark",
+    "op": "logo",
+    "alt": "National Kitchen & Bath Association logo",
+    "provenance": "Logo shown in the Brands section of Highland's current website. Membership to be confirmed by Highland."
   }
 ]

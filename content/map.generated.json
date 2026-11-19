@@ -1,0 +1,172 @@
+{
+  "width": 975,
+  "height": 610,
+  "servedStateCount": 50,
+  "phoenix": [
+    197.2,
+    399.8
+  ],
+  "cities": [
+    {
+      "name": "Los Angeles",
+      "point": [
+        86.8,
+        363.1
+      ]
+    },
+    {
+      "name": "San Diego",
+      "point": [
+        99.7,
+        397.5
+      ]
+    },
+    {
+      "name": "Las Vegas",
+      "point": [
+        153,
+        328.1
+      ]
+    },
+    {
+      "name": "Tucson",
+      "point": [
+        213.2,
+        430.8
+      ]
+    },
+    {
+      "name": "Salt Lake City",
+      "point": [
+        228.5,
+        235.3
+      ]
+    },
+    {
+      "name": "Denver",
+      "point": [
+        342.8,
+        273.9
+      ]
+    },
+    {
+      "name": "Albuquerque",
+      "point": [
+        302.4,
+        376.9
+      ]
+    },
+    {
+      "name": "Dallas",
+      "point": [
+        482.9,
+        440.5
+      ]
+    },
+    {
+      "name": "Houston",
+      "point": [
+        510.4,
+        509.2
+      ]
+    },
+    {
+      "name": "Seattle",
+      "point": [
+        97.6,
+        46.3
+      ]
+    },
+    {
+      "name": "Portland",
+      "point": [
+        79.4,
+        90.3
+      ]
+    },
+    {
+      "name": "Sacramento",
+      "point": [
+        55.6,
+        248
+      ]
+    },
+    {
+      "name": "Boise",
+      "point": [
+        170.1,
+        157.7
+      ]
+    },
+    {
+      "name": "Kansas City",
+      "point": [
+        522.8,
+        295.7
+      ]
+    },
+    {
+      "name": "Chicago",
+      "point": [
+        638.2,
+        226.1
+      ]
+    },
+    {
+      "name": "Minneapolis",
+      "point": [
+        541.9,
+        161
+      ]
+    },
+    {
+      "name": "Nashville",
+      "point": [
+        665.1,
+        355.1
+      ]
+    },
+    {
+      "name": "Atlanta",
+      "point": [
+        715,
+        405.1
+      ]
+    },
+    {
+      "name": "Charlotte",
+      "point": [
+        775.3,
+        362.4
+      ]
+    },
+    {
+      "name": "Orlando",
+      "point": [
+        789,
+        514.6
+      ]
+    },
+    {
+      "name": "Miami",
+      "point": [
+        822.7,
+        572.5
+      ]
+    },
+    {
+      "name": "New York City",
+      "point": [
+        869.7,
+        215.7
+      ]
+    },
+    {
+      "name": "Boston",
+      "point": [
+        908.7,
+        167.1
+      ]
+    }
+  ]
+}

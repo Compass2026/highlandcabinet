@@ -1,0 +1,508 @@
+/* ==========================================================================
+   Dealers · Location · Standards
+   ========================================================================== */
+
+/* ---------- dealers: full-bleed warehouse beside the desk ---------- */
+.dealers {
+  display: grid;
+  grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
+  align-items: start;
+  border-top: 1px solid var(--rule);
+}
+
+.whFigure {
+  position: sticky;
+  top: var(--header-h);
+  height: calc(100svh - var(--header-h));
+  min-height: 560px;
+  max-height: 1000px;
+  margin: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.whPhoto {
+  position: absolute;
+  inset: 0;
+}
+
+.whPhoto img {
+  object-fit: cover;
+  object-position: 30% 50%;
+}
+
+.whFigure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, rgb(22 20 17 / 0.66), rgb(22 20 17 / 0.08) 45%, transparent 65%);
+  pointer-events: none;
+}
+
+.whCaption {
+  position: absolute;
+  left: clamp(1.25rem, 3vw, 3rem);
+  right: clamp(1.25rem, 3vw, 3rem);
+  bottom: clamp(1.5rem, 3.5vw, 3.5rem);
+  z-index: 2;
+  display: grid;
+  gap: var(--s-2);
+  color: #fff;
+}
+
+.whKicker {
+  font-size: 0.8rem;
+  font-weight: 560;
+  color: rgb(255 255 255 / 0.85);
+}
+
+.whLine {
+  max-width: 16ch;
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.5rem);
+  font-weight: 480;
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+
+.dealerBody {
+  display: grid;
+  gap: var(--s-6);
+  align-content: start;
+  padding: clamp(3rem, 2rem + 4vw, 7rem) var(--gutter) clamp(3rem, 2rem + 4vw, 6rem) clamp(2rem, 1rem + 4vw, 6rem);
+  min-width: 0;
+}
+
+.dealerTitle {
+  font-size: var(--fs-h1);
+  max-width: 18ch;
+}
+
+.dealerTitle em {
+  display: block;
+}
+
+.desk {
+  display: grid;
+  gap: var(--s-5);
+  max-width: 44rem;
+}
+
+.tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--plaster-2);
+  box-shadow: inset 0 0 0 1px var(--rule);
+}
+
+.tab {
+  position: relative;
+  z-index: 1;
+  min-height: 46px;
+  padding: 0 var(--s-4);
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.94rem;
+  font-weight: 540;
+  color: var(--graphite);
+  cursor: pointer;
+  transition: color var(--t-med) var(--ease-soft);
+}
+
+.tab[aria-selected="true"] {
+  color: var(--charcoal);
+}
+
+.tab:focus-visible {
+  outline-offset: -2px;
+}
+
+.tabInk {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(36 33 29 / 0.08), 0 6px 18px -8px rgb(36 33 29 / 0.25);
+  transition: transform var(--t-med) var(--ease-soft);
+}
+
+.panel {
+  display: grid;
+  gap: var(--s-5);
+  animation: panel-in var(--t-med) var(--ease-soft);
+}
+
+.panelIntro {
+  max-width: 36rem;
+  color: var(--graphite);
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.trade {
+  max-width: 44rem;
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--rule);
+  color: var(--graphite);
+  font-size: 0.94rem;
+}
+
+.trade a {
+  display: inline-block;
+  padding-block: 4px;
+  font-weight: 560;
+  color: var(--charcoal);
+}
+
+/* ---------- location ---------- */
+.location {
+  border-top: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.locGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+}
+
+.locText {
+  display: grid;
+  gap: var(--s-5);
+  justify-items: start;
+}
+
+.locTitle {
+  font-size: var(--fs-h1);
+}
+
+.locTitle em {
+  display: block;
+}
+
+.locLead {
+  max-width: 30rem;
+  color: var(--graphite);
+}
+
+.card {
+  display: grid;
+  gap: var(--s-2);
+  width: 100%;
+  max-width: 26rem;
+  padding: var(--s-5);
+  background: #fff;
+  box-shadow: var(--raise), inset 0 0 0 1px var(--rule);
+}
+
+.cardName {
+  font-weight: 560;
+}
+
+.addr {
+  font-style: normal;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.hours {
+  font-size: 0.88rem;
+  color: var(--stone);
+}
+
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3) var(--s-5);
+  margin-top: var(--s-3);
+}
+
+.call {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  font-weight: 540;
+  text-decoration: none;
+}
+
+.call svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mapFigure {
+  margin: 0;
+  margin-right: calc(-1 * var(--gutter) * 0.5);
+}
+
+.map {
+  position: relative;
+  aspect-ratio: 975 / 610;
+}
+
+.map > img {
+  object-fit: contain;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.routes path {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  opacity: 0.6;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.cities circle {
+  fill: #fff;
+  stroke: var(--charcoal);
+  stroke-width: 1.4;
+}
+
+.cities text {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 540;
+  fill: var(--graphite);
+  paint-order: stroke;
+  stroke: rgb(253 252 250 / 0.9);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.pinDot {
+  fill: var(--charcoal);
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.pinCore {
+  fill: #fff;
+}
+
+.pulse,
+.pulse2 {
+  fill: none;
+  stroke: var(--charcoal);
+  stroke-width: 1.2;
+  opacity: 0;
+}
+
+.pinLabel {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  fill: var(--charcoal);
+  paint-order: stroke;
+  stroke: rgb(253 252 250 / 0.95);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.mapCaption {
+  max-width: 40rem;
+  margin-top: var(--s-4);
+  font-size: 0.82rem;
+  color: var(--stone);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pulse {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: pulse 2.8s var(--ease-soft) infinite;
+  }
+  .pulse2 {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: pulse 2.8s 1.4s var(--ease-soft) infinite;
+  }
+
+  /* Routes draw out from Phoenix as the map scrolls into view (where supported). */
+  @supports (animation-timeline: view()) {
+    .routes path {
+      animation: draw linear both;
+      animation-timeline: --map;
+      animation-range: entry calc(5% + var(--i) * 1.2%) cover calc(38% + var(--i) * 1.2%);
+    }
+    .cities g {
+      animation: appear linear both;
+      animation-timeline: --map;
+      animation-range: entry calc(20% + var(--i) * 1.2%) cover calc(42% + var(--i) * 1.2%);
+    }
+    .map {
+      view-timeline: --map block;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- standards & associations ---------- */
+.affil {
+  border-top: 1px solid var(--rule);
+}
+
+.affilTitle {
+  font-size: var(--fs-h2);
+  text-align: center;
+}
+
+.marks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-6) clamp(2rem, 6vw, 6rem);
+  margin: clamp(2rem, 4vw, 3.5rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.markItem {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-2);
+  max-width: 17rem;
+  text-align: center;
+}
+
+.markDisc {
+  display: grid;
+  place-items: center;
+  width: clamp(150px, 12vw, 190px);
+  aspect-ratio: 1;
+  margin-bottom: var(--s-3);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(36 33 29 / 0.05), 0 24px 44px -26px rgb(36 33 29 / 0.35), inset 0 0 0 1px var(--rule);
+  transition: transform var(--t-med) var(--ease-soft), box-shadow var(--t-med) var(--ease-soft);
+}
+
+.markDisc:hover {
+  transform: translateY(-3px);
+}
+
+.markImg {
+  width: 62%;
+  height: auto;
+  max-height: 72%;
+  object-fit: contain;
+}
+
+.markName {
+  font-weight: 560;
+}
+
+.markDetail {
+  font-size: 0.88rem;
+  color: var(--graphite);
+}
+
+.pending {
+  margin-top: var(--s-2);
+  padding: 2px 10px;
+  border-radius: 99px;
+  background: #fbf1dc;
+  color: var(--warn);
+  font-size: 0.76rem;
+  font-weight: 560;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px) {
+  .dealers {
+    grid-template-columns: 1fr;
+  }
+  .whFigure {
+    position: relative;
+    top: 0;
+    height: clamp(360px, 62svh, 560px);
+    min-height: 0;
+  }
+  .dealerBody {
+    padding-inline: var(--gutter);
+  }
+  .locGrid {
+    grid-template-columns: 1fr;
+  }
+  .mapFigure {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .tab {
+    font-size: 0.88rem;
+    padding: 0 var(--s-2);
+  }
+  .cities text {
+    display: none;
+  }
+  .cities circle {
+    r: 5px;
+  }
+  .routes path {
+    stroke-width: 1.8;
+  }
+  .pinLabel {
+    font-size: 30px;
+  }
+  .mapFigure {
+    margin-inline: calc(-1 * var(--gutter) + 6px);
+  }
+  .mapCaption {
+    padding-inline: calc(var(--gutter) - 6px);
+  }
+}

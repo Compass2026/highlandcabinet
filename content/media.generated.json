@@ -533,5 +533,36 @@
     "provenance": "Highland marketing rendering from the Signature Blue collection page of the previous website.",
     "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2026/02/compressed_sigblue6.webp",
     "sourceSha256": "529a3ea6fc89e6926cd30be8d2f7ff6489b5d28c8e131ccbd8ab05cbf3e433a8"
+  },
+  "warehouse": {
+    "src": "/media/warehouse.jpg",
+    "width": 1536,
+    "height": 1024,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAALABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABAX/xAAcEAACAgMBAQAAAAAAAAAAAAABAgMhABESQVH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABURAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIRAxEAPwAkJREk00YYqOeY9bGvmPQGVWbhQAKLCjWT4JH5VeqxcJLShWsGiD7khK3/2Q==",
+    "alt": "Warehouse aisle with tall pallet racking stacked with boxed cabinets",
+    "kind": "facility",
+    "provenance": "Warehouse photograph from the Become a Dealer section of Highland's current website (2026/03). Location to be confirmed by Highland.",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2026/03/compressed_warehouseimage.webp",
+    "sourceSha256": "aae175d986ee210b2a1488662dbb6ae7648f0a0de6f98b7731ef6ad84230c93a"
+  },
+  "mark-kcma": {
+    "src": "/media/mark-kcma.webp",
+    "width": 274,
+    "height": 300,
+    "alt": "KCMA Certified Quality Tested Cabinet seal, ANSI/KCMA A161.1",
+    "kind": "affiliation-mark",
+    "provenance": "Seal shown in the Brands section of Highland's current website. Use depends on a current KCMA certificate (see launch checklist).",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2023/01/kcma-logo-bluetext_1_orig-274x300.png",
+    "sourceSha256": "0c92d8d56ef3e0283eb3b9d37aae0bdc0b6f1d8d9b18866ce791a9a85834ffb2"
+  },
+  "mark-nkba": {
+    "src": "/media/mark-nkba.webp",
+    "width": 101,
+    "height": 61,
+    "alt": "National Kitchen & Bath Association logo",
+    "kind": "affiliation-mark",
+    "provenance": "Logo shown in the Brands section of Highland's current website. Membership to be confirmed by Highland.",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2023/01/nkba-logo-Copy.png",
+    "sourceSha256": "d846c4cd378976110a2c4617fbca7ef24141ff13d9905a6ed8c38059639da8e8"
   }
 }

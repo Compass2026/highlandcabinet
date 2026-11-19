@@ -36,6 +36,7 @@ See `.env.example`. Nothing is required to run the preview.
 | `content/media-sources.json` → `content/media.generated.json` | Approved assets with source URL + SHA-256; generated dimensions/blur |
 | `content/redirects.ts` | **Generated** — do not edit |
 | `scripts/build-media.mjs` | Verifies archive checksums, writes optimised local images |
+| `scripts/build-map.mjs` | Builds the location map (`public/map/us-states.svg`, `content/map.generated.json`) from public-domain Census boundaries |
 | `scripts/build-migration.mjs` | Writes `docs/migration/url-inventory.csv` and `content/redirects.ts` from one rule set |
 | `scripts/validate-content.mjs` | Media/provenance/alt/redirect integrity checks |
 | `docs/LAUNCH-CHECKLIST.md` | Facts to confirm, access needed, launch steps |
