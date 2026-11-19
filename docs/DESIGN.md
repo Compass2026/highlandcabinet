@@ -1,40 +1,32 @@
-# Design language — “Reveal & Panel”
+# Design language (milestone 3) — “luxury interiors magazine meets architectural showroom”
 
-The identity comes from the cabinet itself, not from web conventions.
+Bright, confident, tactile. Photography is the centrepiece; type and ornament step back.
 
-| Cabinet idea | Where it appears |
-|---|---|
-| **The reveal** — the 3 mm shadow gap between doors | `--reveal: 3px`. Under the sticky header on scroll; between hero photo and copy; between the four audience “doors”; top of the closing band; the drawer-to-door crop in every finish sample. The logo's own striped disc echoes it. |
-| **The recessed Shaker panel** | `--recess` / `--recess-deep` inset shadows. Audience doors, form inputs (an inset well that deepens on focus), hover state of ghost buttons, gallery stage, finish tray. |
-| **The finish sample tray** | Collection browsing: a felt-lined, recessed tray of real finish chips; the selected chip lifts out with a charcoal edge. |
-| **Sample identification cards** | Finish cards with a punched ring-hole, mono code (`SH·WH`), serif name, line · finish type. |
-| **The specification sheet** | Plex Mono labels, numbered rows, registration marks (`.marks`) at the corners, a printed source line at the foot. |
-| **Soft-close hardware** | One easing curve, `--ease-soft: cubic-bezier(.16,1,.3,1)` — fast start, long settle, no bounce. Drawer opens in ~560 ms and closes faster (360 ms) with an ease-in, like a damped drawer. |
-| **Hardware** | Bar “pulls” on the audience doors; the quote drawer has a pull on its leading edge (a grab bar on mobile). |
+- **Ground**: warm white `#fbf9f5`, quiet surface `#f4f0e9`, hairline rules `#e6dfd4`. No heavy dark bands, boxed panels or registration marks; sections are separated by space and single hairlines.
+- **Ink**: restrained charcoal `#24211d`; muted text `#6a6258` (5.8:1). Accents: oak, walnut and aged brass `#7a5f36`, used for small details only. Highland blue appears in the logo and focus rings.
+- **Type pairing** (both OFL, self-hosted): **Libre Caslon Display** for headlines and product names, upright, moderate sizes (h1 ≈ 49 px, display ≈ 56 px max) — **Mona Sans** for text, navigation, labels and forms. IBM Plex Mono only for product codes (`SH·WH`, `B21`).
+- **Composition**: full-width photographs alternate with spacious editorial spreads (asymmetric two-column, generous gutters, ≤ 34 rem measure). Captions sit under images and always state what the image is (installed project / catalog rendering / product rendering / Highland rendering).
+- **Motion**: one signature moment (the opening). Elsewhere only slow image zoom on hover (1.2 s, 2.5 %), underline draws on links, crossfades in the finish selector and gallery.
 
-## Palette
+## Homepage sequence
 
-Warm plaster `#f4efe7`, linen `#e5dccd`, charcoal `#1d1b18`, walnut `#6a4a30` (text-safe), oak `#b58f62` (decorative), Highland blue `#2a3e92` (logo, focus rings, catalog spines — used sparingly). All body text pairs meet WCAG AA.
+1. Hero — headline + actions on warm white; the cabinet-door opening below.
+2. Three lines — Shaker / Nano / Euro, portrait photographs.
+3. Full-bleed — installed White Shaker kitchen.
+4. Finish selector — choosing a sample changes the cabinet itself (product rendering in that finish), a room photograph, description and links.
+5. Construction — four close-ups (oak grain and Shaker profile, Shaker reveal, black bar pulls, pull-out runner) beside four catalog specifications.
+6. Full-bleed — Shaker Onyx Black rendering.
+7. For the trade — portrait photograph + account facts + actions.
+8. Dealers / homeowners — two photographic paths.
+9. Catalogs, Phoenix location, closing call to action.
 
-## Type (revised in milestone 2)
+No photograph is repeated on the page.
 
-- **Mona Sans** (variable weight + width, SIL OFL 1.1, self-hosted from `@fontsource-variable/mona-sans`) for everything.
-  - Headlines: weight 520–540, width 106 %, tracking −0.026 to −0.034 em, line-height ≈ 1.0. No italics; a second clause sits on its own line in a quieter tone (`h1 em`).
-  - Text: weight 400, normal width, 1.62 line-height, 17 px.
-  - Labels: small uppercase at 600 weight with modest tracking — set in the text face, not a typewriter face.
-- **IBM Plex Mono** (OFL) only where technical styling helps: product identifiers (`SH·WH`), construction callout numbers, spec-row identifiers, the gallery counter. Use the `.code` class.
+## The opening — a showroom moment
 
-The previous Newsreader + Instrument Sans pairing and its italic accent phrases were removed site-wide.
+A pair of Shaker wall-cabinet doors (proportioned ≈ 0.45 wide : 1 tall each) hangs on a softly lit plaster wall inside the hero frame, with a contact shadow beneath. They swing open on their outer hinges (0.8 s), revealing the face frame, the box depth and — inside — the kitchen; the opening then widens (clip-path) into the full-bleed photograph as it settles from 1.12× (finished ≈ 1.45 s). Headline and actions sit above the frame and are usable from the first frame. Plays once per session; skipped with reduced motion; scrolling or “Skip intro” ends it; 3 s failsafe; `<noscript>` CSS fallback. On phones the band keeps headline + one action + dealer link so the whole cabinet sits in the first screen.
 
-## The hero — “Open something extraordinary”
-
-A full-bleed photograph (IMG_0082) behind two Shaker doors that swing outward on their outer hinges.
-
-- **Construction** (CSS only, no 3D library): each door is a face of vertical-grain stiles, horizontal-grain rails set between them with a hairline joint, and a recessed panel lit by inset shadows (frame shadow from above and the hinge side, catch-light on the lower and inner edges). A ¾″ edge (`rotateY(90deg)`) appears as the door turns. Slim matte-black bar pulls on the meeting stiles; a 3 px centre reveal that warms with light at the moment of opening. Phones get tall two-panel doors with a mid rail.
-- **Material**: Shaker Luxe grain sampled from Highland's own product rendering, lighting flattened, rotated for rails.
-- **Choreography** (≈1.85 s): closed close-up → ≈0.4 s pause (or until the photo decodes, max 0.7 s) → seam warms → doors swing to 100° with perspective (1.3 s, `cubic-bezier(.52,.01,.16,1)`, no overshoot) while they darken as they turn from the light → kitchen settles from 1.075× and brightens → headline at 1.0 s, CTAs at 1.12 s.
-- **Rules**: decorative layer only (`aria-hidden`, `pointer-events: none`, nothing focusable); header never covered; plays once per browser session (`sessionStorage`); skipped for reduced motion; “Skip intro” control; focusing anything in the hero ends it; a 3 s CSS failsafe removes the doors if the controller never runs; without JavaScript a `<noscript>` stylesheet plays the same animation once. State lives on `<html data-intro>` and is driven by two tiny inline scripts, so it never waits for React hydration.
-- **Legibility**: a warm, localised pool of shade at lower left (desktop) or a charcoal settle below the cabinetry (phones) — the cabinetry itself is not overlaid.
+Door material: Shaker Luxe grain sampled from Highland's product rendering (lighting flattened; rotated for rails).
 
 ## Motion rules
 

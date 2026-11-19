@@ -39,6 +39,7 @@ and centralised in `content/site.ts` with `status: "needs-confirmation"`.
 | 22 | Partners & financing | Interior Logic Group partner page; “Blue Tree Financing” | Not used | [content] |
 | 23 | Free shipping landing page | `/free-shipping-landing/` | Proposed redirect to Request a Quote; confirm whether the offer still exists | [content] |
 | 24 | Installed-project photos | IMG_48xx/49xx/00xx files from the White Shaker gallery (EXIF: iPhone 11 2021, Canon T3i 2022) | Used as “Installed project — White Shaker” | [blocker] — confirm they show Highland White Shaker and that Highland holds the rights |
+| 24b | Detail imagery | Brass-pull close-up (`compressed_sigblue6.webp`, Signature Blue page) has no camera data; IMG_4916 crop shows black bar pulls in an installed kitchen | Labelled “Highland rendering” and “Installed project” | [content] — confirm the rendering is Highland's and the pulls shown are offered/compatible |
 | 25 | Catalog edition | Two Shaker/Nano PDFs, both “Effective June 2025” (Oct 2025 upload and April 2026 web edition) | Links the April 2026 edition (the one the live nav links) | [content] |
 
 ## 2. Access and assets needed

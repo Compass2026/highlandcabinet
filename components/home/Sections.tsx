@@ -1,121 +1,22 @@
 import Link from "next/link";
-import { Media } from "@/components/ui/Media";
 import { ArrowRight, Download } from "@/components/ui/icons";
 import { QuoteButton } from "@/components/quote/QuoteButton";
 import { catalogs, orderPolicy, phoenixLocation } from "@/content/site";
 import styles from "./Sections.module.css";
 
 /* ---------------------------------------------------------------------------
-   Who Highland works with — four cabinet fronts separated by reveals.
-   --------------------------------------------------------------------------- */
-const audiences = [
-  {
-    tag: "Contractors & builders",
-    title: "Supply for every phase of the build.",
-    body: "Open a trade account, get a dedicated account manager, and order by Excel form, customer portal or 2020 SKU list.",
-    href: "/wholesale-cabinets-for-contractors/",
-    cta: "How trade accounts work",
-  },
-  {
-    tag: "Remodelers & investors",
-    title: "Finishes that turn a house over.",
-    body: "Thirteen finishes across Shaker, Nano and Euro, with 2020 Design-compatible catalog files available on request.",
-    href: "/products/",
-    cta: "Browse collections",
-  },
-  {
-    tag: "Dealers & suppliers",
-    title: "Carry Highland in your showroom.",
-    body: "Add Highland's lines to your offer. Tell us about your business and the markets you serve.",
-    href: "/become-a-dealer/",
-    cta: "Become a dealer",
-  },
-  {
-    tag: "Homeowners",
-    title: "Planning your own kitchen?",
-    body: "Highland sells through the trade. Tell us where your project is and we'll help you find a dealer nearby.",
-    href: "/find-a-dealer/",
-    cta: "Find a dealer",
-  },
-];
-
-export function Audiences() {
-  return (
-    <section className="section" aria-labelledby="who-title">
-      <div className="container">
-        <div className={styles.head}>
-          <p className="label eyebrow">Who we work with</p>
-          <h2 id="who-title" className={styles.h2}>
-            One supplier, four ways in.
-          </h2>
-        </div>
-        <ul className={styles.bank}>
-          {audiences.map((a) => (
-            <li key={a.tag} className={styles.door}>
-              <Link href={a.href} className={styles.doorLink}>
-                <span className={styles.doorPanel}>
-                  <span className={`label ${styles.doorTag}`}>{a.tag}</span>
-                  <span className={styles.doorTitle}>{a.title}</span>
-                  <span className={styles.doorBody}>{a.body}</span>
-                  <span className={styles.doorCta}>
-                    {a.cta} <ArrowRight />
-                  </span>
-                </span>
-                <span className={styles.pull} aria-hidden="true" />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------------------------------------------------------------------
-   Featured collection — White Shaker, the collection with installed photography.
-   --------------------------------------------------------------------------- */
-export function Featured() {
-  return (
-    <section className={`section on-dark ${styles.featured}`} aria-labelledby="featured-title">
-      <div className={`container ${styles.featuredGrid}`}>
-        <div className={styles.featuredText}>
-          <p className="label eyebrow">In the field</p>
-          <h2 id="featured-title" className={styles.h2}>
-            White Shaker, installed.
-          </h2>
-          <p className="lead">
-            Much of Highland&rsquo;s imagery is rendered for the catalog. These are not — they are kitchens from Highland&rsquo;s White Shaker
-            project gallery, photographed on site.
-          </p>
-          <div className={styles.featuredCtas}>
-            <Link href="/wholesale-white-shaker-cabinets/" className="btn">
-              Explore White Shaker <ArrowRight />
-            </Link>
-            <QuoteButton finishId="shaker-white" source="home-featured" className="btn btn--ghost" />
-          </div>
-        </div>
-        <div className={styles.featuredImages}>
-          <Media id="project-white-shaker-04" sizes="(max-width: 900px) 100vw, 40vw" caption="Glass-front uppers and a six-seat island" className={styles.fa} />
-          <Media id="project-white-shaker-03" sizes="(max-width: 900px) 60vw, 22vw" caption="Drawer bank beside a professional range" className={styles.fb} />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------------------------------------------------------------------
    How trade accounts work + verified ordering policy (catalog, June 2025)
    --------------------------------------------------------------------------- */
 const steps = [
   { t: "Get in touch", d: "Call, send a quote request, or visit the Phoenix showroom." },
-  { t: "Talk it through", d: "A member of the sales team learns your projects, products and timelines." },
-  { t: "Set up your account", d: "We collect your business details and preferences to build your customer profile." },
-  { t: "Meet your account manager", d: "One point of contact for current orders, questions and planning ahead." },
+  { t: "Talk it through", d: "Sales learns your projects, products and timelines." },
+  { t: "Set up your account", d: "We build your customer profile from your business details." },
+  { t: "Meet your account manager", d: "One contact for orders, questions and planning ahead." },
 ];
 
 export function TradeProcess() {
   return (
-    <section className="section on-linen" aria-labelledby="trade-title">
+    <section className="section" aria-labelledby="trade-title">
       <div className={`container ${styles.tradeGrid}`}>
         <div>
           <p className="label eyebrow">Working with Highland</p>
@@ -125,7 +26,7 @@ export function TradeProcess() {
           <ol className={styles.steps}>
             {steps.map((s, i) => (
               <li key={s.t}>
-                <span className={`label ${styles.stepNo}`}>{String(i + 1).padStart(2, "0")}</span>
+                <span className={styles.stepNo}>{String(i + 1).padStart(2, "0")}</span>
                 <div>
                   <h3 className={styles.stepT}>{s.t}</h3>
                   <p className={styles.stepD}>{s.d}</p>
@@ -135,12 +36,8 @@ export function TradeProcess() {
           </ol>
         </div>
 
-        <div className={`${styles.policy} marks`}>
-          <span className="marks__b" aria-hidden="true" />
-          <p className="label muted">Ordering · from the June 2025 catalogs</p>
-          <h3 id="policy-title" className={styles.policyTitle}>
-            Order details
-          </h3>
+        <div className={styles.policy}>
+          <p className="label eyebrow">Ordering, from the June 2025 catalogs</p>
           <dl className={styles.policyList}>
             <div>
               <dt>Same-day cut-off</dt>
@@ -152,20 +49,14 @@ export function TradeProcess() {
             </div>
             <div>
               <dt>Delivery</dt>
-              <dd>
-                <ul>
-                  {orderPolicy.deliveryOptions.value.map((d) => (
-                    <li key={d}>{d}</li>
-                  ))}
-                </ul>
-              </dd>
+              <dd>{orderPolicy.deliveryOptions.value.join("; ")}.</dd>
             </div>
             <div>
               <dt>Design files</dt>
               <dd>{orderPolicy.designSoftware.value}</dd>
             </div>
           </dl>
-          <p className={styles.policyNote}>Lead times depend on inventory and destination — your account manager will confirm them for each order.</p>
+          <p className={styles.small}>Lead times depend on inventory and destination; your account manager confirms them for each order.</p>
         </div>
       </div>
     </section>
@@ -173,37 +64,29 @@ export function TradeProcess() {
 }
 
 /* ---------------------------------------------------------------------------
-   Catalogs — binders on the shelf
+   Catalogs — a quiet list
    --------------------------------------------------------------------------- */
 export function Catalogs({ id = "catalogs" }: { id?: string }) {
   return (
     <section className="section" aria-labelledby={`${id}-title`} id={id}>
       <div className={`container ${styles.catGrid}`}>
-        <div>
+        <div className={styles.catText}>
           <p className="label eyebrow">Catalogs</p>
           <h2 id={`${id}-title`} className={styles.h2}>
             Every cabinet, every size.
           </h2>
-          <p className="lead">
-            Full product catalogs with nomenclature, dimensions, accessories and ordering policies. Highland reserves the right to change
-            specifications — confirm current details with your account manager.
-          </p>
+          <p className="lead">Nomenclature, dimensions, accessories and ordering policies for each line.</p>
         </div>
-        <ul className={styles.binders}>
+        <ul className={styles.catList}>
           {catalogs.map((c) => (
             <li key={c.id}>
-              <a href={c.href} className={styles.binder}>
-                <span className={styles.spine} aria-hidden="true" />
-                <span className={styles.binderBody}>
-                  <span className="label muted">{c.edition}</span>
-                  <span className={styles.binderTitle}>{c.title}</span>
-                  <span className={styles.binderMeta}>
-                    {c.pages} pages · {c.sizeLabel}
-                  </span>
+              <a href={c.href} className={styles.cat}>
+                <span className={styles.catTitle}>{c.title}</span>
+                <span className={styles.catMeta}>
+                  {c.edition} · {c.pages} pages · {c.sizeLabel}
                 </span>
-                <span className={styles.binderIcon}>
-                  <Download />
-                  <span className="visually-hidden">Download PDF</span>
+                <span className={styles.catDl}>
+                  <Download /> <span>Download</span>
                 </span>
               </a>
             </li>
@@ -219,28 +102,24 @@ export function Catalogs({ id = "catalogs" }: { id?: string }) {
    --------------------------------------------------------------------------- */
 export function Location() {
   return (
-    <section className="section--tight" aria-labelledby="loc-title">
+    <section className={`section--tight ${styles.loc}`} aria-labelledby="loc-title">
       <div className={`container ${styles.locGrid}`}>
-        <div className={styles.locCard}>
-          <p className="label muted">Physical location</p>
+        <div>
+          <p className="label eyebrow">Showroom &amp; warehouse</p>
           <h2 id="loc-title" className={styles.locTitle}>
-            {phoenixLocation.name}
+            Phoenix, Arizona
           </h2>
-          <address className={styles.addr}>
-            {phoenixLocation.street}
-            <br />
-            {phoenixLocation.locality}, {phoenixLocation.region} {phoenixLocation.postalCode}
-          </address>
-          <p className={styles.locNote}>Warehouse pickup: {phoenixLocation.pickupHours.value}</p>
         </div>
+        <address className={styles.addr}>
+          {phoenixLocation.street}
+          <br />
+          {phoenixLocation.locality}, {phoenixLocation.region} {phoenixLocation.postalCode}
+          <span>Warehouse pickup {phoenixLocation.pickupHours.value}</span>
+        </address>
         <div className={styles.locText}>
-          <p className="label eyebrow">Service areas</p>
-          <p className={styles.locLead}>
-            Our showroom and warehouse are in Phoenix. For projects elsewhere, we work with trade customers and dealers through delivery and
-            freight — tell us where the job is and we&rsquo;ll confirm the options.
-          </p>
+          <p>Projects elsewhere are supplied by delivery and freight. Tell us where the job is.</p>
           <Link href="/wholesale-cabinets/" className="link-arrow">
-            Check delivery to your area <ArrowRight />
+            Service areas <ArrowRight />
           </Link>
         </div>
       </div>
@@ -249,24 +128,27 @@ export function Location() {
 }
 
 /* ---------------------------------------------------------------------------
-   Closing call to action
+   Closing call to action — light, centred, brief
    --------------------------------------------------------------------------- */
 export function ClosingCta({ finishId, source = "closing-cta" }: { finishId?: string; source?: string }) {
   return (
-    <section className={`on-dark ${styles.closing}`} aria-labelledby="close-title">
-      <div className={`container ${styles.closingGrid}`}>
+    <section className={styles.closing} aria-labelledby="close-title">
+      <div className={`container ${styles.closingInner}`}>
         <h2 id="close-title" className={styles.closingTitle}>
-          Have plans on the table? <em>Let&rsquo;s price them.</em>
+          Have plans on the table?
         </h2>
+        <p className={styles.closingLead}>Send them over. We&rsquo;ll price the cabinetry.</p>
         <div className={styles.closingCtas}>
-          <QuoteButton finishId={finishId} source={source} />
+          <QuoteButton finishId={finishId} source={source} arrow={false}>
+            Request a quote
+          </QuoteButton>
           <Link href="/become-a-dealer/" className="btn btn--ghost">
-            Become a Dealer
-          </Link>
-          <Link href="/find-a-dealer/" className={styles.closingLink}>
-            Homeowner? Find a dealer
+            Become a dealer
           </Link>
         </div>
+        <Link href="/find-a-dealer/" className={styles.closingLink}>
+          Homeowner? Find a dealer
+        </Link>
       </div>
     </section>
   );

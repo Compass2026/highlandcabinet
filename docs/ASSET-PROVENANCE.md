@@ -82,3 +82,8 @@ Kinds: **installed-project** = on-site photograph (EXIF camera data present) · 
 | chip-euro-frost-white | finish-detail | `/media/chip-euro-frost-white.webp` 640×640 | /wp-content/uploads/2025/07/163605_B21D_Frost-White.png | `7ef1709b4820…` |
 | door-grain-v | material-texture | `/media/door-grain-v.webp` 800×1100 | /wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png | `06e64ada8415…` |
 | door-grain-h | material-texture | `/media/door-grain-h.webp` 1100×800 | /wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png | `06e64ada8415…` |
+| detail-grain-luxe | product-rendering | `/media/detail-grain-luxe.jpg` 1200×1200 | /wp-content/uploads/2025/09/853996_2DB24_Shaker-Luxe.png | `1dd6cb9bb2d2…` |
+| detail-profile-white | product-rendering | `/media/detail-profile-white.jpg` 1000×1000 | /wp-content/uploads/2025/02/3552_B21_StandardWhite.png | `413409593fd3…` |
+| detail-pullout | product-rendering | `/media/detail-pullout.jpg` 1200×1200 | /wp-content/uploads/2025/08/572900_SP12R_White-Oak.png | `68dd5d7139f4…` |
+| detail-hardware | installed-project | `/media/detail-hardware.jpg` 960×1280 | /wp-content/uploads/2025/02/IMG_4916-1-scaled.jpg | `9c140af2e51b…` |
+| detail-brass | marketing-rendering | `/media/detail-brass.jpg` 752×1016 | /wp-content/uploads/2026/02/compressed_sigblue6.webp | `529a3ea6fc89…` |

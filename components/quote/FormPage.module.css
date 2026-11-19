@@ -36,10 +36,8 @@
 }
 
 .formWrap {
-  padding: clamp(1.25rem, 3vw, 2.75rem);
+  padding: clamp(1.25rem, 3vw, 3rem);
   background: var(--plaster-2);
-  box-shadow: var(--recess);
-  border: 1px solid var(--sand);
   min-width: 0;
 }
 

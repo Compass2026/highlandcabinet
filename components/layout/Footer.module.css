@@ -1,5 +1,8 @@
 .footer {
   padding-block: var(--s-8) var(--s-6);
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+  color: var(--charcoal);
 }
 
 .grid {
@@ -10,19 +13,19 @@
 }
 
 .brand img {
-  width: 132px;
+  width: 110px;
   height: auto;
 }
 
 .tag {
   margin-top: var(--s-5);
   max-width: 22em;
-  color: var(--stone-on-dark);
+  color: var(--stone);
   font-size: var(--fs-small);
 }
 
 .h {
-  color: var(--stone-on-dark);
+  color: var(--stone);
   margin-bottom: var(--s-4);
 }
 
@@ -63,7 +66,7 @@
 .loc {
   margin-top: var(--s-3);
   font-size: var(--fs-small);
-  color: var(--stone-on-dark);
+  color: var(--stone);
 }
 
 .base {
@@ -73,7 +76,7 @@
   gap: var(--s-4);
   padding-top: var(--s-5);
   font-size: 0.85rem;
-  color: var(--stone-on-dark);
+  color: var(--stone);
 }
 
 .cats {

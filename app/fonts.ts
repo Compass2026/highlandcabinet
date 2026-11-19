@@ -1,11 +1,18 @@
 import localFont from "next/font/local";
 
 /**
- * Mona Sans (SIL Open Font License 1.1) — one variable family with weight and width axes,
- * self-hosted from the Fontsource package. Headlines use a slightly expanded width at medium
- * weight; text uses the normal width. IBM Plex Mono (OFL) is reserved for product codes,
- * dimensions and counters.
+ * Type pairing (both SIL Open Font License 1.1, self-hosted from Fontsource):
+ *  - Libre Caslon Display — headlines and product names, set upright at moderate sizes.
+ *  - Mona Sans (variable weight + width) — text, navigation, labels, forms.
+ * IBM Plex Mono (OFL) is kept only for product identifiers and dimensions.
  */
+export const caslonDisplay = localFont({
+  src: [{ path: "../node_modules/@fontsource/libre-caslon-display/files/libre-caslon-display-latin-400-normal.woff2", style: "normal", weight: "400" }],
+  variable: "--font-caslon",
+  display: "swap",
+  fallback: ["Iowan Old Style", "Baskerville", "Georgia", "serif"],
+});
+
 export const monaSans = localFont({
   src: [{ path: "../node_modules/@fontsource-variable/mona-sans/files/mona-sans-latin-standard-normal.woff2", style: "normal", weight: "200 900" }],
   variable: "--font-mona",

@@ -90,8 +90,8 @@
   padding: 0.65rem 0.8rem;
   border: 1px solid var(--sand);
   border-radius: 2px;
-  background: #fbf8f3;
-  box-shadow: var(--recess);
+  background: #fff;
+  box-shadow: none;
   font-size: 1rem;
   line-height: 1.4;
   transition:
@@ -111,7 +111,6 @@
   outline: 2px solid var(--highland);
   outline-offset: 1px;
   border-color: var(--graphite);
-  box-shadow: var(--recess-deep);
 }
 
 .field[data-invalid] input,
@@ -294,9 +293,8 @@
   display: grid;
   gap: var(--s-4);
   padding: var(--s-6) var(--s-5);
-  background: #fbf8f3;
-  border-top: 3px solid var(--charcoal);
-  box-shadow: var(--raise);
+  background: #fff;
+  border-top: 2px solid var(--charcoal);
 }
 
 .result:focus {

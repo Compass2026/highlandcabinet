@@ -1,8 +1,6 @@
 .sheet {
-  margin: 8px;
-  padding: var(--s-6);
-  background: #fbf8f3;
-  box-shadow: var(--raise);
+  margin: 0;
+  padding: 0;
 }
 
 .head {

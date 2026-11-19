@@ -53,6 +53,15 @@ for (const s of sources) {
     // Optional art-direction crop (pixels in the source image), e.g. a portrait crop for phones.
     const base = s.crop ? sharp(data).rotate().extract(s.crop) : sharp(data).rotate();
     pipeline = base.resize({ width: 2400, withoutEnlargement: true }).jpeg({ quality: 82, mozjpeg: true, progressive: true });
+  } else if (s.op === "detail") {
+    // An editorial close-up: crop of a render or photo, transparent edges laid on warm white.
+    out = `${s.id}.jpg`;
+    pipeline = sharp(data)
+      .rotate()
+      .extract(s.crop)
+      .flatten({ background: "#f6f3ee" })
+      .resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true })
+      .jpeg({ quality: 84, mozjpeg: true, progressive: true });
   } else if (s.op === "texture") {
     // A material texture sampled from a product rendering. Baked-in studio lighting is flattened
     // (pixel ÷ heavily blurred copy × mean) so the grain can be relit in CSS; colour is preserved.
@@ -96,7 +105,7 @@ for (const s of sources) {
     src: `/media/${out}`,
     width: meta.width,
     height: meta.height,
-    blurDataURL: s.op === "scene" ? await blur(buf) : undefined,
+    blurDataURL: s.op === "scene" || s.op === "detail" ? await blur(buf) : undefined,
     alt: s.alt,
     kind: s.kind,
     provenance: s.provenance,

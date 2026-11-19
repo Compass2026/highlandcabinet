@@ -6,8 +6,7 @@
   position: relative;
   aspect-ratio: 3 / 2;
   overflow: hidden;
-  background: var(--linen);
-  box-shadow: var(--recess);
+  background: var(--plaster-2);
   touch-action: pan-y;
   user-select: none;
 }

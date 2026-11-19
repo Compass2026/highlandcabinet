@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { monaSans, plexMono } from "./fonts";
+import { caslonDisplay, monaSans, plexMono } from "./fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PreviewBar } from "@/components/layout/PreviewBar";
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f4efe7",
+  themeColor: "#faf8f4",
 };
 
 const organization = {
@@ -31,7 +31,7 @@ const organization = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${monaSans.variable} ${plexMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${caslonDisplay.variable} ${monaSans.variable} ${plexMono.variable}`} suppressHydrationWarning>
       <body>
         <a className="skip-link" href="#main">
           Skip to content

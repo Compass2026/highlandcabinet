@@ -520,5 +520,60 @@
     "provenance": "Wood-grain texture sampled from the Highland Shaker Luxe B21 product rendering (door panel); studio lighting flattened, rotated 90° for horizontal rails. Used only for the decorative hero doors.",
     "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/854013_B21_Shaker-Luxe.png",
     "sourceSha256": "06e64ada841579d9aa83dec573b5695fbeaede022184501f1f0c8c34dab4a045"
+  },
+  "detail-grain-luxe": {
+    "src": "/media/detail-grain-luxe.jpg",
+    "width": 1200,
+    "height": 1200,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAMF/8QAGxAAAwACAwAAAAAAAAAAAAAAAAECERIxMpH/xAAUAQEAAAAAAAAAAAAAAAAAAAAD/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIRAxEAPwDZoNXZl3Sxygt3Ozey9A0WP//Z",
+    "alt": "Close-up of a Shaker Luxe drawer front: stained oak grain running across the rail and down the stile, framing the recessed panel",
+    "kind": "product-rendering",
+    "provenance": "Crop of the Highland Shaker Luxe 2DB24 product rendering. Colour not altered.",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/853996_2DB24_Shaker-Luxe.png",
+    "sourceSha256": "1dd6cb9bb2d2371cb86680a2d4ffc6e3026b2913529b7e1527a0b3384bc04284"
+  },
+  "detail-profile-white": {
+    "src": "/media/detail-profile-white.jpg",
+    "width": 1000,
+    "height": 1000,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBv/EABoQAAEFAQAAAAAAAAAAAAAAAAACESFRYZH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ANZNjmyW1XQbVdKP/9k=",
+    "alt": "Close-up of a White Shaker drawer and door: the shadow reveal between them and the square step down into the recessed panel",
+    "kind": "product-rendering",
+    "provenance": "Crop of the Highland Shaker White B21 product rendering. Colour not altered.",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/3552_B21_StandardWhite.png",
+    "sourceSha256": "413409593fd3b0f7c27950540bb7f19134fd4d6cfddc32ffc9ed454d274f8f34"
+  },
+  "detail-pullout": {
+    "src": "/media/detail-pullout.jpg",
+    "width": 1200,
+    "height": 1200,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwIE/8QAIBAAAgEDBAMAAAAAAAAAAAAAAQIDAAQRBRIhwTFBcf/EABQBAQAAAAAAAAAAAAAAAAAAAAH/xAAXEQADAQAAAAAAAAAAAAAAAAAAAjEy/9oADAMBAAIRAxEAPwDZe3c7bwVcJnjKYorOVpEkDeiO6nULppg+FfaT5IwKHTGJE31e6GyK0//Z",
+    "alt": "Close-up of a White Oak Euro base pull-out: chrome wire baskets on a full-extension runner behind the slab front",
+    "kind": "product-rendering",
+    "provenance": "Crop of the Highland Euro SP12R (White Oak) product rendering. Colour not altered.",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/572900_SP12R_White-Oak.png",
+    "sourceSha256": "68dd5d7139f4ddbafa825dbc9fd708f89d3ce58b3d74054a9c3e2634304a614a"
+  },
+  "detail-hardware": {
+    "src": "/media/detail-hardware.jpg",
+    "width": 960,
+    "height": 1280,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAVABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAf/EACIQAAICAgAGAwAAAAAAAAAAAAERAgMABAUGEhMiQSEysf/EABUBAQEAAAAAAAAAAAAAAAAAAAIE/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECETH/2gAMAwEAAhEDEQA/AM5jlMbGsgSwzX1eLB95TG7bJSFcAPXVIv8AMm8UiLdrWrjazEEyJPynjTPb++T1T0omVhLpkbdi2wEx8zEBtAFY6pdsuZwwwPolw//Z",
+    "alt": "A run of white Shaker drawers with matte black bar pulls beside a professional range and a wide oak floor",
+    "kind": "installed-project",
+    "provenance": "Crop of an installed-project photograph from the White Shaker gallery on the previous Highland website (Canon EOS, 2022).",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/02/IMG_4916-1-scaled.jpg",
+    "sourceSha256": "9c140af2e51b380dd9df1270bbaa2f06facc18967d7cbba3cf2a860990695adb"
+  },
+  "detail-brass": {
+    "src": "/media/detail-brass.jpg",
+    "width": 752,
+    "height": 1016,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAWABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGAv/EACMQAAEEAQQBBQAAAAAAAAAAAAEAAgMRBAUSEyEGIjFBUpH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAYEQADAQEAAAAAAAAAAAAAAAAAARExQf/aAAwDAQACEQMRAD8AnYItzmNHuXUn2nxMbDbvq0/tLMfjOWwBxyIrHYppS7Iy5MLIOP1JtAG4dA0nayQrdN524/G/jsd2CflKdU0CSSOKSN8QcwO3Xfqs2hCzWj4f/9k=",
+    "alt": "Signature Blue Shaker wall cabinets with long brass bar pulls above a white hexagon-tile backsplash",
+    "kind": "marketing-rendering",
+    "provenance": "Highland marketing rendering from the Signature Blue collection page of the previous website.",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2026/02/compressed_sigblue6.webp",
+    "sourceSha256": "529a3ea6fc89e6926cd30be8d2f7ff6489b5d28c8e131ccbd8ab05cbf3e433a8"
   }
 }

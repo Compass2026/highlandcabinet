@@ -1,10 +1,8 @@
 .box {
   display: grid;
   gap: var(--s-3);
-  padding: var(--s-6);
+  padding: clamp(1.25rem, 3vw, 2.5rem);
   background: var(--plaster-2);
-  border: 1px solid var(--sand);
-  box-shadow: var(--recess);
 }
 
 .lbl {

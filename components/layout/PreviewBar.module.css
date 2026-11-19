@@ -1,19 +1,20 @@
 .bar {
-  background: var(--charcoal);
-  color: var(--stone-on-dark);
-  font-size: 0.8rem;
+  background: var(--plaster-2);
+  color: var(--stone);
+  font-size: 0.76rem;
   line-height: 1.4;
+  border-bottom: 1px solid var(--rule);
 }
 
 .bar > div {
   display: flex;
   align-items: baseline;
   gap: var(--s-3);
-  padding-block: 7px;
+  padding-block: 6px;
 }
 
 .bar :global(.label) {
-  color: var(--oak-light);
+  color: var(--brass);
   flex: none;
 }
 

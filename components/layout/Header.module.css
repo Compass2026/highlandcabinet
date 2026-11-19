@@ -2,26 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgb(244 239 231 / 0.94);
+  background: rgb(251 249 245 / 0.92);
   backdrop-filter: saturate(1.2) blur(10px);
   -webkit-backdrop-filter: saturate(1.2) blur(10px);
   transition: box-shadow var(--t-med) var(--ease-soft);
-}
-
-/* When the page moves under the header, a reveal appears — the gap under a drawer front. */
-.header::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 calc(-1 * var(--reveal)) 0;
-  height: var(--reveal);
-  background: linear-gradient(to bottom, rgb(29 27 24 / 0.28), rgb(29 27 24 / 0));
-  opacity: 0;
-  transition: opacity var(--t-med) var(--ease-soft);
-  pointer-events: none;
-}
-
-.header[data-scrolled]::after {
-  opacity: 1;
 }
 
 .header[data-scrolled] {
@@ -66,11 +50,12 @@
   align-items: center;
   gap: 6px;
   min-height: 44px;
-  padding: 0 0.5rem;
+  padding: 0 0.55rem;
   border: 0;
   background: none;
-  font-size: 0.94rem;
-  font-weight: 520;
+  font-size: 0.9rem;
+  font-weight: 480;
+  letter-spacing: 0.005em;
   color: var(--charcoal);
   text-decoration: none;
   cursor: pointer;
@@ -126,8 +111,9 @@
 }
 
 .quote {
-  min-height: 44px;
+  min-height: 42px;
   padding-inline: 1.1rem;
+  font-size: 0.86rem;
 }
 
 .quoteShort {
@@ -139,10 +125,9 @@
   width: 44px;
   height: 44px;
   border: 1px solid var(--rule);
-  border-radius: 2px;
+  border-radius: 0;
   background: transparent;
   cursor: pointer;
-  box-shadow: var(--recess);
 }
 
 .menuIcon {
@@ -187,9 +172,9 @@
   left: 0;
   right: 0;
   top: 100%;
-  background: var(--plaster);
+  background: var(--paper);
   border-top: 1px solid var(--rule);
-  box-shadow: 0 30px 60px -30px rgb(29 27 24 / 0.35);
+  box-shadow: 0 30px 60px -40px rgb(36 33 29 / 0.25);
   transform-origin: top;
   transition:
     opacity var(--t-med) var(--ease-soft),
@@ -243,7 +228,6 @@
 
 .panelLink:hover {
   background: var(--plaster-2);
-  box-shadow: var(--recess);
 }
 
 .panelLink[aria-current="page"] {
@@ -264,7 +248,7 @@
   z-index: 49;
   overflow-y: auto;
   overscroll-behavior: contain;
-  background: var(--plaster);
+  background: var(--paper);
   border-top: 1px solid var(--rule);
   transition:
     opacity var(--t-med) var(--ease-soft),

@@ -6,10 +6,10 @@ import styles from "./Footer.module.css";
 
 export function Footer() {
   return (
-    <footer className={`on-dark ${styles.footer}`}>
+    <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <div className={styles.brand}>
-          <Image src="/brand/highland-logo-light.svg" alt="Highland Cabinetry Inc." width={132} height={60} unoptimized />
+          <Image src="/brand/highland-logo.svg" alt="Highland Cabinetry Inc." width={110} height={50} unoptimized />
           <p className={styles.tag}>Wholesale kitchen and bath cabinetry for contractors, builders, remodelers and dealers.</p>
         </div>
 

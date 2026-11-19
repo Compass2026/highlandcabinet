@@ -1,30 +1,30 @@
 /* ==========================================================================
-   Highland Cabinetry — design system
-   "Reveal & Panel": spacing from the gap between cabinet fronts, depth from the
-   recessed Shaker panel, colour from the finishes themselves.
+   Highland Cabinetry — design system (milestone 3)
+   Luxury-interiors magazine meets architectural showroom: warm white space,
+   restrained charcoal type, photography first, wood and brass as quiet accents.
    ========================================================================== */
 
 :root {
-  /* Ground — plaster walls and the linen of a sample tray */
-  --plaster: #f4efe7;
-  --plaster-2: #ede6da;
-  --linen: #e5dccd;
-  --sand: #d3c7b4;
-  --rule: #c9bca7;
+  /* Ground — warm whites */
+  --paper: #fbf9f5;
+  --plaster: var(--paper); /* legacy alias */
+  --plaster-2: #f4f0e9; /* quiet surface */
+  --linen: #ece6dc;
+  --sand: #ddd4c6;
+  --rule: #e6dfd4;
 
-  /* Ink — warm charcoal, never pure black */
-  --charcoal: #1d1b18;
-  --charcoal-2: #2a2723;
-  --graphite: #403b35;
-  --stone: #675f55; /* 5.4:1 on plaster */
-  --stone-on-dark: #b9ae9f; /* 7.6:1 on charcoal */
+  /* Ink — restrained charcoal */
+  --charcoal: #24211d;
+  --charcoal-2: #2f2b26;
+  --graphite: #4b453e;
+  --stone: #6a6258; /* 5.8:1 on paper */
+  --stone-on-dark: #bdb3a5;
 
-  /* Wood — taken from the Luxe and Walnut finishes */
-  --oak: #b58f62; /* decorative only */
-  --oak-light: #d9bf98;
-  --walnut: #6a4a30; /* text-safe on plaster (7.4:1) */
-
-  /* Brand — Highland blue, from the logo */
+  /* Accents — wood and aged brass, used sparingly */
+  --oak: #b28e63;
+  --oak-light: #d8c09c;
+  --walnut: #6b4b31;
+  --brass: #7a5f36; /* text-safe aged brass (5.6:1 on paper) */
   --highland: #2a3e92;
   --highland-ink: #22337a;
 
@@ -32,27 +32,25 @@
   --warn: #8a5a12;
   --error: #a3261b;
 
-  /* Type — Mona Sans throughout; Plex Mono only for codes, dimensions and counters. */
-  --font-sans: var(--font-mona), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: var(--font-sans);
-  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
-  /* kept as an alias so older modules resolve to the new display face */
+  /* Type */
+  --font-display: var(--font-caslon), "Iowan Old Style", Baskerville, Georgia, serif;
   --font-serif: var(--font-display);
+  --font-sans: var(--font-mona), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display-weight: 400;
+  --display-stretch: normal;
 
-  --display-stretch: 106%;
-  --display-weight: 520;
-
-  --fs-display: clamp(2.5rem, 1.55rem + 3.6vw, 4.75rem);
-  --fs-h1: clamp(2.05rem, 1.45rem + 2.3vw, 3.4rem);
-  --fs-h2: clamp(1.7rem, 1.32rem + 1.45vw, 2.55rem);
-  --fs-h3: clamp(1.18rem, 1.08rem + 0.4vw, 1.4rem);
-  --fs-lead: clamp(1.08rem, 1.02rem + 0.28vw, 1.26rem);
-  --fs-body: 1.0625rem;
+  --fs-display: clamp(2.3rem, 1.7rem + 2.2vw, 3.5rem);
+  --fs-h1: clamp(2.05rem, 1.6rem + 1.75vw, 3.05rem);
+  --fs-h2: clamp(1.75rem, 1.45rem + 1.15vw, 2.45rem);
+  --fs-h3: clamp(1.25rem, 1.16rem + 0.35vw, 1.5rem);
+  --fs-lead: clamp(1.06rem, 1.02rem + 0.2vw, 1.18rem);
+  --fs-body: 1rem;
   --fs-small: 0.9rem;
-  --fs-label: 0.76rem;
+  --fs-label: 0.72rem;
 
-  /* Space — a 4px module; the reveal is the smallest meaningful gap */
-  --reveal: 3px;
+  /* Space */
+  --reveal: 2px;
   --s-1: 0.25rem;
   --s-2: 0.5rem;
   --s-3: 0.75rem;
@@ -61,30 +59,31 @@
   --s-6: 2rem;
   --s-7: 3rem;
   --s-8: 4.5rem;
-  --s-9: clamp(4.5rem, 3rem + 6vw, 9rem);
-  --gutter: clamp(1rem, 0.4rem + 2.6vw, 3.5rem);
-  --max: 1440px;
+  --s-9: clamp(5rem, 3.4rem + 6.5vw, 10rem);
+  --gutter: clamp(1.25rem, 0.5rem + 3.2vw, 4.5rem);
+  --max: 1480px;
+  --measure: 34rem;
 
-  /* Depth — the recessed panel */
-  --recess: inset 0 1px 2px rgb(29 27 24 / 0.14), inset 0 0 0 1px rgb(29 27 24 / 0.07);
-  --recess-deep: inset 0 2px 6px rgb(29 27 24 / 0.2), inset 0 0 0 1px rgb(29 27 24 / 0.1);
-  --raise: 0 1px 0 rgb(255 255 255 / 0.65) inset, 0 1px 2px rgb(29 27 24 / 0.12), 0 8px 24px -12px rgb(29 27 24 / 0.28);
-  --lift: 0 24px 48px -24px rgb(29 27 24 / 0.45), 0 2px 6px rgb(29 27 24 / 0.12);
+  /* Depth — light, used sparingly */
+  --recess: inset 0 0 0 1px var(--rule);
+  --recess-deep: inset 0 1px 2px rgb(36 33 29 / 0.08), inset 0 0 0 1px var(--sand);
+  --raise: 0 1px 2px rgb(36 33 29 / 0.05), 0 12px 32px -20px rgb(36 33 29 / 0.25);
+  --lift: 0 2px 6px rgb(36 33 29 / 0.06), 0 26px 50px -28px rgb(36 33 29 / 0.35);
 
-  /* Motion — soft-close: quick to start, long gentle settle, no bounce */
-  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Motion — restrained so the opening stays special */
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.24, 1);
   --ease-hinge: cubic-bezier(0.3, 0.7, 0.1, 1);
-  --t-fast: 160ms;
-  --t-med: 320ms;
-  --t-slow: 560ms;
+  --t-fast: 180ms;
+  --t-med: 360ms;
+  --t-slow: 700ms;
 
-  --header-h: 72px;
+  --header-h: 76px;
   color-scheme: light;
 }
 
 @media (max-width: 860px) {
   :root {
-    --header-h: 60px;
+    --header-h: 64px;
   }
 }
 
@@ -105,13 +104,13 @@ html {
 
 body {
   margin: 0;
-  background: var(--plaster);
+  background: var(--paper);
   color: var(--charcoal);
   font-family: var(--font-sans);
   font-size: var(--fs-body);
   font-weight: 400;
-  line-height: 1.62;
-  letter-spacing: -0.003em;
+  line-height: 1.65;
+  letter-spacing: 0;
   font-feature-settings: "kern", "liga", "calt";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -131,27 +130,31 @@ h3,
 h4 {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: var(--display-weight);
-  font-stretch: var(--display-stretch);
-  line-height: 1.04;
-  letter-spacing: -0.026em;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.012em;
   text-wrap: balance;
+  color: var(--charcoal);
 }
 
 h3,
 h4 {
-  font-weight: 560;
-  font-stretch: 102%;
-  line-height: 1.18;
-  letter-spacing: -0.014em;
+  line-height: 1.2;
+  letter-spacing: -0.006em;
 }
 
-/* No italic accent phrases: a second clause is set on its own line in a quieter tone. */
+/* No italic accents: a second clause sits on its own line in a quieter tone. */
 h1 em,
 h2 em {
   display: block;
   font-style: normal;
   color: var(--stone);
+}
+
+.on-dark h1,
+.on-dark h2,
+.on-dark h3 {
+  color: inherit;
 }
 
 .on-dark h1 em,
@@ -167,7 +170,7 @@ p {
 a {
   color: inherit;
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.22em;
+  text-underline-offset: 0.24em;
 }
 
 button,
@@ -214,7 +217,7 @@ textarea {
 
 .on-dark {
   background: var(--charcoal);
-  color: var(--plaster);
+  color: var(--paper);
 }
 
 .on-linen {
@@ -240,7 +243,7 @@ textarea {
   z-index: 100;
   padding: var(--s-3) var(--s-4);
   background: var(--charcoal);
-  color: var(--plaster);
+  color: var(--paper);
   text-decoration: none;
 }
 
@@ -251,21 +254,28 @@ textarea {
 /* --------------------------------------------------------------------------
    Type helpers
    -------------------------------------------------------------------------- */
-/* Small section labels: set in the text face, not a typewriter face. */
 .label {
   font-family: var(--font-sans);
   font-size: var(--fs-label);
-  font-weight: 600;
-  font-stretch: 104%;
-  letter-spacing: 0.07em;
+  font-weight: 560;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1.4;
 }
 
-/* Technical styling, reserved for product identifiers, dimensions and counters. */
+.eyebrow {
+  display: inline-block;
+  color: var(--stone);
+}
+
+.on-dark .eyebrow {
+  color: var(--stone-on-dark);
+}
+
+/* Technical styling, reserved for product identifiers and dimensions. */
 .code {
   font-family: var(--font-mono);
-  font-size: 0.78em;
+  font-size: 0.76em;
   font-weight: 500;
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
@@ -275,30 +285,11 @@ textarea {
   font-variant-numeric: tabular-nums;
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-3);
-  color: var(--stone);
-}
-
-.eyebrow::before {
-  content: "";
-  width: 28px;
-  height: 0;
-  border-top: 1px solid currentColor;
-}
-
-.on-dark .eyebrow {
-  color: var(--stone-on-dark);
-}
-
 .lead {
   font-size: var(--fs-lead);
-  line-height: 1.55;
-  letter-spacing: -0.006em;
+  line-height: 1.6;
   color: var(--graphite);
-  max-width: 38em;
+  max-width: var(--measure);
 }
 
 .on-dark .lead {
@@ -309,45 +300,36 @@ textarea {
   color: var(--stone);
 }
 
+.prose {
+  max-width: var(--measure);
+  color: var(--graphite);
+}
+
 .prose p + p {
   margin-top: 1em;
 }
 
-.prose {
-  max-width: 36em;
-  color: var(--graphite);
-}
-
-/* --------------------------------------------------------------------------
-   The reveal — the shadow gap between two cabinet fronts
-   -------------------------------------------------------------------------- */
-.reveal {
-  height: var(--reveal);
-  border: 0;
-  margin: 0;
-  background: linear-gradient(to bottom, rgb(29 27 24 / 0.55), rgb(29 27 24 / 0.22));
-  box-shadow: 0 1px 0 rgb(255 255 255 / 0.7);
-}
-
+/* A hairline rule; the heavy reveal band of earlier milestones is retired. */
+.reveal,
 .reveal-line {
   height: 0;
+  margin: 0;
   border: 0;
   border-top: 1px solid var(--rule);
-  box-shadow: 0 1px 0 rgb(255 255 255 / 0.6);
-  margin: 0;
+  background: none;
+  box-shadow: none;
 }
 
 .on-dark .reveal-line {
   border-top-color: rgb(255 255 255 / 0.14);
-  box-shadow: 0 1px 0 rgb(0 0 0 / 0.4);
 }
 
 /* --------------------------------------------------------------------------
-   Buttons — a precise press, like a push-latch door
+   Buttons — quiet, exact
    -------------------------------------------------------------------------- */
 .btn {
   --btn-bg: var(--charcoal);
-  --btn-fg: var(--plaster);
+  --btn-fg: var(--paper);
   --btn-edge: var(--charcoal);
   position: relative;
   display: inline-flex;
@@ -355,73 +337,66 @@ textarea {
   justify-content: center;
   gap: var(--s-3);
   min-height: 48px;
-  padding: 0.7rem 1.35rem;
+  padding: 0.7rem 1.4rem;
   border: 1px solid var(--btn-edge);
-  border-radius: 2px;
+  border-radius: 0;
   background: var(--btn-bg);
   color: var(--btn-fg);
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  font-weight: 580;
-  font-stretch: 104%;
-  letter-spacing: 0;
+  font-size: 0.92rem;
+  font-weight: 540;
+  letter-spacing: 0.015em;
   line-height: 1.2;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 1px 0 rgb(255 255 255 / 0.08) inset, 0 1px 2px rgb(29 27 24 / 0.2);
   transition:
-    box-shadow var(--t-fast) var(--ease-hinge),
-    transform var(--t-fast) var(--ease-hinge),
-    background-color var(--t-med) var(--ease-soft),
-    color var(--t-med) var(--ease-soft);
+    background-color var(--t-fast) var(--ease-soft),
+    color var(--t-fast) var(--ease-soft),
+    border-color var(--t-fast) var(--ease-soft),
+    transform var(--t-fast) var(--ease-soft);
 }
 
 .btn:hover {
-  box-shadow: inset 0 2px 5px rgb(0 0 0 / 0.35), 0 0 0 rgb(29 27 24 / 0);
+  --btn-bg: #3b3631;
+  --btn-edge: #3b3631;
 }
 
 .btn:active {
   transform: translateY(1px);
-  box-shadow: inset 0 3px 7px rgb(0 0 0 / 0.42);
 }
 
 .btn--ghost {
   --btn-bg: transparent;
   --btn-fg: var(--charcoal);
-  --btn-edge: var(--charcoal);
-  box-shadow: none;
+  --btn-edge: rgb(36 33 29 / 0.35);
 }
 
 .btn--ghost:hover {
-  --btn-bg: rgb(29 27 24 / 0.04);
-  box-shadow: var(--recess);
+  --btn-bg: transparent;
+  --btn-edge: var(--charcoal);
 }
 
 .on-dark .btn {
-  --btn-bg: var(--plaster);
+  --btn-bg: var(--paper);
   --btn-fg: var(--charcoal);
-  --btn-edge: var(--plaster);
+  --btn-edge: var(--paper);
 }
 
 .on-dark .btn--ghost {
   --btn-bg: transparent;
-  --btn-fg: var(--plaster);
-  --btn-edge: rgb(244 239 231 / 0.55);
-}
-
-.on-dark .btn--ghost:hover {
-  --btn-bg: rgb(255 255 255 / 0.06);
-  box-shadow: inset 0 2px 6px rgb(0 0 0 / 0.5);
+  --btn-fg: var(--paper);
+  --btn-edge: rgb(251 249 245 / 0.5);
 }
 
 .btn__arrow {
-  width: 18px;
+  width: 16px;
   height: 10px;
   flex: none;
   transition: transform var(--t-med) var(--ease-soft);
 }
 
-.btn:hover .btn__arrow {
+.btn:hover .btn__arrow,
+.link-arrow:hover .btn__arrow {
   transform: translateX(3px);
 }
 
@@ -429,74 +404,43 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: var(--s-2);
-  font-weight: 560;
+  padding-block: 4px;
+  font-size: 0.92rem;
+  font-weight: 540;
   text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 2px;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  transition: background-size var(--t-med) var(--ease-soft), color var(--t-fast) var(--ease-soft);
 }
 
-.link-arrow .btn__arrow {
-  width: 16px;
+.link-arrow:hover {
+  color: var(--walnut);
 }
 
-.link-arrow:hover .btn__arrow {
-  transform: translateX(3px);
-}
-
-/* --------------------------------------------------------------------------
-   Registration marks — corners of a specification sheet
-   -------------------------------------------------------------------------- */
+/* Registration marks from earlier milestones are retired (decorative clutter). */
 .marks {
   position: relative;
 }
 
-.marks::before,
-.marks::after,
-.marks > .marks__b::before,
-.marks > .marks__b::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: var(--stone);
-  border-style: solid;
-  border-width: 0;
-  pointer-events: none;
+.marks__b {
+  display: none;
 }
 
-.marks::before {
-  top: -8px;
-  left: -8px;
-  border-top-width: 1px;
-  border-left-width: 1px;
+/* --------------------------------------------------------------------------
+   Photography helpers
+   -------------------------------------------------------------------------- */
+.photo-zoom {
+  overflow: hidden;
 }
 
-.marks::after {
-  top: -8px;
-  right: -8px;
-  border-top-width: 1px;
-  border-right-width: 1px;
+.photo-zoom img {
+  transition: transform 1.2s var(--ease-soft);
 }
 
-.marks > .marks__b {
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 0;
-  pointer-events: none;
-}
-
-.marks > .marks__b::before {
-  bottom: -8px;
-  left: -8px;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-}
-
-.marks > .marks__b::after {
-  bottom: -8px;
-  right: -8px;
-  border-bottom-width: 1px;
-  border-right-width: 1px;
+@media (hover: hover) {
+  a:hover .photo-zoom img,
+  .photo-zoom:hover img {
+    transform: scale(1.025);
+  }
 }
 
 /* --------------------------------------------------------------------------

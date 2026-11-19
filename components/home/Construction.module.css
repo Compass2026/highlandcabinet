@@ -7,10 +7,9 @@
 
 /* A specification sheet: paper, registration marks, a title strip. */
 .sheet {
-  margin: 8px;
-  padding: var(--s-5) var(--s-6) var(--s-5);
-  background: #fbf8f3;
-  box-shadow: var(--raise);
+  margin: 0;
+  padding: 0;
+  background: transparent;
   position: sticky;
   top: calc(var(--header-h) + var(--s-6));
 }
@@ -114,7 +113,6 @@
 .item:hover,
 .item[aria-pressed="true"] {
   background: var(--plaster-2);
-  box-shadow: var(--recess);
 }
 
 .num {
