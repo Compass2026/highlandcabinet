@@ -1,6 +1,7 @@
 import { Hero } from "@/components/home/Hero";
 import { FinishTray } from "@/components/home/FinishTray";
-import { Craft, Projects } from "@/components/home/Editorial";
+import { Projects } from "@/components/home/Editorial";
+import { Construction } from "@/components/home/Construction";
 import { Affiliations, DealerSection, LocationSection } from "@/components/home/Showroom";
 import { ClosingCta } from "@/components/home/Sections";
 import { pageMetadata } from "@/lib/seo";
@@ -32,7 +33,14 @@ export default function HomePage() {
       </section>
 
       <Projects />
-      <Craft />
+      <section className="section on-linen" aria-labelledby="construction">
+        <div className="container">
+          <Construction
+            title="Built to be opened every day."
+            intro="Every Shaker and Nano cabinet shares one box: cabinet-grade plywood, L-bracket reinforcement for stone tops, dovetail drawers and soft-close hardware. Select a feature to find it on the drawing."
+          />
+        </div>
+      </section>
       <DealerSection />
       <LocationSection />
       <Affiliations />

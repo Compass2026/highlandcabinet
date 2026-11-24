@@ -27,8 +27,7 @@
   margin-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
-.head h2,
-.craftText h2 {
+.head h2 {
   font-size: var(--fs-h1);
 }
 
@@ -40,8 +39,7 @@
 /* ---------- projects ---------- */
 .pWide,
 .pPair figure,
-.pOffset,
-.details figure {
+.pOffset {
   margin: 0;
 }
 
@@ -74,56 +72,8 @@
   aspect-ratio: 3 / 2;
 }
 
-/* ---------- craft ---------- */
-.craftGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(2rem, 6vw, 6rem);
-  align-items: center;
-}
-
-.craftText {
-  display: grid;
-  gap: var(--s-4);
-  justify-items: start;
-}
-
-.specs {
-  display: grid;
-  width: 100%;
-  margin: var(--s-2) 0 var(--s-2);
-}
-
-.specs > div {
-  display: grid;
-  grid-template-columns: 5.5rem minmax(0, 1fr);
-  gap: var(--s-4);
-  padding-block: 0.75rem;
-  border-top: 1px solid var(--rule);
-}
-
-.specs dt {
-  font-weight: 560;
-}
-
-.specs dd {
-  margin: 0;
-  color: var(--graphite);
-}
-
-.details {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.75rem, 1.6vw, 1.5rem);
-}
-
-.details .photo {
-  aspect-ratio: 3 / 4;
-}
-
 @media (max-width: 860px) {
-  .pPair,
-  .craftGrid {
+  .pPair {
     grid-template-columns: 1fr;
   }
   .pWide .photo {

@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
 import { kindLabel, media } from "@/lib/media";
-import { ArrowRight } from "@/components/ui/icons";
 import styles from "./Editorial.module.css";
 
 function Photo({ id, sizes, className, position }: { id: string; sizes: string; className?: string; position?: string }) {
@@ -62,54 +60,6 @@ export function Projects() {
           <Photo id="project-white-shaker-05" sizes="(max-width: 860px) 100vw, 62vw" position="50% 50%" />
           <Caption id="project-white-shaker-05">Lit glass-front uppers around a hood surround</Caption>
         </figure>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------------------------------------------------------------------
-   Craft — concise
-   --------------------------------------------------------------------------- */
-const craftSpecs = [
-  { k: "Box", v: "Cabinet-grade plywood, L-bracket reinforced bases" },
-  { k: "Drawers", v: "Dovetailed, ½″ solid wood sides" },
-  { k: "Glides", v: "Full-extension, undermount, soft-close" },
-  { k: "Hinges", v: "Concealed, six-way adjustable" },
-];
-
-export function Craft() {
-  return (
-    <section className={`section ${styles.craft}`} aria-labelledby="craft-title">
-      <div className={`container ${styles.craftGrid}`}>
-        <div className={`${styles.craftText} rise`}>
-          <h2 id="craft-title">Built to be opened every day.</h2>
-          <p className={styles.headText}>Every Shaker and Nano cabinet shares the same box, drawers and hardware.</p>
-          <dl className={styles.specs}>
-            {craftSpecs.map((s) => (
-              <div key={s.k}>
-                <dt>{s.k}</dt>
-                <dd>{s.v}</dd>
-              </div>
-            ))}
-          </dl>
-          <Link href="/wholesale-white-shaker-cabinets/#construction" className="link-arrow">
-            Full specifications <ArrowRight />
-          </Link>
-        </div>
-        <div className={styles.details}>
-          <figure>
-            <Photo id="detail-grain-luxe" sizes="(max-width: 860px) 50vw, 20vw" />
-            <Caption id="detail-grain-luxe">Shaker Luxe grain</Caption>
-          </figure>
-          <figure>
-            <Photo id="detail-profile-white" sizes="(max-width: 860px) 50vw, 20vw" />
-            <Caption id="detail-profile-white">The Shaker reveal</Caption>
-          </figure>
-          <figure>
-            <Photo id="detail-pullout" sizes="(max-width: 860px) 50vw, 20vw" />
-            <Caption id="detail-pullout">Full-extension pull-out</Caption>
-          </figure>
-        </div>
       </div>
     </section>
   );
