@@ -1,7 +1,7 @@
 {
   "site": "https://highlandcabinetry.com",
-  "mappedTo": "http://localhost:3002",
-  "at": "2026-11-24T20:25:22.742Z",
+  "mappedTo": "https://highland-cabinetry-pt57rzm9h-compassmarketin.vercel.app",
+  "at": "2026-11-24T20:50:37.323Z",
   "checks": [
     {
       "name": "tag loads: GTM-NM4FXR2B",
@@ -39,7 +39,7 @@
     {
       "name": "attribution captured on landing",
       "ok": true,
-      "detail": "{\"params\":{\"gclid\":\"TEST-GCLID\",\"utm_source\":\"google\",\"utm_medium\":\"cpc\",\"utm_campaign\":\"verify\"},\"landing\":\"/request-a-quote/\",\"referrer\":\"\",\"at\":\"2026-11-24T20:24:55.703Z\"}"
+      "detail": "{\"params\":{\"gclid\":\"TEST-GCLID\",\"utm_source\":\"google\",\"utm_medium\":\"cpc\",\"utm_campaign\":\"verify\"},\"landing\":\"/request-a-quote/\",\"referrer\":\"\",\"at\":\"2026-11-24T20:50:09.344Z\"}"
     },
     {
       "name": "measurement events for one confirmed lead (each should be 1)",
@@ -59,7 +59,7 @@
     {
       "name": "Google Ads lead conversion fires",
       "ok": true,
-      "detail": "https://www.googleadservices.com/pagead/conversion/341905256/?random=1795551902829&cv=11&fst=1795551902829&fmt=7&bg=ffffff&guid=ON&async=1&e"
+      "detail": "https://www.googleadservices.com/pagead/conversion/341905256/?random=1795553416687&cv=11&fst=1795553416687&fmt=7&bg=ffffff&guid=ON&async=1&e"
     },
     {
       "name": "lead carries gclid and utm_campaign",
@@ -77,7 +77,7 @@
       "detail": ""
     },
     {
-      "name": "no tags on localhost:3002",
+      "name": "no tags on highland-cabinetry-pt57rzm9h-compassmarketin.vercel.app",
       "ok": true,
       "detail": ""
     }

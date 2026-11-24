@@ -1,12 +1,13 @@
 {
-  "base": "https://highland-cabinetry-rkeivctvu-compassmarketin.vercel.app",
-  "inventoryRows": 324,
-  "checked": 323,
+  "base": "https://highland-cabinetry-pt57rzm9h-compassmarketin.vercel.app",
+  "inventoryRows": 339,
+  "checked": 338,
   "byStatus": {
     "200": 291,
-    "308": 30,
+    "308": 45,
     "410": 2
   },
+  "variantsChecked": 82,
   "internalLinksChecked": 296,
   "failures": []
 }
