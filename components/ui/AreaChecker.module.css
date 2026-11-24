@@ -1,4 +1,5 @@
 .box {
+  border-radius: var(--r-lg);
   display: grid;
   gap: var(--s-3);
   padding: clamp(1.25rem, 3vw, 2.5rem);

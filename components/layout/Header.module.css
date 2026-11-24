@@ -168,6 +168,7 @@
 
 /* ---------- collections panel ---------- */
 .panel {
+  border-radius: 0 0 var(--r-lg) var(--r-lg);
   position: absolute;
   left: 0;
   right: 0;
@@ -215,6 +216,7 @@
 }
 
 .panelLink {
+  border-radius: var(--r-sm);
   display: flex;
   align-items: center;
   gap: var(--s-3);

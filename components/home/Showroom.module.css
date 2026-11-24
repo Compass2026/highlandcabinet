@@ -12,11 +12,12 @@
 
 .whFigure {
   position: sticky;
-  top: var(--header-h);
-  height: calc(100svh - var(--header-h));
+  top: calc(var(--header-h) + 12px);
+  height: calc(100svh - var(--header-h) - 24px);
+  margin: 12px 0 12px 12px;
+  border-radius: var(--r-xl);
   min-height: 560px;
   max-height: 1000px;
-  margin: 0;
   overflow: hidden;
   isolation: isolate;
 }
@@ -200,6 +201,7 @@
 }
 
 .card {
+  border-radius: var(--r-md);
   display: grid;
   gap: var(--s-2);
   width: 100%;
@@ -468,6 +470,7 @@
   .whFigure {
     position: relative;
     top: 0;
+    margin: 0 8px;
     height: clamp(360px, 62svh, 560px);
     min-height: 0;
   }

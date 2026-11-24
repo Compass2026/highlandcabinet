@@ -36,6 +36,7 @@
 }
 
 .formWrap {
+  border-radius: var(--r-lg);
   padding: clamp(1.25rem, 3vw, 3rem);
   background: var(--plaster-2);
   min-width: 0;

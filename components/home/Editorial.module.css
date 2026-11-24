@@ -1,4 +1,5 @@
 .photo {
+  border-radius: var(--r-lg);
   position: relative;
   overflow: hidden;
   background: var(--plaster-2);

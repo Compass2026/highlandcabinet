@@ -6,8 +6,13 @@
 
 [data-hero-figure] {
   position: relative;
-  margin: 0;
+  margin: clamp(6px, 0.6vw, 10px) clamp(8px, 0.9vw, 14px) 0;
   isolation: isolate;
+}
+
+[data-hero-photo],
+[data-hero-scrim] {
+  border-radius: var(--r-xl);
 }
 
 [data-hero-photo] {

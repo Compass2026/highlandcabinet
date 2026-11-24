@@ -78,6 +78,12 @@
   --t-med: 360ms;
   --t-slow: 700ms;
 
+  /* Corners — soft and consistent: pills for controls, these for surfaces. */
+  --r-xl: 24px; /* full-bleed photographs (hero, warehouse) */
+  --r-lg: 18px; /* photographs, panels */
+  --r-md: 14px; /* cards, the sample tray */
+  --r-sm: 8px; /* small tiles, list rows */
+
   --header-h: 76px;
   color-scheme: light;
 }
@@ -85,6 +91,9 @@
 @media (max-width: 860px) {
   :root {
     --header-h: 64px;
+    --r-xl: 18px;
+    --r-lg: 14px;
+    --r-md: 12px;
   }
 }
 
@@ -477,10 +486,10 @@ textarea {
 
 @keyframes unveil {
   from {
-    clip-path: inset(7% 5% 0 5%);
+    clip-path: inset(7% 5% 0 5% round var(--r-lg));
   }
   to {
-    clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0 round var(--r-lg));
   }
 }
 

@@ -3,6 +3,7 @@
 }
 
 .frame {
+  border-radius: var(--r-lg);
   position: relative;
   overflow: hidden;
   background: var(--linen);

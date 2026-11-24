@@ -3,6 +3,7 @@
 }
 
 .stage {
+  border-radius: var(--r-lg);
   position: relative;
   aspect-ratio: 3 / 2;
   overflow: hidden;
@@ -116,6 +117,8 @@
 }
 
 .thumb {
+  border-radius: var(--r-sm);
+  overflow: hidden;
   flex: none;
   width: 96px;
   height: 68px;
