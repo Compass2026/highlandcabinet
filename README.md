@@ -24,6 +24,7 @@ node scripts/test-migration.mjs           # every old URL and internal link
 node scripts/test-lead-delivery.mjs       # email + webhook delivery and every failure path (mock endpoints)
 SITE=https://highlandcabinetry.com MAP_TO=http://localhost:3001 node scripts/verify-tracking.mjs
 node scripts/verify-production.mjs        # after DNS cutover, on the real domain — docs/launch/CUTOVER.md
+node scripts/build-static-fallback.mjs    # portable static copy for rollback on any static host
 ```
 
 ## Environment
@@ -52,7 +53,8 @@ See `.env.example`. Nothing is required to run the preview.
 | `scripts/build-map.mjs` | Builds the location map (`public/map/us-states.svg`, `content/map.generated.json`) from public-domain Census boundaries |
 | `scripts/build-migration.mjs` | Writes `docs/migration/url-inventory.csv` and `content/redirects.ts` from one rule set |
 | `scripts/validate-content.mjs` | Media/provenance/alt/redirect integrity checks |
-| `docs/LAUNCH-CHECKLIST.md` | Facts to confirm, access needed, launch steps |
+| `docs/LAUNCH-CHECKLIST.md` | Reconciled launch view: blockers, decisions, omitted items, completed work |
+| `docs/launch/` | Cutover runbook, tracking, facts register, readiness record and verification reports |
 | `docs/migration/url-inventory.csv` | Every archived URL → type, replacement, status, redirect, issues |
 | `docs/ASSET-PROVENANCE.md` | Source and checksum for every image and document |
 | `docs/DESIGN.md` | Design language and motion rules |

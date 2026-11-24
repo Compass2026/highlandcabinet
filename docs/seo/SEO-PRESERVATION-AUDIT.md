@@ -157,7 +157,7 @@ All redirects are single-hop 308s except the two slash-less legacy links (one ex
   remain visible only on the staging preview (`SITE_INDEXING` unset), for Highland's review.
 
 Launch requires `SITE_INDEXING=on` and `NEXT_PUBLIC_SITE_URL=https://highlandcabinetry.com` on the production
-deployment (see `docs/LAUNCH-CHECKLIST.md`).
+deployment (see `docs/launch/FACTS-REGISTER.md`).
 
 ## 8. Unresolved risks
 

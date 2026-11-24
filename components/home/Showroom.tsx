@@ -3,7 +3,7 @@ import Link from "next/link";
 import { DealerDesk } from "./DealerDesk";
 import { ArrowRight, Phone } from "@/components/ui/icons";
 import { kindLabel, media } from "@/lib/media";
-import { contact, phoenixLocation, telHref, visibleAffiliations } from "@/content/site";
+import { contact, phoenixLocation, showWarehousePhoto, telHref, visibleAffiliations } from "@/content/site";
 import map from "@/content/map.generated.json";
 import styles from "./Showroom.module.css";
 
@@ -11,7 +11,8 @@ import styles from "./Showroom.module.css";
    Dealers — the warehouse beside one desk for "become" and "find"
    --------------------------------------------------------------------------- */
 export function DealerSection() {
-  const wh = media("warehouse");
+  const photo = showWarehousePhoto();
+  const wh = media(photo ? "warehouse" : "scene-shaker-modern-slate");
   return (
     <section id="dealers" className={styles.dealers} aria-labelledby="dealers-title">
       <figure className={styles.whFigure}>
@@ -20,7 +21,7 @@ export function DealerSection() {
         </div>
         <figcaption className={styles.whCaption}>
           <span className={styles.whKicker}>{kindLabel[wh.kind]}</span>
-          <span className={styles.whLine}>Stocked, picked and loaded in Phoenix.</span>
+          <span className={styles.whLine}>{photo ? "Stocked, picked and loaded in Phoenix." : "Ordered through dealers and trade accounts."}</span>
         </figcaption>
       </figure>
 

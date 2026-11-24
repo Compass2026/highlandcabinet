@@ -1,6 +1,10 @@
 # Domain cutover runbook — highlandcabinetry.com → Vercel
 
-Status (24 Nov 2026): **ready except for the items marked ⛔.** Nothing about the live domain has been changed.
+Status (24 Nov 2026): **ready except for the items marked ⛔** (open blockers: `docs/LAUNCH-CHECKLIST.md` §A). Nothing about
+the live domain has been changed, and DNS is not to be changed without explicit go-ahead.
+
+**Old-host cutoff: Thursday 26 Nov 2026, 5:00 pm Central.** The WordPress server (45.32.74.243) may disappear then; it
+is **not** a rollback target.
 
 ## Current state (recorded in `dns-baseline.json`)
 
@@ -25,50 +29,71 @@ Status (24 Nov 2026): **ready except for the items marked ⛔.** Nothing about t
 |---|---|
 | `SITE_INDEXING=on`, `NEXT_PUBLIC_SITE_URL=https://highlandcabinetry.com` | set |
 | `LEAD_EMAIL_FROM=Highland Cabinetry Website <website@highlandcabinetry.com>` | set |
-| `LEAD_TEST_TOKEN` | ⛔ set it yourself in the Vercel dashboard (any long random string, type *Sensitive*) and pass the same value to `verify-production.mjs`. A value set through the API connector did not arrive intact (verified by hash), so the current one must be overwritten |
+| `LEAD_TEST_TOKEN_SHA256` | ⛔ operator runs `node scripts/make-lead-test-token.mjs` locally, sets the printed hash here, keeps the token in a password manager. Only the hash is stored on the server. Delete the obsolete `LEAD_TEST_TOKEN` variable (a value sent through the API connector did not arrive intact) |
 | `SENDGRID_API_KEY` | ⛔ Highland's SendGrid account (domain already authenticated) — a key with *Mail Send* permission only |
 | `LEAD_EMAIL_TO` | ⛔ who receives leads (e.g. `sales@highlandcabinetryinc.com`, comma-separate several) |
 | `LEAD_WEBHOOK_URL` / `LEAD_WEBHOOK_SECRET` | optional — CRM hook, in addition to email |
 
 ## Decisions needed before cutover
 
-1. ⛔ **Lead recipients and SendGrid key** (above). Until both are set, every form tells the visitor plainly that nothing was sent and gives the phone number.
-2. ⛔ **CallRail number swapping.** CallRail swaps **480-755-2280** for tracking numbers on ad traffic. The new site shows
-   **866-545-6280**, so calls from ad visitors would no longer be attributed. Either add 866-545-6280 as a swap target in
-   CallRail (Numbers → swap target), or show 480-755-2280 on the site. `docs/launch/TRACKING.md`.
-3. Which Luxe campaigns and the Q4 blowout offer are still running (`docs/LAUNCH-CHECKLIST.md` R12).
-4. Remaining content blockers in `docs/LAUNCH-CHECKLIST.md` (privacy review, warehouse photo, KCMA).
+See `docs/LAUNCH-CHECKLIST.md` §B (each has a default if Highland has not answered by Wednesday noon Central).
+
+## Schedule (Central time)
+
+| When | Step |
+|---|---|
+| **Tue 24 (done)** | 15 baseline paths added and tested; priority content checks; fallback built and verified; token mechanism; this plan |
+| **Wed 25 by noon** | Highland: SendGrid key + recipients (B1), CallRail decision/change (B3, D1), account-control confirmations (B4), GoDaddy access + zone export (B6), hosting account for rollback (B5) |
+| **Wed 25 afternoon** | Set test-token hash (B7); lower TTLs to 600 s; deploy final commit; inbox receipt for all four form types (B2) on the production deployment URL; build the fallback from the same commit and upload it to Highland's host; rehearse rollback; record IDs in READINESS.md |
+| **Thu 26, 9:00 am** | Go/no-go: all of §A closed. Add domains in Vercel, change the two GoDaddy records |
+| **Thu 26, 9:30–12:00** | `verify-production.mjs` on the real domain, inbox receipt again, test call; fix or roll back |
+| **Thu 26, 12:00–5:00 pm** | Buffer. The old host must not be needed after this point |
 
 ## Cutover steps
 
-**T-2 days**
+**Wednesday**
 1. Export the full GoDaddy zone file and keep it with this runbook (DNS-over-HTTPS cannot list every record).
 2. Lower the TTL on `@ A` and `www CNAME` to 600 seconds.
-3. Deploy the final commit to `highland-cabinetry` production; re-run locally against a production build:
-   `test-launch-seo`, `test-migration`, `test-lead-delivery`, `verify-tracking` (all 0 failures).
-4. `node scripts/verify-production.mjs --baseline` to refresh `dns-baseline.json`.
+3. Deploy the final commit to `highland-cabinetry` production; re-run against it: `test-launch-seo`, `test-migration`
+   (incl. slash/campaign variants), `test-lead-delivery`, `verify-tracking` (all 0 failures). Record commit and
+   deployment ID in `READINESS.md`; mark that deployment as the known-good rollback target.
+4. Build the static fallback from the same commit (`node scripts/build-static-fallback.mjs`), verify it
+   (`serve-static-fallback.mjs` + the same suites), upload it to Highland's static host and check it there.
+5. `node scripts/verify-production.mjs --baseline` to refresh `dns-baseline.json`.
 
-**T-0**
-5. In Vercel → `highland-cabinetry` → Domains: add `highlandcabinetry.com` (primary) and `www.highlandcabinetry.com`
+**Thursday (go/no-go 9:00 am Central)**
+6. In Vercel → `highland-cabinetry` → Domains: add `highlandcabinetry.com` (primary) and `www.highlandcabinetry.com`
    (redirect 308 → apex). Vercel shows the exact records to set.
-6. In GoDaddy change only:
-   - `A  @    45.32.74.243  →  76.76.21.21` (or the value Vercel shows)
-   - `CNAME www  highlandcabinetry.com.  →  cname.vercel-dns.com.`
+7. In GoDaddy change only the two records, using **exactly the values Vercel shows for this project** (do not use
+   remembered or illustrative values):
+   - `A @` (apex) → value shown by Vercel
+   - `CNAME www` → value shown by Vercel
    Do not touch MX, TXT (SPF, Google verification), `_dmarc`, `*._domainkey`, `autodiscover` or any other record.
    If GoDaddy has a CAA record, it must allow `letsencrypt.org`.
-7. Wait for Vercel to show the domain as valid and issue the certificate (minutes, up to the old TTL).
-8. Run the verification on the real domain:
+8. Wait for Vercel to show the domain as valid and issue the certificate (minutes, up to the old TTL).
+9. Run the verification on the real domain:
    `LEAD_TEST_TOKEN=… node scripts/verify-production.mjs` — DNS (mail records unchanged), HTTPS, www/http redirects,
-   SEO gate, every old URL, tracking, and one test lead (`[TEST — please ignore]`). Confirm the test lead reached the
-   inbox by its reference number. Report: `docs/launch/production-verification.json`.
-9. Submit a real quote from a phone; place a test call from a Google ad click (gclid) to confirm CallRail swapping.
+   SEO gate, every old URL, tracking, and one marked test lead per form type. Confirm each reference arrived in the
+   inbox (`docs/launch/lead-receipt.json`). Report: `docs/launch/production-verification.json`.
+10. Submit a real quote from a phone; place a test call from a Google ad click (gclid) to confirm CallRail swapping.
 
-**T+0 to T+14 days**
-10. Search Console: submit `sitemap.xml`; watch Coverage / 404s daily for the first week.
-11. Google Ads: confirm both conversion actions (lead, phone click) keep recording; CallRail: calls attributed.
-12. Keep the WordPress server running read-only for at least 30 days (rollback, and as an archive).
+**Thursday to +14 days**
+11. Search Console: submit `sitemap.xml`; watch Coverage / 404s daily for the first week.
+12. Google Ads: confirm both conversion actions (lead, phone click) keep recording; CallRail: calls attributed.
+13. The WordPress server goes away at the cutoff; the preservation archive and `docs/migration/` are the record of the old site.
 
-## Rollback
+## Rollback (without the old host)
 
-Set `A @` back to `45.32.74.243` and `www` back to `CNAME highlandcabinetry.com.` (TTL 600 makes this take effect within
-minutes). Nothing else was changed, so email and verification are unaffected either way.
+The old WordPress server is not a rollback target after Thursday 5 pm. Two independent lines, both prepared before the
+switch:
+
+1. **Instant rollback in Vercel** (minutes, no DNS change). The verified deployment recorded in `READINESS.md` is the
+   known-good target: Vercel → `highland-cabinetry` → Deployments → that deployment → *Instant Rollback* (or *Promote*).
+   Covers a bad release. Requires access to the Vercel team that owns the project — which must be Highland's (B5).
+2. **Static fallback on a Highland-controlled host** (if the project or account itself is unavailable). The tarball from
+   `scripts/build-static-fallback.mjs` for the same commit, uploaded to e.g. Netlify or Cloudflare Pages under
+   Highland's account (`_redirects`/`_headers` included; `vercel.json` for a Vercel account). Point `A @`/`www` at
+   that host. Same pages, URLs, redirects, canonicals and tracking; lead forms cannot deliver there and show the phone
+   number and sales email instead (“Not sent”, never a false confirmation).
+
+Email and Search Console verification are unaffected by either, because only the two web records ever change.

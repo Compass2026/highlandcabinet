@@ -4,7 +4,7 @@
  * Every fact records where it came from in the preserved archive and whether Highland has
  * confirmed it. Facts marked `needs-confirmation` are shown only where the site cannot work
  * without them (e.g. a phone number), and every one of them is listed in
- * docs/LAUNCH-CHECKLIST.md. Facts that conflict in the archive and are not needed
+ * docs/launch/FACTS-REGISTER.md. Facts that conflict in the archive and are not needed
  * (shipping timelines, inventory counts, satisfaction rates) are deliberately NOT used.
  */
 
@@ -147,6 +147,19 @@ export const affiliations: Affiliation[] = [
 ];
 
 /** On the public site only confirmed affiliations appear; the staging preview shows all, labelled. */
+/**
+ * Homepage dealer-section photograph `compressed_warehouseimage.webp` (from the live site): no camera data and a
+ * generator-typical size, so its provenance is unconfirmed (size alone proves nothing). Until Highland confirms it
+ * shows its own warehouse, production shows a labelled catalog rendering instead; staging keeps the photo for review.
+ */
+export const warehousePhoto: Fact = {
+  value: "warehouse",
+  status: "needs-confirmation",
+  source: "Live site Become/Find a Dealer section (uploaded 2026/03); 1536×1024, no EXIF.",
+  note: "Confirm it is a real photograph of Highland's Phoenix warehouse that Highland holds rights to, then set status to confirmed.",
+};
+export const showWarehousePhoto = () => warehousePhoto.status === "confirmed" || process.env.SITE_INDEXING !== "on";
+
 export const visibleAffiliations = () => affiliations.filter((a) => a.status === "confirmed" || process.env.SITE_INDEXING !== "on");
 
 export const catalogs = [
