@@ -12,8 +12,9 @@
  *  3. SEO gate — scripts/test-launch-seo.mjs against the live domain (indexable, canonicals, sitemap…).
  *  4. URL migration — scripts/test-migration.mjs against the live domain (every old URL + internal link).
  *  5. Tracking — scripts/verify-tracking.mjs on the live domain (tags, conversions; nothing recorded).
- *  6. Lead delivery — with LEAD_TEST_TOKEN: destinations configured, and one clearly-marked test lead
- *     delivered (status "sent" + reference). Confirm it arrived in the sales inbox / CRM by its reference.
+ *  6. Lead delivery — with LEAD_TEST_TOKEN (whose SHA-256 is LEAD_TEST_TOKEN_SHA256 on the deployment): one
+ *     clearly-marked test lead per form type; references go to docs/launch/lead-receipt.json and must be
+ *     confirmed in the real inbox — an accepted request alone is not proof of delivery.
  * Report: docs/launch/production-verification.json
  */
 import { spawnSync } from "node:child_process";
@@ -98,31 +99,36 @@ check("migration", "every old URL and internal link", mig.ok, mig.tail);
 const trk = run("verify-tracking.mjs", { SITE });
 check("tracking", "tags load and conversions fire (nothing recorded)", trk.ok, trk.tail);
 
-// 6. Lead delivery
+// 6. Lead delivery — one clearly-marked test lead per form type; receipt is then confirmed in the inbox by reference.
 const token = process.env.LEAD_TEST_TOKEN;
+const receipts = [];
 if (!token) {
-  check("leads", "LEAD_TEST_TOKEN provided for the delivery test", false, "set LEAD_TEST_TOKEN to the value configured on the production deployment");
+  check("leads", "LEAD_TEST_TOKEN provided for the delivery test", false, "pass the token whose SHA-256 is set as LEAD_TEST_TOKEN_SHA256 on the production deployment");
 } else {
   const probe = await (await fetch(`${SITE}/api/lead/`, { headers: { "x-lead-test": token } })).json();
-  check("leads", "email destination configured", probe.destinations?.includes("email"), JSON.stringify(probe));
-  const r = await fetch(`${SITE}/api/lead/`, {
-    method: "POST",
-    headers: { "content-type": "application/json", "x-lead-test": token },
-    body: JSON.stringify({
-      formType: "contact",
-      firstName: "Launch",
-      lastName: "Verification",
-      email: process.env.TEST_LEAD_EMAIL ?? "launch-verification@example.com",
-      phone: "602-555-0100",
-      customerType: "Other",
-      message: "Automated launch verification. Please ignore — no reply needed.",
-      source: "verify-production",
-      page: "/verify-production/",
-    }),
-  });
-  const j = await r.json();
-  check("leads", "test lead delivered (sent + reference)", j.status === "sent" && j.ref, JSON.stringify(j));
-  if (j.ref) console.log(`\nTest lead reference: ${j.ref} — confirm it arrived (subject starts “[TEST — please ignore]”).\n`);
+  check("leads", "test token accepted and email destination configured", probe.destinations?.includes("email"), JSON.stringify(probe));
+  const who = { firstName: "Launch", lastName: "Verification", email: process.env.TEST_LEAD_EMAIL ?? "launch-verification@example.com", phone: "602-555-0100" };
+  const note = "Automated launch verification — please ignore, no reply needed.";
+  const forms = {
+    quote: { ...who, projectType: "Kitchen", timeline: "Bidding or planning", company: "Launch verification", customerType: "Other", location: "Phoenix, AZ", einRoc: "Not sure", message: note },
+    "dealer-application": { ...who, company: "Launch verification", customerType: "Other", location: "Phoenix, AZ", einRoc: "Not sure", message: note },
+    "dealer-referral": { ...who, location: "85004", projectType: "Kitchen", message: note },
+    contact: { ...who, customerType: "Other", message: note },
+  };
+  for (const [formType, fields] of Object.entries(forms)) {
+    const r = await fetch(`${SITE}/api/lead/`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-lead-test": token },
+      body: JSON.stringify({ ...fields, formType, source: "verify-production", page: "/verify-production/" }),
+    });
+    const j = await r.json();
+    check("leads", `${formType}: test lead accepted for delivery (sent + reference)`, j.status === "sent" && j.ref, JSON.stringify(j));
+    receipts.push({ formType, ref: j.ref ?? null, submittedAt: new Date().toISOString(), receivedAt: null, receivedBy: null });
+  }
+  await writeFile(path.join(root, "docs/launch/lead-receipt.json"), JSON.stringify({ site: SITE, receipts }, null, 2) + "\n");
+  console.log("\nConfirm each in the lead inbox (subject starts “[TEST — please ignore]”), then fill receivedAt/receivedBy in docs/launch/lead-receipt.json:");
+  for (const r of receipts) console.log(`  ${r.formType.padEnd(20)} ${r.ref}`);
+  console.log("An accepted request is not proof of delivery — only the inbox is.\n");
 }
 
 const failures = results.filter((r) => !r.ok);

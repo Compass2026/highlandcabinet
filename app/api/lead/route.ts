@@ -1,4 +1,4 @@
-import { randomBytes, timingSafeEqual } from "node:crypto";
+import { createHash, randomBytes, timingSafeEqual } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
 import { finishById, lines } from "@/content/collections";
 import { configuredDestinations, deliverLead } from "@/lib/deliver";
@@ -15,7 +15,7 @@ const variants = Object.keys(formDefs) as LeadVariant[];
  *   and reports "sent" ONLY after at least one destination accepts it.
  * - Without a destination it reports "not-configured" — the UI then tells the visitor plainly
  *   that nothing was sent. It never fakes a confirmation.
- * - A request carrying x-lead-test = LEAD_TEST_TOKEN is delivered as a clearly marked test lead
+ * - A request carrying a valid test token (see isTest) is delivered as a clearly marked test lead
  *   (used by scripts/verify-production.mjs to prove delivery end to end).
  * - Works for fetch (JSON) and for plain HTML form posts (no JavaScript), which are redirected
  *   back to the page with ?status=…
@@ -79,18 +79,23 @@ export async function POST(req: NextRequest) {
   return respond({ status: "sent", ref }, 200);
 }
 
+/**
+ * Test leads: the request carries the token in x-lead-test; the server holds only its SHA-256 hash
+ * (LEAD_TEST_TOKEN_SHA256), so the deployment's settings never contain the secret itself.
+ * Generate a pair with `node scripts/make-lead-test-token.mjs`.
+ */
 function isTest(req: NextRequest) {
-  const token = process.env.LEAD_TEST_TOKEN?.trim();
+  const want = process.env.LEAD_TEST_TOKEN_SHA256?.trim().toLowerCase();
   const given = req.headers.get("x-lead-test")?.trim();
-  if (!token || !given || token.length !== given.length) return false;
-  return timingSafeEqual(Buffer.from(token), Buffer.from(given));
+  if (!want || !/^[0-9a-f]{64}$/.test(want) || !given) return false;
+  return timingSafeEqual(createHash("sha256").update(given).digest(), Buffer.from(want, "hex"));
 }
 
 /** Readiness probe for scripts/verify-production.mjs: which destinations are configured (names only). */
 export function GET(req: NextRequest) {
   if (!isTest(req)) {
     // Say why the probe was refused (no values), so a misconfigured verification run is easy to diagnose.
-    const testToken = !req.headers.get("x-lead-test") ? undefined : process.env.LEAD_TEST_TOKEN ? "mismatch" : "not-configured";
+    const testToken = !req.headers.get("x-lead-test") ? undefined : process.env.LEAD_TEST_TOKEN_SHA256 ? "mismatch" : "not-configured";
     return NextResponse.json({ status: "ok", ...(testToken ? { testToken } : {}) });
   }
   return NextResponse.json({ status: "ok", destinations: configuredDestinations() });

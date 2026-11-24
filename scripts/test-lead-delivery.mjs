@@ -11,7 +11,7 @@
  *   - honeypot                            → answered "sent" with no reference, nothing delivered
  */
 import { spawn } from "node:child_process";
-import { createHmac } from "node:crypto";
+import { createHash, createHmac } from "node:crypto";
 import http from "node:http";
 import path from "node:path";
 import { writeFile } from "node:fs/promises";
@@ -44,7 +44,7 @@ async function app(port, env) {
 const full = {
   SENDGRID_API_KEY: "SG.test", SENDGRID_API_URL: "http://localhost:4010/sendgrid",
   LEAD_EMAIL_TO: "Sales <sales@example.com>, owner@example.com", LEAD_EMAIL_FROM: "Highland Cabinetry Website <website@highlandcabinetry.com>",
-  LEAD_WEBHOOK_URL: "http://localhost:4010/webhook", LEAD_WEBHOOK_SECRET: "s3cret", LEAD_TEST_TOKEN: "tok-123",
+  LEAD_WEBHOOK_URL: "http://localhost:4010/webhook", LEAD_WEBHOOK_SECRET: "s3cret", LEAD_TEST_TOKEN_SHA256: createHash("sha256").update("tok-123").digest("hex"),
 };
 const contact = { firstName: "Dana", lastName: "Builder", email: "dana@example.com", phone: "602-555-0100" };
 const leads = {

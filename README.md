@@ -36,7 +36,7 @@ See `.env.example`. Nothing is required to run the preview.
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin (default `https://highlandcabinetry.com`). |
 | `SENDGRID_API_KEY`, `LEAD_EMAIL_TO`, `LEAD_EMAIL_FROM` | Leads emailed through SendGrid (reply-to the visitor, with reference and campaign attribution). |
 | `LEAD_WEBHOOK_URL` / `LEAD_WEBHOOK_SECRET` | Optional additional destination: leads POSTed as JSON (HMAC-signed if a secret is set). With no destination configured, forms say plainly that nothing was sent and offer email/phone. A lead counts as sent when at least one destination accepts it. |
-| `LEAD_TEST_TOKEN` | Lets `scripts/verify-production.mjs` send a marked test lead and read which destinations are configured. |
+| `LEAD_TEST_TOKEN_SHA256` | SHA-256 of a test token (`node scripts/make-lead-test-token.mjs`). Lets `scripts/verify-production.mjs` send marked test leads and read which destinations are configured. Only the hash is stored on the server. |
 | `NEXT_PUBLIC_TRACKING=off` | Disables the marketing tags (GTM, Google tag, CallRail), which otherwise load only in production on the canonical host — `docs/launch/TRACKING.md`. |
 
 ## Where things live

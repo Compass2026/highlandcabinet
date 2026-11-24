@@ -1,7 +1,7 @@
 {
   "site": "https://highlandcabinetry.com",
-  "mappedTo": "https://highland-cabinetry-rkeivctvu-compassmarketin.vercel.app",
-  "at": "2026-11-24T19:56:14.309Z",
+  "mappedTo": "http://localhost:3001",
+  "at": "2026-11-24T20:21:26.911Z",
   "checks": [
     {
       "name": "tag loads: GTM-NM4FXR2B",
@@ -24,6 +24,14 @@
       "detail": ""
     },
     {
+      "name": "page_view per GA4 property on one page load (informational)",
+      "ok": true,
+      "detail": "{\"G-39WL49D4VK\":1}",
+      "info": {
+        "G-39WL49D4VK": 1
+      }
+    },
+    {
       "name": "GTM started (gtm.js events)",
       "ok": true,
       "detail": "config:GT-T5JX78GN,config:AW-341905256,gtm.js,gtm.js,gtm.dom,gtm.load"
@@ -31,17 +39,27 @@
     {
       "name": "attribution captured on landing",
       "ok": true,
-      "detail": "{\"params\":{\"gclid\":\"TEST-GCLID\",\"utm_source\":\"google\",\"utm_medium\":\"cpc\",\"utm_campaign\":\"verify\"},\"landing\":\"/request-a-quote/\",\"referrer\":\"\",\"at\":\"2026-11-24T19:55:47.968Z\"}"
+      "detail": "{\"params\":{\"gclid\":\"TEST-GCLID\",\"utm_source\":\"google\",\"utm_medium\":\"cpc\",\"utm_campaign\":\"verify\"},\"landing\":\"/request-a-quote/\",\"referrer\":\"\",\"at\":\"2026-11-24T20:20:59.772Z\"}"
+    },
+    {
+      "name": "measurement events for one confirmed lead (each should be 1)",
+      "ok": true,
+      "detail": "{\"Google Ads conversion 341905256/Cw3ACLXbtNscEOiehKMB\":1,\"GA4 G-39WL49D4VK form_start\":1,\"GA4 G-C6W9KJ2WD5 generate_lead\":1}",
+      "events": {
+        "Google Ads conversion 341905256/Cw3ACLXbtNscEOiehKMB": 1,
+        "GA4 G-39WL49D4VK form_start": 1,
+        "GA4 G-C6W9KJ2WD5 generate_lead": 1
+      }
     },
     {
       "name": "confirmed lead pushes generate_lead once",
       "ok": true,
-      "detail": "[{\"event\":\"generate_lead\",\"form_id\":\"quote\",\"form_name\":\"Request a quote\",\"gtm.uniqueEventId\":37}]"
+      "detail": "[{\"event\":\"generate_lead\",\"form_id\":\"quote\",\"form_name\":\"Request a quote\",\"gtm.uniqueEventId\":36}]"
     },
     {
       "name": "Google Ads lead conversion fires",
       "ok": true,
-      "detail": "https://www.googleadservices.com/pagead/conversion/341905256/?random=1795550155550&cv=11&fst=1795550155550&fmt=7&bg=ffffff&guid=ON&async=1&e"
+      "detail": "https://www.googleadservices.com/pagead/conversion/341905256/?random=1795551666922&cv=11&fst=1795551666922&fmt=7&bg=ffffff&guid=ON&async=1&e"
     },
     {
       "name": "lead carries gclid and utm_campaign",
@@ -59,7 +77,7 @@
       "detail": ""
     },
     {
-      "name": "no tags on highland-cabinetry-rkeivctvu-compassmarketin.vercel.app",
+      "name": "no tags on localhost:3001",
       "ok": true,
       "detail": ""
     }

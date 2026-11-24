@@ -80,6 +80,13 @@ const settle = (page, ms = 4000) => page.waitForTimeout(ms);
   await settle(page);
   for (const id of ["GTM-NM4FXR2B", "GTM-P6MLRTDB", "GT-T5JX78GN"]) check(`tag loads: ${id}`, seen.scripts.some((s) => s.includes(id)));
   check("tag loads: CallRail swap.js", seen.scripts.some((s) => s.includes("callrail.com/companies/843918300")));
+  // Informational: page_view hits per GA4 property for one page load (the old site loaded G-39WL49D4VK twice).
+  const pv = {};
+  for (const h of seen.hits) {
+    const u = new URL(h);
+    if (/\/g\/collect/.test(u.pathname) && u.searchParams.get("en") === "page_view") pv[u.searchParams.get("tid")] = (pv[u.searchParams.get("tid")] ?? 0) + 1;
+  }
+  results.push({ name: "page_view per GA4 property on one page load (informational)", ok: true, detail: JSON.stringify(pv), info: pv });
   const dl = await page.evaluate(() => (window.dataLayer ?? []).map((e) => e?.event ?? (e?.[0] === "config" ? `config:${e[1]}` : null)).filter(Boolean));
   check("GTM started (gtm.js events)", dl.filter((e) => e === "gtm.js").length >= 2, dl.join(","));
   const first = await page.evaluate(() => localStorage.getItem("hc_first"));
@@ -94,9 +101,33 @@ const settle = (page, ms = 4000) => page.waitForTimeout(ms);
     await f.locator(`[name="${n}"]`).fill(v);
   await f.locator('select[name="customerType"]').selectOption({ index: 1 });
   await f.locator('input[name="einRoc"]').first().check();
+  const mark = seen.hits.length;
   await f.locator('button[type="submit"]').click();
   await page.getByText("Reference HC-TRACKING-TEST").waitFor({ timeout: 10000 });
-  await settle(page);
+  await settle(page, 6000);
+  // Every measurement event the one confirmed lead produced (requests were aborted, so none was recorded).
+  const perLead = {};
+  const seenIds = new Set();
+  for (const h of seen.hits.slice(mark)) {
+    const u = new URL(h);
+    let k = null;
+    if (/googleadservices|doubleclick|google\.com\/(pagead|ccm)/.test(u.host + u.pathname) && u.searchParams.get("label")) {
+      k = `Google Ads conversion ${u.pathname.match(/\d{6,}/)?.[0]}/${u.searchParams.get("label")}`;
+      // gtag sends one conversion over several transports (fmt=7/8/3) sharing one `random` id — count it once.
+      const id = `${k}#${u.searchParams.get("random")}`;
+      if (seenIds.has(id)) continue;
+      seenIds.add(id);
+    } else if (/\/g\/collect/.test(u.pathname)) {
+      const en = u.searchParams.get("en");
+      if (en && !/^(page_view|scroll|user_engagement)$/.test(en)) k = `GA4 ${u.searchParams.get("tid")} ${en}`;
+    } else if (/facebook\.com\/tr/.test(h)) {
+      const ev = u.searchParams.get("ev");
+      if (ev && ev !== "PageView") k = `Meta ${ev}`;
+    }
+    if (k) perLead[k] = (perLead[k] ?? 0) + 1;
+  }
+  check("measurement events for one confirmed lead (each should be 1)", Object.values(perLead).every((n) => n === 1), JSON.stringify(perLead));
+  results.at(-1).events = perLead;
   const events = await page.evaluate(() => (window.dataLayer ?? []).filter((e) => e?.event === "generate_lead"));
   check("confirmed lead pushes generate_lead once", events.length === 1, JSON.stringify(events));
   check("Google Ads lead conversion fires", adsHits(seen, LABELS.lead).length > 0, adsHits(seen, LABELS.lead)[0]?.slice(0, 140) ?? "no request");
