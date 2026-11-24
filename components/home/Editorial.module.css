@@ -37,89 +37,110 @@
   color: var(--graphite);
 }
 
-/* ---------- projects ---------- */
-.pWide,
-.pPair figure,
-.pOffset {
-  margin: 0;
-}
-
-.pWide .photo {
-  aspect-ratio: 21 / 9;
-}
-
-.pPair {
+/* ---------- collections: a bento of renderings ---------- */
+.galleryHead {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(1.25rem, 3vw, 3rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: end;
-  margin-top: clamp(2.5rem, 6vw, 6rem);
+  gap: var(--s-3) var(--s-7);
+  max-width: none;
 }
 
-.pTall .photo {
-  aspect-ratio: 4 / 5;
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(2, clamp(220px, 21vw, 330px)) clamp(260px, 26vw, 420px);
+  grid-template-areas:
+    "f f f f f f f f t t t t"
+    "f f f f f f f f m m m m"
+    "l l l l l l r r r r r r";
+  gap: clamp(0.75rem, 1.4vw, 1.25rem);
 }
 
-.pLand .photo {
-  aspect-ratio: 4 / 3;
-}
+.aFeature { grid-area: f; }
+.aTop { grid-area: t; }
+.aMid { grid-area: m; }
+.aLeft { grid-area: l; }
+.aRight { grid-area: r; }
 
-.pOffset {
-  width: min(64%, 900px);
-  margin: clamp(2.5rem, 6vw, 6rem) 0 0 auto;
-}
-
-.pOffset .photo {
-  aspect-ratio: 3 / 2;
-}
-
-/* ---------- collection tiles ---------- */
 .tile {
+  position: relative;
   display: block;
-  color: inherit;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  background: var(--plaster-2);
+  color: #fff;
   text-decoration: none;
+  isolation: isolate;
+}
+
+.tile img {
+  transition: transform 1.2s var(--ease-soft);
+}
+
+.tileShade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, rgb(22 20 17 / 0.76) 0%, rgb(22 20 17 / 0.5) 22%, rgb(22 20 17 / 0.16) 40%, transparent 56%);
+  transition: opacity var(--t-med) var(--ease-soft);
 }
 
 .tileCap {
+  position: absolute;
+  left: clamp(1rem, 2vw, 1.75rem);
+  right: 5rem;
+  bottom: clamp(1rem, 2vw, 1.6rem);
+  z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 2px var(--s-4);
-  padding-top: var(--s-4);
+  gap: 2px;
 }
 
 .tileName {
-  font-size: var(--fs-h3);
-  font-weight: 500;
-  letter-spacing: -0.012em;
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.75rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  text-shadow: 0 1px 14px rgb(0 0 0 / 0.3);
+}
+
+.aFeature .tileName {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.4rem);
 }
 
 .tileMeta {
-  grid-row: 2;
   font-size: 0.84rem;
-  color: var(--stone);
+  color: #fff;
+  text-shadow: 0 1px 10px rgb(0 0 0 / 0.4);
 }
 
 .tileGo {
-  grid-row: 1 / 3;
-  grid-column: 2;
+  position: absolute;
+  right: clamp(1rem, 2vw, 1.6rem);
+  bottom: clamp(1rem, 2vw, 1.6rem);
+  z-index: 2;
   display: grid;
   place-items: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--rule);
   border-radius: 50%;
-  transition: background-color var(--t-med) var(--ease-soft), border-color var(--t-med) var(--ease-soft), color var(--t-med) var(--ease-soft);
+  background: rgb(255 255 255 / 0.92);
+  color: var(--charcoal);
+  transition: transform var(--t-med) var(--ease-soft), background-color var(--t-med) var(--ease-soft);
 }
 
-.tile:hover .tileGo {
-  border-color: var(--charcoal);
-  background: var(--charcoal);
-  color: var(--paper);
+@media (hover: hover) {
+  .tile:hover img {
+    transform: scale(1.035);
+  }
+  .tile:hover .tileGo {
+    transform: translateX(3px);
+    background: #fff;
+  }
 }
 
 .tile:focus-visible {
-  outline-offset: 6px;
+  outline-offset: 4px;
 }
 
 /* ---------- real kitchens ---------- */
@@ -161,6 +182,22 @@
 }
 
 @media (max-width: 860px) {
+  .galleryHead {
+    grid-template-columns: 1fr;
+  }
+  .bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-template-areas: none;
+    grid-auto-rows: auto;
+  }
+  .bento > .tile {
+    grid-area: auto;
+    aspect-ratio: 4 / 3;
+  }
+  .bento > .aFeature {
+    aspect-ratio: 4 / 4.2;
+  }
   .realGrid {
     grid-template-columns: 1fr;
   }
@@ -172,14 +209,5 @@
   }
   .realStrip .photo {
     aspect-ratio: 4 / 3;
-  }
-  .pPair {
-    grid-template-columns: 1fr;
-  }
-  .pWide .photo {
-    aspect-ratio: 4 / 3;
-  }
-  .pOffset {
-    width: 100%;
   }
 }

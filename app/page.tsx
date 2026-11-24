@@ -22,6 +22,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <Affiliations />
 
       <section id="collections" className={`section ${styles.sampler}`} aria-labelledby="collections-title">
         <div className="container">
@@ -46,7 +47,6 @@ export default function HomePage() {
       </section>
       <DealerSection />
       <LocationSection />
-      <Affiliations />
       <ClosingCta source="home-closing" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
     </>

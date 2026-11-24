@@ -150,14 +150,20 @@ export function LocationSection() {
 }
 
 /* ---------------------------------------------------------------------------
-   Standards & associations — only confirmed marks appear on the public site
+   Standards & associations — a compact strip near the top of the page.
+   Only confirmed marks appear on the public site; the preview shows all, labelled.
    --------------------------------------------------------------------------- */
+const shortDetail: Record<string, string> = {
+  kcma: "Factory-assembled lines tested to ANSI/KCMA A161.1",
+  nkba: "The trade association for kitchen & bath",
+};
+
 export function Affiliations() {
   const list = visibleAffiliations();
   if (list.length === 0) return null;
   return (
-    <section className={`section--tight ${styles.affil}`} aria-labelledby="affil-title">
-      <div className="container">
+    <section className={styles.affil} aria-labelledby="affil-title">
+      <div className={`container ${styles.affilRow}`}>
         <h2 id="affil-title" className={styles.affilTitle}>
           Standards &amp; associations
         </h2>
@@ -167,16 +173,18 @@ export function Affiliations() {
             return (
               <li key={a.id} className={styles.markItem}>
                 <a href={a.href} className={styles.markDisc} target="_blank" rel="noopener noreferrer">
-                  <Image src={m.src} alt={m.alt} width={m.width} height={m.height} className={styles.markImg} sizes="140px" />
+                  <Image src={m.src} alt={m.alt} width={m.width} height={m.height} className={styles.markImg} sizes="96px" />
                   <span className="visually-hidden"> (opens {a.name} website)</span>
                 </a>
-                <p className={styles.markName}>{a.name}</p>
-                <p className={styles.markDetail}>{a.detail}</p>
-                {a.status !== "confirmed" ? (
-                  <p className={styles.pending} title={a.note}>
-                    Preview only · awaiting confirmation
-                  </p>
-                ) : null}
+                <div className={styles.markText}>
+                  <p className={styles.markName}>{a.name}</p>
+                  <p className={styles.markDetail}>{shortDetail[a.id] ?? a.detail}</p>
+                  {a.status !== "confirmed" ? (
+                    <p className={styles.pending} title={a.note}>
+                      Preview only · awaiting confirmation
+                    </p>
+                  ) : null}
+                </div>
               </li>
             );
           })}

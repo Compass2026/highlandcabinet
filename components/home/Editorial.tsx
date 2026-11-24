@@ -34,24 +34,32 @@ function Caption({ id, children }: { id: string; children?: React.ReactNode }) {
 /* ---------------------------------------------------------------------------
    Collections — Highland's kitchen renderings, large, each opening its finish
    --------------------------------------------------------------------------- */
-function Tile({ finishId, sizes, className, position }: { finishId: string; sizes: string; className: string; position?: string }) {
+function Tile({ finishId, area, sizes, position, priority }: { finishId: string; area: string; sizes: string; position?: string; priority?: boolean }) {
   const f = finishById(finishId)!;
   const m = media(f.media.scene);
   return (
-    <figure className={`${className} unveil`}>
-      <Link href={f.path} className={styles.tile}>
-        <Photo id={f.media.scene} sizes={sizes} position={position} />
-        <figcaption className={styles.tileCap}>
-          <span className={styles.tileName}>{f.name}</span>
-          <span className={styles.tileMeta}>
-            {lines[f.line].name} · {kindLabel[m.kind]}
-          </span>
-          <span className={styles.tileGo} aria-hidden="true">
-            <ArrowRight />
-          </span>
-        </figcaption>
-      </Link>
-    </figure>
+    <Link href={f.path} className={`${styles.tile} ${styles[area]}`}>
+      <Image
+        src={m.src}
+        alt={m.alt}
+        fill
+        sizes={sizes}
+        loading={priority ? "eager" : undefined}
+        placeholder={m.blurDataURL ? "blur" : "empty"}
+        blurDataURL={m.blurDataURL}
+        style={{ objectFit: "cover", objectPosition: position }}
+      />
+      <span className={styles.tileShade} aria-hidden="true" />
+      <span className={styles.tileCap}>
+        <span className={styles.tileName}>{f.name}</span>
+        <span className={styles.tileMeta}>
+          {lines[f.line].name} · {kindLabel[m.kind]}
+        </span>
+      </span>
+      <span className={styles.tileGo} aria-hidden="true">
+        <ArrowRight />
+      </span>
+    </Link>
   );
 }
 
@@ -59,17 +67,18 @@ export function Collections() {
   return (
     <section className="section" aria-labelledby="gallery-title">
       <div className="container">
-        <header className={`${styles.head} rise`}>
+        <header className={`${styles.head} ${styles.galleryHead} rise`}>
           <h2 id="gallery-title">Rooms worth walking into.</h2>
           <p className={styles.headText}>Highland&rsquo;s renderings of each line, finished and furnished. Open one to see the finish up close.</p>
         </header>
 
-        <Tile finishId="euro-natural-walnut" className={styles.pWide} sizes="(max-width: 860px) 100vw, 92vw" position="50% 55%" />
-        <div className={styles.pPair}>
-          <Tile finishId="shaker-onyx-black" className={styles.pTall} sizes="(max-width: 860px) 100vw, 38vw" position="62% 50%" />
-          <Tile finishId="nano-green" className={styles.pLand} sizes="(max-width: 860px) 100vw, 52vw" position="40% 50%" />
+        <div className={`${styles.bento} unveil`}>
+          <Tile finishId="euro-natural-walnut" area="aFeature" sizes="(max-width: 860px) 100vw, 62vw" position="45% 55%" />
+          <Tile finishId="shaker-onyx-black" area="aTop" sizes="(max-width: 860px) 100vw, 36vw" position="55% 50%" />
+          <Tile finishId="nano-green" area="aMid" sizes="(max-width: 860px) 100vw, 36vw" position="45% 55%" />
+          <Tile finishId="shaker-luxe" area="aLeft" sizes="(max-width: 860px) 100vw, 50vw" position="50% 55%" />
+          <Tile finishId="euro-stone-grey" area="aRight" sizes="(max-width: 860px) 100vw, 50vw" position="55% 55%" />
         </div>
-        <Tile finishId="shaker-luxe" className={styles.pOffset} sizes="(max-width: 860px) 100vw, 62vw" position="50% 55%" />
       </div>
     </section>
   );
