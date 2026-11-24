@@ -4,6 +4,7 @@ import { jost } from "./fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PreviewBar } from "@/components/layout/PreviewBar";
+import { Tracking } from "@/components/layout/Tracking";
 import { QuoteProvider } from "@/components/quote/QuoteContext";
 import { indexingEnabled, siteUrl } from "@/content/site";
 import { jsonLd } from "@/lib/seo";
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={jost.variable} suppressHydrationWarning>
       <body>
+        <Tracking />
         <a className="skip-link" href="#main">
           Skip to content
         </a>

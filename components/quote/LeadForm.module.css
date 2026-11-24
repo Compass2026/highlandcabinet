@@ -370,3 +370,9 @@
     min-width: 0;
   }
 }
+
+.ref {
+  font-size: 0.82rem;
+  color: var(--stone);
+  font-variant-numeric: tabular-nums;
+}

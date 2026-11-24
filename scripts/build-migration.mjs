@@ -85,6 +85,9 @@ const pageNotes = {
 };
 
 const rebuilt = new Map(); // path -> [type, notes, flags]
+// Paid-campaign landings: kept at their URLs with each page's own call-tracking number (noindex, not in the sitemap).
+for (const c of ["arizona", "california", "national", "new-mexico", "texas", "utah"])
+  rebuilt.set(`/new-luxe-shaker-${c}/`, ["Campaign landing (noindex)", "Rebuilt at the same URL with the page's own call-tracking number so ad calls stay attributed; noindex and out of the sitemap, as before. Unsupported copy (award-winning, fade/scratch resistance) not carried over.", "confirm campaign still active"]);
 for (const p of productPaths)
   rebuilt.set(p, ["Product collection", "Rebuilt from the June 2025 catalogs; unsupported delivery/inventory stats not carried over.", ""]);
 for (const [p, [t, n]] of Object.entries(pageNotes)) rebuilt.set(p, [t, n, /confirm|review/i.test(n) ? "needs Highland confirmation" : ""]);
@@ -115,12 +118,6 @@ const redirectRules = {
   "/index.php/european-light-wood-gloss-finish/": ["/products/#line-euro", "Malformed legacy link.", ""],
   "/free-shipping-landing/": ["/", "Indexed duplicate of the old homepage (same title and H1), not a distinct offer page — redirected to the homepage (changed from /request-a-quote/ in the SEO audit).", "confirm no free-shipping offer is advertised"],
   "/blowout-specials/": ["/request-a-quote/", "Expired Q4 promotion (noindex); price-match guarantee not carried over.", ""],
-  "/new-luxe-shaker-arizona/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex). The old page showed its own call-tracking number; ads pointing here lose that attribution.", "confirm ads / call tracking"],
-  "/new-luxe-shaker-california/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex). The old page showed its own call-tracking number; ads pointing here lose that attribution.", "confirm ads / call tracking"],
-  "/new-luxe-shaker-national/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex). The old page showed its own call-tracking number; ads pointing here lose that attribution.", "confirm ads / call tracking"],
-  "/new-luxe-shaker-new-mexico/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex). The old page showed its own call-tracking number; ads pointing here lose that attribution.", "confirm ads / call tracking"],
-  "/new-luxe-shaker-texas/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex). The old page showed its own call-tracking number; ads pointing here lose that attribution.", "confirm ads / call tracking"],
-  "/new-luxe-shaker-utah/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex). The old page showed its own call-tracking number; ads pointing here lose that attribution.", "confirm ads / call tracking"],
   "/find-a-dealer-2/": ["/find-a-dealer/", "Empty duplicate (noindex).", ""],
   "/old-gallery-of-highland-cabinets/": ["/gallery-of-highland-cabinets/", "Superseded gallery (noindex).", ""],
   "/thank-you/": ["/contact-us/", "Form confirmation page (noindex); new forms confirm inline.", ""],

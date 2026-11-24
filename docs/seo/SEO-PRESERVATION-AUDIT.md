@@ -30,7 +30,7 @@ Detail files in this folder:
 
 | Element | Result |
 |---|---|
-| URLs | 282 rebuilt at their original path; 36 redirected; 6 removed; 0 unresolved (`docs/migration/`) |
+| URLs | 282 rebuilt at their original path (+6 noindex campaign landings rebuilt later for ad tracking); 30 redirected; 6 removed; 0 unresolved (`docs/migration/`) |
 | Titles | 198 service-area pages keep their **original title verbatim** (brand suffix “\| HCI” → “\| Highland Cabinetry”). 56 blog posts keep their original titles (the old “\| HCI” suffix on 14 of them is replaced by “\| Highland Cabinetry”, not appended to). All other titles keep the original's search terms (see §3) |
 | Meta descriptions | Present and unique on every page. Blog posts keep their originals (54 had one; the 3 without use a short excerpt of the corrected text) |
 | H1 | Present on every page. Service-area H1s keep the original wording (“Wholesale kitchen & bathroom cabinets for {Place} contractors”). Blog H1s unchanged |
@@ -114,14 +114,14 @@ authorship is attributed to the organisation, not to an individual.
 8. **Brand repeated in 18 titles** (“… \| HCI \| Highland Cabinetry”, “About Highland Cabinetry \| Highland Cabinetry”):
    fixed, and the launch gate now fails on any repeated brand.
 
-## 5. Redirect relevance review (36)
+## 5. Redirect relevance review (36 at audit time; 30 now)
 
 | Old URL | Original page | Target | Verdict |
 |---|---|---|---|
 | /wholesale-uptown-white-cabinets/ | Indexed product page, painted white Shaker door | /wholesale-white-shaker-cabinets/ | **Changed** from /products/ — closest current product |
 | /free-shipping-landing/ | Indexed duplicate of the old homepage | / | **Changed** from /request-a-quote/ — same content as the homepage |
 | /european-{dark-mirror,dark-wood,light-mirror}-gloss-finish/ (+2 broken variants) | Indexed “coming soon” gloss finishes, ~1,000 words each | /products/#line-euro | Relevant: Euro line section; no gloss finish exists to match. Search engines treat this as /products/ |
-| /new-luxe-shaker-{arizona,california,national,new-mexico,texas,utah}/ | noindex campaign landings, each with its own call-tracking number | /wholesale-luxe-shaker-cabinets/ | Relevant product match. **Risk:** call attribution for any live ads is lost |
+| /new-luxe-shaker-{arizona,california,national,new-mexico,texas,utah}/ | noindex campaign landings, each with its own call-tracking number | /wholesale-luxe-shaker-cabinets/ | **Superseded:** now rebuilt at their URLs with their own call-tracking numbers (noindex), so ad calls stay attributed — `docs/launch/TRACKING.md` |
 | /blowout-specials/ | noindex, expired Q4 promotion | /request-a-quote/ | Acceptable — promotion retired |
 | /blog/category/uncategorized/, /blog/author/…/, /blog/page/2/ | Blog archives | /blog/ | Relevant |
 | /blog/gallery-tab-category/{shaker,nano,euro}-style/ | Gallery category archives | /gallery-of-highland-cabinets/#{line}-style | Relevant |

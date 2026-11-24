@@ -1,0 +1,91 @@
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+}
+
+.callLine {
+  margin-top: var(--s-5);
+  color: var(--graphite);
+}
+
+.call {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+
+.call svg {
+  width: 18px;
+  height: 18px;
+}
+
+.h2 {
+  font-size: var(--fs-h2);
+  max-width: 22ch;
+}
+
+.why {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+
+.points {
+  display: grid;
+  gap: var(--s-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--graphite);
+}
+
+.points li {
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--rule);
+}
+
+.points strong {
+  display: block;
+  margin-bottom: var(--s-1, 4px);
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.next {
+  padding: clamp(1.75rem, 4vw, 3.5rem);
+  border-radius: var(--r-lg);
+  background: var(--plaster-2);
+}
+
+@media (max-width: 1000px) {
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .why {
+    grid-template-columns: 1fr;
+  }
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

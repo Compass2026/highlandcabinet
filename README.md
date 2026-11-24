@@ -16,6 +16,16 @@ npm run dev          # http://localhost:3000
 npm run check        # typecheck + lint + content validation + production build
 ```
 
+Launch checks (run against a production-mode build: `SITE_INDEXING=on NEXT_PUBLIC_SITE_URL=https://highlandcabinetry.com`):
+
+```bash
+node scripts/test-launch-seo.mjs          # indexability, canonicals, sitemap, no review text, campaign pages noindex
+node scripts/test-migration.mjs           # every old URL and internal link
+node scripts/test-lead-delivery.mjs       # email + webhook delivery and every failure path (mock endpoints)
+SITE=https://highlandcabinetry.com MAP_TO=http://localhost:3001 node scripts/verify-tracking.mjs
+node scripts/verify-production.mjs        # after DNS cutover, on the real domain — docs/launch/CUTOVER.md
+```
+
 ## Environment
 
 See `.env.example`. Nothing is required to run the preview.
@@ -24,7 +34,10 @@ See `.env.example`. Nothing is required to run the preview.
 |---|---|
 | `SITE_INDEXING` | `on` only in production at launch. Anything else ⇒ `X-Robots-Tag: noindex`, robots meta noindex, `robots.txt` disallow, preview bar. |
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin (default `https://highlandcabinetry.com`). |
-| `LEAD_WEBHOOK_URL` / `LEAD_WEBHOOK_SECRET` | Where form submissions are POSTed as JSON (HMAC-signed if a secret is set). Unset ⇒ forms say plainly that nothing was sent and offer email/phone. |
+| `SENDGRID_API_KEY`, `LEAD_EMAIL_TO`, `LEAD_EMAIL_FROM` | Leads emailed through SendGrid (reply-to the visitor, with reference and campaign attribution). |
+| `LEAD_WEBHOOK_URL` / `LEAD_WEBHOOK_SECRET` | Optional additional destination: leads POSTed as JSON (HMAC-signed if a secret is set). With no destination configured, forms say plainly that nothing was sent and offer email/phone. A lead counts as sent when at least one destination accepts it. |
+| `LEAD_TEST_TOKEN` | Lets `scripts/verify-production.mjs` send a marked test lead and read which destinations are configured. |
+| `NEXT_PUBLIC_TRACKING=off` | Disables the marketing tags (GTM, Google tag, CallRail), which otherwise load only in production on the canonical host — `docs/launch/TRACKING.md`. |
 
 ## Where things live
 

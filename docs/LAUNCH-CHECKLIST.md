@@ -60,24 +60,27 @@ and centralised in `content/site.ts` with `status: "needs-confirmation"`.
 | R9 | Partners / ILG | ILG description kept; undocumented logo wall (incl. Lowe’s) and third-party quote removed | [content] — confirm relationship |
 | R10 | Large-projects page | Capacity (25,000/month), “15+ years”, regional hubs and certification claims removed | [content] |
 | R11 | **Warehouse photograph** | 1536×1024 with no camera data — the same size as OpenAI image output. Cannot confirm it is a real photo of Highland’s warehouse | [blocker] — confirm or replace |
-| R12 | Campaign landings | Six “new-luxe-shaker-*” pages → Luxe Shaker; Q4 blowout page → Request a quote. Each Luxe page carried its own call-tracking number, which the redirect drops | [content] — confirm no live ads or call tracking depend on them |
+| R12 | Campaign landings | Six “new-luxe-shaker-*” pages rebuilt at their URLs with their own call-tracking numbers (noindex). Q4 blowout page → Request a quote (its price-match / 5%-off offer is not restated) | [content] — confirm which campaigns are live and whether the Q4 offer still runs |
 | R13 | **SEO preservation audit** | `docs/seo/SEO-PRESERVATION-AUDIT.md` — page-by-page comparison, redirect relevance, risks. No keyword is verified until Search Console data is supplied | [blocker] — grant Search Console access; decide service-area pages per §9 of the audit |
 
 ## 2. Access and assets needed
 
 | Item | Why | Priority |
 |------|-----|----------|
-| **Lead destination** (CRM webhook, Zapier/Make hook, or form service) | Forms currently report honestly that nothing was sent. Set `LEAD_WEBHOOK_URL` (+ optional `LEAD_WEBHOOK_SECRET`) in Vercel | [blocker] |
-| Who receives each form type | Quote, dealer application, dealer referral, contact | [blocker] |
+| **SendGrid API key** (Mail Send only) | Leads are emailed through Highland's SendGrid, already authenticated for highlandcabinetry.com. Optional CRM webhook in addition. Until set, forms say plainly that nothing was sent | [blocker] |
+| **Lead recipients** (`LEAD_EMAIL_TO`) | Who receives quote, dealer and contact leads | [blocker] |
+| **CallRail swap target** | CallRail swaps 480-755-2280; the site shows 866-545-6280 — `docs/launch/TRACKING.md` | [blocker] |
 | Privacy policy (current text) | Forms collect personal data; old `/privacy-policy/` not yet migrated | [blocker] |
 | Full page archive (`Highland_All_Pages_Text_SEO_and_DNS.zip`, 36.7 MB) | Exceeds the Drive connector's 10 MB limit; needed to review every page's text, SEO metadata, and the 8 “recovered” URLs. Share as split ZIPs < 10 MB, or attach to the repo/Release | [blocker] for Milestone 2 |
 | Search Console + Analytics access, top-landing-page export | Prioritise which blog/location URLs carry traffic before consolidating | [blocker] |
-| Domain registrar + DNS provider control, full zone export | Cut-over plan; preserve email/verification records | [blocker] |
+| GoDaddy DNS access + full zone export | Two records change at cutover; all mail/verification records stay — `docs/launch/CUTOVER.md` | [blocker] |
 | Close-up photography: dovetail drawer, soft-close glide, hinge, L-bracket, door edge | No usable verified close-ups exist; the old cutaway photo has baked-in labels that conflict with the catalog | [nice] |
 | Installed photography for finishes other than White Shaker | Every other collection currently uses catalog renderings (clearly labelled) | [nice] |
 | Logo source files (AI/EPS/SVG) | The site uses a vector logo extracted from the catalog PDF; confirm it matches the master | [content] |
 
 ## 3. Launch steps (production)
+
+Follow **`docs/launch/CUTOVER.md`** (DNS records, Vercel project `highland-cabinetry`, verification on the live domain, rollback). Summary:
 
 1. Resolve every **[blocker]** above; update `content/site.ts` and flip each confirmed fact's `status`.
 2. Set Vercel env vars on **Production only**: `SITE_INDEXING=on`, `NEXT_PUBLIC_SITE_URL=https://highlandcabinetry.com`, `LEAD_WEBHOOK_URL`, `LEAD_WEBHOOK_SECRET`.

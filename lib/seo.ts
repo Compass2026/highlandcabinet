@@ -8,10 +8,12 @@ interface PageMeta {
   description: string;
   path: string;
   image?: string;
+  /** Keep the page out of search results even in production (campaign landing pages). */
+  noindex?: boolean;
 }
 
 /** Builds per-page metadata with a canonical URL on the production origin. */
-export function pageMetadata({ title, description, path, image, absoluteTitle }: PageMeta): Metadata {
+export function pageMetadata({ title, description, path, image, absoluteTitle, noindex }: PageMeta): Metadata {
   const url = `${siteUrl}${path}`;
   return {
     title: absoluteTitle ? { absolute: title } : title,
@@ -27,7 +29,7 @@ export function pageMetadata({ title, description, path, image, absoluteTitle }:
       ...(image ? { images: [{ url: image }] } : {}),
     },
     twitter: { card: image ? "summary_large_image" : "summary", title, description },
-    robots: indexingEnabled ? undefined : { index: false, follow: false, nocache: true },
+    robots: !indexingEnabled ? { index: false, follow: false, nocache: true } : noindex ? { index: false, follow: true } : undefined,
   };
 }
 

@@ -1,0 +1,68 @@
+{
+  "site": "https://highlandcabinetry.com",
+  "mappedTo": "http://localhost:3001",
+  "at": "2026-11-24T19:41:00.643Z",
+  "checks": [
+    {
+      "name": "tag loads: GTM-NM4FXR2B",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "tag loads: GTM-P6MLRTDB",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "tag loads: GT-T5JX78GN",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "tag loads: CallRail swap.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "GTM started (gtm.js events)",
+      "ok": true,
+      "detail": "config:GT-T5JX78GN,config:AW-341905256,gtm.js,gtm.js,gtm.dom,gtm.load"
+    },
+    {
+      "name": "attribution captured on landing",
+      "ok": true,
+      "detail": "{\"params\":{\"gclid\":\"TEST-GCLID\",\"utm_source\":\"google\",\"utm_medium\":\"cpc\",\"utm_campaign\":\"verify\"},\"landing\":\"/request-a-quote/\",\"referrer\":\"\",\"at\":\"2026-11-24T19:40:35.564Z\"}"
+    },
+    {
+      "name": "confirmed lead pushes generate_lead once",
+      "ok": true,
+      "detail": "[{\"event\":\"generate_lead\",\"form_id\":\"quote\",\"form_name\":\"Request a quote\",\"gtm.uniqueEventId\":37}]"
+    },
+    {
+      "name": "Google Ads lead conversion fires",
+      "ok": true,
+      "detail": "https://www.googleadservices.com/pagead/conversion/341905256/?random=1795549242739&cv=11&fst=1795549242739&fmt=7&bg=ffffff&guid=ON&async=1&e"
+    },
+    {
+      "name": "lead carries gclid and utm_campaign",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Google Ads phone conversion fires on tel: click",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "undelivered lead fires no conversion",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no tags on localhost:3001",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "failureCount": 0
+}

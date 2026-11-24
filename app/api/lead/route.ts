@@ -1,6 +1,7 @@
-import { createHmac } from "node:crypto";
+import { randomBytes, timingSafeEqual } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
 import { finishById, lines } from "@/content/collections";
+import { configuredDestinations, deliverLead } from "@/lib/deliver";
 import { formDefs, validateLead, type LeadData, type LeadResult, type LeadVariant } from "@/lib/leads";
 
 export const runtime = "nodejs";
@@ -10,10 +11,12 @@ const variants = Object.keys(formDefs) as LeadVariant[];
 /**
  * Receives quote, dealer and contact requests.
  *
- * - Forwards to LEAD_WEBHOOK_URL when configured and reports "sent" ONLY after the destination
- *   accepts it (2xx).
+ * - Delivers to every configured destination (email via SendGrid and/or a webhook — lib/deliver.ts)
+ *   and reports "sent" ONLY after at least one destination accepts it.
  * - Without a destination it reports "not-configured" — the UI then tells the visitor plainly
  *   that nothing was sent. It never fakes a confirmation.
+ * - A request carrying x-lead-test = LEAD_TEST_TOKEN is delivered as a clearly marked test lead
+ *   (used by scripts/verify-production.mjs to prove delivery end to end).
  * - Works for fetch (JSON) and for plain HTML form posts (no JavaScript), which are redirected
  *   back to the page with ?status=…
  */
@@ -48,31 +51,43 @@ export async function POST(req: NextRequest) {
   const errors = validateLead(variant, data);
   if (Object.keys(errors).length) return respond({ status: "invalid", errors }, 422);
 
-  const endpoint = process.env.LEAD_WEBHOOK_URL;
-  if (!endpoint) return respond({ status: "not-configured" }, 503);
+  if (!configuredDestinations().length) return respond({ status: "not-configured" }, 503);
 
   const finish = data.finishId ? finishById(data.finishId) : undefined;
-  const fields: LeadData = {};
-  for (const f of formDefs[variant].fields) if (data[f.name]) fields[f.name] = data[f.name].trim();
+  const fields = formDefs[variant].fields
+    .filter((f) => data[f.name]?.trim())
+    .map((f) => ({ name: f.name, label: f.label, value: data[f.name].trim() }));
+  let attribution: unknown = null;
+  try {
+    attribution = data.attribution ? JSON.parse(data.attribution) : null;
+  } catch {}
 
-  const payload = JSON.stringify({
+  const ref = `HC-${Date.now().toString(36).toUpperCase()}-${randomBytes(2).toString("hex").toUpperCase()}`;
+  const report = await deliverLead({
+    ref,
+    test: isTest(req),
     formType: variant,
+    formTitle: formDefs[variant].title,
     submittedAt: new Date().toISOString(),
     source: data.source || null,
     page: data.page || null,
     collection: finish ? { id: finish.id, name: finish.name, line: lines[finish.line].name, url: finish.path } : null,
     fields,
+    attribution,
   });
+  if (!report.delivered.length) return respond({ status: "error" }, 502);
+  return respond({ status: "sent", ref }, 200);
+}
 
-  try {
-    const headers: Record<string, string> = { "content-type": "application/json" };
-    if (process.env.LEAD_WEBHOOK_SECRET) {
-      headers["x-highland-signature"] = createHmac("sha256", process.env.LEAD_WEBHOOK_SECRET).update(payload).digest("hex");
-    }
-    const res = await fetch(endpoint, { method: "POST", headers, body: payload, signal: AbortSignal.timeout(10_000) });
-    if (!res.ok) return respond({ status: "error" }, 502);
-    return respond({ status: "sent" }, 200);
-  } catch {
-    return respond({ status: "error" }, 502);
-  }
+function isTest(req: NextRequest) {
+  const token = process.env.LEAD_TEST_TOKEN;
+  const given = req.headers.get("x-lead-test");
+  if (!token || !given || token.length !== given.length) return false;
+  return timingSafeEqual(Buffer.from(token), Buffer.from(given));
+}
+
+/** Readiness probe for scripts/verify-production.mjs: which destinations are configured (names only). */
+export function GET(req: NextRequest) {
+  if (!isTest(req)) return NextResponse.json({ status: "ok" });
+  return NextResponse.json({ status: "ok", destinations: configuredDestinations() });
 }

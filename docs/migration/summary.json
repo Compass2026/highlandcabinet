@@ -2,9 +2,9 @@
   "generated": "2026-11-24",
   "total": 324,
   "byStatus": {
-    "Rebuilt": 282,
+    "Rebuilt": 288,
     "Removed": 6,
-    "Redirect": 36
+    "Redirect": 30
   },
   "byType": {
     "Home": 1,
@@ -13,13 +13,14 @@
     "Lead form": 2,
     "Blog index": 1,
     "Blog post": 56,
-    "Retired / duplicate": 32,
+    "Retired / duplicate": 26,
     "Contact": 1,
     "Gallery": 1,
     "Partners": 1,
     "Partner profile": 1,
     "CMS artifact": 2,
     "FAQ article": 1,
+    "Campaign landing (noindex)": 6,
     "Legal": 1,
     "Collections index": 1,
     "Trade": 1,
@@ -41,6 +42,6 @@
     "linked 404 (archive)": 8,
     "documents (PDF)": 4
   },
-  "redirects": 36,
+  "redirects": 30,
   "gone": 2
 }

@@ -127,7 +127,7 @@ export function validateLead(variant: LeadVariant, data: LeadData): LeadErrors {
 }
 
 export type LeadResult =
-  | { status: "sent" }
+  | { status: "sent"; ref?: string }
   | { status: "not-configured" }
   | { status: "invalid"; errors: LeadErrors }
   | { status: "error" };

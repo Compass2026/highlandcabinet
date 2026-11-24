@@ -4,6 +4,7 @@ import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "rea
 import { finishById, finishes, lineOrder, lines } from "@/content/collections";
 import { contact, telHref } from "@/content/site";
 import { formDefs, groupLabels, validateLead, type FieldDef, type LeadData, type LeadErrors, type LeadResult, type LeadVariant } from "@/lib/leads";
+import { pushLeadEvent, readAttribution } from "@/lib/leadClient";
 import { SampleCard } from "@/components/ui/SampleCard";
 import { ArrowRight, Phone } from "@/components/ui/icons";
 import styles from "./LeadForm.module.css";
@@ -33,6 +34,7 @@ export function LeadForm({ variant, source, initialFinishId, returnTo, initialSt
     initialStatus === "sent" || initialStatus === "not-configured" || initialStatus === "error" ? (initialStatus as Phase) : "editing",
   );
   const [showSummary, setShowSummary] = useState(false);
+  const [ref, setRef] = useState("");
   const summaryRef = useRef<HTMLDivElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
   const finish = finishId ? finishById(finishId) : undefined;
@@ -88,7 +90,7 @@ export function LeadForm({ variant, source, initialFinishId, returnTo, initialSt
       const res = await fetch("/api/lead/", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ...values, finishId, formType: variant, source, page: window.location.pathname, website: hp }),
+        body: JSON.stringify({ ...values, finishId, formType: variant, source, page: window.location.pathname, website: hp, attribution: readAttribution() }),
       });
       const json = (await res.json()) as LeadResult;
       if (json.status === "invalid") {
@@ -97,6 +99,11 @@ export function LeadForm({ variant, source, initialFinishId, returnTo, initialSt
         setShowSummary(true);
         requestAnimationFrame(() => summaryRef.current?.focus());
       } else {
+        if (json.status === "sent" && json.ref) {
+          // Only a confirmed delivery counts as a conversion (Google Ads / GA4 / Meta via GTM).
+          pushLeadEvent(variant, def.title);
+          setRef(json.ref);
+        }
         setPhase(json.status);
       }
     } catch {
@@ -124,6 +131,7 @@ export function LeadForm({ variant, source, initialFinishId, returnTo, initialSt
           Someone from sales will follow up by phone or email{finish ? ` about ${finish.name}` : ""}. If it&rsquo;s urgent, call{" "}
           <a href={telHref(contact.phone.value)}>{contact.phone.value}</a>.
         </p>
+        {ref ? <p className={styles.ref}>Reference {ref}</p> : null}
         {onFinished ? (
           <button type="button" className="btn btn--ghost" onClick={onFinished}>
             Close

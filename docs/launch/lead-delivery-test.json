@@ -1,0 +1,236 @@
+{
+  "at": "2026-11-24T19:41:49.729Z",
+  "checks": [
+    {
+      "name": "quote: sent with reference",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "quote: email received",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "quote: webhook received",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "quote: email to both recipients, reply-to visitor",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "quote: email carries reference and attribution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "quote: email HTML escapes input",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "quote: email authenticated with API key",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "quote: webhook signed (HMAC)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "quote: webhook payload complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-application: sent with reference",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-application: email received",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-application: webhook received",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-application: email to both recipients, reply-to visitor",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-application: email carries reference and attribution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-application: email HTML escapes input",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-application: email authenticated with API key",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-application: webhook signed (HMAC)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-application: webhook payload complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-referral: sent with reference",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-referral: email received",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-referral: webhook received",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-referral: email to both recipients, reply-to visitor",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-referral: email carries reference and attribution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-referral: email HTML escapes input",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-referral: email authenticated with API key",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-referral: webhook signed (HMAC)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "dealer-referral: webhook payload complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contact: sent with reference",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contact: email received",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contact: webhook received",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contact: email to both recipients, reply-to visitor",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contact: email carries reference and attribution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contact: email HTML escapes input",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contact: email authenticated with API key",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contact: webhook signed (HMAC)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contact: webhook payload complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "test token marks the lead as a test",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "wrong test token is a normal lead",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "readiness probe lists destinations (token only)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "readiness probe hides destinations without token",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "honeypot: no reference, nothing delivered",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "invalid lead rejected with field errors",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "email down, webhook up → still sent",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "every destination down → error, never sent",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no-JavaScript form post redirects with status=sent",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "nothing configured → not-configured",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "failureCount": 0
+}

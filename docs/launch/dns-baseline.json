@@ -1,0 +1,43 @@
+{
+  "recordedAt": "2026-11-24T19:42:29.303Z",
+  "records": {
+    "highlandcabinetry.com MX": [
+      "0 highlandcabinetry-com.mail.protection.outlook.com."
+    ],
+    "highlandcabinetry.com TXT": [
+      "google-site-verification=CWQqjJLQ6L98vbaCN6Z-5oehIbprRkLpCjTzFQSzr2w",
+      "v=spf1 include:spf.protection.outlook.com include:_spf.google.com include:sendgrid.net -all"
+    ],
+    "_dmarc.highlandcabinetry.com TXT": [
+      "v=DMARC1; p=none; rua=mailto:dmarc.report@highlandcabinetryinc.com; ruf=mailto:dmarc.report@highlandcabinetryinc.com; fo=1;"
+    ],
+    "selector1._domainkey.highlandcabinetry.com CNAME": [
+      "selector1-highlandcabinetry-com._domainkey.highlandcabinetryinc954.r-v1.dkim.mail.microsoft."
+    ],
+    "selector2._domainkey.highlandcabinetry.com CNAME": [
+      "selector2-highlandcabinetry-com._domainkey.highlandcabinetryinc954.r-v1.dkim.mail.microsoft."
+    ],
+    "s1._domainkey.highlandcabinetry.com CNAME": [
+      "s1.domainkey.u59662958.wl209.sendgrid.net."
+    ],
+    "s2._domainkey.highlandcabinetry.com CNAME": [
+      "s2.domainkey.u59662958.wl209.sendgrid.net."
+    ],
+    "autodiscover.highlandcabinetry.com CNAME": [
+      "autodiscover.outlook.com."
+    ],
+    "highlandcabinetry.com NS": [
+      "ns53.domaincontrol.com.",
+      "ns54.domaincontrol.com."
+    ],
+    "highlandcabinetry.com A": [
+      "45.32.74.243"
+    ],
+    "www.highlandcabinetry.com CNAME": [
+      "highlandcabinetry.com."
+    ],
+    "www.highlandcabinetry.com A": [
+      "45.32.74.243"
+    ]
+  }
+}

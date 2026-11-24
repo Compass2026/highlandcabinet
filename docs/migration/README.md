@@ -28,16 +28,16 @@ that were never in the sitemap (campaign landings, thank-you pages, an embed fra
 
 | Status | Paths | Meaning |
 |---|---|---|
-| Rebuilt | 282 | Same path serves a rebuilt page (200) |
-| Redirect | 36 | Permanent redirect (308) to the most relevant page |
+| Rebuilt | 288 | Same path serves a rebuilt page (200) — 282 indexable + 6 noindex campaign landings |
+| Redirect | 30 | Permanent redirect (308) to the most relevant page; query strings (gclid, utm_*) are passed through |
 | Removed | 6 | Deliberately retired: 2 answer 410 Gone (`/oops/`, `/iframe-36/`); 3 mega-menu query URLs resolve to the homepage; 1 malformed doubled link |
 | Unresolved | 0 | — |
 
 Rebuilt breaks down as: home 1, collections index 1, product collections 13, trade 1, large projects 1, dealer/find-a-dealer forms 2, contact 1,
 about 1, gallery 1, FAQ 1, privacy 1, partners 2, blog index 1, blog posts 56, service-area hub 1,
-state pages 50, city pages 148.
+state pages 50, city pages 148, campaign landings 6 (`/new-luxe-shaker-*`, kept for their call-tracking numbers — see `docs/launch/TRACKING.md`).
 
-**Test run:** 323 paths requested (the malformed link is not requestable) — 285 × 200, 36 × 308, 2 × 410 — plus
+**Test run:** 323 paths requested (the malformed link is not requestable) — 291 × 200, 30 × 308, 2 × 410 — plus
 296 internal links crawled from every rebuilt page: **0 failures**. Report: `test-report.json`.
 
 ## Review flags (207 rows)
