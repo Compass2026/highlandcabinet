@@ -2,6 +2,7 @@ import { Hero } from "@/components/home/Hero";
 import { FinishTray } from "@/components/home/FinishTray";
 import { Collections, RealKitchens } from "@/components/home/Editorial";
 import { Construction } from "@/components/home/Construction";
+import { Quality } from "@/components/home/Quality";
 import { Affiliations, DealerSection, LocationSection } from "@/components/home/Showroom";
 import { ClosingCta } from "@/components/home/Sections";
 import { pageMetadata } from "@/lib/seo";
@@ -34,11 +35,12 @@ export default function HomePage() {
 
       <Collections />
       <RealKitchens />
+      <Quality />
       <section className="section on-linen" aria-labelledby="construction">
         <div className="container">
           <Construction
-            title="Built to be opened every day."
-            intro="Every Shaker and Nano cabinet shares one box: cabinet-grade plywood, L-bracket reinforcement for stone tops, dovetail drawers and soft-close hardware. Select a feature to find it on the drawing."
+            title="Every part, on Highland’s own drawing."
+            intro="The Shaker and Nano box as drawn in Highland’s catalog. Select a feature to find it on the cabinet."
           />
         </div>
       </section>

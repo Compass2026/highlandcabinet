@@ -484,12 +484,13 @@ textarea {
   }
 }
 
+/* Square clip on the figure (which also holds the caption); photos round their own corners. */
 @keyframes unveil {
   from {
-    clip-path: inset(7% 5% 0 5% round var(--r-lg));
+    clip-path: inset(7% 5% 0 5%);
   }
   to {
-    clip-path: inset(0 0 0 0 round var(--r-lg));
+    clip-path: inset(0 0 0 0);
   }
 }
 
