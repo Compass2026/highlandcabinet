@@ -73,7 +73,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <div className={styles.prose} dangerouslySetInnerHTML={{ __html: post.html }} />
           <div className={styles.cta} role="group" aria-label="Request a quote">
             <p className={styles.ctaTitle}>Pricing a kitchen or bath?</p>
-            <p>Highland supplies Shaker, Nano and Euro cabinets to builders, contractors, remodelers and dealers.</p>
+            <p>
+              Highland supplies Shaker, Nano and Euro cabinets to builders, contractors, remodelers and dealers — including{" "}
+              <Link href="/wholesale-white-shaker-cabinets/">White Shaker</Link>, <Link href="/wholesale-gray-shaker-cabinets/">Grey Shaker</Link> and{" "}
+              <Link href="/wholesale-signature-blue-shaker-cabinets/">Signature Blue</Link>.
+            </p>
             <div className={styles.ctaLinks}>
               <Link href="/request-a-quote/" className="btn">
                 Request a quote

@@ -16,6 +16,7 @@ export default async function FindDealerPage({ searchParams }: { searchParams: P
   return (
     <>
       <PageIntro
+        crumbs={[{ label: "Find a Dealer", href: "/find-a-dealer/" }]}
         aside={<Media id="scene-nano-white" sizes="(max-width: 900px) 100vw, 40vw" caption="Nano White" />} eyebrow="Homeowners" title={<>Find a dealer <em>near you.</em></>}>
         <p className="lead">
           Highland supplies cabinetry through the trade. Tell us where your project is and what you&rsquo;re planning, and our team will help

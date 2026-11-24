@@ -3,16 +3,18 @@ import { indexingEnabled, siteUrl } from "@/content/site";
 
 interface PageMeta {
   title: string;
+  /** Use the title as-is, without the " | Highland Cabinetry" template. */
+  absoluteTitle?: boolean;
   description: string;
   path: string;
   image?: string;
 }
 
 /** Builds per-page metadata with a canonical URL on the production origin. */
-export function pageMetadata({ title, description, path, image }: PageMeta): Metadata {
+export function pageMetadata({ title, description, path, image, absoluteTitle }: PageMeta): Metadata {
   const url = `${siteUrl}${path}`;
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: url },
     openGraph: {

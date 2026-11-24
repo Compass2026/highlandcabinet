@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Cabinet Collections — Shaker, Nano & Euro",
+  title: "Cabinet Collections & Product Catalog — Shaker, Nano & Euro",
   description: "Browse Highland Cabinetry's thirteen finishes across the Shaker, Nano and Euro lines, with specifications and downloadable catalogs.",
   path: "/products/",
   image: "/media/scene-shaker-luxe.jpg",
@@ -19,7 +19,8 @@ export const metadata = pageMetadata({
 export default function ProductsPage() {
   return (
     <>
-      <PageIntro eyebrow="Collections" title={<>Three lines. <em>Thirteen finishes.</em></>}>
+      <PageIntro
+        crumbs={[{ label: "Products", href: "/products/" }]} eyebrow="Collections" title={<>Three lines. <em>Thirteen finishes.</em></>}>
         <p className="lead">
           Framed Shaker and Nano cabinets on a plywood box, and frameless Euro cabinets with laminate and PET fronts. Pull a sample from the tray,
           or browse each line below.

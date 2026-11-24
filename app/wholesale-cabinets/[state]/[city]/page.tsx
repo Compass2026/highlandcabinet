@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { ServiceAreaPage } from "@/components/service/ServiceAreaPage";
-import { cityAreas, findArea } from "@/lib/serviceAreas";
+import { areaMeta, cityAreas, findArea } from "@/lib/serviceAreas";
 import { pageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
@@ -10,11 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const { state, city } = await params;
   const a = findArea(state, city);
   if (!a) return {};
-  return pageMetadata({
-    title: `Wholesale Kitchen & Bath Cabinets in ${a.cityName}, ${a.stateName}`,
-    description: `Wholesale Shaker, Nano and Euro cabinets for ${a.cityName} builders, contractors, remodelers and dealers — supplied from Highland Cabinetry's Phoenix showroom and warehouse.`,
-    path: a.path,
-  });
+  return pageMetadata({ ...areaMeta(a), path: a.path, image: undefined });
 }
 
 export default async function CityPage({ params }: { params: Promise<{ state: string; city: string }> }) {

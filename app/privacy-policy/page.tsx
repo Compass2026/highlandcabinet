@@ -21,7 +21,8 @@ const L = ({ items }: { items: string[] }) => (
 export default function PrivacyPage() {
   return (
     <>
-      <PageIntro eyebrow="Legal" title="Privacy Policy">
+      <PageIntro
+        crumbs={[{ label: "Privacy Policy", href: "/privacy-policy/" }]} eyebrow="Legal" title="Privacy Policy">
         <p className="lead">Last updated February 18, 2026.</p>
       </PageIntro>
       <ContentBody review="Carried over from the previous site’s policy. Its contact lines were unfilled placeholders and listed a different phone number (866-210-8560); they now use the site’s confirmed contact details. Highland should have counsel review this policy — including how quote and dealer forms are stored and which analytics run — before launch.">

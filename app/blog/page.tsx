@@ -15,7 +15,8 @@ export default function BlogIndex() {
   const [lead, ...rest] = posts;
   return (
     <>
-      <PageIntro eyebrow="Blog" title={<>Cabinet guides <em>for builders and remodelers.</em></>}>
+      <PageIntro
+        crumbs={[{ label: "Blog", href: "/blog/" }]} eyebrow="Blog" title={<>Cabinet guides <em>for builders and remodelers.</em></>}>
         <p className="lead">Sizes, materials, styles, costs and installation — {posts.length} articles from Highland Cabinetry.</p>
       </PageIntro>
       <section className="section--tight">

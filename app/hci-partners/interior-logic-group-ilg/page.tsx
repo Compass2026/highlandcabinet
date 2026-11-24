@@ -15,7 +15,8 @@ export default function IlgPage() {
   const logo = media("mark-ilg");
   return (
     <>
-      <PageIntro eyebrow="Partners" title="Interior Logic Group (ILG)" />
+      <PageIntro
+        crumbs={[{ label: "Partners", href: "/hci-partners/" }, { label: "Interior Logic Group (ILG)", href: "/hci-partners/interior-logic-group-ilg/" }]} eyebrow="Partners" title="Interior Logic Group (ILG)" />
       <ContentBody review="Restored from the previous site. Not carried over: the “Highland Cabinetry’s Partners” logo wall (CFM, DnR, Lowe’s, Primera, Sibi) and a customer quote about ILG — neither is documented. Confirm the ILG relationship and wording with Highland.">
         <p>
           <Image src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} style={{ width: 220, height: "auto" }} />

@@ -29,7 +29,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!f) return {};
   const line = lines[f.line];
   return pageMetadata({
-    title: `Wholesale ${f.name} ${line.name === "Shaker" && !f.name.includes("Shaker") ? "Shaker " : ""}Cabinets`,
+    // Keeps the old titles' search terms ("wholesale", "RTA"); Grey Shaker also carries the US "Gray" spelling of its old URL/title.
+    title: `Wholesale RTA ${f.name} ${line.name === "Shaker" && !f.name.includes("Shaker") ? "Shaker " : line.name === "Euro" ? "Euro " : ""}Cabinets${f.id === "shaker-grey" ? " (Gray Shaker)" : f.id === "euro-frost-white" ? " (White Frost)" : ""}`,
     description: `${f.name} ${line.name.toLowerCase()} cabinets from Highland Cabinetry: ${f.finishType.toLowerCase()} finish, ${line.construction.toLowerCase()} construction. Specifications, catalog and trade quotes.`,
     path: f.path,
     image: media(f.media.scene).src,
@@ -47,7 +48,7 @@ export default async function ProductPage({ params }: Params) {
   const chip = media(f.media.chip);
   const render = media(f.media.render);
   const catalogHref = f.catalogPage ? `${catalog.href}#page=${f.catalogPage}` : catalog.href;
-  const fullName = `${f.name}${f.line === "shaker" && !f.name.includes("Shaker") ? " Shaker" : ""}`;
+  const fullName = `${f.name}${f.line === "shaker" && !f.name.includes("Shaker") ? " Shaker" : f.line === "euro" ? " Euro" : ""}`;
 
   const keyFacts =
     f.line === "euro"
@@ -101,7 +102,7 @@ export default async function ProductPage({ params }: Params) {
               <span className="code">{f.code}</span> {line.name} line · {line.construction}
             </p>
             <h1 id="product-title" className={styles.h1}>
-              {fullName} <span>Cabinets</span>
+              Wholesale {fullName} <span>Cabinets</span>
             </h1>
             <p className={styles.desc}>{f.description}</p>
             <dl className={styles.facts}>
@@ -247,10 +248,17 @@ export default async function ProductPage({ params }: Params) {
             Also from Highland:{" "}
             {otherLines.map((l, i) => (
               <span key={l}>
-                <Link href={`/products/#line-${l}`}>{lines[l].name}</Link> ({lines[l].short.replace(/\.$/, "")})
+                <Link href={`/products/#line-${l}`}>{lines[l].name}</Link> —{" "}
+                {finishesByLine(l).map((x, j, arr) => (
+                  <span key={x.id}>
+                    <Link href={x.path}>{x.name}</Link>
+                    {j < arr.length - 1 ? ", " : ""}
+                  </span>
+                ))}
                 {i < otherLines.length - 1 ? "; " : "."}
               </span>
-            ))}
+            ))}{" "}
+            See them all in the <Link href="/gallery-of-highland-cabinets/">gallery</Link>, or <Link href="/contact-us/">contact the sales team</Link>.
           </p>
         </div>
       </section>

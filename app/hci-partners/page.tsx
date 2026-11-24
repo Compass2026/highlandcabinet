@@ -15,7 +15,8 @@ export default function PartnersPage() {
   const logo = media("mark-ilg");
   return (
     <>
-      <PageIntro eyebrow="Partners" title="Highland Cabinetry partners" />
+      <PageIntro
+        crumbs={[{ label: "Partners", href: "/hci-partners/" }]} eyebrow="Partners" title="Highland Cabinetry partners" />
       <ContentBody review="Restored from the previous site. Highland should confirm the ILG relationship and how it may be described.">
         <Link href="/hci-partners/interior-logic-group-ilg/" style={{ display: "flex", alignItems: "center", gap: "1.5rem", textDecoration: "none" }}>
           <Image src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} style={{ width: 180, height: "auto" }} />

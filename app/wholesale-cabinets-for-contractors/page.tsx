@@ -1,14 +1,15 @@
+import Link from "next/link";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Media } from "@/components/ui/Media";
 import { SampleCard } from "@/components/ui/SampleCard";
 import { QuoteButton } from "@/components/quote/QuoteButton";
 import { ClosingCta, TradeProcess } from "@/components/home/Sections";
-import { finishById } from "@/content/collections";
+import { finishById, finishes } from "@/content/collections";
 import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Wholesale Cabinets for Contractors, Builders & Remodelers",
+  title: "Wholesale Kitchen & Bathroom Cabinets for Contractors, Builders & Flippers",
   description:
     "Trade accounts for contractors, builders, remodelers, flippers and dealers: wholesale Shaker, Nano and Euro cabinets with a dedicated account manager.",
   path: "/wholesale-cabinets-for-contractors/",
@@ -29,6 +30,7 @@ export default function ContractorsPage() {
   return (
     <>
       <PageIntro
+        crumbs={[{ label: "Contractors", href: "/wholesale-cabinets-for-contractors/" }]}
         eyebrow="For the trade"
         title={<>Wholesale cabinetry for <em>the people who build.</em></>}
         aside={<Media id="scene-shaker-onyx-black" sizes="(max-width: 900px) 100vw, 40vw" caption="Shaker Onyx Black" />}
@@ -85,6 +87,18 @@ export default function ContractorsPage() {
               <SampleCard key={f.id} finish={f} href={f.path} as="li" headingLevel="h3" />
             ))}
           </ul>
+          <p style={{ marginTop: "2rem", color: "var(--graphite)" }}>
+            Also in Nano and Euro:{" "}
+            {finishes
+              .filter((f) => f.line !== "shaker")
+              .map((f, i, arr) => (
+                <span key={f.id}>
+                  <Link href={f.path}>{f.name}</Link>
+                  {i < arr.length - 1 ? ", " : ". "}
+                </span>
+              ))}
+            <Link href="/contact-us/">Contact the sales team</Link> to open an account.
+          </p>
         </div>
       </section>
 

@@ -20,6 +20,7 @@ export default async function QuotePage({ searchParams }: Props) {
   return (
     <>
       <PageIntro
+        crumbs={[{ label: "Request a Quote", href: "/request-a-quote/" }]}
         aside={<Media id="scene-euro-frost-white" sizes="(max-width: 900px) 100vw, 40vw" caption="Euro Frost White" />} eyebrow="Trade pricing" title={<>Request a quote{f ? <> for <em>{f.name}</em></> : null}</>}>
         <p className="lead">
           Share what you&rsquo;re building and a member of Highland&rsquo;s sales team will follow up with pricing and availability. Trade

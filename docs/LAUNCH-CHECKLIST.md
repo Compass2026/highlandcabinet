@@ -30,7 +30,7 @@ and centralised in `content/site.ts` with `status: "needs-confirmation"`.
 | 12 | **Drawer construction** | Website: “5/8″ thick cabinet grade plywood sides”. June 2025 catalog: “½″ thick solid wood sides” | Uses the catalog (newer, dated) and cites it | [blocker] — spec accuracy |
 | 13 | Door material | Website: “5 piece… on stained birch; 3 piece… on painted MDF; painted surfaces are MDF”. Catalog: “5-piece drawer fronts”, doors “¾″ full overlay” only. Old cutaway photo label: “birch wood door style” | Only catalog wording shown; door material not stated | [content] |
 | 14 | Euro wood finishes | Catalog finish chart: “Melamine (MDF)”. Catalog construction page: “furniture board with laminated surface” | Finish chart wording used as finish type; construction wording in spec sheet | [content] |
-| 15 | Uptown White | Listed on several old pages; absent from both June 2025 catalogs | Not shown; old URL proposed to redirect to Shaker line | [content] |
+| 15 | Uptown White | Listed on several old pages; absent from both June 2025 catalogs | Not shown; old URL redirects to White Shaker (closest current painted-white Shaker door). Its old spec lists soft-closing hinges — see 11b | [content] |
 | 16 | “European … gloss” finishes (4) | Old “Euro Finishes Coming Soon” block | Not shown; URLs redirect to Euro line | [content] |
 | 17 | **Certifications / memberships** | Brands section shows KCMA “Quality Tested” seal, NKBA logo and a “100% Wood” badge. KCMA's public certificate no. 25068 (kcma.org) lists Highland Cabinetry, Phoenix AZ, issued 1 Jul 2025, **expired 31 Aug 2026**; covers *factory-assembled* lines only (named Crimson, Matrix, Keystone, Castle etc. — not the website's line names); flat-pack not certified. No 2026 certificate found in KCMA's public listing. NKBA membership not verifiable publicly | Homepage “Standards & associations” shows KCMA + NKBA on the **staging preview only**, each tagged “Preview only · awaiting confirmation”. Both are removed automatically when `SITE_INDEXING=on` until marked `confirmed` in `content/site.ts`. “100% Wood” badge **not used**: Euro cabinets use a laminated furniture-board case, so the claim would be untrue for that line | [blocker] — supply the current KCMA certificate (and which lines it covers) and NKBA membership proof; vector logos wanted (archive NKBA logo is 101×61 px) |
 | 18 | Warranty | Only appears inside a third-party testimonial (“lifetime warranty on all products”) and as “come with a warranty” on the contractors page | Not used | [content] |
@@ -38,7 +38,7 @@ and centralised in `content/site.ts` with `status: "needs-confirmation"`.
 | 20 | Volume pricing tiers | Phoenix page: “up to 10% / 15% / 20%” by kitchens per month | Not used | [content] |
 | 21 | Design support | “3D renderings, layout planning” (contractors + Phoenix pages) | Mentioned once, generically (“layouts and renderings”) on the contractors page | [content] |
 | 22 | Partners & financing | Interior Logic Group partner page; “Blue Tree Financing” | Not used | [content] |
-| 23 | Free shipping landing page | `/free-shipping-landing/` | Proposed redirect to Request a Quote; confirm whether the offer still exists | [content] |
+| 23 | Free shipping landing page | `/free-shipping-landing/` | Redirects to the homepage (the old page duplicated the homepage); free-shipping offer not mentioned anywhere | [content] — confirm the offer is retired |
 | 24 | Installed-project photos | IMG_48xx/49xx/00xx files from the White Shaker gallery (EXIF: iPhone 11 2021, Canon T3i 2022) | Used as “Installed project — White Shaker” | [blocker] — confirm they show Highland White Shaker and that Highland holds the rights |
 | 24a | Warehouse photograph | `compressed_warehouseimage.webp` (Become/Find a Dealer section, 2026/03); no camera data; 1536×1024 (an OpenAI image size) | Used in the homepage dealer section, captioned “Highland warehouse” | [blocker] — see R11 |
 | 24b | Detail imagery | Brass-pull close-up (`compressed_sigblue6.webp`, Signature Blue page) has no camera data; IMG_4916 crop shows black bar pulls in an installed kitchen | Labelled “Highland rendering” and “Installed project” | [content] — confirm the rendering is Highland's and the pulls shown are offered/compatible |
@@ -60,7 +60,8 @@ and centralised in `content/site.ts` with `status: "needs-confirmation"`.
 | R9 | Partners / ILG | ILG description kept; undocumented logo wall (incl. Lowe’s) and third-party quote removed | [content] — confirm relationship |
 | R10 | Large-projects page | Capacity (25,000/month), “15+ years”, regional hubs and certification claims removed | [content] |
 | R11 | **Warehouse photograph** | 1536×1024 with no camera data — the same size as OpenAI image output. Cannot confirm it is a real photo of Highland’s warehouse | [blocker] — confirm or replace |
-| R12 | Campaign landings | Six “new-luxe-shaker-*” pages → Luxe Shaker; Q4 blowout page → Request a quote | [content] — confirm no live ads depend on them |
+| R12 | Campaign landings | Six “new-luxe-shaker-*” pages → Luxe Shaker; Q4 blowout page → Request a quote. Each Luxe page carried its own call-tracking number, which the redirect drops | [content] — confirm no live ads or call tracking depend on them |
+| R13 | **SEO preservation audit** | `docs/seo/SEO-PRESERVATION-AUDIT.md` — page-by-page comparison, redirect relevance, risks. No keyword is verified until Search Console data is supplied | [blocker] — grant Search Console access; decide service-area pages per §9 of the audit |
 
 ## 2. Access and assets needed
 
@@ -84,4 +85,5 @@ and centralised in `content/site.ts` with `status: "needs-confirmation"`.
 3. Submit a test lead from production and confirm it arrives.
 4. Re-run `node scripts/build-migration.mjs` after decisions on “needs decision” rows; confirm redirects with a crawl of the old sitemap against the new host.
 5. Point DNS at Vercel only after Highland confirms; keep the old host available read-only until redirects are verified.
-6. Submit `sitemap.xml` in Search Console; monitor 404s for two weeks.
+6. Before switching DNS, run the indexability gate against the production build: `BASE=<prod url> ORIGIN=https://highlandcabinetry.com node scripts/test-launch-seo.mjs` (0 failures required: no noindex, canonicals on the live origin, unique titles/descriptions, no review notes).
+7. Submit `sitemap.xml` in Search Console; monitor 404s for two weeks.

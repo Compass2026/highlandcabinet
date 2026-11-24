@@ -174,3 +174,43 @@
     grid-template-columns: 1fr;
   }
 }
+
+.steps {
+  display: grid;
+  gap: var(--s-3);
+  margin: var(--s-4) 0 0;
+  padding-left: 1.2em;
+  color: var(--graphite);
+}
+
+.steps strong {
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.faq {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-5) var(--s-7);
+  margin: var(--s-5) 0 0;
+}
+
+.faq dt {
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.faq dd {
+  margin: var(--s-2) 0 0;
+  color: var(--graphite);
+}
+
+.text a {
+  color: var(--charcoal);
+}
+
+@media (max-width: 900px) {
+  .faq {
+    grid-template-columns: 1fr;
+  }
+}

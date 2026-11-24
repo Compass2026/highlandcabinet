@@ -19,6 +19,7 @@ export default function AboutPage() {
   return (
     <>
       <PageIntro
+        crumbs={[{ label: "About", href: "/about-us/" }]}
         eyebrow="About Highland"
         title={<>Cabinetry for <em>the people who build.</em></>}
         aside={<Media id="scene-euro-stone-grey" sizes="(max-width: 900px) 100vw, 40vw" priority />}

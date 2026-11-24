@@ -16,6 +16,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
   return (
     <>
       <PageIntro
+        crumbs={[{ label: "Contact Us", href: "/contact-us/" }]}
         aside={<Media id="scene-euro-stone-grey" sizes="(max-width: 900px) 100vw, 40vw" caption="Euro Stone Grey" />} eyebrow="Contact" title={<>Talk to the <em>Highland team.</em></>}>
         <p className="lead">Questions about products, orders or becoming a customer — send a note and the right person will reply.</p>
       </PageIntro>

@@ -15,6 +15,7 @@ export default async function DealerPage({ searchParams }: { searchParams: Promi
   return (
     <>
       <PageIntro
+        crumbs={[{ label: "Become a Dealer", href: "/become-a-dealer/" }]}
         aside={<Media id="scene-euro-glacial-white" sizes="(max-width: 900px) 100vw, 40vw" caption="Euro Glacial White" />} eyebrow="Dealers & suppliers" title={<>Become a <em>Highland dealer.</em></>}>
         <p className="lead">
           Whether you&rsquo;re a homebuilder, a contractor bidding a project, or a supplier expanding your inventory, tell us about your business

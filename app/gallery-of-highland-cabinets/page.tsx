@@ -6,10 +6,11 @@ import { finishes, lineOrder, lines } from "@/content/collections";
 import generated from "@/content/media.generated.json";
 import { kindLabel, media } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
+import { catalogs } from "@/content/site";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Gallery — Highland Shaker, Nano and Euro Cabinets",
+  title: "Kitchen Cabinet Gallery — Shaker, Nano & Euro Wholesale Cabinets",
   description:
     "Kitchens and cabinets from Highland Cabinetry: renderings of every Shaker, Nano and Euro finish, product renderings of individual cabinets, and installed White Shaker projects.",
   path: "/gallery-of-highland-cabinets/",
@@ -23,7 +24,8 @@ const installed = ids.filter((id) => id.startsWith("project-white-shaker-"));
 export default function GalleryPage() {
   return (
     <>
-      <PageIntro eyebrow="Gallery" title={<>Every finish, <em>in the room and up close.</em></>}>
+      <PageIntro
+        crumbs={[{ label: "Gallery", href: "/gallery-of-highland-cabinets/" }]} eyebrow="Gallery" title={<>Every finish, <em>in the room and up close.</em></>}>
         <p className="lead">
           Highland&rsquo;s renderings of each finish, product renderings of individual cabinets, and installed White Shaker kitchens. Every
           image is labelled with what it is.
@@ -35,6 +37,11 @@ export default function GalleryPage() {
             </a>
           ))}
           <a href="#installed">Installed projects</a>
+          {catalogs.map((c) => (
+            <a key={c.id} href={c.href}>
+              {c.title} (PDF)
+            </a>
+          ))}
         </nav>
       </PageIntro>
 

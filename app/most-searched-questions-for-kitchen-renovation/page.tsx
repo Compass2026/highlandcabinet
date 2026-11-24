@@ -88,7 +88,8 @@ export default function FaqPage() {
   };
   return (
     <>
-      <PageIntro eyebrow="Kitchen renovation FAQ" title={<>The most searched questions <em>for kitchen renovation.</em></>}>
+      <PageIntro
+        crumbs={[{ label: "Kitchen Renovation FAQ", href: "/most-searched-questions-for-kitchen-renovation/" }]} eyebrow="Kitchen renovation FAQ" title={<>The most searched questions <em>for kitchen renovation.</em></>}>
         <p className="lead">
           Answered by James McAllister, president of Highland Cabinetry Inc. First published October 15, 2023.
         </p>

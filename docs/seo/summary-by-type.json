@@ -1,0 +1,387 @@
+{
+ "Home": {
+  "pages": 1,
+  "avgWordsOld": 435,
+  "avgWordsNew": 1194,
+  "titleTermsLost": 0,
+  "pagesLinksLost": 1,
+  "pdfLost": 0,
+  "imagesOld": 0,
+  "imagesNew": 32,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "Organization",
+   "WebSite"
+  ]
+ },
+ "About": {
+  "pages": 1,
+  "avgWordsOld": 328,
+  "avgWordsNew": 680,
+  "titleTermsLost": 1,
+  "pagesLinksLost": 1,
+  "pdfLost": 0,
+  "imagesOld": 1,
+  "imagesNew": 5,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Lead form": {
+  "pages": 2,
+  "avgWordsOld": 196,
+  "avgWordsNew": 181,
+  "titleTermsLost": 1,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 0,
+  "imagesNew": 2,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Blog index": {
+  "pages": 1,
+  "avgWordsOld": 160,
+  "avgWordsNew": 2688,
+  "titleTermsLost": 1,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 11,
+  "imagesNew": 56,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Blog post": {
+  "pages": 56,
+  "avgWordsOld": 2331,
+  "avgWordsNew": 2187,
+  "titleTermsLost": 0,
+  "pagesLinksLost": 56,
+  "pdfLost": 0,
+  "imagesOld": 110,
+  "imagesNew": 342,
+  "oldSchema": [
+   "Article",
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "Person",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BlogPosting",
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Contact": {
+  "pages": 1,
+  "avgWordsOld": 141,
+  "avgWordsNew": 131,
+  "titleTermsLost": 0,
+  "pagesLinksLost": 1,
+  "pdfLost": 0,
+  "imagesOld": 0,
+  "imagesNew": 1,
+  "oldSchema": [
+   "BreadcrumbList",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Gallery": {
+  "pages": 1,
+  "avgWordsOld": 214,
+  "avgWordsNew": 367,
+  "titleTermsLost": 1,
+  "pagesLinksLost": 1,
+  "pdfLost": 0,
+  "imagesOld": 33,
+  "imagesNew": 50,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Partners": {
+  "pages": 1,
+  "avgWordsOld": 12,
+  "avgWordsNew": 19,
+  "titleTermsLost": 0,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 1,
+  "imagesNew": 1,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Partner profile": {
+  "pages": 1,
+  "avgWordsOld": 270,
+  "avgWordsNew": 104,
+  "titleTermsLost": 0,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 1,
+  "imagesNew": 1,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "FAQ article": {
+  "pages": 1,
+  "avgWordsOld": 1064,
+  "avgWordsNew": 855,
+  "titleTermsLost": 1,
+  "pagesLinksLost": 1,
+  "pdfLost": 0,
+  "imagesOld": 4,
+  "imagesNew": 0,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "FAQPage",
+   "Organization"
+  ]
+ },
+ "Legal": {
+  "pages": 1,
+  "avgWordsOld": 534,
+  "avgWordsNew": 518,
+  "titleTermsLost": 0,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 0,
+  "imagesNew": 0,
+  "oldSchema": [
+   "BreadcrumbList",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Collections index": {
+  "pages": 1,
+  "avgWordsOld": 275,
+  "avgWordsNew": 478,
+  "titleTermsLost": 0,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 1,
+  "imagesNew": 31,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Trade": {
+  "pages": 1,
+  "avgWordsOld": 877,
+  "avgWordsNew": 418,
+  "titleTermsLost": 0,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 2,
+  "imagesNew": 7,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Service-area hub": {
+  "pages": 1,
+  "avgWordsOld": 809,
+  "avgWordsNew": 546,
+  "titleTermsLost": 1,
+  "pagesLinksLost": 1,
+  "pdfLost": 0,
+  "imagesOld": 1,
+  "imagesNew": 1,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ },
+ "Service area \u2014 state": {
+  "pages": 50,
+  "avgWordsOld": 1311,
+  "avgWordsNew": 645,
+  "titleTermsLost": 1,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 51,
+  "imagesNew": 50,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "FAQPage",
+   "Organization",
+   "Service"
+  ]
+ },
+ "Service area \u2014 city": {
+  "pages": 148,
+  "avgWordsOld": 1397,
+  "avgWordsNew": 732,
+  "titleTermsLost": 2,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 148,
+  "imagesNew": 148,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "FAQPage",
+   "Organization",
+   "Service"
+  ]
+ },
+ "Product collection": {
+  "pages": 13,
+  "avgWordsOld": 726,
+  "avgWordsNew": 563,
+  "titleTermsLost": 13,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 21,
+  "imagesNew": 131,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization",
+   "Product"
+  ]
+ },
+ "Wholesale / large projects": {
+  "pages": 1,
+  "avgWordsOld": 689,
+  "avgWordsNew": 320,
+  "titleTermsLost": 1,
+  "pagesLinksLost": 0,
+  "pdfLost": 0,
+  "imagesOld": 2,
+  "imagesNew": 1,
+  "oldSchema": [
+   "BreadcrumbList",
+   "ImageObject",
+   "Organization",
+   "WebPage",
+   "WebSite"
+  ],
+  "newSchema": [
+   "BreadcrumbList",
+   "Organization"
+  ]
+ }
+}

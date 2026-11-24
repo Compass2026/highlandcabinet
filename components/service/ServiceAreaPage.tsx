@@ -6,8 +6,8 @@ import { QuoteButton } from "@/components/quote/QuoteButton";
 import { ClosingCta } from "@/components/home/Sections";
 import { ArrowRight } from "@/components/ui/icons";
 import { finishes, lines, lineOrder } from "@/content/collections";
-import { contact, indexingEnabled, orderPolicy, phoenixLocation, telHref } from "@/content/site";
-import { citiesIn, sceneFor, type ServiceArea } from "@/lib/serviceAreas";
+import { catalogs, contact, indexingEnabled, orderPolicy, phoenixLocation, telHref } from "@/content/site";
+import { areaFaq, citiesIn, sceneFor, type ServiceArea } from "@/lib/serviceAreas";
 import { jsonLd } from "@/lib/seo";
 import styles from "./ServiceAreaPage.module.css";
 
@@ -16,12 +16,26 @@ export function ServiceAreaPage({ area }: { area: ServiceArea }) {
   const isCity = Boolean(area.city);
   const isArizona = area.state === "arizona";
   const cities = isCity ? [] : citiesIn(area.state);
+  const nearby = isCity ? citiesIn(area.state).filter((c) => c.path !== area.path) : [];
   const crumbs = [
     { label: "Home", href: "/" },
     { label: "Service areas", href: "/wholesale-cabinets/" },
     { label: area.stateName, href: `/wholesale-cabinets/${area.state}/` },
     ...(isCity ? [{ label: area.cityName!, href: area.path }] : []),
   ];
+  const faq = areaFaq(area);
+  const audiences = ["Builders & developers", "General contractors", "Flippers & real-estate investors", "Remodelers & renovators", "Handymen & installers", "Restoration companies", "Cabinet dealers & suppliers"];
+  const steps = [
+    { t: "Get in touch", d: "Call, send a quote request, or visit the Phoenix showroom." },
+    { t: "Open your trade account", d: "Share your business details — an EIN or contractor license — and the sales team sets up your profile." },
+    { t: "Plan the order", d: "Send your layout and cabinet list; your account manager helps check selections and quantities." },
+    { t: "Order & deliver", d: "Order by Excel form, portal or 2020 SKU list; pick up in Phoenix or have it delivered to the job." },
+  ];
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((x) => ({ "@type": "Question", name: x.q, acceptedAnswer: { "@type": "Answer", text: x.a } })),
+  };
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -40,7 +54,7 @@ export function ServiceAreaPage({ area }: { area: ServiceArea }) {
         eyebrow={isCity ? `Service area · ${area.stateName}` : "Service area"}
         title={
           <>
-            Wholesale cabinets for <em>{place} contractors.</em>
+            Wholesale kitchen &amp; bathroom cabinets <em>for {place} contractors.</em>
           </>
         }
         aside={<Media id={sceneFor(area.path)} sizes="(max-width: 900px) 100vw, 40vw" priority />}
@@ -115,7 +129,7 @@ export function ServiceAreaPage({ area }: { area: ServiceArea }) {
                 <dd>{orderPolicy.orderMethods.value.join(", ")}. Orders aren’t taken by phone.</dd>
               </div>
               <div>
-                <dt>Delivery</dt>
+                <dt>Delivery options</dt>
                 <dd>{orderPolicy.deliveryOptions.value.join("; ")}.</dd>
               </div>
               <div>
@@ -130,11 +144,50 @@ export function ServiceAreaPage({ area }: { area: ServiceArea }) {
         </div>
       </section>
 
+      <section className={`section ${styles.lines}`} aria-labelledby="area-trade">
+        <div className={`container ${styles.grid}`}>
+          <div>
+            <h2 id="area-trade" className={styles.h2}>
+              We serve {place} trade professionals
+            </h2>
+            <p className={styles.text}>
+              Highland Cabinetry is a wholesale supplier: trade pricing is for businesses with an EIN or contractor license.{" "}
+              <Link href="/wholesale-cabinets-for-contractors/">How trade accounts work</Link>.
+            </p>
+            <ul className={styles.chips}>
+              {audiences.map((x) => (
+                <li key={x}>{x}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className={styles.h3}>How it works</h2>
+            <ol className={styles.steps}>
+              {steps.map((s) => (
+                <li key={s.t}>
+                  <strong>{s.t}.</strong> {s.d}
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
       <section className={`section ${styles.lines}`} aria-labelledby="area-lines">
         <div className="container">
           <h2 id="area-lines" className={styles.h2}>
-            Three lines, thirteen finishes.
+            RTA cabinet styles for every project
           </h2>
+          <p className={styles.text}>
+            Three lines and thirteen finishes, ready to assemble or assembled. Browse the <Link href="/products/">collections</Link> or download the{" "}
+            {catalogs.map((c, i) => (
+              <span key={c.id}>
+                <a href={c.href}>{c.title}</a>
+                {i < catalogs.length - 1 ? " and " : ""}
+              </span>
+            ))}
+            .
+          </p>
           <div className={styles.lineGrid}>
             {lineOrder.map((l) => (
               <div key={l} className={styles.line}>
@@ -156,11 +209,58 @@ export function ServiceAreaPage({ area }: { area: ServiceArea }) {
         </div>
       </section>
 
+      <section className={`section--tight ${styles.lines}`} aria-labelledby="area-large">
+        <div className={`container ${styles.grid}`}>
+          <div>
+            <h2 id="area-large" className={styles.h3}>
+              Large projects &amp; multi-unit developments
+            </h2>
+            <p className={styles.text}>
+              Building many kitchens in {place}? Highland supplies builders and developers with one consistent specification, one account manager and
+              delivery scheduled to the job. <Link href="/wholesalers-large-scale-projects/">Wholesale &amp; large-scale projects</Link> ·{" "}
+              <Link href="/contact-us/">Contact the sales team</Link>
+            </p>
+          </div>
+          <div />
+        </div>
+      </section>
+
+      <section className="section--tight" aria-labelledby="area-faq">
+        <div className="container">
+          <h2 id="area-faq" className={styles.h3}>
+            Questions from {place} contractors
+          </h2>
+          <dl className={styles.faq}>
+            {faq.map((x) => (
+              <div key={x.q}>
+                <dt>{x.q}</dt>
+                <dd>{x.a}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className={styles.small}>
+            {nearby.length ? (
+              <>
+                Also in {area.stateName}:{" "}
+                {nearby.map((c, i) => (
+                  <span key={c.path}>
+                    <Link href={c.path}>{c.cityName}</Link>
+                    {i < nearby.length - 1 ? ", " : ". "}
+                  </span>
+                ))}
+              </>
+            ) : null}
+            <Link href={`/wholesale-cabinets/${area.state}/`}>{area.stateName} service area</Link> ·{" "}
+            <Link href="/wholesale-cabinets/">View all service locations</Link>
+          </p>
+        </div>
+      </section>
+
       {area.facilities.length ? (
         <section className="section--tight" aria-labelledby="area-offices">
           <div className="container">
             <h2 id="area-offices" className={styles.h3}>
-              Local offices for {place} projects
+              {place} city facilities and services
             </h2>
             <ul className={styles.offices}>
               {area.facilities.map((f) => (
@@ -177,6 +277,7 @@ export function ServiceAreaPage({ area }: { area: ServiceArea }) {
 
       <ClosingCta source={`service-area-closing`} />
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(schema)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqSchema)} />
     </>
   );
 }

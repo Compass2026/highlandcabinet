@@ -73,7 +73,7 @@ export const redirects: { source: string; destination: string; permanent: boolea
   },
   {
     "source": "/free-shipping-landing/",
-    "destination": "/request-a-quote/",
+    "destination": "/",
     "permanent": true
   },
   {
@@ -153,7 +153,7 @@ export const redirects: { source: string; destination: string; permanent: boolea
   },
   {
     "source": "/wholesale-uptown-white-cabinets/",
-    "destination": "/products/#line-shaker",
+    "destination": "/wholesale-white-shaker-cabinets/",
     "permanent": true
   },
   {

@@ -8,7 +8,7 @@ import { citiesIn, stateAreas } from "@/lib/serviceAreas";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Service Areas — Wholesale Cabinets from Phoenix, Arizona",
+  title: "Wholesale Cabinets Near You — Service Areas from Phoenix, AZ",
   description:
     "Highland Cabinetry's showroom and warehouse are in Phoenix, Arizona. See how Highland supplies trade customers and dealers in other states.",
   path: "/wholesale-cabinets/",
@@ -19,6 +19,7 @@ export default async function ServiceAreasPage({ searchParams }: { searchParams:
   return (
     <>
       <PageIntro
+        crumbs={[{ label: "Service Areas", href: "/wholesale-cabinets/" }]}
         aside={<Media id="scene-shaker-grey" sizes="(max-width: 900px) 100vw, 40vw" caption="Grey Shaker" />} eyebrow="Service areas" title={<>Based in Phoenix. <em>Supplying the trade beyond it.</em></>}>
         <p className="lead">
           Highland&rsquo;s showroom and warehouse are in Phoenix, Arizona. Other cities and states are areas we supply by delivery and freight —

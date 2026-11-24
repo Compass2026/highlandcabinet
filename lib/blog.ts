@@ -1,4 +1,5 @@
 import data from "@/content/blog/posts.json";
+import meta from "@/content/blog/post-meta.json";
 
 /**
  * Blog posts restored from the previous site (WordPress REST export), at their original
@@ -17,7 +18,30 @@ export interface Post {
   cover: { src: string; width: number; height: number; alt: string } | null;
 }
 
-export const posts = data as Post[];
+/**
+ * Per-post SEO title/description, taken from each live post's rendered HTML. (The WordPress REST API's Yoast
+ * fields returned the same title for every post, so they are not used.)
+ */
+const seo = meta as Record<string, { title: string; description: string | null }>;
+/** A short excerpt from the corrected article text (WordPress excerpts ran ~1,000 words of uncorrected copy). */
+function excerptOf(html: string, words = 35) {
+  const text = html
+    .replace(/<(table|figure|h[2-4])[\s\S]*?<\/\1>/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&[a-z#0-9]+;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .split(" ");
+  return text.slice(0, words).join(" ") + (text.length > words ? "…" : "");
+}
+
+export const posts = (data as Post[]).map((p) => ({
+  ...p,
+  excerpt: excerptOf(p.html),
+  seoTitle: seo[p.slug]?.title ?? p.title,
+  seoDescription: seo[p.slug]?.description ?? null,
+}));
 export const postBySlug = (slug: string) => posts.find((p) => p.slug === slug);
 
 export function readingMinutes(html: string) {

@@ -10,7 +10,8 @@ import { siteUrl } from "@/content/site";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Highland Cabinetry — Wholesale Kitchen & Bath Cabinets for the Trade",
+  title: "RTA Kitchen & Bathroom Wholesale Cabinets for the Trade | Highland Cabinetry",
+  absoluteTitle: true,
   description:
     "Wholesale Shaker, Nano and Euro kitchen and bath cabinets for contractors, builders, remodelers and dealers. Thirteen finishes, plywood-box Shaker construction, and a dedicated account manager.",
   path: "/",

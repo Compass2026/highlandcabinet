@@ -65,7 +65,10 @@ order, “Highlend” typo, an outdated phone number).
 They are rebuilt at their original paths — so existing rankings and links keep resolving — with the genuinely local
 material they held (nearby communities served; local city-hall, permit and housing-office contacts) plus verified
 ordering facts, line/finish links and a location-tagged quote form. None of the unsupported claims were carried over.
-Each page shows a preview-only review note listing what was flagged and what was dropped.
+Each page shows a review note listing what was flagged and what was dropped — on the staging preview only; it is not
+rendered in production. The SEO audit (`docs/seo/SEO-PRESERVATION-AUDIT.md`) restored each page's original title and
+the accurate sections the rewrite had dropped (audiences, how it works, styles with catalog links, delivery options, large
+projects, FAQ).
 `/wholesale-cabinets/wisconsin-old/madison-old/` (an outdated duplicate) redirects to the current Madison page.
 **Decide per page with Search Console data**: keep, strengthen with local projects, or consolidate.
 
@@ -82,6 +85,12 @@ for AI-generator dimensions without proof either way. Posts without a usable cov
 
 Rebuilt from images whose origin is clear. `wp/gallery-exclusions.md` lists the 89 previous gallery images left out
 and why (AI-generated, stock, apparent third-party brand, retired finish, or unverifiable).
+
+### Redirect relevance
+
+Every redirect target was reviewed for relevance, not just for loading (table in `docs/seo/SEO-PRESERVATION-AUDIT.md` §5).
+Two were changed: `/wholesale-uptown-white-cabinets/` → White Shaker (was the products index) and `/free-shipping-landing/`
+→ homepage (the old page duplicated the homepage).
 
 ## Files
 

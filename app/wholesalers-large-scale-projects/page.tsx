@@ -8,9 +8,9 @@ import { orderPolicy, phoenixLocation } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Cabinetry for Wholesalers & Large-Scale Projects",
+  title: "Commercial Cabinetry for Wholesalers & Large-Scale Projects",
   description:
-    "Shaker, Nano and Euro cabinets for wholesalers, distributors, developers and contractors running multi-unit and multi-site projects — with a dedicated account manager and same-day processing.",
+    "Commercial and multi-unit cabinetry: Shaker, Nano and Euro cabinets for wholesalers, distributors, developers and contractors running large-scale projects — with a dedicated account manager and same-day processing.",
   path: "/wholesalers-large-scale-projects/",
   image: "/media/scene-euro-glacial-white.jpg",
 });
@@ -19,6 +19,7 @@ export default function LargeScalePage() {
   return (
     <>
       <PageIntro
+        crumbs={[{ label: "Wholesalers & Large-Scale Projects", href: "/wholesalers-large-scale-projects/" }]}
         eyebrow="Wholesale & large-scale projects"
         title={<>Cabinetry for wholesalers <em>and large-scale projects.</em></>}
         aside={<Media id="scene-euro-glacial-white" sizes="(max-width: 900px) 100vw, 40vw" priority />}
