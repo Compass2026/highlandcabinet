@@ -1,3 +1,4 @@
+import { queryOf } from "@/lib/params";
 import Link from "next/link";
 import { FormPage } from "@/components/quote/FormPage";
 import { PageIntro } from "@/components/ui/PageIntro";
@@ -12,7 +13,7 @@ export const metadata = pageMetadata({
 });
 
 export default async function FindDealerPage({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
-  const { status } = await searchParams;
+  const { status } = await queryOf(searchParams);
   return (
     <>
       <PageIntro

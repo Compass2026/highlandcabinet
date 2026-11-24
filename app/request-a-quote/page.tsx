@@ -1,3 +1,4 @@
+import { queryOf } from "@/lib/params";
 import { FormPage } from "@/components/quote/FormPage";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Media } from "@/components/ui/Media";
@@ -15,7 +16,7 @@ export const metadata = pageMetadata({
 type Props = { searchParams: Promise<{ finish?: string; status?: string; from?: string }> };
 
 export default async function QuotePage({ searchParams }: Props) {
-  const { finish, status, from } = await searchParams;
+  const { finish, status, from } = await queryOf(searchParams);
   const f = finish ? finishById(finish) : undefined;
   return (
     <>

@@ -1,0 +1,13 @@
+{
+  "base": "http://localhost:3002",
+  "inventoryRows": 339,
+  "checked": 338,
+  "byStatus": {
+    "200": 291,
+    "308": 45,
+    "410": 2
+  },
+  "variantsChecked": 82,
+  "internalLinksChecked": 296,
+  "failures": []
+}

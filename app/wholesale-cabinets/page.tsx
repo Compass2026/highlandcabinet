@@ -1,3 +1,4 @@
+import { queryOf } from "@/lib/params";
 import { AreaChecker } from "@/components/ui/AreaChecker";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Media } from "@/components/ui/Media";
@@ -15,7 +16,7 @@ export const metadata = pageMetadata({
 });
 
 export default async function ServiceAreasPage({ searchParams }: { searchParams: Promise<{ state?: string }> }) {
-  const { state } = await searchParams;
+  const { state } = await queryOf(searchParams);
   return (
     <>
       <PageIntro

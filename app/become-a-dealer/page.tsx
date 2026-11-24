@@ -1,3 +1,4 @@
+import { queryOf } from "@/lib/params";
 import { FormPage } from "@/components/quote/FormPage";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Media } from "@/components/ui/Media";
@@ -11,7 +12,7 @@ export const metadata = pageMetadata({
 });
 
 export default async function DealerPage({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
-  const { status } = await searchParams;
+  const { status } = await queryOf(searchParams);
   return (
     <>
       <PageIntro
