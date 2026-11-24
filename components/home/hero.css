@@ -98,8 +98,8 @@
   z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(0deg, rgb(22 20 17 / 0.74) 0%, rgb(22 20 17 / 0.54) 28%, rgb(22 20 17 / 0.24) 50%, transparent 70%),
-    linear-gradient(90deg, rgb(22 20 17 / 0.3) 0%, rgb(22 20 17 / 0.08) 45%, transparent 60%);
+    linear-gradient(0deg, rgb(22 20 17 / 0.74) 0%, rgb(22 20 17 / 0.56) 28%, rgb(22 20 17 / 0.3) 50%, rgb(22 20 17 / 0.06) 66%, transparent 74%),
+    linear-gradient(90deg, rgb(22 20 17 / 0.36) 0%, rgb(22 20 17 / 0.12) 45%, transparent 62%);
 }
 
 [data-hero-text] {
@@ -118,10 +118,10 @@
 [data-hero] h1 {
   max-width: 14ch;
   color: #fff;
-  font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4.6rem);
-  font-weight: 480;
-  line-height: 1.02;
-  letter-spacing: -0.034em;
+  font-size: clamp(2.6rem, 1.6rem + 3.9vw, 4.9rem);
+  font-weight: 380;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
   text-shadow: 0 1px 28px rgb(0 0 0 / 0.3);
 }
 
@@ -210,7 +210,7 @@
 [data-hero-facts] dt {
   order: 1;
   font-size: 0.86rem;
-  font-weight: 560;
+  font-weight: 500;
   color: var(--charcoal);
 }
 
@@ -222,7 +222,7 @@
   order: 0;
   margin-bottom: 12px;
   font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem);
-  font-weight: 380;
+  font-weight: 300;
   font-stretch: 110%;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -315,7 +315,7 @@
   [data-hero-ctas] {
     grid-column: 2;
     grid-row: 4;
-    padding-top: var(--s-5);
+    padding-block: var(--s-5) var(--s-3);
   }
   [data-hero-ctas] .btn {
     --btn-bg: var(--charcoal);

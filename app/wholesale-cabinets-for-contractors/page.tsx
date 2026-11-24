@@ -31,7 +31,7 @@ export default function ContractorsPage() {
       <PageIntro
         eyebrow="For the trade"
         title={<>Wholesale cabinetry for <em>the people who build.</em></>}
-        aside={<Media id="project-white-shaker-05" sizes="(max-width: 900px) 100vw, 40vw" caption="White Shaker uppers and hood surround" />}
+        aside={<Media id="scene-shaker-onyx-black" sizes="(max-width: 900px) 100vw, 40vw" caption="Shaker Onyx Black" />}
       >
         <p className="lead">
           Highland supplies contractors, builders, remodelers, investors and dealers with Shaker, Nano and Euro cabinets — and assigns every

@@ -104,7 +104,7 @@ export interface Finish {
   description: string;
   catalogPage?: number;
   media: { render: string; chip: string; scene: string };
-  /** Additional gallery media ids (installed projects first). */
+  /** Gallery media ids, in order (lead rendering, then installed projects). */
   gallery?: string[];
   /** Marked true when the collection has full editorial content for this milestone. */
   featured?: boolean;
@@ -123,6 +123,7 @@ export const finishes: Finish[] = [
     catalogPage: 9,
     media: { render: "render-shaker-white", chip: "chip-shaker-white", scene: "project-white-shaker-01" },
     gallery: [
+      "scene-shaker-white",
       "project-white-shaker-01",
       "project-white-shaker-02",
       "project-white-shaker-04",
@@ -130,7 +131,6 @@ export const finishes: Finish[] = [
       "project-white-shaker-05",
       "project-white-shaker-06",
       "project-white-shaker-07",
-      "scene-shaker-white",
     ],
     featured: true,
   },

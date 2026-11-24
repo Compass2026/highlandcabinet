@@ -28,7 +28,7 @@
   left: 0;
   top: calc(var(--s-3) + 3px);
   font-size: 0.8rem;
-  font-weight: 650;
+  font-weight: 560;
   font-variant-numeric: tabular-nums;
   color: var(--walnut);
 }

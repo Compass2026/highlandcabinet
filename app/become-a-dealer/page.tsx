@@ -1,5 +1,6 @@
 import { FormPage } from "@/components/quote/FormPage";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { Media } from "@/components/ui/Media";
 import { pageMetadata } from "@/lib/seo";
 import styles from "../forms.module.css";
 
@@ -13,7 +14,8 @@ export default async function DealerPage({ searchParams }: { searchParams: Promi
   const { status } = await searchParams;
   return (
     <>
-      <PageIntro eyebrow="Dealers & suppliers" title={<>Become a <em>Highland dealer.</em></>}>
+      <PageIntro
+        aside={<Media id="scene-euro-glacial-white" sizes="(max-width: 900px) 100vw, 40vw" caption="Euro Glacial White" />} eyebrow="Dealers & suppliers" title={<>Become a <em>Highland dealer.</em></>}>
         <p className="lead">
           Whether you&rsquo;re a homebuilder, a contractor bidding a project, or a supplier expanding your inventory, tell us about your business
           and our team will be in touch to talk through the program.

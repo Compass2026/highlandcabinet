@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FormPage } from "@/components/quote/FormPage";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { Media } from "@/components/ui/Media";
 import { pageMetadata } from "@/lib/seo";
 import styles from "../forms.module.css";
 
@@ -14,7 +15,8 @@ export default async function FindDealerPage({ searchParams }: { searchParams: P
   const { status } = await searchParams;
   return (
     <>
-      <PageIntro eyebrow="Homeowners" title={<>Find a dealer <em>near you.</em></>}>
+      <PageIntro
+        aside={<Media id="scene-nano-white" sizes="(max-width: 900px) 100vw, 40vw" caption="Nano White" />} eyebrow="Homeowners" title={<>Find a dealer <em>near you.</em></>}>
         <p className="lead">
           Highland supplies cabinetry through the trade. Tell us where your project is and what you&rsquo;re planning, and our team will help
           connect you with a dealer who can design, price and install it.

@@ -1,5 +1,6 @@
 import { FormPage } from "@/components/quote/FormPage";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { Media } from "@/components/ui/Media";
 import { finishById } from "@/content/collections";
 import { orderPolicy } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
@@ -18,7 +19,8 @@ export default async function QuotePage({ searchParams }: Props) {
   const f = finish ? finishById(finish) : undefined;
   return (
     <>
-      <PageIntro eyebrow="Trade pricing" title={<>Request a quote{f ? <> for <em>{f.name}</em></> : null}</>}>
+      <PageIntro
+        aside={<Media id="scene-euro-frost-white" sizes="(max-width: 900px) 100vw, 40vw" caption="Euro Frost White" />} eyebrow="Trade pricing" title={<>Request a quote{f ? <> for <em>{f.name}</em></> : null}</>}>
         <p className="lead">
           Share what you&rsquo;re building and a member of Highland&rsquo;s sales team will follow up with pricing and availability. Trade
           accounts are set up for businesses with an EIN or ROC license.

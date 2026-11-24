@@ -33,20 +33,20 @@
   --error: #a3261b;
 
   /* Type */
-  /* One architectural sans throughout (Mona Sans, OFL, self-hosted). */
-  --font-sans: var(--font-mona), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* One geometric sans throughout (Jost, OFL, self-hosted) — light display, quiet text. */
+  --font-sans: var(--font-jost), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: var(--font-sans);
   --font-serif: var(--font-sans); /* legacy alias */
   --font-mono: var(--font-sans); /* technical styling retired */
-  --display-weight: 520;
-  --display-stretch: 102%;
+  --display-weight: 400;
+  --display-stretch: 100%;
 
   --fs-display: clamp(2.1rem, 1.55rem + 2.1vw, 3.2rem);
   --fs-h1: clamp(1.9rem, 1.5rem + 1.5vw, 2.7rem);
   --fs-h2: clamp(1.55rem, 1.32rem + 0.95vw, 2.1rem);
   --fs-h3: clamp(1.15rem, 1.08rem + 0.3vw, 1.35rem);
   --fs-lead: clamp(1.06rem, 1.02rem + 0.2vw, 1.18rem);
-  --fs-body: 1rem;
+  --fs-body: 1.0625rem;
   --fs-small: 0.9rem;
   --fs-label: 0.72rem;
 
@@ -134,17 +134,17 @@ h4 {
   font-weight: var(--display-weight);
   font-stretch: var(--display-stretch);
   line-height: 1.1;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.012em;
   text-wrap: balance;
   color: var(--charcoal);
 }
 
 h3,
 h4 {
-  font-weight: 560;
+  font-weight: 500;
   font-stretch: 100%;
   line-height: 1.25;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.004em;
 }
 
 /* No italic accents: a second clause sits on its own line in a quieter tone. */
@@ -262,7 +262,7 @@ textarea {
 .label {
   font-family: var(--font-sans);
   font-size: 0.82rem;
-  font-weight: 560;
+  font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
   line-height: 1.4;
@@ -282,7 +282,7 @@ textarea {
 .code {
   font-family: var(--font-sans);
   font-size: 0.86em;
-  font-weight: 560;
+  font-weight: 500;
   letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
   color: var(--stone);
@@ -344,15 +344,15 @@ textarea {
   justify-content: center;
   gap: var(--s-3);
   min-height: 48px;
-  padding: 0.7rem 1.4rem;
+  padding: 0.7rem 1.65rem;
   border: 1px solid var(--btn-edge);
-  border-radius: 0;
+  border-radius: 999px;
   background: var(--btn-bg);
   color: var(--btn-fg);
   font-family: var(--font-sans);
-  font-size: 0.92rem;
-  font-weight: 540;
-  letter-spacing: 0.015em;
+  font-size: 0.95rem;
+  font-weight: 450;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   text-decoration: none;
   cursor: pointer;
@@ -413,7 +413,7 @@ textarea {
   gap: var(--s-2);
   padding-block: 4px;
   font-size: 0.92rem;
-  font-weight: 540;
+  font-weight: 500;
   text-decoration: none;
   background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
   transition: background-size var(--t-med) var(--ease-soft), color var(--t-fast) var(--ease-soft);

@@ -1,5 +1,6 @@
 import { AreaChecker } from "@/components/ui/AreaChecker";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { Media } from "@/components/ui/Media";
 import { orderPolicy, phoenixLocation } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
@@ -15,7 +16,8 @@ export default async function ServiceAreasPage({ searchParams }: { searchParams:
   const { state } = await searchParams;
   return (
     <>
-      <PageIntro eyebrow="Service areas" title={<>Based in Phoenix. <em>Supplying the trade beyond it.</em></>}>
+      <PageIntro
+        aside={<Media id="scene-shaker-grey" sizes="(max-width: 900px) 100vw, 40vw" caption="Grey Shaker" />} eyebrow="Service areas" title={<>Based in Phoenix. <em>Supplying the trade beyond it.</em></>}>
         <p className="lead">
           Highland&rsquo;s showroom and warehouse are in Phoenix, Arizona. Other cities and states are areas we supply by delivery and freight —
           not branch locations.

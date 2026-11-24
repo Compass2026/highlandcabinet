@@ -38,7 +38,7 @@
 
 .rowName {
   font-size: 0.95rem;
-  font-weight: 620;
+  font-weight: 560;
   font-stretch: 104%;
   letter-spacing: -0.005em;
   color: var(--charcoal);
@@ -148,7 +148,7 @@
 
 .chip[data-selected] .chipName {
   color: var(--charcoal);
-  font-weight: 620;
+  font-weight: 560;
 }
 
 .chip[data-selected] .chipName::before {
@@ -214,7 +214,7 @@
   right: var(--s-3);
   top: var(--s-3);
   padding: 5px 9px;
-  border-radius: 2px;
+  border-radius: 999px;
   background: rgb(29 27 24 / 0.62);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);

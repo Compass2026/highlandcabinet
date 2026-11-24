@@ -53,14 +53,14 @@
 
 .whKicker {
   font-size: 0.8rem;
-  font-weight: 560;
+  font-weight: 500;
   color: rgb(255 255 255 / 0.85);
 }
 
 .whLine {
   max-width: 16ch;
   font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.5rem);
-  font-weight: 480;
+  font-weight: 380;
   line-height: 1.08;
   letter-spacing: -0.028em;
   text-wrap: balance;
@@ -108,7 +108,7 @@
   border-radius: 999px;
   background: transparent;
   font-size: 0.94rem;
-  font-weight: 540;
+  font-weight: 500;
   color: var(--graphite);
   cursor: pointer;
   transition: color var(--t-med) var(--ease-soft);
@@ -163,7 +163,7 @@
 .trade a {
   display: inline-block;
   padding-block: 4px;
-  font-weight: 560;
+  font-weight: 500;
   color: var(--charcoal);
 }
 
@@ -210,7 +210,7 @@
 }
 
 .cardName {
-  font-weight: 560;
+  font-weight: 500;
 }
 
 .addr {
@@ -237,7 +237,7 @@
   align-items: center;
   gap: var(--s-2);
   min-height: 44px;
-  font-weight: 540;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -287,7 +287,7 @@
 .cities text {
   font-family: var(--font-sans);
   font-size: 12.5px;
-  font-weight: 540;
+  font-weight: 500;
   fill: var(--graphite);
   paint-order: stroke;
   stroke: rgb(253 252 250 / 0.9);
@@ -316,7 +316,7 @@
 .pinLabel {
   font-family: var(--font-sans);
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 560;
   fill: var(--charcoal);
   paint-order: stroke;
   stroke: rgb(253 252 250 / 0.95);
@@ -442,7 +442,7 @@
 }
 
 .markName {
-  font-weight: 560;
+  font-weight: 500;
 }
 
 .markDetail {
@@ -457,7 +457,7 @@
   background: #fbf1dc;
   color: var(--warn);
   font-size: 0.76rem;
-  font-weight: 560;
+  font-weight: 500;
 }
 
 /* ---------- responsive ---------- */

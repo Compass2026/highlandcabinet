@@ -1,10 +1,11 @@
-# Design language (milestone 4) — light, airy, photographic
+# Design language (milestone 5) — light, airy, rendering-led
 
 Bright and calm. Cabinetry photography leads; type and ornament step back. The finish sampler (the sample tray) is the one tactile, signature component.
 
 - **Ground**: near-white `#fdfcfa`, soft off-white surface `#f7f5f1`, hairline rules `#ebe6de`. No dark bands, few boxed panels; sections are separated by space. The only warm, recessed surface is the sample tray (`#f1ece4` with a light inset shadow).
 - **Ink**: charcoal `#24211d`; muted text `#6a6258` (5.8:1). Aged brass `#7a5f36` and walnut for small details only. Highland blue appears in the logo and focus rings.
-- **Type**: one architectural sans throughout — **Mona Sans** (OFL, self-hosted variable font), headings at weight ≈ 520, slightly widened, tight tracking; moderate sizes (display ≤ 51 px, h2 ≤ 34 px). No serif display face, no italic statements, no spaced-out uppercase labels, no typewriter face. Product codes (`SH·WH`) use the same sans in tabular figures.
+- **Type**: one geometric sans throughout — **Jost** (OFL, self-hosted variable font, Futura lineage). Light display weights (hero ≈ 380, section headings 400), regular text at 17 px, medium labels; slight negative tracking on headings only. No serif display face, no italic statements, no spaced-out uppercase. Chosen over Mona Sans, Manrope, Plus Jakarta Sans, Urbanist, Albert Sans, Outfit, Instrument Sans, Figtree and Hanken Grotesk in a side-by-side specimen for a quieter, more premium tone.
+- **Shape**: buttons, tabs, radio chips, icon buttons and image labels are fully rounded (pills); form fields have a 10 px radius; photographs and the sample swatches stay square.
 - **Composition**: large photographs with plain captions that always state what the image is (installed project / catalog rendering / product rendering).
 - **Motion**: no intro sequence. The hero text rises 14 px and the photograph settles from 1.06×. Scroll-driven reveals (CSS `animation-timeline: view()`, no JavaScript): project photos un-inset, headings lift, map routes draw. All motion is disabled with reduced motion and simply absent in browsers without scroll timelines.
 

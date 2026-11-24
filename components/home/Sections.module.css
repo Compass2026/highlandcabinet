@@ -66,7 +66,7 @@
 
 .policyList dt {
   font-size: 0.85rem;
-  font-weight: 560;
+  font-weight: 500;
 }
 
 .policyList dd {
@@ -126,7 +126,7 @@
   align-items: center;
   gap: var(--s-2);
   font-size: 0.88rem;
-  font-weight: 540;
+  font-weight: 500;
   transition: color var(--t-fast) var(--ease-soft);
 }
 
