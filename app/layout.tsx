@@ -26,6 +26,7 @@ const organization = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Highland Cabinetry",
+  alternateName: ["HCI", "Highland Cabinetry Inc."],
   url: siteUrl,
   logo: `${siteUrl}/brand/highland-logo.svg`,
 };

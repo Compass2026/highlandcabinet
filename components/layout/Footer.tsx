@@ -9,8 +9,8 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <div className={styles.brand}>
-          <Image src="/brand/highland-logo.svg" alt="Highland Cabinetry Inc." width={110} height={50} unoptimized />
-          <p className={styles.tag}>Wholesale kitchen and bath cabinetry for contractors, builders, remodelers and dealers.</p>
+          <Image src="/brand/highland-logo.svg" alt="Highland Cabinetry Inc. (HCI)" width={110} height={50} unoptimized />
+          <p className={styles.tag}>Highland Cabinetry (HCI): wholesale kitchen and bath cabinetry for contractors, builders, remodelers and dealers.</p>
         </div>
 
         {footerNav.map((col) => (
