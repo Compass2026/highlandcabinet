@@ -1,0 +1,80 @@
+[
+  {
+    "source": "/wholesale-cabinets/texas-old/dallas/",
+    "destination": "/wholesale-cabinets/texas/dallas/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/wholesale-cabinets/alabama-old/birmingham/",
+    "destination": "/wholesale-cabinets/alabama/birmingham/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/wholesale-cabinets/new-york-old/buffalo/",
+    "destination": "/wholesale-cabinets/new-york/buffalo/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/wholesale-cabinets/california-old/anaheim/",
+    "destination": "/wholesale-cabinets/california/anaheim/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/wholesale-cabinets/california-old/los-angeles/",
+    "destination": "/wholesale-cabinets/california/los-angeles/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/wholesale-cabinets/florida-old/tampa/",
+    "destination": "/wholesale-cabinets/florida/tampa/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/wholesale-cabinets/new-mexico-old/albuquerque/",
+    "destination": "/wholesale-cabinets/new-mexico/albuquerque/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/wholesale-cabinets/california-old/san-diego/",
+    "destination": "/wholesale-cabinets/california/san-diego/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/wholesale-cabinets/florida-old/jacksonville/",
+    "destination": "/wholesale-cabinets/florida/jacksonville/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/wholesale-cabinets/texas-old/austin/",
+    "destination": "/wholesale-cabinets/texas/austin/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/wholesale-cabinets/massachusetts-old/worcester/",
+    "destination": "/wholesale-cabinets/massachusetts/worcester/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/about/",
+    "destination": "/about-us/",
+    "permanent": true,
+    "reason": "Recover old URL with provider search or backlink evidence"
+  },
+  {
+    "source": "/blog/how-/",
+    "destination": "/blog/how-much-do-new-kitchen-cabinets-cost/",
+    "permanent": true,
+    "reason": "Preserve observed old-site redirect"
+  }
+]

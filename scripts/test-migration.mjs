@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Tests every old URL in docs/migration/url-inventory.csv against a running build, then crawls every
- * rebuilt page for internal links and checks each resolves.
+ * rebuilt page for internal links and checks each resolves. Every redirect is also requested with and without its
+ * trailing slash, carrying gclid/utm parameters, which must survive to the destination.
  *   BASE=http://localhost:3000 node scripts/test-migration.mjs
  *   (for a protected Vercel preview also set COOKIE to the _vercel_jwt cookie header)
  */
@@ -32,7 +33,8 @@ const get = async (p, redirect = "manual") => {
 const strip = (u) => (u ? u.replace(/^https?:\/\/[^/]+/, "") : u);
 
 const failures = [];
-const results = { checked: 0, byStatus: {} };
+const results = { checked: 0, byStatus: {}, variantsChecked: 0 };
+const CAMPAIGN = "gclid=TEST-GCLID&utm_source=google&utm_medium=cpc&utm_campaign=migration-test";
 const pool = async (items, n, fn) => {
   const q = [...items];
   await Promise.all(Array.from({ length: n }, async () => { while (q.length) await fn(q.shift()); }));
@@ -59,6 +61,22 @@ await pool(rows, 8, async (r) => {
     if (loc.split("#")[0] !== encodeURI(want)) failures.push(`${p}: redirects to ${loc}, expected ${want}`);
     const t = await get(want);
     if (t.status !== 200) failures.push(`${p}: redirect target ${want} returned ${t.status}`);
+    // Variants: without / with the trailing slash, each carrying campaign parameters, must land on the same
+    // destination in at most two hops with every parameter intact.
+    if (!p.includes(".pdf") && !p.includes("?")) {
+      const alt = p.endsWith("/") ? p.slice(0, -1) : `${p}/`;
+      for (const v of [p, alt]) {
+        let u = `${v}?${CAMPAIGN}`, h = 0, n;
+        do {
+          n = await get(u);
+          if (n.status === 308 || n.status === 301) { u = strip(n.location); h++; }
+        } while ((n.status === 308 || n.status === 301) && h < 4);
+        const [pathPart, query = ""] = u.split("#")[0].split("?");
+        results.variantsChecked++;
+        if (n.status !== 200 || pathPart !== encodeURI(want) || h > 2 || !CAMPAIGN.split("&").every((kv) => query.split("&").includes(kv)))
+          failures.push(`${v}?${CAMPAIGN}: ended at ${u} (${n.status}, ${h} hops), expected ${want} with parameters`);
+      }
+    }
   }
   if (exp === "200" && r.Status === "Rebuilt") {
     if (!/<h1[\s>]/.test(res.body)) failures.push(`${p}: no <h1>`);

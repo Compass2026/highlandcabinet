@@ -1,0 +1,141 @@
+{
+  "source": "Highland SEO baseline (DataForSEO, retrieved 2026-11-24): migration-gap-review.csv + proposed-redirects-for-builder.json; linking pages reviewed via DataForSEO backlinks (2026-11-24)",
+  "note": "Provider observations, not verified rankings or Search Console traffic.",
+  "paths": [
+    {
+      "path": "/wholesale-cabinets/texas-old/dallas/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:44.835289+00:00",
+      "destination": "/wholesale-cabinets/texas/dallas/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/wholesale-cabinets/alabama-old/birmingham/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:44.836230+00:00",
+      "destination": "/wholesale-cabinets/alabama/birmingham/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/wholesale-cabinets/new-york-old/buffalo/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:44.836755+00:00",
+      "destination": "/wholesale-cabinets/new-york/buffalo/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/wholesale-cabinets/california-old/anaheim/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:44.837707+00:00",
+      "destination": "/wholesale-cabinets/california/anaheim/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/wholesale-cabinets/california-old/los-angeles/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:44.840019+00:00",
+      "destination": "/wholesale-cabinets/california/los-angeles/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/wholesale-cabinets/florida-old/tampa/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:44.841306+00:00",
+      "destination": "/wholesale-cabinets/florida/tampa/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/wholesale-cabinets/new-mexico-old/albuquerque/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:51.879111+00:00",
+      "destination": "/wholesale-cabinets/new-mexico/albuquerque/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/wholesale-cabinets/california-old/san-diego/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:52.506293+00:00",
+      "destination": "/wholesale-cabinets/california/san-diego/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/wholesale-cabinets/florida-old/jacksonville/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:54.222794+00:00",
+      "destination": "/wholesale-cabinets/florida/jacksonville/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/wholesale-cabinets/texas-old/austin/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:55.023235+00:00",
+      "destination": "/wholesale-cabinets/texas/austin/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/wholesale-cabinets/massachusetts-old/worcester/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 1,
+      "providerReferringDomains": 0,
+      "checkedAt": "2026-11-24T20:04:55.574395+00:00",
+      "destination": "/wholesale-cabinets/massachusetts/worcester/",
+      "rationale": "Older city URL (already 404 on the old site) with provider ranking evidence; the current page for the same city exists."
+    },
+    {
+      "path": "/2026-kitchen-cost-trends/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 0,
+      "providerReferringDomains": 5,
+      "checkedAt": "2026-11-24T20:04:56.264921+00:00",
+      "destination": "/blog/kitchen-remodeling-cost-breakdown/",
+      "rationale": "Never a page on the old site (no archive). All 5 referring domains carry one syndicated article citing a 'Highland Cabinetry 2026 Labor and Tariff Impact Report (May 2026)'; its quoted claims (labor shortages raising installation rates, tariffs raising cabinet prices) are in Highland's 'Kitchen Remodeling Cost Breakdown for 2026', published 7 May 2026. Low-quality source links: redirected for relevance to human visitors, not counted as an SEO asset."
+    },
+    {
+      "path": "/kitchen-remodel-roi/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 0,
+      "providerReferringDomains": 5,
+      "checkedAt": "2026-11-24T20:04:57.998287+00:00",
+      "destination": "/blog/kitchen-remodeling-cost-breakdown/",
+      "rationale": "Never a page on the old site (no archive). Same syndicated article cites 'Zonda Cost vs. Value 2025 / Houzz 2026 (cited by Highland Cabinetry…)'; the Highland post that cites Zonda Cost vs. Value and Houzz is 'Kitchen Remodeling Cost Breakdown for 2026'. Low-quality source links: redirected for relevance, not counted as an SEO asset."
+    },
+    {
+      "path": "/about/",
+      "oldHttpStatus": 404,
+      "providerKeywordRecords": 0,
+      "providerReferringDomains": 1,
+      "checkedAt": "2026-11-24T20:04:58.365074+00:00",
+      "destination": "/about-us/",
+      "rationale": "Former About page (archived 200 in 2023, 404 now) with a referring domain; same intent as /about-us/."
+    },
+    {
+      "path": "/blog/how-/",
+      "oldHttpStatus": 301,
+      "providerKeywordRecords": 0,
+      "providerReferringDomains": 1,
+      "checkedAt": "2026-11-24T20:04:58.811552+00:00",
+      "destination": "/blog/how-much-do-new-kitchen-cabinets-cost/",
+      "rationale": "The old site already redirected this truncated link to the kitchen-cabinet cost article; preserved."
+    }
+  ]
+}

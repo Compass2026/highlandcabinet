@@ -1,19 +1,19 @@
 {
   "generated": "2026-11-24",
-  "total": 324,
+  "total": 339,
   "byStatus": {
     "Rebuilt": 288,
     "Removed": 6,
-    "Redirect": 30
+    "Redirect": 45
   },
   "byType": {
     "Home": 1,
     "CMS artifact (mega-menu query)": 3,
+    "Retired / duplicate": 41,
     "About": 1,
     "Lead form": 2,
     "Blog index": 1,
     "Blog post": 56,
-    "Retired / duplicate": 26,
     "Contact": 1,
     "Gallery": 1,
     "Partners": 1,
@@ -40,8 +40,9 @@
     "WordPress posts": 56,
     "linked (archive)": 3,
     "linked 404 (archive)": 8,
-    "documents (PDF)": 4
+    "documents (PDF)": 4,
+    "SEO baseline (DataForSEO 2026-11-24)": 15
   },
-  "redirects": 30,
+  "redirects": 45,
   "gone": 2
 }

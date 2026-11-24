@@ -1,0 +1,167 @@
+[
+  {
+    "old_path": "/wholesale-cabinets/texas-old/dallas/",
+    "proposed_destination": "/wholesale-cabinets/texas/dallas/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:44.835289+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/wholesale-cabinets/alabama-old/birmingham/",
+    "proposed_destination": "/wholesale-cabinets/alabama/birmingham/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:44.836230+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/wholesale-cabinets/new-york-old/buffalo/",
+    "proposed_destination": "/wholesale-cabinets/new-york/buffalo/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:44.836755+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/wholesale-cabinets/california-old/anaheim/",
+    "proposed_destination": "/wholesale-cabinets/california/anaheim/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:44.837707+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/wholesale-cabinets/california-old/los-angeles/",
+    "proposed_destination": "/wholesale-cabinets/california/los-angeles/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:44.840019+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/wholesale-cabinets/florida-old/tampa/",
+    "proposed_destination": "/wholesale-cabinets/florida/tampa/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:44.841306+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/wholesale-cabinets/new-mexico-old/albuquerque/",
+    "proposed_destination": "/wholesale-cabinets/new-mexico/albuquerque/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:51.879111+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/wholesale-cabinets/california-old/san-diego/",
+    "proposed_destination": "/wholesale-cabinets/california/san-diego/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:52.506293+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/wholesale-cabinets/florida-old/jacksonville/",
+    "proposed_destination": "/wholesale-cabinets/florida/jacksonville/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:54.222794+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/wholesale-cabinets/texas-old/austin/",
+    "proposed_destination": "/wholesale-cabinets/texas/austin/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:55.023235+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/wholesale-cabinets/massachusetts-old/worcester/",
+    "proposed_destination": "/wholesale-cabinets/massachusetts/worcester/",
+    "destination_in_inventory": true,
+    "keyword_records": 1,
+    "referring_domains": 0,
+    "checked_at": "2026-11-24T20:04:55.574395+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/2026-kitchen-cost-trends/",
+    "proposed_destination": "",
+    "destination_in_inventory": false,
+    "keyword_records": 0,
+    "referring_domains": 5,
+    "checked_at": "2026-11-24T20:04:56.264921+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/kitchen-remodel-roi/",
+    "proposed_destination": "",
+    "destination_in_inventory": false,
+    "keyword_records": 0,
+    "referring_domains": 5,
+    "checked_at": "2026-11-24T20:04:57.998287+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/about/",
+    "proposed_destination": "/about-us/",
+    "destination_in_inventory": true,
+    "keyword_records": 0,
+    "referring_domains": 1,
+    "checked_at": "2026-11-24T20:04:58.365074+00:00",
+    "old_http_status": 404,
+    "old_location": "",
+    "error": ""
+  },
+  {
+    "old_path": "/blog/how-/",
+    "proposed_destination": "/blog/how-much-do-new-kitchen-cabinets-cost/",
+    "destination_in_inventory": true,
+    "keyword_records": 0,
+    "referring_domains": 1,
+    "checked_at": "2026-11-24T20:04:58.811552+00:00",
+    "old_http_status": 301,
+    "old_location": "https://highlandcabinetry.com/blog/how-much-do-new-kitchen-cabinets-cost/",
+    "error": ""
+  }
+]

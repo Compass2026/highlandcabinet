@@ -30,6 +30,8 @@ const archive404 = (await read("docs/migration/source/broken-links-404.json")).u
 const liveSitemap = (await read("docs/migration/source/live-sitemap-2026-11-24.json")).urls;
 const wpPages = (await read("docs/migration/source/wp-pages-2026-11-24.json")).pages;
 const wpPosts = (await read("docs/migration/source/wp-posts-2026-11-24.json")).posts;
+// Paths surfaced by the DataForSEO baseline (keyword/backlink evidence) and their reviewed destinations.
+const seoBaseline = (await read("docs/migration/source/seo-baseline-2026-11-24.json")).paths;
 
 const pathOf = (u) => {
   if (u.startsWith("/")) return u;
@@ -57,6 +59,7 @@ for (const p of wpPages) note(p.path, "WordPress page", { wp: p });
 for (const p of wpPosts) note(p.path, "WordPress post");
 for (const u of archiveLinked) note(pathOf(u), "linked (archive)");
 for (const u of archive404) note(u.includes("https://", 9) ? u : pathOf(u), "linked, 404 at archive capture");
+for (const b of seoBaseline) note(b.path, "SEO baseline (DataForSEO 2026-11-24)");
 
 // ---------------------------------------------------------------- what the new site builds
 const collections = await readFile(path.join(root, "content/collections.ts"), "utf8");
@@ -138,6 +141,13 @@ const redirectRules = {
   "/collections/all": ["/products/", "Broken internal link (404).", ""],
   "/wholesale/": ["/wholesale-cabinets-for-contractors/", "Broken internal link (404).", ""],
 };
+for (const b of seoBaseline)
+  if (b.destination)
+    redirectRules[b.path] = [
+      b.destination,
+      `${b.rationale} Old site: HTTP ${b.oldHttpStatus}. Provider evidence: ${b.providerKeywordRecords} keyword record(s), ${b.providerReferringDomains} referring domain(s).`,
+      "",
+    ];
 const pdfRules = {
   "/wp-content/uploads/2026/05/341793_HCI-Shaker-Nano-Catalog-June-2025_Web_04.17.26_compressed-1.pdf": "/catalogs/highland-shaker-nano-catalog.pdf",
   "/wp-content/uploads/2025/10/341793_HCI-Shaker-Nano-Catalog-Ocotber_2025_Web_10.24.25.pdf": "/catalogs/highland-shaker-nano-catalog.pdf",
@@ -223,6 +233,7 @@ const summary = {
     "linked (archive)": archiveLinked.length,
     "linked 404 (archive)": archive404.length,
     "documents (PDF)": Object.keys(pdfRules).length,
+    "SEO baseline (DataForSEO 2026-11-24)": seoBaseline.length,
   },
   redirects: unique.length,
   gone: gone.length,
