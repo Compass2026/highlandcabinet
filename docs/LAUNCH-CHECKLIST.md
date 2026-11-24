@@ -40,9 +40,27 @@ and centralised in `content/site.ts` with `status: "needs-confirmation"`.
 | 22 | Partners & financing | Interior Logic Group partner page; “Blue Tree Financing” | Not used | [content] |
 | 23 | Free shipping landing page | `/free-shipping-landing/` | Proposed redirect to Request a Quote; confirm whether the offer still exists | [content] |
 | 24 | Installed-project photos | IMG_48xx/49xx/00xx files from the White Shaker gallery (EXIF: iPhone 11 2021, Canon T3i 2022) | Used as “Installed project — White Shaker” | [blocker] — confirm they show Highland White Shaker and that Highland holds the rights |
-| 24a | Warehouse photograph | `compressed_warehouseimage.webp` (Become/Find a Dealer section, 2026/03); no camera data | Used in the homepage dealer section, captioned “Highland warehouse” with the line “Stocked, picked and loaded in Phoenix.” | [blocker] — confirm it is Highland's Phoenix warehouse (not stock) |
+| 24a | Warehouse photograph | `compressed_warehouseimage.webp` (Become/Find a Dealer section, 2026/03); no camera data; 1536×1024 (an OpenAI image size) | Used in the homepage dealer section, captioned “Highland warehouse” | [blocker] — see R11 |
 | 24b | Detail imagery | Brass-pull close-up (`compressed_sigblue6.webp`, Signature Blue page) has no camera data; IMG_4916 crop shows black bar pulls in an installed kitchen | Labelled “Highland rendering” and “Installed project” | [content] — confirm the rendering is Highland's and the pulls shown are offered/compatible |
 | 25 | Catalog edition | Two Shaker/Nano PDFs, both “Effective June 2025” (Oct 2025 upload and April 2026 web edition) | Links the April 2026 edition (the one the live nav links) | [content] |
+
+
+## 1b. Restored content — decisions for Highland (added 2026-11-24)
+
+| # | Item | What the preview does | Priority |
+|---|------|-----------------------|----------|
+| R1 | **Privacy policy** | Restored from the previous policy; its contact lines were unfilled placeholders (“[Insert Privacy Email]”) and listed a fifth phone number (866-210-8560). Now uses 866-545-6280 and the sales email. | [blocker] — legal review |
+| R2 | **198 state & city pages** | Rebuilt at their paths with local data and verified facts; template claims dropped. 190 were thin templates (<150 unique words). | [blocker] — review with Search Console: keep / strengthen / consolidate per page |
+| R3 | Local office listings on 144 city pages | City hall, permits and housing contacts carried over from the old pages | [content] — spot-check for accuracy |
+| R4 | **Blog: 45 claim corrections** | Logged in `docs/migration/wp/blog-audit.json` | [content] — approve wording |
+| R5 | Blog images | 22 AI-generated images removed; 6 flagged (AI-generator dimensions, unproven) | [content] |
+| R6 | **Gallery** | 89 previous images excluded (AI, stock, apparent third-party “CWS”, unverifiable) — `docs/migration/wp/gallery-exclusions.md` | [content] — approve any with proof of origin |
+| R7 | FAQ byline | “James McAllister, president of Highland Cabinetry Inc.” kept | [content] — confirm current |
+| R8 | About page | Founding year, “manufactured in Vietnam”, delivery days, “largest inventory” not shown | [content] |
+| R9 | Partners / ILG | ILG description kept; undocumented logo wall (incl. Lowe’s) and third-party quote removed | [content] — confirm relationship |
+| R10 | Large-projects page | Capacity (25,000/month), “15+ years”, regional hubs and certification claims removed | [content] |
+| R11 | **Warehouse photograph** | 1536×1024 with no camera data — the same size as OpenAI image output. Cannot confirm it is a real photo of Highland’s warehouse | [blocker] — confirm or replace |
+| R12 | Campaign landings | Six “new-luxe-shaker-*” pages → Luxe Shaker; Q4 blowout page → Request a quote | [content] — confirm no live ads depend on them |
 
 ## 2. Access and assets needed
 

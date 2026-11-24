@@ -1,0 +1,46 @@
+{
+  "generated": "2026-11-24",
+  "total": 324,
+  "byStatus": {
+    "Rebuilt": 282,
+    "Removed": 6,
+    "Redirect": 36
+  },
+  "byType": {
+    "Home": 1,
+    "CMS artifact (mega-menu query)": 3,
+    "About": 1,
+    "Lead form": 2,
+    "Blog index": 1,
+    "Blog post": 56,
+    "Retired / duplicate": 32,
+    "Contact": 1,
+    "Gallery": 1,
+    "Partners": 1,
+    "Partner profile": 1,
+    "CMS artifact": 2,
+    "FAQ article": 1,
+    "Legal": 1,
+    "Collections index": 1,
+    "Trade": 1,
+    "Service-area hub": 1,
+    "Service area — state": 50,
+    "Service area — city": 148,
+    "Product collection": 13,
+    "Wholesale / large projects": 1,
+    "Document (PDF)": 4,
+    "Malformed link": 1
+  },
+  "flagged": 207,
+  "bySource": {
+    "archive sitemap": 287,
+    "live sitemap (2026-11-24)": 295,
+    "WordPress published pages": 245,
+    "WordPress posts": 56,
+    "linked (archive)": 3,
+    "linked 404 (archive)": 8,
+    "documents (PDF)": 4
+  },
+  "redirects": 36,
+  "gone": 2
+}

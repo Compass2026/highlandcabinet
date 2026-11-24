@@ -562,5 +562,185 @@
     "op": "logo",
     "alt": "National Kitchen & Bath Association logo",
     "provenance": "Logo shown in the Brands section of Highland's current website. Membership to be confirmed by Highland."
+  },
+  {
+    "id": "sku-euro-glacial-white-b30",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/164406_B30_GlacialWhite.png",
+    "sourceFile": "5dc11f0a71ffdb7d0cfc1074d9f0b087d595705d405138d8d54c627a90ad96e7.png",
+    "sourceSha256": "5dc11f0a71ffdb7d0cfc1074d9f0b087d595705d405138d8d54c627a90ad96e7",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base cabinet, 30\u2033 in Glacial White \u2014 product rendering (B30)",
+    "provenance": "Highland product rendering of SKU B30 from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-frost-white-fsm36",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/164861_FSM36_Frost-White.png",
+    "sourceFile": "e37c618f90d7b8b262760ec19dfdd4b1db21f0a9f7ec3cc0dbd9ecb2cd4a5453.png",
+    "sourceSha256": "e37c618f90d7b8b262760ec19dfdd4b1db21f0a9f7ec3cc0dbd9ecb2cd4a5453",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Farm sink base, 36\u2033 in Frost White \u2014 product rendering (FSM36)",
+    "provenance": "Highland product rendering of SKU FSM36 from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-frost-white-bbc42-right",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/164865_BBC42-Right_Frost-White.png",
+    "sourceFile": "68a004f9fa5036f6a8dacf9e7576db2f45b98f35eae6d9fbc8a32e34286f1ee6.png",
+    "sourceSha256": "68a004f9fa5036f6a8dacf9e7576db2f45b98f35eae6d9fbc8a32e34286f1ee6",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base blind corner, 42\u2033 in Frost White \u2014 product rendering (BBC42-Right)",
+    "provenance": "Highland product rendering of SKU BBC42-Right from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-frost-white-pc309624",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/165546_PC309624_Frost-White.png",
+    "sourceFile": "d3e650e61e1ea9c829e3edf05d2c5400a6118236adeb9268bd3131874fc2962d.png",
+    "sourceSha256": "d3e650e61e1ea9c829e3edf05d2c5400a6118236adeb9268bd3131874fc2962d",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "96\u2033 pantry cabinet, double door in Frost White \u2014 product rendering (PC309624)",
+    "provenance": "Highland product rendering of SKU PC309624 from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-frost-white-bwbk18-2",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/570123_BWBK18-2_Frost-White.png",
+    "sourceFile": "6c45114d5621d4451841ac2ed15756b141bbac76b354bb28bd707cab6b02d113.png",
+    "sourceSha256": "6c45114d5621d4451841ac2ed15756b141bbac76b354bb28bd707cab6b02d113",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base trash cabinet, two bins in Frost White \u2014 product rendering (BWBK18-2)",
+    "provenance": "Highland product rendering of SKU BWBK18-2 from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-glacial-white-bwbk18-2",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/570124_BWBK18-2_Glacial-White.png",
+    "sourceFile": "0b6c5348b3871c226c1bf7b144e73272966adcee4f126f5594a311df286a067d.png",
+    "sourceSha256": "0b6c5348b3871c226c1bf7b144e73272966adcee4f126f5594a311df286a067d",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base trash cabinet, two bins in Glacial White \u2014 product rendering (BWBK18-2)",
+    "provenance": "Highland product rendering of SKU BWBK18-2 from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-frost-white-sp12l",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/572883_SP12L_Frost-White.png",
+    "sourceFile": "1c277572974457601aadaf09a72be9a9e5c49289296fdb7fd2f9720ccf80db80.png",
+    "sourceSha256": "1c277572974457601aadaf09a72be9a9e5c49289296fdb7fd2f9720ccf80db80",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base spice pull-out, 12\u2033 in Frost White \u2014 product rendering (SP12L)",
+    "provenance": "Highland product rendering of SKU SP12L from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-glacial-white-sp09l",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/572885_SP09L_Glacial-White.png",
+    "sourceFile": "a389b61f0e7ded87ae1748064b7cd0bb146497845e72df16b1d5ff4daa6f0dd2.png",
+    "sourceSha256": "a389b61f0e7ded87ae1748064b7cd0bb146497845e72df16b1d5ff4daa6f0dd2",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base spice pull-out, 9\u2033 in Glacial White \u2014 product rendering (SP09L)",
+    "provenance": "Highland product rendering of SKU SP09L from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-glacial-white-sp12r",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/07/572888_SP12R_Glacial-White.png",
+    "sourceFile": "9d3ba06b6b4caa691754c5668d61dcb9d441bfdc9e8e340e1bebd55d34cea224.png",
+    "sourceSha256": "9d3ba06b6b4caa691754c5668d61dcb9d441bfdc9e8e340e1bebd55d34cea224",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base spice pull-out, 12\u2033 in Glacial White \u2014 product rendering (SP12R)",
+    "provenance": "Highland product rendering of SKU SP12R from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-white-oak-b30",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/164393_B30_WhiteOak.png",
+    "sourceFile": "087af51c1de5dac22608a64d4d9a7cee601b0f65182a7b7218d78bdd6f250d94.png",
+    "sourceSha256": "087af51c1de5dac22608a64d4d9a7cee601b0f65182a7b7218d78bdd6f250d94",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base cabinet, 30\u2033 in White Oak \u2014 product rendering (B30)",
+    "provenance": "Highland product rendering of SKU B30 from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-stone-grey-bwbk18-2",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/570126_BWBK18-2_Stone-Gray.png",
+    "sourceFile": "2041dce6425b3e50ef32f8e2dc75a0ca614ff1401047e4403ec273f7966cfc6e.png",
+    "sourceSha256": "2041dce6425b3e50ef32f8e2dc75a0ca614ff1401047e4403ec273f7966cfc6e",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base trash cabinet, two bins in Stone Grey \u2014 product rendering (BWBK18-2)",
+    "provenance": "Highland product rendering of SKU BWBK18-2 from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-white-oak-bwbk18-2",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/570127_BWBK18-2_White-Oak.png",
+    "sourceFile": "dddbef68519a9441c95943b9c472aedc1c7312c671c4c8a6ee2cbd8615032957.png",
+    "sourceSha256": "dddbef68519a9441c95943b9c472aedc1c7312c671c4c8a6ee2cbd8615032957",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base trash cabinet, two bins in White Oak \u2014 product rendering (BWBK18-2)",
+    "provenance": "Highland product rendering of SKU BWBK18-2 from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-stone-grey-sp12r",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/572896_SP12R_Stone-Gray.png",
+    "sourceFile": "732e105af6cfa009012a583bc9f271580bcfb9e25e161dcfdb4499141ef2e71c.png",
+    "sourceSha256": "732e105af6cfa009012a583bc9f271580bcfb9e25e161dcfdb4499141ef2e71c",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Base spice pull-out, 12\u2033 in Stone Grey \u2014 product rendering (SP12R)",
+    "provenance": "Highland product rendering of SKU SP12R from the gallery on the current website"
+  },
+  {
+    "id": "sku-euro-natural-walnut-vsb30",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/08/605060_VSB30_Natural-Walnut.png",
+    "sourceFile": "a6ba371e939add9036e344d0622cc4ae3b4bcc1208afbad5831ac7c895674cd5.png",
+    "sourceSha256": "a6ba371e939add9036e344d0622cc4ae3b4bcc1208afbad5831ac7c895674cd5",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Vanity sink base, 30\u2033 in Natural Walnut \u2014 product rendering (VSB30)",
+    "provenance": "Highland product rendering of SKU VSB30 from the gallery on the current website"
+  },
+  {
+    "id": "sku-nano-white-2db24",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/160726_2DB24_White-Nano.png",
+    "sourceFile": "333431dcceb3dfc11f4433ad73dd4b57c49a959a6b6fa63ac89322a1353866b1.png",
+    "sourceSha256": "333431dcceb3dfc11f4433ad73dd4b57c49a959a6b6fa63ac89322a1353866b1",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Two-drawer base, 24\u2033 in Nano White \u2014 product rendering (2DB24)",
+    "provenance": "Highland product rendering of SKU 2DB24 from the gallery on the current website"
+  },
+  {
+    "id": "sku-nano-green-2db30",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/160729_2DB30_Green-Nano.png",
+    "sourceFile": "889393af870389d9304636cb66f6beeb9f57e703e4b5bbf3c22b3be7daf3186b.png",
+    "sourceSha256": "889393af870389d9304636cb66f6beeb9f57e703e4b5bbf3c22b3be7daf3186b",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "Two-drawer base, 30\u2033 in Nano Green \u2014 product rendering (2DB30)",
+    "provenance": "Highland product rendering of SKU 2DB30 from the gallery on the current website"
+  },
+  {
+    "id": "sku-shaker-luxe-oc339624",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/09/854584_OC339624_Shaker-Luxe.png",
+    "sourceFile": "75c3012ee6fe098587f12b6f2c86f38ec93b648bf93169715d6e83d71de3357f.png",
+    "sourceSha256": "75c3012ee6fe098587f12b6f2c86f38ec93b648bf93169715d6e83d71de3357f",
+    "kind": "product-rendering",
+    "op": "render",
+    "alt": "96\u2033 oven cabinet, one drawer (33\u2033) in Luxe \u2014 product rendering (OC339624)",
+    "provenance": "Highland product rendering of SKU OC339624 from the gallery on the current website"
+  },
+  {
+    "id": "mark-ilg",
+    "sourceUrl": "https://highlandcabinetry.com/wp-content/uploads/2025/05/ILG-Logo-CMYK-1.png",
+    "sourceFile": "570d0c23408cbdfbfbfe13c691541e4b2352aad7b16a036b77ac8075406e9d5b.png",
+    "sourceSha256": "570d0c23408cbdfbfbfe13c691541e4b2352aad7b16a036b77ac8075406e9d5b",
+    "kind": "affiliation-mark",
+    "op": "logo",
+    "alt": "Interior Logic Group logo",
+    "provenance": "Logo from the ILG partner page of the current website."
   }
 ]

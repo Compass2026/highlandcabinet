@@ -4,7 +4,7 @@
  *  - every media id referenced by collections exists in media.generated.json and on disk
  *  - every generated asset carries provenance (source URL; SHA-256 unless extracted from a catalog PDF)
  *  - every non-decorative image has alt text
- *  - collection paths are unique and are marked "built" in the migration inventory
+ *  - collection paths are unique and are marked "Rebuilt" in the migration inventory
  *  - redirects never point away from a path that is built
  */
 import { readFile, access } from "node:fs/promises";
@@ -35,8 +35,8 @@ const paths = [...collections.matchAll(/path: "([^"]+)"/g)].map((m) => m[1]);
 const dup = paths.filter((p, i) => paths.indexOf(p) !== i);
 if (dup.length) errors.push(`duplicate collection paths: ${dup.join(", ")}`);
 for (const p of paths) {
-  const row = inventory.split("\n").find((l) => l.includes(`,"${p}",`));
-  if (!row || !row.includes('"built"')) errors.push(`collection ${p} is not marked built in the migration inventory`);
+  const row = inventory.split("\n").find((l) => l.startsWith(`"${p}",`));
+  if (!row || !row.includes('"Rebuilt"')) errors.push(`collection ${p} is not marked Rebuilt in the migration inventory`);
   if (redirectsSrc.includes(`"source": "${p}"`)) errors.push(`collection ${p} is also a redirect source`);
 }
 

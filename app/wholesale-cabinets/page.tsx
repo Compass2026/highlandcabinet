@@ -3,6 +3,8 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { Media } from "@/components/ui/Media";
 import { orderPolicy, phoenixLocation } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
+import Link from "next/link";
+import { citiesIn, stateAreas } from "@/lib/serviceAreas";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
@@ -58,10 +60,42 @@ export default async function ServiceAreasPage({ searchParams }: { searchParams:
           <div>
             <AreaChecker initial={state} />
             <p className={styles.note}>
-              City and state pages from Highland&rsquo;s previous website now lead here. They described areas served; Phoenix is the
-              showroom and warehouse.
+              Every state and city below is an area Highland supplies by delivery and freight; Phoenix is the showroom and warehouse.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="all-areas">
+        <div className="container">
+          <h2 id="all-areas" className={styles.h2}>
+            All service areas
+          </h2>
+          <ul className={styles.states}>
+            {stateAreas
+              .slice()
+              .sort((a, b) => a.stateName.localeCompare(b.stateName))
+              .map((st) => {
+                const cities = citiesIn(st.state);
+                return (
+                  <li key={st.path}>
+                    <Link href={st.path} className={styles.stateLink}>
+                      {st.stateName}
+                    </Link>
+                    {cities.length ? (
+                      <p className={styles.cities}>
+                        {cities.map((c, i) => (
+                          <span key={c.path}>
+                            <Link href={c.path}>{c.cityName}</Link>
+                            {i < cities.length - 1 ? ", " : ""}
+                          </span>
+                        ))}
+                      </p>
+                    ) : null}
+                  </li>
+                );
+              })}
+          </ul>
         </div>
       </section>
     </>

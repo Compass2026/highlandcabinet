@@ -1,12 +1,20 @@
 #!/usr/bin/env node
 /**
- * Builds the URL migration inventory and the redirect map from the preserved archive's URL lists.
+ * Builds the complete URL migration inventory, the redirect map and the "gone" list.
  *
- *   in:  docs/migration/source/*.json
- *   out: docs/migration/url-inventory.csv   (one row per archived URL)
- *        content/redirects.ts               (consumed by next.config.ts)
+ *   in:  docs/migration/source/*.json   (archive sitemap + links, live sitemap and WordPress exports of 2026-11-24)
+ *        content/collections.ts, content/blog/posts.json, content/service-areas.json  (what the new site builds)
+ *   out: docs/migration/url-inventory.csv   one row per old URL, exactly one status
+ *        content/redirects.ts               consumed by next.config.ts (308 permanent)
+ *        content/gone.ts                    consumed by proxy.ts (410 Gone)
  *
- * Rules live here, in one place, so the inventory and the redirects can never disagree.
+ * Statuses
+ *   Rebuilt      the same path serves a rebuilt page (expect 200)
+ *   Redirect     permanently redirected to the most relevant page (expect 308)
+ *   Removed      deliberately retired with no equivalent (expect 410, or 200 for CMS query artifacts on "/")
+ *   Unresolved   no decision yet — must be zero before launch
+ *
+ * Rules live here, in one place, so the inventory, redirects and tests can never disagree.
  * Run: node scripts/build-migration.mjs
  */
 import { readFile, writeFile } from "node:fs/promises";
@@ -15,194 +23,212 @@ import path from "node:path";
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const read = async (f) => JSON.parse(await readFile(path.join(root, f), "utf8"));
 
-const sitemap = await read("docs/migration/source/sitemap-urls.json");
-const broken = (await read("docs/migration/source/broken-links-404.json")).urls;
-const linked = (await read("docs/migration/source/linked-not-in-sitemap.json")).urls;
+// ---------------------------------------------------------------- sources
+const archiveSitemap = await read("docs/migration/source/sitemap-urls.json");
+const archiveLinked = (await read("docs/migration/source/linked-not-in-sitemap.json")).urls;
+const archive404 = (await read("docs/migration/source/broken-links-404.json")).urls;
+const liveSitemap = (await read("docs/migration/source/live-sitemap-2026-11-24.json")).urls;
+const wpPages = (await read("docs/migration/source/wp-pages-2026-11-24.json")).pages;
+const wpPosts = (await read("docs/migration/source/wp-posts-2026-11-24.json")).posts;
 
-// Paths built in this milestone (must match app/ routes).
-const productPaths = {
-  "/wholesale-white-shaker-cabinets/": "Featured — full gallery of installed-project photos",
-  "/wholesale-gray-shaker-cabinets/": "",
-  "/wholesale-modern-slate-cabinets/": "",
-  "/wholesale-onyx-black-shaker-cabinet/": "Singular “cabinet” slug kept as canonical; plural variant redirects here",
-  "/wholesale-signature-blue-shaker-cabinets/": "",
-  "/wholesale-luxe-shaker-cabinets/": "",
-  "/wholesale-nano-green-cabinets/": "",
-  "/wholesale-nano-white-cabinets/": "",
-  "/wholesale-white-oak-euro-cabinets/": "Old page repeated White Shaker specs and “plywood support” copy under a furniture-board Euro product — removed",
-  "/wholesale-natural-walnut-euro-cabinets/": "",
-  "/wholesale-stone-grey-euro-cabinets/": "",
-  "/wholesale-glacial-white-euro-cabinets/": "",
-  "/wholesale-white-frost-euro-cabinets/": "",
-};
-const commonProductIssue =
-  "Removed unverified stats (7-day delivery, 97% satisfaction, 20,000 kitchens stocked, 25,000/month). Old site says drawers have 5/8″ plywood sides; June 2025 catalog says 1/2″ solid wood — catalog used, confirm.";
-
-const builtPages = {
-  "/": ["Home", "Rebuilt. Conflicting shipping timelines (10–12 days vs 7–9 days) and inventory/satisfaction counters removed pending confirmation. Trustindex “Google” testimonials not reused — individual review sources not preserved."],
-  "/products/": ["Collections index", "Rebuilt as three lines / thirteen finishes from the June 2025 catalogs. “Uptown White” and the four “European … gloss” finishes are not in the current catalogs."],
-  "/wholesale-cabinets-for-contractors/": ["Trade / audience", "Removed: “20,000 kitchens in stock”, “rigorous quality checks… warranty”, “real-time order tracking”, financing partner (Blue Tree), contractor branding program — all need confirmation."],
-  "/become-a-dealer/": ["Lead form", "Phone shown on old page (866.853.7987) differs from Contact page (480-755-2280). “Reply within 24 hours” promise removed pending confirmation."],
-  "/find-a-dealer/": ["Lead form", "Old page promised “top cabinet dealers in your area”; there is no public dealer directory — rebuilt as a referral request."],
-  "/contact-us/": ["Contact / lead form", "Address, phone, email need confirmation (see launch checklist)."],
-  "/wholesale-cabinets/": ["Service-area hub", "Rebuilt to separate the one physical location (Phoenix) from areas served."],
+const pathOf = (u) => {
+  if (u.startsWith("/")) return u;
+  const m = u.match(/^https?:\/\/(?:www\.)?highlandcabinetry\.com(.*)$/);
+  if (!m) return u;
+  const rest = m[1] || "/";
+  try {
+    return decodeURI(rest);
+  } catch {
+    return rest;
+  }
 };
 
-const planned = {
-  "/about-us/": ["About", "Milestone 2", "Conflicts: founded 2018 vs “over ten years of experience”; “manufactured in Vietnam” vs catalog “we own our entire supply chain”; delivery “3–5 days” and “average 4 days” vs other pages; “largest in-stock Shaker inventory in Arizona” unverified; testimonials unverifiable."],
-  "/blog/": ["Blog index", "Milestone 3 (CMS)", "Move 56 posts into the CMS keeping /blog/<slug>/ paths."],
-  "/gallery-of-highland-cabinets/": ["Gallery", "Milestone 2", "Separate installed-project photos from catalog renderings; several gallery/blog images are AI-generated (DALL·E, Gemini, ChatGPT filenames) or stock — do not present as Highland projects."],
-  "/most-searched-questions-for-kitchen-renovation/": ["FAQ", "Milestone 2", "Review answers for shipping/warranty claims before republishing."],
-  "/privacy-policy/": ["Legal", "Required before launch", "Forms collect personal data; needs a current privacy policy reviewed by Highland."],
+/** path -> { sources:Set, wp?:{modified,index} } */
+const urls = new Map();
+const note = (p, src, extra = {}) => {
+  const e = urls.get(p) ?? { sources: new Set() };
+  e.sources.add(src);
+  Object.assign(e, extra);
+  urls.set(p, e);
+};
+for (const u of archiveSitemap) note(pathOf(u), "archive sitemap");
+for (const u of liveSitemap) note(pathOf(u), "live sitemap");
+for (const p of wpPages) note(p.path, "WordPress page", { wp: p });
+for (const p of wpPosts) note(p.path, "WordPress post");
+for (const u of archiveLinked) note(pathOf(u), "linked (archive)");
+for (const u of archive404) note(u.includes("https://", 9) ? u : pathOf(u), "linked, 404 at archive capture");
+
+// ---------------------------------------------------------------- what the new site builds
+const collections = await readFile(path.join(root, "content/collections.ts"), "utf8");
+const productPaths = [...collections.matchAll(/path: "(\/wholesale-[^"]+\/)"/g)].map((m) => m[1]);
+const posts = await read("content/blog/posts.json");
+const areas = await read("content/service-areas.json");
+const liveAreas = areas.filter((a) => !a.state.endsWith("-old") && !(a.city ?? "").endsWith("-old"));
+const blogAudit = await read("docs/migration/wp/blog-audit.json");
+
+const pageNotes = {
+  "/": ["Home", "Rebuilt. Unsupported stats (inventory, satisfaction, delivery days) and unattributed testimonials not carried over."],
+  "/products/": ["Collections index", "Rebuilt from the June 2025 catalogs (3 lines, 13 finishes)."],
+  "/wholesale-cabinets-for-contractors/": ["Trade", "Rebuilt; “20,000 kitchens in stock”, warranty, order-tracking and financing claims not carried over."],
+  "/become-a-dealer/": ["Lead form", "Rebuilt with an honest form (no false ‘sent’)."],
+  "/find-a-dealer/": ["Lead form", "Rebuilt as a dealer-referral request; there is no public dealer directory."],
+  "/contact-us/": ["Contact", "Rebuilt; phone now 866-545-6280."],
+  "/wholesale-cabinets/": ["Service-area hub", "Rebuilt; Phoenix is the only physical location; links to every state and city page."],
+  "/blog/": ["Blog index", "Rebuilt; lists all 56 posts."],
+  "/about-us/": ["About", "Rebuilt; founding year, origin, delivery-day, ‘largest inventory’ and ‘all-wood’ claims not carried over pending confirmation."],
+  "/gallery-of-highland-cabinets/": ["Gallery", "Rebuilt from Highland renderings, Highland SKU renderings and camera-verified installed photos. Excluded: AI-generated (DALL·E/ChatGPT metadata), stock (shutterstock), third-party (CWS) and unverifiable images — see docs/migration/wp/gallery-exclusions.md."],
+  "/most-searched-questions-for-kitchen-renovation/": ["FAQ article", "Rebuilt; inventory/lead-time, material and coat-count claims corrected to the catalogs. Confirm byline."],
+  "/privacy-policy/": ["Legal", "Rebuilt from the previous policy; placeholders filled with confirmed contact details. Needs legal review."],
+  "/hci-partners/": ["Partners", "Rebuilt; confirm the ILG relationship."],
+  "/hci-partners/interior-logic-group-ilg/": ["Partner profile", "Rebuilt; undocumented partner logo wall (incl. Lowe’s) and third-party quote not carried over."],
+  "/wholesalers-large-scale-projects/": ["Wholesale / large projects", "Rebuilt; ‘25,000 kitchens/month’, ‘15+ years’, regional hubs and certification claims not carried over."],
 };
 
-const needsDecision = {
-  "/wholesale-uptown-white-cabinets/": ["Product (legacy)", "/products/#line-shaker", "Uptown White is not in either June 2025 catalog. Confirm discontinued → 301 to Shaker line, or supply current product data."],
-  "/european-dark-mirror-gloss-finish/": ["Product (legacy)", "/products/#line-euro", "From the old “Euro finishes coming soon” block; not in the current Euro catalog."],
-  "/european-dark-wood-gloss-finish/": ["Product (legacy)", "/products/#line-euro", "From the old “Euro finishes coming soon” block; not in the current Euro catalog."],
-  "/european-light-mirror-gloss-finish/": ["Product (legacy)", "/products/#line-euro", "From the old “Euro finishes coming soon” block; not in the current Euro catalog."],
-  "/free-shipping-landing/": ["Campaign landing", "/request-a-quote/", "“Free shipping” offer must be confirmed as current before any reuse; otherwise retire with a redirect."],
-  "/hci-partners/": ["Partners", "", "Partner relationships (e.g. Interior Logic Group) need written confirmation and logo permission before republishing."],
-  "/hci-partners/interior-logic-group-ilg/": ["Partner profile", "", "Confirm the ILG relationship and permission to use their name and logo."],
-};
+const rebuilt = new Map(); // path -> [type, notes, flags]
+for (const p of productPaths)
+  rebuilt.set(p, ["Product collection", "Rebuilt from the June 2025 catalogs; unsupported delivery/inventory stats not carried over.", ""]);
+for (const [p, [t, n]] of Object.entries(pageNotes)) rebuilt.set(p, [t, n, /confirm|review/i.test(n) ? "needs Highland confirmation" : ""]);
+for (const post of posts) {
+  const a = blogAudit[post.slug] ?? { edits: [], imagesRemoved: [], imagesFlagged: [] };
+  const bits = [];
+  if (a.edits.length) bits.push(`${a.edits.length} unsupported claim(s) corrected`);
+  if (a.imagesRemoved.length) bits.push(`${a.imagesRemoved.length} image(s) removed (AI-generated or broken)`);
+  if (a.imagesFlagged.length) bits.push(`${a.imagesFlagged.length} image(s) flagged: AI-generator dimensions`);
+  rebuilt.set(`/blog/${post.slug}/`, ["Blog post", bits.join("; ") || "Rebuilt; no changes needed.", a.imagesFlagged.length ? "review images" : ""]);
+}
+for (const a of liveAreas) {
+  const thin = (a.uniqueWords ?? 0) < 150;
+  rebuilt.set(a.path, [
+    a.city ? "Service area — city" : "Service area — state",
+    `Rebuilt at the same path with local data (${a.areas.length} nearby areas, ${a.facilities.length} local offices) and verified ordering facts. Not carried over: ${a.removedClaims.join(", ") || "—"}.`,
+    [thin ? `thin/templated original (${a.uniqueWords ?? 0} unique words)` : "", ...a.issues.filter((i) => !i.startsWith("thin")), a.facilities.length ? "verify local office details" : ""].filter(Boolean).join("; "),
+  ]);
+}
 
+// ---------------------------------------------------------------- redirects & removals
+const redirectRules = {
+  "/wholesale-uptown-white-cabinets/": ["/products/#line-shaker", "Retired finish (not in the June 2025 catalogs).", "confirm discontinued"],
+  "/european-dark-mirror-gloss-finish/": ["/products/#line-euro", "Retired ‘coming soon’ finish.", ""],
+  "/european-dark-wood-gloss-finish/": ["/products/#line-euro", "Retired ‘coming soon’ finish.", ""],
+  "/european-light-mirror-gloss-finish/": ["/products/#line-euro", "Retired ‘coming soon’ finish.", ""],
+  "/european-light-wood-gloss-finish/": ["/products/#line-euro", "Retired ‘coming soon’ finish (linked, 404).", ""],
+  "/index.php/european-light-wood-gloss-finish/": ["/products/#line-euro", "Malformed legacy link.", ""],
+  "/free-shipping-landing/": ["/request-a-quote/", "Campaign landing; free-shipping offer not confirmed as current.", "confirm offer retired"],
+  "/blowout-specials/": ["/request-a-quote/", "Expired Q4 promotion (noindex); price-match guarantee not carried over.", ""],
+  "/new-luxe-shaker-arizona/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex).", ""],
+  "/new-luxe-shaker-california/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex).", ""],
+  "/new-luxe-shaker-national/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex).", ""],
+  "/new-luxe-shaker-new-mexico/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex).", ""],
+  "/new-luxe-shaker-texas/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex).", ""],
+  "/new-luxe-shaker-utah/": ["/wholesale-luxe-shaker-cabinets/", "Luxe Shaker campaign landing (noindex).", ""],
+  "/find-a-dealer-2/": ["/find-a-dealer/", "Empty duplicate (noindex).", ""],
+  "/old-gallery-of-highland-cabinets/": ["/gallery-of-highland-cabinets/", "Superseded gallery (noindex).", ""],
+  "/thank-you/": ["/contact-us/", "Form confirmation page (noindex); new forms confirm inline.", ""],
+  "/locate-dealer-thank-you/": ["/find-a-dealer/", "Form confirmation page (noindex); new forms confirm inline.", ""],
+  "/wholesale-cabinets/wisconsin-old/madison-old/": ["/wholesale-cabinets/wisconsin/madison/", "Outdated duplicate of the Madison page.", ""],
+  "/wholesale-cabinets/wisconsin-old/": ["/wholesale-cabinets/wisconsin/", "Outdated duplicate.", ""],
+  "/wholesale-cabinets/North Dakota/": ["/wholesale-cabinets/north-dakota/", "Malformed link (space) from the old navigation.", ""],
+  "/wholesale-onyx-black-shaker-cabinets/": ["/wholesale-onyx-black-shaker-cabinet/", "Plural variant of the product URL.", ""],
+  "/blog/page/2/": ["/blog/", "Blog pagination; the new index lists every post.", ""],
+  "/blog/category/uncategorized/": ["/blog/", "WordPress category archive.", ""],
+  "/blog/author/jamesmhighlandcabinetryinc-com/": ["/blog/", "WordPress author archive.", ""],
+  "/blog/gallery-tab-category/shaker-style/": ["/gallery-of-highland-cabinets/#shaker-style", "Gallery category archive.", ""],
+  "/blog/gallery-tab-category/nano-style/": ["/gallery-of-highland-cabinets/#nano-style", "Gallery category archive.", ""],
+  "/blog/gallery-tab-category/euro-style/": ["/gallery-of-highland-cabinets/#euro-style", "Gallery category archive.", ""],
+  "/blog/replace-cabinets-keep-countertops/": ["/blog/can-you-replace-cabinets-and-keep-countertops/", "Old slug of an existing post (linked, 404).", ""],
+  "/white-shaker-cabinets/": ["/wholesale-white-shaker-cabinets/", "Broken internal link (404).", ""],
+  "/shaker-cabinets": ["/products/#line-shaker", "Broken internal link (404).", ""],
+  "/collections/all": ["/products/", "Broken internal link (404).", ""],
+  "/wholesale/": ["/wholesale-cabinets-for-contractors/", "Broken internal link (404).", ""],
+};
+const pdfRules = {
+  "/wp-content/uploads/2026/05/341793_HCI-Shaker-Nano-Catalog-June-2025_Web_04.17.26_compressed-1.pdf": "/catalogs/highland-shaker-nano-catalog.pdf",
+  "/wp-content/uploads/2025/10/341793_HCI-Shaker-Nano-Catalog-Ocotber_2025_Web_10.24.25.pdf": "/catalogs/highland-shaker-nano-catalog.pdf",
+  "/wp-content/uploads/2025/07/341792_HCI-Euro-Catalog-June-2025_Final_07.08.25-2-1.pdf": "/catalogs/highland-euro-catalog.pdf",
+  "/wp-content/uploads/2026/01/Kitchen-Remodeling-Checklis.pdf": "/downloads/kitchen-remodeling-checklist.pdf",
+};
+for (const p of Object.keys(pdfRules)) note(p, "document (PDF)");
+const goneRules = {
+  "/oops/": "Geo-block error page (“Your country has been blocked”), noindex.",
+  "/iframe-36/": "Embed fragment of an old homepage design, noindex.",
+};
+const queryArtifact = (p) => /^\/\?wpr_mega_menu=/.test(p);
+const malformedPost = (p) => /^https:\/\/highlandcabinetry\.com\/blog\/how-to-make-a-small-kitchen-look-bigger\/https:/.test(p);
+
+// ---------------------------------------------------------------- classify
 const rows = [];
 const redirects = [];
-const add = (r) => rows.push(r);
-const pathOf = (u) => {
-  const p = new URL(u.replace(/ /g, "%20")).pathname;
-  return decodeURIComponent(p);
-};
+const gone = [];
+// With trailingSlash on, Next adds the slash before redirects are matched — so sources always end in "/".
 const addRedirect = (source, destination) => {
   const src = source.endsWith("/") ? source : `${source}/`;
   redirects.push({ source: encodeURI(src), destination, permanent: true });
 };
 
-for (const url of sitemap) {
-  const p = pathOf(url);
-  const isPost = p.startsWith("/blog/") && p !== "/blog/";
-  const src = isPost ? "sitemap (post)" : "sitemap (page)";
-
-  if (productPaths[p] !== undefined) {
-    add({ url, path: p, source: src, type: "Product collection", replacement: p, status: "built", redirect: "none (path preserved)", issues: [productPaths[p], commonProductIssue].filter(Boolean).join(" ") });
-  } else if (builtPages[p]) {
-    add({ url, path: p, source: src, type: builtPages[p][0], replacement: p, status: "built", redirect: "none (path preserved)", issues: builtPages[p][1] });
-  } else if (planned[p]) {
-    add({ url, path: p, source: src, type: planned[p][0], replacement: p, status: `planned — ${planned[p][1]}`, redirect: "none (path preserved)", issues: planned[p][2] });
-  } else if (needsDecision[p]) {
-    const [type, dest, issue] = needsDecision[p];
-    add({ url, path: p, source: src, type, replacement: dest || p, status: "needs decision", redirect: dest ? "301 (proposed)" : "none until decided", issues: issue });
-    if (dest) addRedirect(p, dest);
-  } else if (isPost) {
-    add({ url, path: p, source: src, type: "Blog post", replacement: p, status: "planned — Milestone 3 (CMS)", redirect: "none (path preserved)", issues: "Audit for unverified shipping/warranty claims and AI-generated imagery before migrating." });
-  } else if (p.startsWith("/wholesale-cabinets/")) {
-    const parts = p.split("/").filter(Boolean);
-    const stateSlug = parts[1].replace(/-old$/, "");
-    const isCity = parts.length > 2;
-    const dest = `/wholesale-cabinets/?state=${stateSlug}`;
-    const isPhoenix = p === "/wholesale-cabinets/arizona/phoenix/";
-    add({
-      url,
-      path: p,
-      source: src,
-      type: isCity ? "Service area — city" : "Service area — state",
-      replacement: dest,
-      status: "consolidated",
-      redirect: "301",
-      issues: isPhoenix
-        ? "Only page for the real physical location. Old copy includes trade pricing tiers (“up to 10–20%”), warehouse hours and “20,000+ kitchens… restocked bi-weekly” — confirm, then consider a dedicated Phoenix location page in Milestone 2."
-        : isCity
-          ? "Describes an area served, not a physical location. Consolidated to avoid thin duplicate pages; rebuild only with genuinely local content."
-          : "Coverage for this state needs confirmation. Can become a substantive state page later.",
-    });
+for (const [p, e] of [...urls.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+  const sources = [...e.sources].join("; ");
+  const wpNote = e.wp ? `WordPress: modified ${e.wp.modified.slice(0, 10)}${e.wp.index === "noindex" ? ", noindex" : ""}.` : "";
+  let r;
+  if (rebuilt.has(p)) {
+    const [type, notes, flags] = rebuilt.get(p);
+    r = { type, status: "Rebuilt", target: p, expect: 200, notes, flags };
+  } else if (redirectRules[p]) {
+    const [dest, notes, flags] = redirectRules[p];
+    r = { type: "Retired / duplicate", status: "Redirect", target: dest, expect: 308, notes, flags };
     addRedirect(p, dest);
+  } else if (pdfRules[p]) {
+    r = { type: "Document (PDF)", status: "Redirect", target: pdfRules[p], expect: 308, notes: "Served from a stable local path.", flags: "" };
+    redirects.push({ source: p, destination: pdfRules[p], permanent: true });
+  } else if (goneRules[p]) {
+    r = { type: "CMS artifact", status: "Removed", target: "", expect: 410, notes: goneRules[p], flags: "" };
+    gone.push(p);
+  } else if (queryArtifact(p)) {
+    r = { type: "CMS artifact (mega-menu query)", status: "Removed", target: "/", expect: 200, notes: "WordPress mega-menu item listed in the sitemap; the query string resolves to the homepage, which carries a canonical URL.", flags: "" };
+  } else if (malformedPost(p)) {
+    r = { type: "Malformed link", status: "Removed", target: "", expect: "n/a", notes: "A doubled URL inside an old post; not a reachable path. The link was not carried into the rebuilt post.", flags: "" };
   } else {
-    add({ url, path: p, source: src, type: "Unclassified", replacement: "", status: "needs review", redirect: "", issues: "Not matched by a migration rule." });
+    r = { type: "Unclassified", status: "Unresolved", target: "", expect: "?", notes: "No migration rule matched.", flags: "decide before launch" };
   }
+  rows.push({ path: p, sources, ...r, notes: [r.notes, wpNote].filter(Boolean).join(" ") });
 }
 
-for (const url of linked) {
-  const p = pathOf(url);
-  let dest = "";
-  let type = "Linked page";
-  let issue = "";
-  if (p === "/blog/page/2/") {
-    type = "Blog pagination";
-    dest = "";
-    issue = "Recreate pagination when the blog moves to the CMS.";
-  } else if (p === "/wholesale-onyx-black-shaker-cabinets/") {
-    type = "Product (duplicate slug)";
-    dest = "/wholesale-onyx-black-shaker-cabinet/";
-    issue = "Plural variant of the sitemap URL.";
-  } else if (p.startsWith("/wholesale-cabinets/")) {
-    type = "Service area — malformed";
-    dest = `/wholesale-cabinets/?state=${p.split("/")[2].toLowerCase().replace(/ /g, "-")}`;
-    issue = "URL contains a space; linked from the old navigation.";
-  }
-  add({ url, path: p, source: "linked, not in sitemap", type, replacement: dest || p, status: dest ? "redirect" : "planned — Milestone 3 (CMS)", redirect: dest ? "301" : "none", issues: issue });
-  if (dest) addRedirect(p, dest);
-}
-
-const brokenMap = {
-  "/white-shaker-cabinets/": "/wholesale-white-shaker-cabinets/",
-  "/shaker-cabinets/": "/products/#line-shaker",
-  "/shaker-cabinets": "/products/#line-shaker",
-  "/wholesale/": "/wholesale-cabinets-for-contractors/",
-  "/collections/all": "/products/",
-  "/european-light-wood-gloss-finish/": "/products/#line-euro",
-  "/index.php/european-light-wood-gloss-finish/": "/products/#line-euro",
-};
-for (const url of broken) {
-  let p;
-  try {
-    p = pathOf(url);
-  } catch {
-    p = url;
-  }
-  const dest = brokenMap[p];
-  const malformed = url.split("https://").length > 2;
-  add({
-    url,
-    path: p,
-    source: "linked, returned 404 at capture",
-    type: "Broken link",
-    replacement: dest ?? "",
-    status: dest ? "redirect" : "fix source link",
-    redirect: dest ? "301" : "none",
-    issues: malformed ? "Malformed internal link (URL repeated) in an old blog post — fix the link when migrating the post." : dest ? "Recover link equity from inbound/internal links." : "Post no longer exists; remove internal links or point them to a related post during the blog migration.",
-  });
-  if (dest) addRedirect(p.replace(/\/?$/, "/"), dest);
-}
-
-// Catalog PDFs referenced by the old site → local, stable paths.
-const pdfs = [
-  ["https://highlandcabinetry.com/wp-content/uploads/2026/05/341793_HCI-Shaker-Nano-Catalog-June-2025_Web_04.17.26_compressed-1.pdf", "/catalogs/highland-shaker-nano-catalog.pdf", "Current web edition linked from the old navigation."],
-  ["https://highlandcabinetry.com/wp-content/uploads/2025/10/341793_HCI-Shaker-Nano-Catalog-Ocotber_2025_Web_10.24.25.pdf", "/catalogs/highland-shaker-nano-catalog.pdf", "Earlier upload of the same June 2025 edition (one wording difference)."],
-  ["https://highlandcabinetry.com/wp-content/uploads/2025/07/341792_HCI-Euro-Catalog-June-2025_Final_07.08.25-2-1.pdf", "/catalogs/highland-euro-catalog.pdf", ""],
-  ["https://highlandcabinetry.com/wp-content/uploads/2026/01/Kitchen-Remodeling-Checklis.pdf", "/catalogs/kitchen-remodeling-checklist.pdf", "Homeowner checklist; not yet linked from the new site."],
-];
-for (const [url, dest, issue] of pdfs) {
-  const p = new URL(url).pathname;
-  add({ url, path: p, source: "document", type: "PDF", replacement: dest, status: "built", redirect: "301", issues: issue });
-  redirects.push({ source: p, destination: dest, permanent: true });
-}
-
-// ---- write CSV ----
-const cols = ["url", "path", "source", "type", "replacement", "status", "redirect", "issues"];
-const head = ["Archived URL", "Path", "Discovered via", "Page type", "Intended replacement URL", "Migration status", "Redirect", "Content / factual issues"];
+// ---------------------------------------------------------------- write outputs
+const cols = ["path", "sources", "type", "status", "target", "expect", "flags", "notes"];
+const head = ["Old path", "Found in", "Page type", "Status", "New URL", "Expected HTTP", "Review flags", "Notes"];
 const esc = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
-const csv = [head.map(esc).join(","), ...rows.map((r) => cols.map((c) => esc(r[c])).join(","))].join("\n") + "\n";
-await writeFile(path.join(root, "docs/migration/url-inventory.csv"), csv);
-
-// ---- write redirects ----
+await writeFile(
+  path.join(root, "docs/migration/url-inventory.csv"),
+  [head.map(esc).join(","), ...rows.map((r) => cols.map((c) => esc(r[c])).join(","))].join("\n") + "\n",
+);
 const seen = new Set();
 const unique = redirects.filter((r) => (seen.has(r.source) ? false : (seen.add(r.source), true)));
-const ts = `// GENERATED by scripts/build-migration.mjs from docs/migration/source — do not edit by hand.
-// ${unique.length} redirects. Paths that are rebuilt in place need no redirect and are not listed.
-export const redirects: { source: string; destination: string; permanent: boolean }[] = ${JSON.stringify(unique, null, 2)};
-`;
-await writeFile(path.join(root, "content/redirects.ts"), ts);
+await writeFile(
+  path.join(root, "content/redirects.ts"),
+  `// GENERATED by scripts/build-migration.mjs — do not edit by hand.\n// ${unique.length} permanent redirects (308). Rebuilt paths need none.\nexport const redirects: { source: string; destination: string; permanent: boolean }[] = ${JSON.stringify(unique, null, 2)};\n`,
+);
+await writeFile(
+  path.join(root, "content/gone.ts"),
+  `// GENERATED by scripts/build-migration.mjs — do not edit by hand.\n// Deliberately retired paths answered with 410 Gone (see proxy.ts).\nexport const gone: string[] = ${JSON.stringify(gone, null, 2)};\n`,
+);
 
-const by = rows.reduce((a, r) => ((a[r.status.split(" — ")[0]] = (a[r.status.split(" — ")[0]] ?? 0) + 1), a), {});
-console.log(`${rows.length} inventory rows, ${unique.length} redirects`);
-console.log(by);
+const count = (k) => rows.reduce((a, r) => ((a[r[k]] = (a[r[k]] ?? 0) + 1), a), {});
+const summary = {
+  generated: new Date().toISOString().slice(0, 10),
+  total: rows.length,
+  byStatus: count("status"),
+  byType: count("type"),
+  flagged: rows.filter((r) => r.flags).length,
+  bySource: {
+    "archive sitemap": archiveSitemap.length,
+    "live sitemap (2026-11-24)": liveSitemap.length,
+    "WordPress published pages": wpPages.length,
+    "WordPress posts": wpPosts.length,
+    "linked (archive)": archiveLinked.length,
+    "linked 404 (archive)": archive404.length,
+    "documents (PDF)": Object.keys(pdfRules).length,
+  },
+  redirects: unique.length,
+  gone: gone.length,
+};
+await writeFile(path.join(root, "docs/migration/summary.json"), JSON.stringify(summary, null, 2) + "\n");
+console.log(JSON.stringify(summary, null, 1));

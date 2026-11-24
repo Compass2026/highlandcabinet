@@ -1,0 +1,1231 @@
+{
+ "captured": "2026-11-24",
+ "note": "All published pages from the WordPress REST API (/wp-json/wp/v2/pages), including pages not listed in the sitemap.",
+ "pages": [
+  {
+   "path": "/",
+   "modified": "2026-08-28T07:34:55",
+   "index": "noindex"
+  },
+  {
+   "path": "/about-us/",
+   "modified": "2026-04-23T10:40:21",
+   "index": "noindex"
+  },
+  {
+   "path": "/become-a-dealer/",
+   "modified": "2026-02-10T10:18:52",
+   "index": "noindex"
+  },
+  {
+   "path": "/blog/",
+   "modified": "2026-04-23T10:45:58",
+   "index": "noindex"
+  },
+  {
+   "path": "/blowout-specials/",
+   "modified": "2026-04-14T12:14:11",
+   "index": "noindex"
+  },
+  {
+   "path": "/contact-us/",
+   "modified": "2026-02-13T09:46:41",
+   "index": "noindex"
+  },
+  {
+   "path": "/european-dark-mirror-gloss-finish/",
+   "modified": "2026-08-28T08:37:25",
+   "index": "noindex"
+  },
+  {
+   "path": "/european-dark-wood-gloss-finish/",
+   "modified": "2025-11-11T13:25:40",
+   "index": "noindex"
+  },
+  {
+   "path": "/european-light-mirror-gloss-finish/",
+   "modified": "2025-11-11T13:25:41",
+   "index": "noindex"
+  },
+  {
+   "path": "/find-a-dealer-2/",
+   "modified": "2025-11-11T13:25:43",
+   "index": "noindex"
+  },
+  {
+   "path": "/find-a-dealer/",
+   "modified": "2026-02-09T23:54:27",
+   "index": "noindex"
+  },
+  {
+   "path": "/free-shipping-landing/",
+   "modified": "2025-11-11T13:25:51",
+   "index": "noindex"
+  },
+  {
+   "path": "/gallery-of-highland-cabinets/",
+   "modified": "2026-05-04T16:00:42",
+   "index": "noindex"
+  },
+  {
+   "path": "/hci-partners/",
+   "modified": "2025-11-11T13:25:49",
+   "index": "noindex"
+  },
+  {
+   "path": "/hci-partners/interior-logic-group-ilg/",
+   "modified": "2025-11-11T13:25:50",
+   "index": "noindex"
+  },
+  {
+   "path": "/iframe-36/",
+   "modified": "2026-04-23T10:23:10",
+   "index": "noindex"
+  },
+  {
+   "path": "/locate-dealer-thank-you/",
+   "modified": "2025-11-11T13:25:59",
+   "index": "noindex"
+  },
+  {
+   "path": "/most-searched-questions-for-kitchen-renovation/",
+   "modified": "2025-12-14T03:04:35",
+   "index": "noindex"
+  },
+  {
+   "path": "/new-luxe-shaker-arizona/",
+   "modified": "2026-04-23T10:29:20",
+   "index": "noindex"
+  },
+  {
+   "path": "/new-luxe-shaker-california/",
+   "modified": "2026-04-14T12:10:17",
+   "index": "noindex"
+  },
+  {
+   "path": "/new-luxe-shaker-national/",
+   "modified": "2026-04-14T12:14:22",
+   "index": "noindex"
+  },
+  {
+   "path": "/new-luxe-shaker-new-mexico/",
+   "modified": "2026-04-23T10:29:05",
+   "index": "noindex"
+  },
+  {
+   "path": "/new-luxe-shaker-texas/",
+   "modified": "2026-04-14T12:14:15",
+   "index": "noindex"
+  },
+  {
+   "path": "/new-luxe-shaker-utah/",
+   "modified": "2026-04-14T12:14:30",
+   "index": "index"
+  },
+  {
+   "path": "/old-gallery-of-highland-cabinets/",
+   "modified": "2025-11-11T13:25:55",
+   "index": "noindex"
+  },
+  {
+   "path": "/oops/",
+   "modified": "2025-11-11T13:25:38",
+   "index": "noindex"
+  },
+  {
+   "path": "/privacy-policy/",
+   "modified": "2026-02-18T19:19:08",
+   "index": "index"
+  },
+  {
+   "path": "/products/",
+   "modified": "2026-05-04T15:54:09",
+   "index": "noindex"
+  },
+  {
+   "path": "/thank-you/",
+   "modified": "2026-02-26T12:55:14",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-cabinets-for-contractors/",
+   "modified": "2026-02-10T09:40:34",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-cabinets/",
+   "modified": "2026-07-02T13:08:21",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-cabinets/alabama/",
+   "modified": "2026-09-24T07:56:51",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/alabama/birmingham/",
+   "modified": "2026-09-17T17:10:57",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/alabama/huntsville/",
+   "modified": "2026-09-17T17:10:52",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/alabama/mobile/",
+   "modified": "2026-09-17T17:15:35",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/alabama/montgomery/",
+   "modified": "2026-09-17T17:14:06",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/alaska/",
+   "modified": "2026-09-24T07:54:58",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/alaska/anchorage/",
+   "modified": "2026-09-17T17:10:50",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/arizona/",
+   "modified": "2026-08-28T07:54:00",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-cabinets/arizona/buckeye/",
+   "modified": "2026-09-17T15:47:45",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/arizona/mesa/",
+   "modified": "2026-09-17T15:47:25",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/arizona/phoenix/",
+   "modified": "2026-09-17T15:47:45",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/arizona/tempe/",
+   "modified": "2026-09-17T15:46:28",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/arizona/tucson/",
+   "modified": "2026-09-17T15:47:03",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/arkansas/",
+   "modified": "2026-09-24T07:58:26",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/arkansas/little-rock/",
+   "modified": "2026-09-17T17:15:55",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/california/",
+   "modified": "2026-09-24T08:04:31",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/california/anaheim/",
+   "modified": "2026-09-17T15:20:18",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/california/fresno/",
+   "modified": "2026-09-17T15:15:11",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/california/los-angeles/",
+   "modified": "2026-09-17T15:12:25",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/california/orange-county/",
+   "modified": "2026-09-17T15:21:19",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/california/sacramento/",
+   "modified": "2026-09-17T15:16:50",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/california/san-diego/",
+   "modified": "2026-09-17T15:13:39",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/california/santa-ana/",
+   "modified": "2026-09-17T15:22:38",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/colorado/",
+   "modified": "2026-09-24T08:06:57",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/colorado/colorado-springs/",
+   "modified": "2026-09-17T15:25:23",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/colorado/denver/",
+   "modified": "2026-09-17T15:23:50",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/colorado/fort-collins/",
+   "modified": "2026-09-17T15:26:30",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/connecticut/",
+   "modified": "2026-09-24T08:15:34",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/connecticut/bridgeport/",
+   "modified": "2026-09-17T17:18:36",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/connecticut/hartford/",
+   "modified": "2026-09-17T17:19:14",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/connecticut/new-haven/",
+   "modified": "2026-09-17T17:18:58",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/connecticut/stamford/",
+   "modified": "2026-09-17T17:18:48",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/delaware/",
+   "modified": "2026-09-24T08:17:06",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/delaware/wilmington/",
+   "modified": "2026-09-17T17:16:01",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/florida/",
+   "modified": "2026-09-24T08:18:35",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/florida/hialeah/",
+   "modified": "2026-09-17T15:54:55",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/florida/jacksonville/",
+   "modified": "2026-09-17T15:54:41",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/florida/miami/",
+   "modified": "2026-09-17T15:53:27",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/florida/naples/",
+   "modified": "2026-09-17T15:53:58",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/florida/orlando/",
+   "modified": "2026-09-17T15:54:30",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/florida/st-petersburg/",
+   "modified": "2026-09-17T15:54:49",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/florida/tampa/",
+   "modified": "2026-09-17T15:53:47",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/georgia/",
+   "modified": "2026-09-24T08:20:53",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/georgia/atlanta/",
+   "modified": "2026-09-17T09:58:48",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/georgia/augusta/",
+   "modified": "2026-09-17T10:01:27",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/georgia/columbus/",
+   "modified": "2026-09-17T10:03:45",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/georgia/savannah/",
+   "modified": "2026-09-17T10:06:40",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/hawaii/",
+   "modified": "2026-09-24T08:22:13",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/hawaii/honolulu/",
+   "modified": "2026-09-17T17:16:10",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/idaho/",
+   "modified": "2026-09-24T08:23:57",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/idaho/boise-city/",
+   "modified": "2026-09-17T10:08:55",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/idaho/meridian/",
+   "modified": "2026-09-17T10:11:38",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/idaho/nampa/",
+   "modified": "2026-09-17T10:13:29",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/illinois/",
+   "modified": "2026-09-24T08:25:37",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/illinois/chicago/",
+   "modified": "2026-09-17T16:53:16",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/illinois/rockford/",
+   "modified": "2026-09-17T16:53:33",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/indiana/",
+   "modified": "2026-09-24T08:27:32",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/indiana/evansville/",
+   "modified": "2026-09-17T10:19:46",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/indiana/fort-wayne/",
+   "modified": "2026-09-17T10:17:55",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/indiana/indianapolis/",
+   "modified": "2026-09-17T10:16:13",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/iowa/",
+   "modified": "2026-09-24T08:29:23",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/iowa/cedar-rapids/",
+   "modified": "2026-09-17T10:25:09",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/iowa/des-moines/",
+   "modified": "2026-09-17T10:21:48",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/kansas/",
+   "modified": "2026-09-24T08:31:28",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/kansas/kansas-city/",
+   "modified": "2026-09-17T10:35:54",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/kansas/olathe/",
+   "modified": "2026-09-17T12:03:13",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/kansas/overland-park/",
+   "modified": "2026-09-17T10:33:52",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/kansas/topeka/",
+   "modified": "2026-09-17T12:05:02",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/kansas/wichita/",
+   "modified": "2026-09-17T10:31:50",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/kentucky/",
+   "modified": "2026-09-24T08:32:49",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/kentucky/corbin/",
+   "modified": "2026-09-17T12:07:56",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/kentucky/lexington/",
+   "modified": "2026-09-17T12:11:31",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/kentucky/louisville/",
+   "modified": "2026-09-17T12:09:38",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/louisiana/",
+   "modified": "2026-09-24T08:34:41",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/louisiana/baton-rouge/",
+   "modified": "2026-09-17T12:14:43",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/louisiana/metairie/",
+   "modified": "2026-09-17T12:17:49",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/louisiana/new-orleans/",
+   "modified": "2026-09-17T12:13:13",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/louisiana/shreveport/",
+   "modified": "2026-09-17T12:16:18",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/maine/",
+   "modified": "2026-09-24T08:36:16",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/maryland/",
+   "modified": "2026-09-24T08:37:54",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/maryland/baltimore/",
+   "modified": "2026-09-17T12:19:37",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/massachusetts/",
+   "modified": "2026-09-24T08:39:41",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/massachusetts/boston/",
+   "modified": "2026-09-17T12:21:08",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/massachusetts/springfield/",
+   "modified": "2026-09-17T12:24:30",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/massachusetts/worcester/",
+   "modified": "2026-09-17T12:22:43",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/michigan/",
+   "modified": "2026-09-24T08:41:15",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/michigan/detroit/",
+   "modified": "2026-09-17T12:26:11",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/michigan/grand-rapids/",
+   "modified": "2026-09-17T12:27:48",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/minnesota/",
+   "modified": "2026-09-24T08:44:43",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/minnesota/minneapolis/",
+   "modified": "2026-09-17T12:29:27",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/minnesota/rochester/",
+   "modified": "2026-09-17T12:33:32",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/minnesota/st-paul/",
+   "modified": "2026-09-17T12:30:56",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/mississippi/",
+   "modified": "2026-09-24T08:47:20",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/mississippi/jackson/",
+   "modified": "2026-09-17T12:35:29",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/missouri/",
+   "modified": "2026-09-24T08:48:55",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/missouri/kansas-city/",
+   "modified": "2026-09-17T12:37:01",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/missouri/st-louis/",
+   "modified": "2026-09-17T12:38:40",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/montana/",
+   "modified": "2026-09-24T09:14:02",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/montana/billings/",
+   "modified": "2026-09-17T12:40:40",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/nebraska/",
+   "modified": "2026-09-24T09:16:54",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/nebraska/lincoln/",
+   "modified": "2026-09-17T12:52:54",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/nebraska/omaha/",
+   "modified": "2026-09-17T12:51:12",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/nevada/",
+   "modified": "2026-09-24T09:19:30",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/nevada/henderson/",
+   "modified": "2026-09-17T16:54:06",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/nevada/las-vegas/",
+   "modified": "2026-09-17T16:53:50",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/nevada/reno/",
+   "modified": "2026-09-17T16:54:10",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-hampshire/",
+   "modified": "2026-09-24T09:21:14",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-hampshire/manchester/",
+   "modified": "2026-09-17T12:54:27",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-jersey/",
+   "modified": "2026-09-24T09:22:43",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-jersey/jersey-city/",
+   "modified": "2026-09-17T13:14:43",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-jersey/newark/",
+   "modified": "2026-09-17T13:12:58",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-mexico/",
+   "modified": "2026-09-24T09:24:05",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-mexico/albuquerque/",
+   "modified": "2026-09-17T15:27:57",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-mexico/las-cruces/",
+   "modified": "2026-09-17T15:28:57",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-mexico/rio-rancho/",
+   "modified": "2026-09-17T15:30:17",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-mexico/santa-fe/",
+   "modified": "2026-09-17T15:31:25",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-york/",
+   "modified": "2026-09-24T09:25:29",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-york/albany/",
+   "modified": "2026-09-17T16:58:03",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-york/buffalo/",
+   "modified": "2026-09-17T16:58:58",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-york/long-island/",
+   "modified": "2026-09-17T16:59:28",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-york/new-york-city/",
+   "modified": "2026-09-17T16:59:23",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-york/rochester/",
+   "modified": "2026-09-17T16:58:31",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/new-york/syracuse/",
+   "modified": "2026-09-17T16:59:14",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/north-carolina/",
+   "modified": "2026-09-24T09:27:07",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/north-carolina/charlotte/",
+   "modified": "2026-09-17T13:16:39",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/north-carolina/durham/",
+   "modified": "2026-09-17T13:23:19",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/north-carolina/greensboro/",
+   "modified": "2026-09-17T13:19:45",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/north-carolina/raleigh/",
+   "modified": "2026-09-17T13:18:02",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/north-carolina/winston-salem/",
+   "modified": "2026-09-17T13:21:36",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/north-dakota/",
+   "modified": "2026-09-24T09:28:42",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/north-dakota/fargo/",
+   "modified": "2026-09-17T13:35:57",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/ohio/",
+   "modified": "2026-09-24T09:30:49",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/ohio/akron/",
+   "modified": "2026-09-17T17:03:59",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/ohio/cincinnati/",
+   "modified": "2026-09-17T17:03:27",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/ohio/cleveland/",
+   "modified": "2026-09-17T17:03:07",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/ohio/columbus/",
+   "modified": "2026-09-17T17:02:38",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/ohio/dayton/",
+   "modified": "2026-09-17T17:04:05",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/ohio/toledo/",
+   "modified": "2026-09-17T17:03:45",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/oklahoma/",
+   "modified": "2026-09-24T09:32:17",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/oklahoma/norman/",
+   "modified": "2026-09-17T13:42:07",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/oklahoma/oklahoma-city/",
+   "modified": "2026-09-17T13:38:29",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/oklahoma/tulsa/",
+   "modified": "2026-09-17T13:40:07",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/oregon/",
+   "modified": "2026-09-24T09:33:40",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/oregon/eugene/",
+   "modified": "2026-09-17T13:46:08",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/oregon/portland/",
+   "modified": "2026-09-17T13:44:14",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/oregon/salem/",
+   "modified": "2026-09-17T13:47:48",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/pennsylvania/",
+   "modified": "2026-09-24T09:35:36",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/pennsylvania/allentown/",
+   "modified": "2026-09-17T14:01:53",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/pennsylvania/philadelphia/",
+   "modified": "2026-09-17T13:51:24",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/pennsylvania/pittsburgh/",
+   "modified": "2026-09-17T13:53:04",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/rhode-island/",
+   "modified": "2026-09-24T09:36:59",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/rhode-island/providence/",
+   "modified": "2026-09-17T17:09:53",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/south-carolina/",
+   "modified": "2026-09-24T09:38:22",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/south-carolina/charleston/",
+   "modified": "2026-09-17T14:14:34",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/south-dakota/",
+   "modified": "2026-09-24T09:40:26",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/south-dakota/sioux-falls/",
+   "modified": "2026-09-17T14:17:30",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/tennessee/",
+   "modified": "2026-09-24T09:42:09",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/tennessee/chattanooga/",
+   "modified": "2026-09-17T14:44:37",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/tennessee/clarksville/",
+   "modified": "2026-09-17T14:46:23",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/tennessee/knoxville/",
+   "modified": "2026-09-17T14:42:53",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/tennessee/memphis/",
+   "modified": "2026-09-17T14:41:06",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/tennessee/murfreesboro/",
+   "modified": "2026-09-17T14:47:55",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/tennessee/nashville/",
+   "modified": "2026-09-17T14:19:00",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/texas/",
+   "modified": "2026-09-24T09:45:08",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/texas/austin/",
+   "modified": "2026-09-17T15:36:19",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/texas/dallas/",
+   "modified": "2026-09-17T15:33:52",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/texas/houston/",
+   "modified": "2026-09-17T15:32:58",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/texas/san-antonio/",
+   "modified": "2026-09-17T15:39:35",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/utah/",
+   "modified": "2026-09-24T09:46:37",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/utah/orem/",
+   "modified": "2026-09-17T15:46:18",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/utah/provo/",
+   "modified": "2026-09-17T15:40:50",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/utah/salt-lake-city/",
+   "modified": "2026-09-17T15:40:23",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/utah/west-jordan/",
+   "modified": "2026-09-17T15:40:43",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/utah/west-valley-city/",
+   "modified": "2026-09-17T15:40:34",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/vermont/",
+   "modified": "2026-09-24T09:47:54",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/virginia/",
+   "modified": "2026-09-24T09:49:41",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/virginia/alexandria/",
+   "modified": "2026-09-17T14:55:30",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/virginia/arlington/",
+   "modified": "2026-09-17T14:57:07",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/virginia/chesapeake/",
+   "modified": "2026-09-17T14:52:59",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/virginia/newport-news/",
+   "modified": "2026-09-17T15:00:30",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/virginia/norfolk/",
+   "modified": "2026-09-17T14:58:43",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/virginia/richmond/",
+   "modified": "2026-09-17T14:49:19",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/virginia/virginia-beach/",
+   "modified": "2026-09-17T14:50:59",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/washington/",
+   "modified": "2026-09-24T09:51:30",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/washington/seattle/",
+   "modified": "2026-09-17T14:03:43",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/washington/spokane/",
+   "modified": "2026-09-17T14:05:53",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/washington/tacoma/",
+   "modified": "2026-09-17T14:09:47",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/washington/vancouver/",
+   "modified": "2026-09-17T14:11:40",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/west-virginia/",
+   "modified": "2026-09-24T09:52:50",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/wisconsin-old/madison-old/",
+   "modified": "2026-08-20T14:12:16",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-cabinets/wisconsin/",
+   "modified": "2026-09-24T09:58:58",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/wisconsin/green-bay/",
+   "modified": "2026-09-17T15:10:44",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/wisconsin/madison/",
+   "modified": "2026-09-17T15:03:20",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/wisconsin/milwaukee/",
+   "modified": "2026-09-17T15:01:55",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/wyoming/",
+   "modified": "2026-09-24T10:00:35",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/wyoming/casper/",
+   "modified": "2026-09-17T17:07:27",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/wyoming/cheyenne/",
+   "modified": "2026-09-17T17:06:40",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/wyoming/gillette/",
+   "modified": "2026-09-17T17:07:46",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-cabinets/wyoming/laramie/",
+   "modified": "2026-09-17T17:07:54",
+   "index": "index"
+  },
+  {
+   "path": "/wholesale-glacial-white-euro-cabinets/",
+   "modified": "2026-05-15T09:17:28",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-gray-shaker-cabinets/",
+   "modified": "2026-05-04T15:55:55",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-luxe-shaker-cabinets/",
+   "modified": "2026-09-02T08:02:48",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-modern-slate-cabinets/",
+   "modified": "2026-05-04T15:56:46",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-nano-green-cabinets/",
+   "modified": "2026-05-04T15:59:13",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-nano-white-cabinets/",
+   "modified": "2026-05-04T15:59:05",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-natural-walnut-euro-cabinets/",
+   "modified": "2026-05-15T09:16:39",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-onyx-black-shaker-cabinet/",
+   "modified": "2026-05-04T15:57:53",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-signature-blue-shaker-cabinets/",
+   "modified": "2026-02-27T01:38:25",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-stone-grey-euro-cabinets/",
+   "modified": "2026-05-15T09:15:43",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-uptown-white-cabinets/",
+   "modified": "2026-05-04T15:57:37",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-white-frost-euro-cabinets/",
+   "modified": "2026-05-15T09:18:20",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-white-oak-euro-cabinets/",
+   "modified": "2026-05-15T09:15:01",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesale-white-shaker-cabinets/",
+   "modified": "2026-05-04T15:55:23",
+   "index": "noindex"
+  },
+  {
+   "path": "/wholesalers-large-scale-projects/",
+   "modified": "2026-04-23T10:32:25",
+   "index": "index"
+  }
+ ]
+}

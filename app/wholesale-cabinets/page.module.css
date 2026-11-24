@@ -51,3 +51,37 @@
     grid-template-columns: 1fr;
   }
 }
+
+.states {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--s-5) var(--s-6);
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stateLink {
+  display: inline-block;
+  padding-block: 4px;
+  font-weight: 500;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.stateLink:hover {
+  color: var(--walnut);
+}
+
+.cities {
+  margin-top: 2px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--stone);
+}
+
+.cities a {
+  display: inline-block;
+  padding-block: 2px;
+  color: var(--graphite);
+}

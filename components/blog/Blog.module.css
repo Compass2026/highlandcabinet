@@ -1,0 +1,276 @@
+/* ---------- cards ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.leadPost {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.leadPost .card {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 3rem);
+}
+
+.leadPost .cardImg {
+  aspect-ratio: 16 / 10;
+}
+
+.leadPost .cardTitle {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.3rem);
+  line-height: 1.15;
+}
+
+.card {
+  display: grid;
+  gap: var(--s-4);
+  color: inherit;
+  text-decoration: none;
+}
+
+.cardImg {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--r-lg);
+  background: var(--plaster-2);
+}
+
+.cardImg img {
+  transition: transform 1.2s var(--ease-soft);
+}
+
+@media (hover: hover) {
+  .card:hover .cardImg img {
+    transform: scale(1.03);
+  }
+  .card:hover .cardTitle {
+    color: var(--walnut);
+  }
+}
+
+.cardBody {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.cardDate {
+  font-size: 0.82rem;
+  color: var(--stone);
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.3;
+  transition: color var(--t-fast) var(--ease-soft);
+}
+
+.cardExcerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.94rem;
+  color: var(--graphite);
+}
+
+/* ---------- article ---------- */
+.article {
+  padding-bottom: var(--s-8);
+}
+
+.head {
+  max-width: 50rem;
+  margin: var(--s-6) auto var(--s-6);
+  text-align: center;
+}
+
+.meta {
+  font-size: 0.88rem;
+  color: var(--stone);
+}
+
+.title {
+  margin-top: var(--s-3);
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3.4rem);
+  font-weight: 360;
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+}
+
+.cover {
+  max-width: 1100px;
+  margin: 0 auto clamp(2rem, 5vw, 4rem);
+}
+
+.coverImg {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  background: var(--plaster-2);
+}
+
+.coverImg img {
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: cover;
+}
+
+.coverCap {
+  margin-top: var(--s-3);
+  font-size: 0.82rem;
+  color: var(--stone);
+  text-align: center;
+}
+
+.prose {
+  max-width: 44rem;
+  margin: 0 auto;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--graphite);
+}
+
+.prose > * + * {
+  margin-top: 1.1em;
+}
+
+.prose h2 {
+  margin-top: 2.2em;
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  font-weight: 400;
+  color: var(--charcoal);
+}
+
+.prose h3 {
+  margin-top: 1.8em;
+  font-size: 1.3rem;
+  font-weight: 450;
+  color: var(--charcoal);
+}
+
+.prose h4 {
+  margin-top: 1.5em;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.prose strong {
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.prose a {
+  color: var(--charcoal);
+  text-decoration-color: var(--oak);
+}
+
+.prose a:hover {
+  color: var(--walnut);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.3em;
+}
+
+.prose li + li {
+  margin-top: 0.45em;
+}
+
+.prose figure {
+  margin: 2em 0;
+}
+
+.prose img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-lg);
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.prose figure:has(table) {
+  overflow-x: auto;
+}
+
+.prose td,
+.prose th {
+  padding: 0.65em 0.8em;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose tr:first-child td {
+  font-weight: 500;
+  color: var(--charcoal);
+  border-bottom-color: var(--sand);
+}
+
+.prose blockquote {
+  margin-left: 0;
+  padding-left: 1.2em;
+  border-left: 2px solid var(--brass);
+}
+
+.cta {
+  max-width: 44rem;
+  margin: var(--s-8) auto 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: var(--r-lg);
+  background: var(--plaster-2);
+}
+
+.ctaTitle {
+  font-size: var(--fs-h3);
+  color: var(--charcoal);
+}
+
+.cta p + p {
+  margin-top: var(--s-2);
+  color: var(--graphite);
+}
+
+.ctaLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+}
+
+.relatedTitle {
+  margin-bottom: var(--s-6);
+  font-size: var(--fs-h2);
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .leadPost .card {
+    grid-template-columns: 1fr;
+  }
+}

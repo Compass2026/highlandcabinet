@@ -1,0 +1,175 @@
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-5);
+}
+
+.jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  background: var(--plaster-2);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.jump a:hover {
+  background: var(--linen);
+}
+
+.line {
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: var(--header-h);
+}
+
+.head {
+  display: grid;
+  gap: var(--s-2);
+  max-width: 40rem;
+  margin-bottom: var(--s-6);
+}
+
+.head h2 {
+  font-size: var(--fs-h1);
+}
+
+.head p {
+  color: var(--graphite);
+}
+
+.rooms,
+.cabs,
+.photos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.room {
+  display: grid;
+  gap: var(--s-3);
+  color: inherit;
+  text-decoration: none;
+}
+
+.roomImg {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-lg);
+  background: var(--plaster-2);
+}
+
+.roomImg img {
+  transition: transform 1.2s var(--ease-soft);
+}
+
+@media (hover: hover) {
+  .room:hover .roomImg img,
+  .cab:hover .cabImg img {
+    transform: scale(1.03);
+  }
+}
+
+.roomCap {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+
+.roomName {
+  font-size: 1.15rem;
+}
+
+.kind {
+  font-size: 0.82rem;
+  color: var(--stone);
+}
+
+.sub {
+  margin: clamp(2.5rem, 5vw, 4rem) 0 var(--s-5);
+  font-size: var(--fs-h3);
+}
+
+.cabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: var(--s-4);
+}
+
+.cab {
+  display: grid;
+  gap: 2px;
+  height: 100%;
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--rule);
+  color: inherit;
+  text-decoration: none;
+}
+
+.cabImg {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  margin-bottom: var(--s-3);
+}
+
+.cabImg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 1.2s var(--ease-soft);
+}
+
+.cabName {
+  font-weight: 500;
+}
+
+.cabType {
+  font-size: 0.84rem;
+  color: var(--graphite);
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.photo {
+  margin: 0;
+  display: grid;
+  gap: var(--s-3);
+}
+
+.photoImg {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-lg);
+  background: var(--plaster-2);
+}
+
+@media (max-width: 800px) {
+  .rooms,
+  .photos {
+    grid-template-columns: 1fr;
+  }
+}
