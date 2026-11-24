@@ -1,4 +1,4 @@
-import { createHash, randomBytes, timingSafeEqual } from "node:crypto";
+import { randomBytes, timingSafeEqual } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
 import { finishById, lines } from "@/content/collections";
 import { configuredDestinations, deliverLead } from "@/lib/deliver";
@@ -91,9 +91,7 @@ export function GET(req: NextRequest) {
   if (!isTest(req)) {
     // Say why the probe was refused (no values), so a misconfigured verification run is easy to diagnose.
     const testToken = !req.headers.get("x-lead-test") ? undefined : process.env.LEAD_TEST_TOKEN ? "mismatch" : "not-configured";
-    const t = process.env.LEAD_TEST_TOKEN ?? "", g = req.headers.get("x-lead-test") ?? "";
-    const h = (x: string) => createHash("sha256").update(x).digest("hex").slice(0, 8);
-    return NextResponse.json({ status: "ok", ...(testToken ? { testToken, dbg: [t.length, h(t), g.length, h(g)] } : {}) });
+    return NextResponse.json({ status: "ok", ...(testToken ? { testToken } : {}) });
   }
   return NextResponse.json({ status: "ok", destinations: configuredDestinations() });
 }

@@ -25,7 +25,7 @@ Status (24 Nov 2026): **ready except for the items marked ⛔.** Nothing about t
 |---|---|
 | `SITE_INDEXING=on`, `NEXT_PUBLIC_SITE_URL=https://highlandcabinetry.com` | set |
 | `LEAD_EMAIL_FROM=Highland Cabinetry Website <website@highlandcabinetry.com>` | set |
-| `LEAD_TEST_TOKEN` | set (encrypted; used only by the verification script) |
+| `LEAD_TEST_TOKEN` | ⛔ set it yourself in the Vercel dashboard (any long random string, type *Sensitive*) and pass the same value to `verify-production.mjs`. A value set through the API connector did not arrive intact (verified by hash), so the current one must be overwritten |
 | `SENDGRID_API_KEY` | ⛔ Highland's SendGrid account (domain already authenticated) — a key with *Mail Send* permission only |
 | `LEAD_EMAIL_TO` | ⛔ who receives leads (e.g. `sales@highlandcabinetryinc.com`, comma-separate several) |
 | `LEAD_WEBHOOK_URL` / `LEAD_WEBHOOK_SECRET` | optional — CRM hook, in addition to email |
