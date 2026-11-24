@@ -17,10 +17,78 @@
   background: #d9d2c6;
 }
 
+[data-hero-slide] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.8s var(--ease-soft);
+}
+
+[data-hero-slide][data-active] {
+  opacity: 1;
+}
+
 [data-hero-photo] img {
   object-fit: cover;
-  object-position: 50% 58%;
-  animation: hero-settle 2.4s var(--ease-soft) both;
+}
+
+/* A slow drift on the visible rendering; the first one also settles in on load. */
+[data-hero-slide][data-active] img {
+  animation: hero-drift 9s linear both;
+}
+
+[data-hero-slide]:first-child[data-active] img {
+  animation: hero-settle 2.4s var(--ease-soft) both, hero-drift 9s 2.4s linear both;
+}
+
+[data-hero-controls] {
+  position: absolute;
+  top: var(--s-4);
+  left: var(--gutter);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+[data-hero-dots] {
+  display: flex;
+  gap: 6px;
+}
+
+[data-hero-dots] span {
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgb(255 255 255 / 0.5);
+  transition: background-color var(--t-med) var(--ease-soft), width var(--t-med) var(--ease-soft);
+}
+
+[data-hero-dots] span[data-on] {
+  width: 30px;
+  background: #fff;
+}
+
+[data-hero-pause] {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 0.6);
+  border-radius: 50%;
+  background: rgb(22 20 17 / 0.45);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  cursor: pointer;
+}
+
+[data-hero-pause]:hover {
+  background: rgb(22 20 17 / 0.65);
+}
+
+[data-hero-pause]:focus-visible {
+  outline-color: #fff;
 }
 
 /* A soft floor of shade so white type reads on a bright photograph. */
@@ -181,6 +249,15 @@
   }
 }
 
+@keyframes hero-drift {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.045;
+  }
+}
+
 @media (max-width: 960px) {
   [data-hero-facts] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -214,9 +291,7 @@
   [data-hero-photo] {
     height: clamp(520px, calc(100svh - var(--header-h) - 150px), 700px);
   }
-  [data-hero-photo] img {
-    object-position: 42% 40%;
-  }
+
   [data-hero-text],
   [data-hero-aside] {
     display: contents;
@@ -274,9 +349,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* No autoplay with reduced motion, so no slideshow controls either (also before hydration). */
+  [data-hero-controls] {
+    display: none;
+  }
   [data-hero-text],
   [data-hero] h1,
   [data-hero-lead],
+  [data-hero-slide][data-active] img,
   [data-hero-photo] img {
     animation: none;
   }

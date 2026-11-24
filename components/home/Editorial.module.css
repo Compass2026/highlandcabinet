@@ -72,7 +72,106 @@
   aspect-ratio: 3 / 2;
 }
 
+/* ---------- collection tiles ---------- */
+.tile {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.tileCap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2px var(--s-4);
+  padding-top: var(--s-4);
+}
+
+.tileName {
+  font-size: var(--fs-h3);
+  font-weight: 540;
+  letter-spacing: -0.012em;
+}
+
+.tileMeta {
+  grid-row: 2;
+  font-size: 0.84rem;
+  color: var(--stone);
+}
+
+.tileGo {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  transition: background-color var(--t-med) var(--ease-soft), border-color var(--t-med) var(--ease-soft), color var(--t-med) var(--ease-soft);
+}
+
+.tile:hover .tileGo {
+  border-color: var(--charcoal);
+  background: var(--charcoal);
+  color: var(--paper);
+}
+
+.tile:focus-visible {
+  outline-offset: 6px;
+}
+
+/* ---------- real kitchens ---------- */
+.real {
+  border-top: 1px solid var(--rule);
+}
+
+.realGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.realHead {
+  display: grid;
+  gap: var(--s-4);
+  justify-items: start;
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-6));
+}
+
+.realHead h2 {
+  font-size: var(--fs-h2);
+}
+
+.realStrip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.realStrip figure {
+  margin: 0;
+}
+
+.realStrip .photo {
+  aspect-ratio: 4 / 5;
+}
+
 @media (max-width: 860px) {
+  .realGrid {
+    grid-template-columns: 1fr;
+  }
+  .realHead {
+    position: static;
+  }
+  .realStrip {
+    grid-template-columns: 1fr;
+  }
+  .realStrip .photo {
+    aspect-ratio: 4 / 3;
+  }
   .pPair {
     grid-template-columns: 1fr;
   }

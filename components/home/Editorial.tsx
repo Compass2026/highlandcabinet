@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "@/components/ui/icons";
+import { finishById, lines } from "@/content/collections";
 import { kindLabel, media } from "@/lib/media";
 import styles from "./Editorial.module.css";
 
@@ -29,37 +32,77 @@ function Caption({ id, children }: { id: string; children?: React.ReactNode }) {
 }
 
 /* ---------------------------------------------------------------------------
-   Projects — a curated set of large installed-project photographs
+   Collections — Highland's kitchen renderings, large, each opening its finish
    --------------------------------------------------------------------------- */
-export function Projects() {
+function Tile({ finishId, sizes, className, position }: { finishId: string; sizes: string; className: string; position?: string }) {
+  const f = finishById(finishId)!;
+  const m = media(f.media.scene);
   return (
-    <section className="section" aria-labelledby="projects-title">
+    <figure className={`${className} unveil`}>
+      <Link href={f.path} className={styles.tile}>
+        <Photo id={f.media.scene} sizes={sizes} position={position} />
+        <figcaption className={styles.tileCap}>
+          <span className={styles.tileName}>{f.name}</span>
+          <span className={styles.tileMeta}>
+            {lines[f.line].name} · {kindLabel[m.kind]}
+          </span>
+          <span className={styles.tileGo} aria-hidden="true">
+            <ArrowRight />
+          </span>
+        </figcaption>
+      </Link>
+    </figure>
+  );
+}
+
+export function Collections() {
+  return (
+    <section className="section" aria-labelledby="gallery-title">
       <div className="container">
         <header className={`${styles.head} rise`}>
-          <h2 id="projects-title">In real kitchens.</h2>
-          <p className={styles.headText}>Projects from Highland&rsquo;s White Shaker gallery, photographed on site.</p>
+          <h2 id="gallery-title">Rooms worth walking into.</h2>
+          <p className={styles.headText}>Highland&rsquo;s renderings of each line, finished and furnished. Open one to see the finish up close.</p>
         </header>
 
-        <figure className={`${styles.pWide} unveil`}>
-          <Photo id="project-white-shaker-06" sizes="(max-width: 860px) 100vw, 92vw" position="50% 58%" />
-          <Caption id="project-white-shaker-06">An island run under perforated brass pendants</Caption>
-        </figure>
-
+        <Tile finishId="euro-natural-walnut" className={styles.pWide} sizes="(max-width: 860px) 100vw, 92vw" position="50% 55%" />
         <div className={styles.pPair}>
-          <figure className={`${styles.pTall} unveil`}>
-            <Photo id="project-white-shaker-03" sizes="(max-width: 860px) 100vw, 38vw" position="50% 45%" />
-            <Caption id="project-white-shaker-03">Drawer banks with matte black pulls</Caption>
-          </figure>
-          <figure className={`${styles.pLand} unveil`}>
-            <Photo id="project-white-shaker-02" sizes="(max-width: 860px) 100vw, 52vw" position="50% 40%" />
-            <Caption id="project-white-shaker-02">Tall cabinets framing a built-in refrigerator</Caption>
-          </figure>
+          <Tile finishId="shaker-onyx-black" className={styles.pTall} sizes="(max-width: 860px) 100vw, 38vw" position="62% 50%" />
+          <Tile finishId="nano-green" className={styles.pLand} sizes="(max-width: 860px) 100vw, 52vw" position="40% 50%" />
         </div>
+        <Tile finishId="shaker-luxe" className={styles.pOffset} sizes="(max-width: 860px) 100vw, 62vw" position="50% 55%" />
+      </div>
+    </section>
+  );
+}
 
-        <figure className={`${styles.pOffset} unveil`}>
-          <Photo id="project-white-shaker-05" sizes="(max-width: 860px) 100vw, 62vw" position="50% 50%" />
-          <Caption id="project-white-shaker-05">Lit glass-front uppers around a hood surround</Caption>
-        </figure>
+/* ---------------------------------------------------------------------------
+   In real kitchens — installed White Shaker, photographed on site
+   --------------------------------------------------------------------------- */
+const installed = [
+  { id: "project-white-shaker-01", text: "Perimeter in White Shaker around a dark island", position: "50% 60%" },
+  { id: "project-white-shaker-06", text: "An island run under perforated brass pendants", position: "50% 55%" },
+  { id: "project-white-shaker-03", text: "Drawer banks with matte black pulls", position: "50% 45%" },
+];
+
+export function RealKitchens() {
+  return (
+    <section className={`section ${styles.real}`} aria-labelledby="real-title">
+      <div className={`container ${styles.realGrid}`}>
+        <header className={`${styles.realHead} rise`}>
+          <h2 id="real-title">And in real kitchens.</h2>
+          <p className={styles.headText}>White Shaker as installed, photographed on site &mdash; no styling, no rendering.</p>
+          <Link href="/wholesale-white-shaker-cabinets/" className="link-arrow">
+            See White Shaker <ArrowRight />
+          </Link>
+        </header>
+        <div className={styles.realStrip}>
+          {installed.map((p) => (
+            <figure key={p.id} className="unveil">
+              <Photo id={p.id} sizes="(max-width: 860px) 100vw, 24vw" position={p.position} />
+              <Caption id={p.id}>{p.text}</Caption>
+            </figure>
+          ))}
+        </div>
       </div>
     </section>
   );

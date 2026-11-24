@@ -1,6 +1,6 @@
 import { Hero } from "@/components/home/Hero";
 import { FinishTray } from "@/components/home/FinishTray";
-import { Projects } from "@/components/home/Editorial";
+import { Collections, RealKitchens } from "@/components/home/Editorial";
 import { Construction } from "@/components/home/Construction";
 import { Affiliations, DealerSection, LocationSection } from "@/components/home/Showroom";
 import { ClosingCta } from "@/components/home/Sections";
@@ -13,7 +13,7 @@ export const metadata = pageMetadata({
   description:
     "Wholesale Shaker, Nano and Euro kitchen and bath cabinets for contractors, builders, remodelers and dealers. Thirteen finishes, plywood-box Shaker construction, and a dedicated account manager.",
   path: "/",
-  image: "/media/project-white-shaker-01.jpg",
+  image: "/media/scene-shaker-white.jpg",
 });
 
 export default function HomePage() {
@@ -32,7 +32,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Projects />
+      <Collections />
+      <RealKitchens />
       <section className="section on-linen" aria-labelledby="construction">
         <div className="container">
           <Construction

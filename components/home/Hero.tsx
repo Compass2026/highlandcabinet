@@ -1,18 +1,25 @@
 import Link from "next/link";
-import Image from "next/image";
 import { QuoteButton } from "@/components/quote/QuoteButton";
 import { ArrowRight } from "@/components/ui/icons";
 import { kindLabel, media } from "@/lib/media";
 import { finishes, lineOrder } from "@/content/collections";
+import { HeroSlides } from "./HeroSlides";
 import "./hero.css";
 
 /**
- * Full-bleed, naturally bright kitchen with the headline set into the photograph.
- * No introduction sequence — only a slow settle of the photograph and a short text rise
- * (both disabled with reduced motion). A ribbon of verified facts sits beneath.
+ * Full-bleed kitchen renderings with the headline set into the lower third. A slow crossfade
+ * (pausable, off for reduced motion) and a short text rise. A ribbon of verified facts sits beneath.
  */
 export function Hero() {
-  const photo = media("project-white-shaker-01");
+  // Highland's own kitchen renderings (labelled as such), the strongest imagery the brand has.
+  const slides = [
+    { id: "scene-shaker-white", label: "White Shaker", position: "50% 60%" },
+    { id: "scene-euro-white-oak", label: "Euro White Oak", position: "50% 62%" },
+    { id: "scene-shaker-signature-blue", label: "Signature Blue Shaker", position: "50% 58%" },
+  ].map((s) => {
+    const m = media(s.id);
+    return { src: m.src, alt: m.alt, blurDataURL: m.blurDataURL, label: `${kindLabel[m.kind]} · ${s.label}`, position: s.position };
+  });
   const facts = [
     { big: String(lineOrder.length), label: "Cabinet lines", sub: "Shaker, Nano and Euro" },
     { big: String(finishes.length), label: "Finishes", sub: "Painted, stained and textured" },
@@ -22,18 +29,7 @@ export function Hero() {
   return (
     <section data-hero aria-labelledby="hero-title">
       <figure data-hero-figure>
-        <div data-hero-photo>
-          <Image
-            src={photo.src}
-            alt={photo.alt}
-            fill
-            preload
-            sizes="100vw"
-            quality={84}
-            placeholder={photo.blurDataURL ? "blur" : "empty"}
-            blurDataURL={photo.blurDataURL}
-          />
-        </div>
+        <HeroSlides slides={slides} />
         <div data-hero-scrim aria-hidden="true" />
         <div className="container" data-hero-text>
           <h1 id="hero-title">Extraordinary spaces begin with Highland.</h1>
@@ -49,9 +45,6 @@ export function Hero() {
             </div>
           </div>
         </div>
-        <figcaption data-hero-caption>
-          {kindLabel[photo.kind]} · White Shaker
-        </figcaption>
       </figure>
 
       <div className="container">

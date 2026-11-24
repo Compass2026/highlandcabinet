@@ -10,9 +10,10 @@ Bright and calm. Cabinetry photography leads; type and ornament step back. The f
 
 ## Homepage sequence
 
-1. Hero — full-bleed, naturally bright installed White Shaker kitchen (IMG_4838); headline and one line of copy set into the lower third over a soft shade (white text measured ≥ 4:1 against the photo at every breakpoint); on phones the actions move onto the page below the photo. Beneath it, a ribbon of four verified facts: 3 lines, 13 finishes, 3 PM Arizona-time same-day cut-off (June 2025 catalogs), Phoenix showroom & warehouse.
+1. Hero — a slow crossfade through three of Highland's own kitchen renderings (White Shaker, Euro White Oak, Signature Blue; 7 s each, pausable, still with reduced motion), captioned "Catalog rendering · …". Headline and one line set into the lower third over a soft shade; white text measured ≥ 3.3:1 (large) and ≥ 4.5:1 (lead) against every slide at every breakpoint. On phones the actions sit below the image. Beneath it, the ribbon of four verified facts.
 2. Sampler (`components/home/FinishTray.tsx`, restored from commit `9ab6712`) — unchanged.
-3. In real kitchens — four large installed-project photographs that open from a slight inset as they scroll in.
+3. "Rooms worth walking into." — large renderings of other finishes (Euro Natural Walnut, Shaker Onyx Black, Nano Green, Shaker Luxe), each a link to its finish page.
+3b. "And in real kitchens." — three installed White Shaker photographs as proof, beside a sticky heading.
 4. Construction (`components/home/Construction.tsx`, back on the homepage) — Highland's catalog drawing of a wall and base cabinet with ten numbered callouts; selecting a feature in the list rings it on the drawing. Replaces the shorter Craft section.
 5. Dealers (`#dealers`) — the Highland warehouse photograph, sticky, beside one desk with two tabs: *Become a dealer* (dealer application) and *Find a dealer* (dealer referral). Contractors are pointed to the trade-account page.
 6. Showroom (`#showroom`) — “One showroom. Projects across the country.” Address card with directions and phone, beside a custom map: public-domain US Census boundaries (`scripts/build-map.mjs`, us-atlas), a pulsing Phoenix pin, and routes that draw out to 23 cities named on the service-area pages. Captioned so the routes are not read as locations or delivery promises.
