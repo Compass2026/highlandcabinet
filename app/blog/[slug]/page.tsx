@@ -13,7 +13,7 @@ import styles from "@/components/blog/Blog.module.css";
 export const dynamicParams = false;
 export const generateStaticParams = () => posts.map((p) => ({ slug: p.slug }));
 
-const clean = (s?: string | null) => (s ? s.replace(/\s*[-|–]\s*Highland Cabinetry\s*$/i, "").trim() : undefined);
+const clean = (s?: string | null) => (s ? s.replace(/\s*[-|–]\s*(Highland Cabinetry|HCI)\s*$/i, "").trim() : undefined);
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

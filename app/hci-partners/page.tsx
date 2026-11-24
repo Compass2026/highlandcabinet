@@ -7,6 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Highland Cabinetry Partners",
+  absoluteTitle: true,
   description: "Companies Highland Cabinetry works with, including Interior Logic Group (ILG).",
   path: "/hci-partners/",
 });

@@ -31,7 +31,7 @@ Detail files in this folder:
 | Element | Result |
 |---|---|
 | URLs | 282 rebuilt at their original path; 36 redirected; 6 removed; 0 unresolved (`docs/migration/`) |
-| Titles | 198 service-area pages keep their **original title verbatim** (brand suffix “\| HCI” → “\| Highland Cabinetry”). 56 blog posts keep their original titles. All other titles keep the original's search terms (see §3) |
+| Titles | 198 service-area pages keep their **original title verbatim** (brand suffix “\| HCI” → “\| Highland Cabinetry”). 56 blog posts keep their original titles (the old “\| HCI” suffix on 14 of them is replaced by “\| Highland Cabinetry”, not appended to). All other titles keep the original's search terms (see §3) |
 | Meta descriptions | Present and unique on every page. Blog posts keep their originals (54 had one; the 3 without use a short excerpt of the corrected text) |
 | H1 | Present on every page. Service-area H1s keep the original wording (“Wholesale kitchen & bathroom cabinets for {Place} contractors”). Blog H1s unchanged |
 | Topics | Blog posts: no article content lost (only the old sidebar's “Related Articles” widget). Service-area pages: every accurate topic restored (§4) |
@@ -72,6 +72,7 @@ phone number. The adjective “Premium” was dropped from 12 product titles.
 | /wholesale-white-shaker-cabinets/ (pattern for all 13) | Wholesale White Shaker Cabinets | Wholesale RTA White Shaker Cabinets |
 | /wholesale-gray-shaker-cabinets/ | Wholesale Gray Shaker Cabinets | Wholesale RTA Grey Shaker Cabinets (Gray Shaker) |
 | /wholesale-white-frost-euro-cabinets/ | Premium RTA Wholesale White Frost Euro Cabinets | Wholesale RTA Frost White Euro Cabinets (White Frost) |
+| /about-us/ | (brand only) | About Highland Cabinetry — Wholesale RTA Cabinets from Phoenix, AZ |
 | /most-searched-questions-for-kitchen-renovation/ | Learn the Most Searched Questions for Kitchen Renovation | The Most Searched Questions for Kitchen Renovation, Answered |
 | /wholesalers-large-scale-projects/ | Wholesalers & Large Scale Projects | Commercial Cabinetry for Wholesalers & Large-Scale Projects |
 
@@ -110,6 +111,8 @@ authorship is attributed to the organisation, not to an individual.
 5. **Contractors page** links to the Nano and Euro finishes again; **gallery** links the catalog PDFs again.
 6. **BreadcrumbList** restored on 15 static pages.
 7. **Redirect relevance** — two targets changed (§5).
+8. **Brand repeated in 18 titles** (“… \| HCI \| Highland Cabinetry”, “About Highland Cabinetry \| Highland Cabinetry”):
+   fixed, and the launch gate now fails on any repeated brand.
 
 ## 5. Redirect relevance review (36)
 
@@ -147,7 +150,8 @@ All redirects are single-hop 308s except the two slash-less legacy links (one ex
 - Canonical = `https://highlandcabinetry.com` + path on every page.
 - `robots.txt` allows crawling (except `/api/`) and points to `https://highlandcabinetry.com/sitemap.xml`.
 - Sitemap lists exactly the 282 rebuilt URLs plus `/request-a-quote/`; no redirected or removed URL.
-- Titles and meta descriptions present and unique site-wide (three same-named city pairs were de-duplicated).
+- Titles and meta descriptions present and unique site-wide (three same-named city pairs were de-duplicated); no title
+  repeats the brand.
 - **Internal review notes are absent in production:** no “Preview only”, migration-review, “awaiting confirmation”
   or staging text on any page; the preview bar and the unconfirmed KCMA/NKBA marks are not rendered. These notes
   remain visible only on the staging preview (`SITE_INDEXING` unset), for Highland's review.

@@ -7,6 +7,7 @@ import styles from "@/components/blog/Blog.module.css";
 
 export const metadata = pageMetadata({
   title: "Kitchen Cabinet Guides & Ideas — Highland Cabinetry Blog",
+  absoluteTitle: true,
   description: "Guides on cabinet sizes, materials, styles, costs and installation from Highland Cabinetry, a wholesale supplier of Shaker, Nano and Euro cabinets.",
   path: "/blog/",
 });

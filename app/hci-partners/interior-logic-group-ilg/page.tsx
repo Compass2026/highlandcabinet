@@ -7,6 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Interior Logic Group (ILG) — Highland Cabinetry Partner",
+  absoluteTitle: true,
   description: "About Interior Logic Group (ILG), interior design and finish solutions for builders, and a Highland Cabinetry partner.",
   path: "/hci-partners/interior-logic-group-ilg/",
 });

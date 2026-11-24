@@ -8,7 +8,8 @@ import { ClosingCta } from "@/components/home/Sections";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "About Highland Cabinetry",
+  title: "About Highland Cabinetry — Wholesale RTA Cabinets from Phoenix, AZ",
+  absoluteTitle: true,
   description:
     "Highland Cabinetry supplies Shaker, Nano and Euro kitchen and bath cabinets to builders, contractors, remodelers, investors and dealers from its showroom and warehouse in Phoenix, Arizona.",
   path: "/about-us/",

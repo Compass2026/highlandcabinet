@@ -3,7 +3,7 @@
  * Pre-launch SEO gate. Run against a PRODUCTION-MODE build:
  *   SITE_INDEXING=on NEXT_PUBLIC_SITE_URL=https://highlandcabinetry.com npx next build && ... next start -p 3001
  *   BASE=http://localhost:3001 node scripts/test-launch-seo.mjs
- * Fails on: noindex anywhere it shouldn't be, wrong canonical origin, missing/duplicate titles or descriptions,
+ * Fails on: noindex anywhere it shouldn't be, wrong canonical origin, missing/duplicate titles or descriptions, a repeated brand in a title,
  * sitemap/inventory mismatch, robots.txt blocking, or any internal review / preview text in the HTML.
  */
 import { readFile, writeFile } from "node:fs/promises";
@@ -46,6 +46,7 @@ await Promise.all(Array.from({ length: 8 }, async () => {
     const title = html.match(/<title>([^<]*)<\/title>/)?.[1]?.trim();
     const desc = html.match(/<meta name="description" content="([^"]*)"/)?.[1]?.trim();
     if (!title) fail.push(`${p}: no title`); else titles.set(title, [...(titles.get(title) ?? []), p]);
+    if (title && /\bHCI\b.*Highland Cabinetry|Highland Cabinetry.*Highland Cabinetry/i.test(title)) fail.push(`${p}: brand repeated in title "${title}"`);
     if (!desc) fail.push(`${p}: no meta description`); else descs.set(desc, [...(descs.get(desc) ?? []), p]);
     if (!/<h1[\s>]/.test(html)) fail.push(`${p}: no h1`);
     const visible = html.replace(/<script[\s\S]*?<\/script>/g, "");
