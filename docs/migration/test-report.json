@@ -1,5 +1,5 @@
 {
-  "base": "http://localhost:3001",
+  "base": "https://highland-cabinetry-4734pz553-compassmarketin.vercel.app",
   "inventoryRows": 324,
   "checked": 323,
   "byStatus": {

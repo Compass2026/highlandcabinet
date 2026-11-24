@@ -88,6 +88,10 @@ function isTest(req: NextRequest) {
 
 /** Readiness probe for scripts/verify-production.mjs: which destinations are configured (names only). */
 export function GET(req: NextRequest) {
-  if (!isTest(req)) return NextResponse.json({ status: "ok" });
+  if (!isTest(req)) {
+    // Say why the probe was refused (no values), so a misconfigured verification run is easy to diagnose.
+    const testToken = !req.headers.get("x-lead-test") ? undefined : process.env.LEAD_TEST_TOKEN ? "mismatch" : "not-configured";
+    return NextResponse.json({ status: "ok", ...(testToken ? { testToken } : {}) });
+  }
   return NextResponse.json({ status: "ok", destinations: configuredDestinations() });
 }
