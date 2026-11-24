@@ -80,8 +80,8 @@ export async function POST(req: NextRequest) {
 }
 
 function isTest(req: NextRequest) {
-  const token = process.env.LEAD_TEST_TOKEN;
-  const given = req.headers.get("x-lead-test");
+  const token = process.env.LEAD_TEST_TOKEN?.trim();
+  const given = req.headers.get("x-lead-test")?.trim();
   if (!token || !given || token.length !== given.length) return false;
   return timingSafeEqual(Buffer.from(token), Buffer.from(given));
 }
